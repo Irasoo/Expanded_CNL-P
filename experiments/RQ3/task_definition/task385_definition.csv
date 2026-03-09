@@ -1,0 +1,90 @@
+task_name,type,content
+task385_,original,"In this task, you're given a context passage, a question, and three answer options. Your task is to return an incorrect answer option to the question from the choices given. For all questions, only one of the three answer options is correct. Pick one of the two incorrect answer options as the output."
+task385_,spl,"[DEFINE_AGENT: IncorrectOptionAgent """""" Return an incorrect answer option given context question and three options """"""]
+    [DEFINE_PERSONA:]
+        ROLE: Return an incorrect answer option from the given choices based on the context passage and question
+    [END_PERSONA]
+
+    [DEFINE_CONCEPTS:]
+        ContextPassage: Text passage that provides information for answering the question Concepts do not need parameters or references.
+        Question: The query to be answered using the context passage Concepts do not need parameters or references.
+        AnswerOptions: Three candidate answers provided for the question Concepts do not need parameters or references.
+        CorrectAnswerOption: The single option that correctly answers the question Concepts do not need parameters or references.
+        IncorrectAnswerOption: Any option that does not correctly answer the question Concepts do not need parameters or references.
+    [END_CONCEPTS]
+
+    [DEFINE_CONSTRAINTS:]
+        SingleCorrectOption: For all questions only one of the three answer options is correct
+        OutputIncorrectOption: Pick one of the two incorrect answer options as the output
+        FromChoicesOnly: The output must be one of the provided answer options
+    [END_CONSTRAINTS]
+
+    [DEFINE_WORKER: """""" Select an incorrect answer option from provided choices """""" SelectIncorrectAnswerWorker]
+        [INPUTS]
+            REQUIRED <REF> context_passage </REF>
+            REQUIRED <REF> question </REF>
+            REQUIRED <REF> options </REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            REQUIRED <REF> selected_incorrect_option </REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [DISPLAY Read the context passage question and answer options]
+                COMMAND-2 [DISPLAY Identify the correct answer option using the context passage]
+                COMMAND-3 [DISPLAY Select one answer option that is not the correct answer option]
+                COMMAND-4 [DISPLAY Output the selected incorrect answer option]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+
+        [EXAMPLES]
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ context_passage: The capital of France is Paris , question: What is the capital of France , options: [ Berlin , Paris , Madrid ] }
+                expected-outputs:{ selected_incorrect_option: Berlin }
+                execution-path: COMMAND-1, COMMAND-2, COMMAND-3, COMMAND-4
+            }</EXPECTED-WORKER-BEHAVIOR>
+
+            <DEFECT-WORKER-BEHAVIOR>{
+                Processing Logic Error,
+                inputs:{ context_passage: The capital of France is Paris , question: What is the capital of France , options: [ Berlin , Paris , Madrid ] }
+                defect-outputs:{ selected_incorrect_option: Paris }
+                execution-path: COMMAND-1, COMMAND-2, COMMAND-3, COMMAND-4,
+                defect-explanation: Output was the correct answer rather than an incorrect option
+            }</DEFECT-WORKER-BEHAVIOR>
+        [END_EXAMPLES]
+    [END_WORKER]
+[END_AGENT]"
+task385_,risen,"Role: Evaluator
+
+Input: You are given a context passage, a question, and three answer options. Your task is to identify and return an incorrect answer option from the choices provided. Note that only one of the three answer options is correct.
+
+Steps:
+1. Analyze the context passage to understand the relevant information.
+2. Review the question to determine what is being asked.
+3. Evaluate each of the three answer options against the context passage.
+4. Identify the correct answer option.
+5. Select one of the two remaining incorrect answer options to return as the output.
+
+Expectation: Provide one incorrect answer option from the given choices.
+
+Narrowing: Focus on selecting only one incorrect answer option, ensuring it is not the correct one. You are trained on data up to October 2023."
+task385_,rodes,"1. Role (R):
+   ""Multiple Choice Question Evaluator""
+
+2. Objective (O):
+   ""Identify and return one incorrect answer option from the given choices for each question.""
+
+3. Details (D):
+   ""You will be provided with a context passage, a question, and three answer options. Only one of the three options is correct. Your task is to select and return one of the two incorrect options.""
+
+4. Examples (E):
+   ""Example: 
+   Context: 'The capital of France is Paris.'
+   Question: 'What is the capital of France?'
+   Options: A) Paris B) London C) Rome
+   Output: B) London or C) Rome (either one is acceptable as both are incorrect).""
+
+5. Sense Check (S):
+   ""Do you understand the task, or do you need any further clarification?"""

@@ -1,0 +1,94 @@
+task_name,type,content
+task1162_,original,"In this task, you're given a paragraph and title from the research paper. Your task is to classify whether the given title is suitable or not for the research paper based on the given paragraph. Return ""True"" if title is proper according to paragraph else ""False""."
+task1162_,spl,"[DEFINE_AGENT: TitleSuitabilityAgent """"""Classify whether a research paper title is suitable for the given paragraph and return True or False.""""""]
+    [DEFINE_PERSONA:]
+        ROLE: classify whether the given research paper title is suitable based on the provided paragraph and return True if title is proper according to paragraph else False
+    [END_PERSONA]
+
+    [DEFINE_CONCEPTS:]
+        Title: ""the candidate research paper title""
+        Paragraph: ""a paragraph from the research paper""
+        Suitability: ""whether the title properly reflects the content of the paragraph""
+    [END_CONCEPTS]
+
+    [DEFINE_CONSTRAINTS:]
+        OutputFormat: return exactly True or False
+        DecisionRule: classify title suitability based on the given paragraph
+        NoExtraText: do not include any explanation or additional text
+        UseGivenDataOnly: use only the provided paragraph and title
+    [END_CONSTRAINTS]
+
+    [DEFINE_WORKER: """"""Classify title suitability and produce a binary decision."""""" TitleSuitabilityWorker]
+        [INPUTS]
+            REQUIRED <REF> title </REF>
+            REQUIRED <REF> paragraph </REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            REQUIRED <REF> isSuitable </REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [DISPLAY use only <REF> title </REF> and <REF> paragraph </REF> to decide suitability and return True or False only]
+            [END_SEQUENTIAL_BLOCK]
+
+            [IF title is suitable according to <REF> paragraph </REF>]
+                COMMAND-2 [DISPLAY set <REF> isSuitable </REF> True]
+            [ELSE]
+                COMMAND-3 [DISPLAY set <REF> isSuitable </REF> False]
+            [END_IF]
+        [END_MAIN_FLOW]
+
+        [EXAMPLES]
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ title: convolutional neural networks for image classification, paragraph: this paper presents a convolutional neural network architecture for image classification and evaluates its performance on benchmark datasets }
+                expected-outputs:{ isSuitable: True }
+                execution-path: COMMAND-1, COMMAND-2
+            }</EXPECTED-WORKER-BEHAVIOR>
+
+            <DEFECT-WORKER-BEHAVIOR>{
+                Processing Logic Error,
+                inputs:{ title: advances in quantum computing, paragraph: this paper introduces a supervised sentiment analysis model for movie reviews },
+                defect-outputs:{ isSuitable: True },
+                execution-path: COMMAND-1, COMMAND-2,
+                defect-explanation: incorrectly judged an unrelated title as suitable
+            }</DEFECT-WORKER-BEHAVIOR>
+        [END_EXAMPLES]
+    [END_WORKER]
+[END_AGENT]"
+task1162_,risen,"Role: Classifier
+
+Input: A paragraph and title from a research paper.
+
+Steps:
+1. Analyze the content and main themes of the given paragraph.
+2. Evaluate the title to determine if it accurately reflects the content and themes of the paragraph.
+3. Decide if the title is suitable for the paragraph.
+
+Expectation: Return ""True"" if the title is proper according to the paragraph, otherwise return ""False"".
+
+Narrowing: Use your training data up to October 2023 to inform your decision."
+task1162_,rodes,"1. Role (R):
+   Research Paper Title Evaluator
+
+2. Objective (O):
+   Classify whether the given title is suitable for the research paper based on the provided paragraph.
+
+3. Details (D):
+   - You will be provided with a paragraph and a title from a research paper.
+   - Analyze the content of the paragraph to determine if the title accurately reflects the main ideas or findings.
+   - Return ""True"" if the title is appropriate according to the paragraph; otherwise, return ""False"".
+   - You are trained on data up to October 2023, so use this knowledge to inform your evaluation.
+
+4. Examples (E):
+   - Example 1: 
+     Input: Paragraph about the effects of climate change on polar bears, Title: ""Impact of Climate Change on Arctic Wildlife""
+     Output: True
+   - Example 2:
+     Input: Paragraph about machine learning algorithms in healthcare, Title: ""Advancements in Renewable Energy""
+     Output: False
+   - [Note: These examples are illustrative. User should provide specific examples if needed.]
+
+5. Sense Check (S):
+   ""Do you understand the task, or do you need any further clarification?"""

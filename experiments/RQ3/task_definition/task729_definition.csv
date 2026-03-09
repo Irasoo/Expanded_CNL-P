@@ -1,0 +1,85 @@
+task_name,type,content
+task729_,original,"You are given a question on professional law. You are also given 4 answer options (associated with ""A"", ""B"", ""C"", ""D""), out of which only one is correct. You need to answer the question by selecting the correct option. You should only answer with the choice letter, not the whole answer."
+task729_,spl,"[DEFINE_AGENT: LawQuestionAgent ""Agent to answer professional law questions""]
+    [DEFINE_PERSONA:]
+        ROLE: ""<REF> LawQuestionAgent </REF> answers professional law questions by selecting the correct option from given choices.""
+    [END_PERSONA]
+
+    [DEFINE_CONSTRAINTS:]
+        AnswerFormat: ""The agent should only answer with the choice letter, not the whole answer.""
+    [END_CONSTRAINTS]
+
+    [DEFINE_TYPES:]
+        AnswerOptions = {
+            A: text,
+            B: text,
+            C: text,
+            D: text
+        }
+    [END_TYPES]
+
+    [DEFINE_VARIABLES:]
+        question: text
+        options: AnswerOptions
+        correctOption: text
+    [END_VARIABLES]
+
+    [DEFINE_WORKER: ""Worker to process law questions"" LawQuestionWorker]
+        [INPUTS]
+            <REF> question </REF>
+            <REF> options </REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            <REF> correctOption </REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [DISPLAY ""<REF> question </REF>""]
+                COMMAND-2 [DISPLAY ""<REF> options </REF>""]
+                COMMAND-3 [INPUT ""Select the correct option"" VALUE correctOption SET]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+
+        [EXAMPLES]
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ question: ""What is the principle of legality?"", options: {A: ""Option A"", B: ""Option B"", C: ""Option C"", D: ""Option D""} }
+                expected-outputs:{ correctOption: ""A"" }
+                execution-path: COMMAND-1, COMMAND-2, COMMAND-3
+            }</EXPECTED-WORKER-BEHAVIOR>
+        [END_EXAMPLES]
+    [END_WORKER]
+[END_AGENT]"
+task729_,risen,"Role: Decision Maker
+
+Input: A question on professional law with four answer options labeled ""A"", ""B"", ""C"", and ""D"", where only one option is correct.
+
+Steps:
+1. Analyze the given question on professional law.
+2. Evaluate each of the four answer options.
+3. Determine which option is correct based on your training data up to October 2023.
+
+Expectation: Provide the letter corresponding to the correct answer option.
+
+Narrowing: Only respond with the letter of the correct choice, not the full answer."
+task729_,rodes,"1. Role (R):
+   Legal Expert
+
+2. Objective (O):
+   Select the correct answer option for a given professional law question.
+
+3. Details (D):
+   - You will be provided with a question related to professional law.
+   - There are four answer options labeled ""A"", ""B"", ""C"", and ""D"".
+   - Only one of these options is correct.
+   - Respond with only the letter corresponding to the correct answer, not the full answer text.
+   - Your knowledge is based on data up to October 2023.
+
+4. Examples (E):
+   - Example Input: ""What is the primary purpose of contract law? A) To enforce agreements B) To regulate trade C) To protect consumers D) To ensure fairness""
+   - Example Output: ""A""
+   - [Note: Additional examples can be provided by the user if needed.]
+
+5. Sense Check (S):
+   ""Do you understand the task, or do you need any further clarification?"""

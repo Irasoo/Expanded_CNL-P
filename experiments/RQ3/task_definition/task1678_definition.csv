@@ -1,0 +1,108 @@
+task_name,type,content
+task1678_,original,"Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid."
+task1678_,spl,"[DEFINE_AGENT: MathMCQAgent ""Choose the correct answer letter (a, b, c, d, or e) for a math multiple-choice problem""]
+    [DEFINE_PERSONA:]
+        ROLE: Solve a math problem with context and a question and 5 answer choices, and provide the correct answer choice by letter only: a, b, c, d, or e.
+    [END_PERSONA]
+
+    [DEFINE_CONCEPTS:]
+        MathProblem: ""A problem with context and a question requiring selection among five choices.""
+        Context: ""Additional information that frames the math problem.""
+        Question: ""The specific query to answer.""
+        AnswerChoices: ""Five options labeled a, b, c, d, and e.""
+    [END_CONCEPTS]
+
+    [DEFINE_CONSTRAINTS:]
+        OutputFormat: The answer must be a single letter: a, b, c, d, or e; anything else is invalid.
+        ChoiceRestriction: Choose exactly one of the given answer choices by letter.
+    [END_CONSTRAINTS]
+
+    [DEFINE_TYPES:]
+        """"""Allowed answer letters""""""
+        AnswerLetter = [a,b,c,d,e]
+        """"""Five labeled choices""""""
+        Choices = {
+            """"""Choice labeled a"""""" a: text,
+            """"""Choice labeled b"""""" b: text,
+            """"""Choice labeled c"""""" c: text,
+            """"""Choice labeled d"""""" d: text,
+            """"""Choice labeled e"""""" e: text
+        }
+        """"""Input container for the math problem""""""
+        Problem = {
+            """"""Problem context"""""" context: text,
+            """"""Problem question"""""" question: text,
+            """"""Answer choices"""""" choices: Choices
+        }
+    [END_TYPES]
+
+    [DEFINE_VARIABLES:]
+        problem: Problem
+        selected_answer: AnswerLetter
+    [END_VARIABLES]
+
+    [DEFINE_WORKER: ""Determine and return only the correct answer letter."" SolveMathMCQ]
+        [INPUTS]
+            REQUIRED <REF> problem </REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            REQUIRED <REF> selected_answer </REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [DISPLAY Read the <REF>problem.context</REF> and <REF>problem.question</REF>, review <REF>problem.choices</REF>, determine the correct answer, and output only one letter: a, b, c, d, or e; anything else is invalid.]
+                COMMAND-2 [INPUT DISPLAY Provide only the letter (a, b, c, d, or e) for the correct answer to <REF>problem.question</REF>. VALUE selected_answer: AnswerLetter SET]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+
+        [EXAMPLES]
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ problem: { context: simple arithmetic, question: what is two plus two, choices: { a: four, b: three, c: five, d: six, e: seven } } }
+                expected-outputs:{ selected_answer: a }
+                execution-path: COMMAND-1, COMMAND-2
+            }</EXPECTED-WORKER-BEHAVIOR>
+
+            <DEFECT-WORKER-BEHAVIOR>{
+                Output Generation Error,
+                inputs:{ problem: { context: simple arithmetic, question: what is two plus two, choices: { a: four, b: three, c: five, d: six, e: seven } } },
+                defect-outputs:{ selected_answer: 2 },
+                execution-path: COMMAND-2,
+                defect-explanation: Output must be a single letter among a, b, c, d, or e, but a non-letter value was produced.
+            }</DEFECT-WORKER-BEHAVIOR>
+        [END_EXAMPLES]
+    [END_WORKER]
+[END_AGENT]"
+task1678_,risen,"Role: Problem Solver
+
+Input: A math problem with context, a question, and 5 answer choices labeled a, b, c, d, and e.
+
+Steps: 
+1. Analyze the given math problem and understand the context.
+2. Identify the key information and requirements of the question.
+3. Evaluate each of the 5 answer choices.
+4. Determine the correct answer choice based on the problem.
+
+Expectation: Provide the correct answer choice by letter (a, b, c, d, or e).
+
+Narrowing: Only choose from the given answer choices; any other response is invalid."
+task1678_,rodes,"1. Role (R):
+   Math Problem Solver
+
+2. Objective (O):
+   Determine the correct answer choice for a given math problem with context and a question.
+
+3. Details (D):
+   - Analyze the provided math problem and context.
+   - Review the question and the five answer choices labeled a, b, c, d, and e.
+   - Select the correct answer choice based on the problem.
+   - Only choose one of the given answer choices by letter: a, b, c, d, or e; any other response is invalid.
+   - Utilize knowledge up to October 2023 to inform your decision.
+
+4. Examples (E):
+   - Example Input: ""A train travels 60 miles in 1 hour. How long will it take to travel 180 miles? a) 2 hours b) 3 hours c) 4 hours d) 5 hours e) 6 hours""
+   - Example Output: ""b""
+
+5. Sense Check (S):
+   ""Do you understand the task, or do you need any further clarification?"""

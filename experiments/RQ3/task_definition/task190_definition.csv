@@ -1,0 +1,93 @@
+task_name,type,content
+task190_,original,"In this task, you're given a pair of sentences, sentence 1 and sentence 2. Your job is to choose whether the two sentences clearly agree (entailment)/disagree (contradiction) with each other, or if this cannot be determined (neutral). Your answer must be in the form of the letters E, C, and N respectively."
+task190_,spl,"[DEFINE_AGENT: SentenceComparisonAgent ""This agent compares two sentences to determine their relationship.""]
+    [DEFINE_PERSONA:]
+        ROLE: ""The agent acts as a sentence comparison tool, analyzing pairs of sentences to determine their relationship.""
+    [END_PERSONA]
+
+    [DEFINE_CONCEPTS:]
+        Entailment: ""Concepts do not need parameters or references.""
+        Contradiction: ""Concepts do not need parameters or references.""
+        Neutral: ""Concepts do not need parameters or references.""
+    [END_CONCEPTS]
+
+    [DEFINE_VARIABLES:]
+        sentence1: text
+        sentence2: text
+        result: text
+    [END_VARIABLES]
+
+    [DEFINE_WORKER: ""Compares two sentences and outputs their relationship"" SentenceComparisonWorker]
+        [INPUTS]
+            <REF> sentence1 </REF>
+            <REF> sentence2 </REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            <REF> result </REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [COMMAND ""Analyzing the relationship between the two sentences.""]
+                COMMAND-2 [DISPLAY ""Please output the relationship between sentence1 and sentence2 according to the CONCEPTS"" VALUE result SET]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+
+        [EXAMPLES]
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ sentence1: ""The sky is blue."", sentence2: ""The sky is clear."" }
+                expected-outputs:{ result: ""E"" }
+                execution-path: COMMAND-1, COMMAND-2
+            }</EXPECTED-WORKER-BEHAVIOR>
+
+            <DEFECT-WORKER-BEHAVIOR>{
+                Processing Logic Error,
+                inputs:{ sentence1: ""The cat is on the mat."", sentence2: ""The mat is empty."" },
+                defect-outputs:{ result: ""N"" },
+                execution-path: COMMAND-1,
+                defect-explanation: ""The agent failed to identify the contradiction.""
+            }</DEFECT-WORKER-BEHAVIOR>
+        [END_EXAMPLES]
+
+    [END_WORKER]
+[END_AGENT]"
+task190_,risen,"Role: Evaluator
+
+Input: You are given a pair of sentences, sentence 1 and sentence 2. Determine the relationship between the two sentences.
+
+Steps:
+1. Analyze sentence 1 and sentence 2.
+2. Decide if the sentences clearly agree (entailment), disagree (contradiction), or if the relationship cannot be determined (neutral).
+3. Provide your answer in the form of the letters E for entailment, C for contradiction, and N for neutral.
+
+Expectation: A concise letter indicating the relationship between the sentences.
+
+Narrowing: Use your training data up to October 2023 to make the determination."
+task190_,rodes,"1. Role (R):
+   Textual Entailment Analyst
+
+2. Objective (O):
+   Determine the relationship between two given sentences as entailment, contradiction, or neutral.
+
+3. Details (D):
+   - You will be provided with two sentences: sentence 1 and sentence 2.
+   - Analyze the sentences to decide if they clearly agree (entailment), disagree (contradiction), or if the relationship cannot be determined (neutral).
+   - Provide your answer using the letters E for entailment, C for contradiction, and N for neutral.
+
+4. Examples (E):
+   - Example 1: 
+     - Sentence 1: ""The sky is clear and blue.""
+     - Sentence 2: ""It is raining heavily.""
+     - Output: C (Contradiction)
+   - Example 2:
+     - Sentence 1: ""She is reading a book.""
+     - Sentence 2: ""She is holding a novel.""
+     - Output: E (Entailment)
+   - Example 3:
+     - Sentence 1: ""The cat is on the mat.""
+     - Sentence 2: ""The dog is in the yard.""
+     - Output: N (Neutral)
+
+5. Sense Check (S):
+   ""Do you understand the task, or do you need any further clarification?"""

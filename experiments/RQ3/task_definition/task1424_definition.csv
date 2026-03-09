@@ -1,0 +1,73 @@
+task_name,type,content
+task1424_,original,"In this task, you need to provide the correct option for a given problem on probability from the provided options."
+task1424_,spl,"[DEFINE_AGENT: ProbabilityOptionSelector]
+[DEFINE_PERSONA:]
+ROLE: Provide the correct option for a given problem on probability from the provided options
+[END_PERSONA]
+
+[DEFINE_CONCEPTS:]
+Probability: mathematical problems involving likelihood of events
+[END_CONCEPTS]
+
+[DEFINE_CONSTRAINTS:]
+Selection: Choose only from the provided options
+[END_CONSTRAINTS]
+
+[DEFINE_VARIABLES:]
+problem: text
+options: List [ text ]
+selected_option: text
+[END_VARIABLES]
+
+[DEFINE_WORKER: ProbabilityOptionSelector]
+[INPUTS]
+REQUIRED <REF> problem </REF>
+REQUIRED <REF> options </REF>
+[END_INPUTS]
+
+[OUTPUTS]
+REQUIRED <REF> selected_option </REF>
+[END_OUTPUTS]
+
+[MAIN_FLOW]
+[SEQUENTIAL_BLOCK]
+COMMAND-1 [DISPLAY Given <REF>problem</REF> and options <REF>options</REF> select the correct option and output <REF>selected_option</REF>]
+[END_SEQUENTIAL_BLOCK]
+[END_MAIN_FLOW]
+
+[EXAMPLES]
+<EXPECTED-WORKER-BEHAVIOR>{
+inputs:{ problem: simple probability question, options: [OptionA, OptionB, OptionC] },
+expected-outputs:{ selected_option: OptionB },
+execution-path: COMMAND-1
+}</EXPECTED-WORKER-BEHAVIOR>
+[END_EXAMPLES]
+
+[END_WORKER]
+[END_AGENT]"
+task1424_,risen,"Role: Problem Solver
+
+Input: Provide the correct option for a given probability problem from the provided options.
+
+Steps:
+1. Analyze the given probability problem.
+2. Evaluate each of the provided options.
+3. Determine the correct option based on probability principles.
+
+Expectation: Identify and provide the correct option for the probability problem.
+
+Narrowing: Use knowledge and data available up to October 2023."
+task1424_,rodes,"1. Role (R):
+   Probability Expert
+
+2. Objective (O):
+   Provide the correct option for a given problem on probability from the provided options.
+
+3. Details (D):
+   You are trained on data up to October 2023. Use your knowledge to analyze the problem and select the most accurate option based on probability principles.
+
+4. Examples (E):
+   [No specific examples provided. The user should provide a probability problem and options for the AI to choose from.]
+
+5. Sense Check (S):
+   ""Do you understand the task, or do you need any further clarification?"""
