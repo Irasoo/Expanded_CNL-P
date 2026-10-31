@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Flat Test — Final Analysis
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate. The control used the old button; the variant used the new button.
+- **Duration:** 14.0 days.
+- **Sample sizes:** Control: 20,000 users, with 2,000 successes. Variant: 20,000 users, with 2,000 successes. Both received 50.0% of traffic.
+- **Conversion rates:** Control: 10.0%; variant: 10.0%.
+- **Effect:** Absolute difference: 0.0 percentage points. Relative lift: 0.0%.
+- **Statistical result:** p-value = 1.0. The 95% confidence interval for the difference is [-0.005879891953620162, 0.005879891953620162] in rate units, or approximately [-0.5880, +0.5880] percentage points.
+- **Statistical significance:** Not statistically significant; the result is flat and the confidence interval includes zero.
+- **Power status:** Adequate. This is diagnostic and must not override the statistical significance result.
+- **Sample-ratio mismatch:** None detected (`false`).
+- **Guardrails:** No meaningful negative effects were observed; guardrail concern: `false`.
+
+**Recommendation:** **Stop**, consistent with the authoritative outcome `not_significant_flat`.
+
+**Reasoning:** The variant produced the same conversion rate as the control, with zero observed lift and no statistically significant improvement.
+
+**Next steps:** Stop the test and do not treat these results as evidence that the new button increases purchase conversion.

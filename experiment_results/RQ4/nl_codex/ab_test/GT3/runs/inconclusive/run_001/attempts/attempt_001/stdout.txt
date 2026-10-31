@@ -1,0 +1,62 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Experiment:** Checkout SRM Test ran for 14 days. The hypothesis was that the new checkout button would increase purchase conversion rate. Control used the old button; variant used the new button.
+
+**Results**
+- Control: 12,000 users, 1,200 successes, **10.0%** conversion
+- Variant: 8,000 users, 800 successes, **10.0%** conversion
+- Absolute difference: **0.0 percentage points**
+- Relative lift: **0.0%**
+- p-value: **1.0**
+- 95% confidence interval: **[-0.008486893005571289, 0.008486893005571289]**
+- Statistically significant: **false**
+- Power status: **underpowered**
+- Sample ratio mismatch: **true**; intended traffic share was 50%/50%, while observed sample sizes were 12,000 versus 8,000.
+
+**Assessment and recommendation**
+
+The result is **undetermined**. The observed conversion rates are identical, with no measured lift, and the result is not statistically significant. The test was also underpowered, so power status is diagnostic context and does not override the non-significant result. No meaningful negative guardrail effects were observed.
+
+**Next steps**
+1. Investigate the sample ratio mismatch, including assignment, exposure, eligibility, and event instrumentation.
+2. Validate the sample and conversion data after resolving the SRM.
+3. Rerun or extend the experiment with the planned allocation and sufficient power before deciding whether to ship the new button.

@@ -1,0 +1,140 @@
+﻿"Prompt代号","Consensus改进","Consensus确认（✓）","Consensus Comments","Variant1改进","Variant1确认（✓）","Variant1 Comments","Variant2改进","Variant2确认（✓）","Variant2 Comments"
+"Task190","（2）变量抽象调整：新增 sentence1、sentence2、reasoning 和 judgment 的显式变量声明，并将 judgment 绑定为 Judgment 枚举类型。
+（3）语法问题修正：将 Direct 中通过 RESULT reasoning:text / judgment:Judgment 临时产生结果的写法改为对已声明 <REF>reasoning</REF> 和 <REF>judgment</REF> 的 SET。
+（4）流程表达优化：先生成 reasoning，再用 IF/ELSEIF/ELSE 分别设置 E、C、N，并在相应分支显示 reasoning 与 judgment，使判定路径显式化。
+（5）静态信息位置或表述调整：将 Persona 的 ROLE 改写为自然语言推理分类器的角色描述，明确 entailment、contradiction 和 neutral 三类职责。","☐","","（2）变量抽象调整：补充 sentence1、sentence2、reasoning 和 judgment 的显式变量定义。
+（3）语法问题修正：将两个结果写入方式统一为对已声明 REF 变量执行 RESULT ... SET。
+（4）流程表达优化：保留 Direct 的单条三分类选择命令，但明确先生成 reasoning、再选择 E/C/N、最后统一显示二者。
+（5）静态信息位置或表述调整：采用与 Consensus 相同的自然语言推理分类器 Persona 表述。","☐","","（2）变量抽象调整：补充 sentence1、sentence2、reasoning 和 judgment 的显式变量定义。
+（3）语法问题修正：将结果写入方式统一为已声明的 REF 变量，并将最终 DISPLAY 放在合法的顺序块中。
+（4）流程表达优化：用 IF/ELSEIF/ELSE 分支设置 E、C、N，但把 reasoning 与 judgment 的 DISPLAY 合并到分支结束后的单一顺序块中。
+（5）静态信息位置或表述调整：采用更明确的自然语言推理分类器 Persona 表述。","☐",""
+"Task385","（0）关键信息表述纠错：明确三个选项中恰有两个是可接受的错误答案；输出必须是一个已提供选项的标签及其原始文本，且不得输出推理。
+（1）冗余内容删除：删除 CorrectAnswer 概念和先求 correct_answer 再排除的中间步骤，避免为完成“选择错误答案”引入不必要状态。
+（2）变量抽象调整：为四个变量增加语义说明，并将 answer_options 统一为 List[text]。
+（4）流程表达优化：将两步“先找正确答案、再找错误答案”压缩为直接选取一个不正确选项，并增加对 incorrect_answer 的显式 DISPLAY。
+（5）静态信息位置或表述调整：重写 Agent、Persona 和 Constraints，使选择数量、禁止输出正确答案及无推理输出等静态要求集中表达。","☐","","（0）关键信息表述纠错：补充“恰有三个选项、一个正确、两个错误”“不得生成新答案”“必须原样返回已提供选项”等关键信息。
+（2）变量抽象调整：新增 correct_answer 中间变量，用于显式区分正确答案与最终的 incorrect_answer。
+（4）流程表达优化：把流程细分为读取相关信息、逐项核对、识别两个错误项、原样选择其中一个四步。
+（5）静态信息位置或表述调整：扩展 Persona 与 Constraints，强调证据来自 context passage、逐项比较和选择行为。","☐","","（0）关键信息表述纠错：在 Persona 中明确先依据 context 找到正确答案，再返回两个错误答案之一。
+（2）变量抽象调整：补充 correct_answer 的显式变量声明，避免 Direct 在命令中临时创建该结果。
+（3）语法问题修正：将正确答案结果改为写入已声明的 <REF>correct_answer</REF>。
+（4）流程表达优化：在选择 incorrect_answer 后增加显式 DISPLAY，形成完整的产生并输出结果流程。","☐",""
+"Task729","（2）变量抽象调整：新增 question:text、options:List[text] 和 choice:text 三个变量声明。
+（3）语法问题修正：将 Direct 中命令正文里“set choice”的隐式写法改为 RESULT <REF>choice</REF> SET。
+（5）静态信息位置或表述调整：将 Persona 改写为选择单个正确选项的专业法律问答 Agent，减少角色描述中的重复。","☐","","（0）关键信息表述纠错：明确输入恰有四个 A–D 选项，输出只能是 A、B、C、D 中一个字母，禁止答案文本、解释和标点。
+（2）变量抽象调整：将 question/options/choice 重新抽象为 q/op/ch，并把 op 作为包含四个带标签选项的整体文本。
+（4）流程表达优化：把选择与写入 ch 合并为一个命令，随后只显示 ch。
+（5）静态信息位置或表述调整：用 InputStructure、UniqueCorrectness、OutputRange 等约束集中表达输入结构与输出格式。","☐","","","",""
+"Task1162","（2）变量抽象调整：新增 paragraph:text、title:text、result:boolean，并把 result 声明为 Worker 的输出。
+（3）语法问题修正：在 True/False 两个分支中通过 RESULT <REF>result</REF> SET 写入已声明结果，再显示该结果。
+（4）流程表达优化：把 Direct 直接显示字面量 True/False 的分支改为先赋值 result、再输出 result，使输出接口与流程一致。","☐","","（0）关键信息表述纠错：明确只能根据段落判断标题，最终只允许 True 或 False，禁止解释、理由、标点及其他文本。
+（2）变量抽象调整：将输入和结果重新抽象为 p、t、r，并把 r 设为 text 以承载 True/False 文本。
+（4）流程表达优化：用一个顺序命令完成判断及 r 的设置，替代 Direct 的 IF/ELSE 字面量输出。
+（5）静态信息位置或表述调整：把正例、反例、输出范围和输出格式拆分为独立 Constraints。","☐","","（2）变量抽象调整：只补充 paragraph:text 与 title:text 的变量声明，保留 Direct 直接显示 True/False 的原有分支结构。","☐",""
+"Task1424","（0）关键信息表述纠错：修正 Direct 仅用 DISPLAY 描述“提供正确选项”但没有实际求值和赋值的问题：先求出正确选项，再输出该值。
+（2）变量抽象调整：新增 problem:text、options:List[text] 和 correct_option:text 的变量声明。
+（3）语法问题修正：用 COMMAND ... RESULT <REF>correct_option</REF> SET 产生结果，再以 DISPLAY 输出已声明变量。
+（4）流程表达优化：将原来的单个描述性 DISPLAY 拆为“确定正确选项”和“显示正确选项”两个可执行步骤。
+（5）静态信息位置或表述调整：把 ProblemDomain 从 Constraints 移到 Concepts，并把 Persona 改为概率题求解 Agent。","☐","","（2）变量抽象调整：补充 problem、options 和输出变量声明；文件中声明为 correct_options，但接口和流程使用 correct_option，需评估者确认该名称差异是否为预期。
+（4）流程表达优化：将 Direct 的描述性 DISPLAY 改为先求解问题并设置正确选项，再显示 correct_option。
+（5）静态信息位置或表述调整：调整 Persona，并把 OptionSelection 改写为引用 problem 与 options 的静态约束。","☐","","","",""
+"Task1678","（1）冗余内容删除：删除单独的 Context 概念定义，保留已在 Problem 复合类型中表达的 context 字段。
+（3）语法问题修正：把 Direct 中 DISPLAY 指令承载求解动作、以及 INPUT DISPLAY/VALUE 写入结果的写法，改为 COMMAND ... RESULT <REF>selected_answer</REF> SET 后再 DISPLAY。
+（4）流程表达优化：将流程整理为读取 context/question/choices、确定答案字母、输出 selected_answer 两步。
+（5）静态信息位置或表述调整：把 Persona 简化为 Math multiple-choice problem solver。","☐","","（3）语法问题修正：规范 <REF>problem</REF> 与 <REF>selected_answer</REF> 的引用，并用 COMMAND 加 DISPLAY 替换 Direct 的 INPUT DISPLAY 写法。
+（4）流程表达优化：明确在一个求解命令中读取问题、评估选项并设置对应字母，随后显示该变量。
+（5）静态信息位置或表述调整：调整 Persona，并新增 Correctness 约束，明确 selected_answer 必须对应 problem 的正确选项。","☐","","","",""
+"Task1701","（1）冗余内容删除：删除与变量和约束重复的 Plaintext、Ciphertext、alphabet Concepts，以及无效输入的 defect example。
+（2）变量抽象调整：把三个 alphabet 从连续字符串概念改为已初始化的 List[text] 变量，并声明加密/解密累积列表及所有中间字符变量。
+（3）语法问题修正：将 Direct 中 RESULT reverse_letter:text 等临时声明改为对已声明 REF 变量的 SET，并为两种结果增加 DISPLAY。
+（4）流程表达优化：用已初始化列表承接逐字符结果，分别在 MAIN_FLOW 与 ALTERNATIVE_FLOW 中完成映射、拼接和输出。
+（5）静态信息位置或表述调整：将 alphabet 的固定值从 Concepts 调整到 Variables 的初始化位置，并作为 Worker 的必需静态输入引用。","☐","","（0）关键信息表述纠错：补充 plaintext/ciphertext 必须且只能提供一个、位移必须循环回绕、非法组合输出 Invalid input 等规则。
+（1）冗余内容删除：删除逐字符累积列表、多个字符级中间变量和 Examples，以更短的整体字符串转换描述替代。
+（2）变量抽象调整：把字符级状态重新抽象为 reverse_text、shifted_text 和 substituted_text 三个整段文本变量。
+（4）流程表达优化：以 IF/ELSEIF 区分加密和解密，每条路径使用三次整串变换并直接显示结果。
+（5）静态信息位置或表述调整：把 alphabet 固定值写入 Constraints，同时在 Concepts 中补充 Encryption/Decryption 的概括性定义。","☐","","","",""
+"Task1710","（0）关键信息表述纠错：删除 Direct 额外引入的 mode 输入；改为 plaintext 存在时加密、ciphertext 存在时走解密 Alternative Flow，与任务原始输入方式一致。
+（1）冗余内容删除：删除 Keyword/NoKeyword、重复的映射说明、Persona 中 Accuracy/Formatting 及所有示例，保留必要的卷轴表和格式要求。
+（2）变量抽象调整：用 plaintext/ciphertext 作为输入和对应输出，新增 characters:List[text] 与 reelId:number，移除通用 result。
+（3）语法问题修正：把 Direct 的 IF 内嵌 FOR 结构改写为顶层 MAIN_FLOW 与 ALTERNATIVE_FLOW 中的 FOR，避免不允许的 Block 嵌套。
+（4）流程表达优化：显式初始化 Reel1、逐字符追加、在 Reel25 后回到 Reel1、拼接字符并显示加密或解密结果。
+（5）静态信息位置或表述调整：保留 25 个 Reel 为 Concepts，同时压缩 Constraints 为输入与输出格式要求。","☐","","（0）关键信息表述纠错：同样移除 mode，依据提供 plaintext 或 ciphertext 选择加密或解密。
+（1）冗余内容删除：删除重复的 Reel 选择/映射 Concepts、详细操作 Constraints 和 Examples，只保留卷轴值及基本格式要求。
+（2）变量抽象调整：仅保留 plaintext 与 ciphertext 两个变量，通过直接累加输出文本和移动当前 Reel 表达状态。
+（3）语法问题修正：以 MAIN_FLOW 和 ALTERNATIVE_FLOW 分离两个 FOR 循环，消除 Direct 的 IF-FOR 嵌套。
+（4）流程表达优化：把每条路径写成初始化输出、逐字符更新输出与 Reel、最终显示结果的简化流程。","☐","","","",""
+"Task1713","（1）冗余内容删除：合并重复的输入/输出格式与操作约束，删除 defect examples 和与格式约束重复的 Plaintext/Ciphertext Concepts。
+（2）变量抽象调整：新增 plaintext、ciphertext、rowCoordinates、columnCoordinates、coordinateSequence 和 outputLetters 的显式类型。
+（3）语法问题修正：用 MAIN_FLOW 与 ALTERNATIVE_FLOW 代替 Direct 的 IF 分支，并统一使用 RESULT ... APPEND/SET 及 DISPLAY。
+（4）流程表达优化：把加密拆为清洗、坐标收集、行列坐标拼接、成对回查、拼接输出；把解密拆为坐标序列、两半拆分、成对回查、拼接输出。
+（5）静态信息位置或表述调整：把 Grid 及五行固定值集中保留在 Concepts，只在 Constraints 中保留加密/解密格式。","☐","","","","","","",""
+"Task1717","（0）关键信息表述纠错：补充五列网格、EMPTY 空单元格和不完整偶数行右对齐规则；解密时先依据非 # 字符数重建占用位置，再按列填充。
+（2）变量抽象调整：新增 row_chunks、二维 grid、column_segments 和 row_segments，并为各变量增加语义说明。
+（4）流程表达优化：明确切分行、按奇偶方向放入五格网格、逐列读出、拼接并显示；解密流程也显式拆分列、重建网格、填充和逐行读取。
+（5）静态信息位置或表述调整：新增完整行与不完整偶数行的静态示例，具体说明 EMPTY 和右对齐位置。","☐","","（1）冗余内容删除：删除 Direct 的 Concepts 及重复的逐条方向约束，仅保留输入输出格式和 OutputCompliance。
+（2）变量抽象调整：新增 arranged_rows、row_segments 和 column_segments 三个列表变量。
+（4）流程表达优化：为加密和解密各步骤补充 RESULT ... SET，并在两条路径末尾显式 DISPLAY；解密时明确 # 只作分隔符而不写入网格。
+（5）静态信息位置或表述调整：将 Persona 改为专门处理加密与解密的智能助手。","☐","","（1）冗余内容删除：与 Variant1 一样删除 Concepts 和重复的方向约束，保留较精简的静态要求。
+（2）变量抽象调整：新增 arranged_rows、row_segments 和 column_segments 三个列表变量。
+（4）流程表达优化：为两条路径补充结果写入与 DISPLAY；解密命令仍表述为逐字符写入并在遇到 # 时换列。
+（5）静态信息位置或表述调整：将 Persona 改为专门处理加密与解密的智能助手。","☐",""
+"Task1719","（0）关键信息表述纠错：删除 Direct 额外引入的 operation 输入以及“No keyword”表述；根据提供 plaintext 或 ciphertext 选择加密或解密，并返回相应字段而非通用 result。
+（1）冗余内容删除：删除重复的操作约束、Exception Flow、defect example 和 Keyword 概念。
+（2）变量抽象调整：把 row_symbols/column_symbols 改为 List[text]，并新增 decryption_binary、row_number、column_number、decrypted_characters 等显式变量。
+（3）语法问题修正：将 Direct 的 IF 内嵌 FOR 改为 MAIN_FLOW 与 ALTERNATIVE_FLOW 中的顶层循环，统一 REF 结果写入和 DISPLAY。
+（4）流程表达优化：逐字符收集行列符号并拼接 ciphertext；解密时拆分两半、配对、恢复坐标、收集字符并拼接 plaintext。
+（5）静态信息位置或表述调整：展开六行 Matrix 的静态描述，并把 MatrixIndexing 从 Concepts 调整到 Constraints。","☐","","（0）关键信息表述纠错：新增解密输入只能含 ADFGVX 且长度为偶数的校验，并为不满足条件的输入设置 Invalid input。
+（2）变量抽象调整：新增 CoordinateIndex、CipherSymbol 类型，以及当前字符、坐标、符号、输入有效性和结果等细粒度变量。
+（3）语法问题修正：先结束输入校验 IF，再执行条件化的两个 FOR 循环和最终输出 IF，避免在条件块内嵌循环。
+（4）流程表达优化：显式区分校验、加密符号收集、解密配对恢复和最终显示四个阶段。
+（5）静态信息位置或表述调整：补充 CharacterSetIndexing，并把加密行符号在前、解密两半配对等规则写成独立 Constraints。","☐","","","",""
+"Task1802","（0）关键信息表述纠错：把 Direct 仅区分“等值计算/真值判断”的粗粒度理解扩展为公式变换、等价判断、语句符号化、命名公式推导和最终情景结论五类实际响应任务，并保留用户要求的字段标签和顺序。
+（1）冗余内容删除：删除通用的属性识别、统一符号化、异常流程和示例，避免所有题型都经过同一套无关步骤。
+（2）变量抽象调整：新增 logic_task、person_formulas、simple_propositions、satisfying_assignments、final_logical_expression 和 logic_result 等状态，并以 response_task 承接题型识别结果。
+（3）语法问题修正：修复 Direct 中 END_CONSTRAINTS 与 END_SEQUENTIAL_BLOCK 缺少右方括号的问题，并以规范的 IF/ELSEIF 路由与 RESULT SET 表达结果。
+（4）流程表达优化：先识别响应任务，再按五种题型分别处理，最后严格按用户双中括号模板格式化并显示。
+（5）静态信息位置或表述调整：新增 UserTemplatePriority、FieldCountAndOrder、RequiredLabels、LiteralWording 和 FinalAnswerOnly 等输出静态规则。","☐","","（1）冗余内容删除：删除 Direct 的异常流程、defect example 和部分重复的通用约束。
+（2）变量抽象调整：新增 LogicTaskKind 枚举及 propositions、symbolized_formula、combined_expression、derived_expression、logic_result 等变量。
+（3）语法问题修正：修复 Direct 的缺失闭合方括号，并统一通过 RESULT ... SET 和 DISPLAY 产生输出。
+（4）流程表达优化：先识别任务类型，再分别执行真值判断或等值计算流程，并为不支持的类型设置单独分支。
+（5）静态信息位置或表述调整：精简 Persona 和 Constraints 的表述，同时保留最终运算符限制。","☐","","（0）关键信息表述纠错：补充用户模板优先、字段数量与顺序、指定标签、地名/选项原文和只输出最终答案等关键信息。
+（1）冗余内容删除：删除 Direct 的通用异常流程与示例，集中保留真值判断所需内容。
+（2）变量抽象调整：声明命题、个人公式、最终逻辑式、满足赋值和输出结果等变量。
+（4）流程表达优化：将真值判断整理为命题定义、个人陈述公式化、真假信息合并、满足赋值推导、结论生成和显示的顺序流程。
+（5）静态信息位置或表述调整：用独立 Constraints 集中规定最终公式运算符及精确输出模板。","☐",""
+"Task1804","（0）关键信息表述纠错：补充同一子句对存在多个互补文字时应把每个互补对视为独立消解选择，并保留所有不同 resolvent；同时支持用户请求中间集合、轮次和可消解性字段。
+（1）冗余内容删除：删除 Examples，并省去 Direct 中先分别描述两类消解再重复检查的冗长命令链。
+（2）变量抽象调整：显式声明 S、S0、S1、S2、resolvable、resolvents、round_resolvents、cycle_count、continue_resolution 和 result，并把可能请求的中间量列为可选输出。
+（4）流程表达优化：每轮统一收集 S0×S1 与 S1 内部的所有 resolvents，再检查空子句、生成 S2、判断终止、更新三个集合并最终显示 result。
+（5）静态信息位置或表述调整：新增 CycleDefinition、RequestedFieldsOnly 与 MultipleResolutionPoints 等静态规则。","☐","","（1）冗余内容删除：删除 ResolutionAlgorithm 概念、Examples 和部分重复约束，保留文字、补、消解及结果定义。
+（2）变量抽象调整：把 S、S0、S1、S2 抽象为列表，并新增 cross_resolvents、internal_resolvents 与枚举类型 result。
+（4）流程表达优化：分别收集跨集合与 S1 内部的 resolvents，显式检查 0、累加新子句并更新 S0/S1/S2。","☐","","（2）变量抽象调整：新增 contradiction_found、continue_resolution、cross_resolvents、inner_resolvents、round_resolvents 和枚举结果等变量。
+（3）语法问题修正：将集合初始化、状态判断和最终结果统一改为 RESULT ... SET 与显式 DISPLAY。
+（4）流程表达优化：合并两类 resolvents 后统一判断矛盾和是否继续，循环结束后再由 contradiction_found 决定 Plausible/Implausible。","☐",""
+"Task1807","（1）冗余内容删除：删除流程中笼统的“识别相关属性和对象”步骤，直接从解释 J 的实体集和三类符号替换开始。
+（2）变量抽象调整：新增结构化 Interpretation 类型，包含 entities、constantAssignments、functionImplementations、predicateImplementations，并声明 B、J、BJ。
+（3）语法问题修正：删除 Direct 在 Constraints 与 Worker 之间残留的“！！！”非法文本，并补齐变量定义。
+（5）静态信息位置或表述调整：把解释 J 的组成从概念性描述进一步落实为 Interpretation 静态类型结构。","☐","","（1）冗余内容删除：删除流程中通用的相关属性识别命令。
+（2）变量抽象调整：以 text 类型声明 B、J 和 BJ，采用较轻量的变量抽象。
+（3）语法问题修正：删除 Direct 中的“！！！”非法文本并补充 Variables 区块。","☐","","","",""
+"Task1809","（0）关键信息表述纠错：把输入从预先拆好的 method/proposition_type/subject/predicate 改为完整 user_request；新增 IdentifyMethod 模式、完整术语作用域和语法保持规则，并规定最终答案或方法标签必须只出现一次双中括号。
+（2）变量抽象调整：新增 TaskMode、PropositionComponents 和 ParsedRequest 复合类型，以及 request_data、components、intermediate_proposition、final_answer、formatted_answer。
+（3）语法问题修正：补齐 Direct 缺失的 END_VARIABLES，并把无 COMMAND/RESULT 的变换语句改为规范 COMMAND ... RESULT ... SET，最后显式 DISPLAY。
+（4）流程表达优化：先解析自然语言请求和完整主谓项，再按变换/方法识别与命题类型路由；Method C 显式拆成换质、换位两步，最后统一格式化。
+（5）静态信息位置或表述调整：新增 CompleteTermScope、relative-clause 否定、限定词保留、自然语法及方法识别约定等静态表达规则。","☐","","（0）关键信息表述纠错：补充简单 contrary term 使用 non- 连字符形式的要求。
+（2）变量抽象调整：补充 transformed_proposition 变量并闭合 Variables 区块。
+（3）语法问题修正：将 Direct 的非标准变换行改为 COMMAND，并把最终 DISPLAY 放入顺序块。
+（4）流程表达优化：保留按 method 与 proposition_type 的逐分支流程，但补齐结果变量和统一显示步骤。","☐","","（0）关键信息表述纠错：不再要求外部预先提供 proposition_type、subject 和 predicate，而是接收完整 original_proposition 并在内部识别成分；不适用时返回 applicability message。
+（1）冗余内容删除：将九个重复分支压缩为一次成分识别和一次按 method 应用规则。
+（2）变量抽象调整：新增 PropositionComponents 结构，以 original_proposition、components 和 transformed_proposition 代替分散输入。
+（4）流程表达优化：流程简化为解析原命题、应用所选方法、显示结果三步。
+（5）静态信息位置或表述调整：精简 Persona/概念措辞，并保留 non- 连字符及适用范围等静态要求。","☐",""
+"Task1819","（0）关键信息表述纠错：改为从问题中识别其明确要求的 U/P/C 规则与 percentage/symbolic 输出；将样本选择和观察视为题目已给出的事实，避免 Direct 要求模型自行随机采样；输出严格使用双中括号。
+（1）冗余内容删除：合并 USymbol/PSymbol/CSymbol 与三类推理定义，删除通用属性识别和自行采样步骤。
+（2）变量抽象调整：新增 problem、reasoning_category、output_mode、attribute_symbol、两组 k/n、percentage 和 answer 等变量及对应枚举类型。
+（4）流程表达优化：先解析规则、输出模式、属性和计数；C 类再读取第二样本；随后分别计算或生成 U/P/C 符号式，最后显示 answer。
+（5）静态信息位置或表述调整：新增 RuleSelection、SampleIdentification、PercentageFormatting 和 SymbolicFormatting 等静态约束。","☐","","（0）关键信息表述纠错：显式检查 U 的 k=n、P 的 0≤k<n、C 的两组比例有效且标记为相似，避免把全样本命中误归为 P。
+（2）变量抽象调整：把任务重新抽象为 attribute、reasoning_mode、各组计数、比例和 proportions_similar 等结构化输入及计算变量。
+（4）流程表达优化：分别建立 C/U 与 P 的条件流程，计算比例或生成符号式后直接显示，并为条件不满足设置提示分支。
+（5）静态信息位置或表述调整：将代表性样本假设、三类适用条件和逻辑格式集中到 Constraints。","☐","","","",""

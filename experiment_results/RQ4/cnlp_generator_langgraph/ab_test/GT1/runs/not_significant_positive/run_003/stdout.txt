@@ -1,0 +1,62 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment:** 7 days. Control used the old button; Variant used the new button. Traffic allocation was 50%/50%, with 1,000 users in each group.
+
+**Primary metric: Purchase conversion rate**
+- Control: 100/1,000 = **10.00%**
+- Variant: 110/1,000 = **11.00%**
+- Absolute difference: **+1.00 percentage point**
+- Relative lift: **+10.00%**
+- Two-sided p-value: **0.4657**
+- 95% confidence interval for the difference: **-1.69 to +3.69 percentage points**
+
+**Validity and significance:** The result is **not statistically significant** at the 0.05 threshold. The confidence interval includes both a potential decrease and increase, so the observed positive difference is compatible with random variation. No sample ratio mismatch was detected. The experiment is classified as **underpowered** relative to the provided 1 percentage point minimum detectable effect and 80% power criterion; this is a diagnostic limitation and does not independently determine the decision.
+
+**Guardrails:** No meaningful negative effects were observed, and `guardrail_concern` is false. No specific guardrail thresholds or metric values were provided.
+
+**Recommendation: Extend the experiment.** The Variant shows a positive observed result, but there is insufficient statistical evidence to ship it. Continue testing with adequate sample size to improve power and determine whether the apparent lift is reliable.
+
+**Next steps:** Extend the experiment under the same allocation and monitor the purchase conversion rate and guardrails. Reassess the primary metric, confidence interval, significance, and sample-ratio validity after additional data are collected.

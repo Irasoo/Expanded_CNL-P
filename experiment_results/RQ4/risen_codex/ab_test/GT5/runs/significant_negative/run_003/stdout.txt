@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Negative Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Duration and sample sizes: 14 days; control n=10,000 and variant n=10,000.
+
+Results:
+- Control conversion rate: 10.0%
+- Variant conversion rate: 8.0%
+- Absolute difference: -2.0 percentage points
+- Relative lift: -20.0%
+- p-value: 7.745937202529477e-07
+- 95% confidence interval for the difference: -2.7928 to -1.2072 percentage points
+- Statistically significant: Yes
+
+Power status is “underpowered,” but this is diagnostic only and must not override the statistically significant result. The sample-ratio mismatch check was negative: control and variant traffic shares were both 50%, and SRM=false.
+
+Guardrails: No additional meaningful negative guardrail effects were observed; guardrail concern=false. No guardrail metric was unavailable in the supplied data.
+
+Recommendation: dont_ship.
+
+Reasoning: The variant reduced purchase conversion from 10.0% to 8.0%. The statistically significant negative difference and confidence interval entirely below zero support not shipping the new button, despite the underpowered diagnostic.
+
+Practical next steps: Do not ship the variant. Investigate why the new button reduced purchase conversion, and use the underpowered status to inform the design of any follow-up test.

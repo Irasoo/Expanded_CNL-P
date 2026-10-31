@@ -1,0 +1,79 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Experiment**
+
+- **Test:** Checkout Flat Test
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change:** Control uses the old button; variant uses the new button.
+- **Duration:** 14 days
+- **Sample sizes:** 20,000 control and 20,000 variant
+- **Traffic allocation:** 50% control and 50% variant
+- **Primary metric:** Purchase conversion rate
+
+**Statistical findings**
+
+- **Control conversion rate:** 10.0% (2,000/20,000)
+- **Variant conversion rate:** 10.0% (2,000/20,000)
+- **Absolute difference:** 0.0 percentage points
+- **Relative lift:** 0.0%
+- **Two-sided p-value:** 1.0
+- **95% confidence interval for the absolute difference:** -0.588 to +0.588 percentage points
+- **Statistical significance:** Not statistically significant
+- **Power status:** Adequate
+
+**Validity and guardrails**
+
+- **Sample ratio mismatch:** None detected
+- **Guardrail concern:** No
+- **Guardrail assessment:** No meaningful negative effects were observed.
+
+**Recommendation**
+
+**Stop the experiment.**
+
+**Reasoning**
+
+The variant and control produced identical 10.0% purchase conversion rates, with no observed absolute difference or relative lift. The result is not statistically significant, and the confidence interval includes zero. The experiment had adequate power, no sample ratio mismatch was detected, and no guardrail concern was reported.
+
+**Next steps**
+
+Stop the test and do not treat the new checkout button as a conversion improvement based on this experiment. Record the flat result and the absence of observed guardrail concerns.

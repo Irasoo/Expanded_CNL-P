@@ -1,0 +1,56 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 7 days. Duration alone does not establish experiment maturity.
+- **Control:** 100 conversions from 1,000 participants; conversion proportion `0.10` (**10.0%**).
+- **Variant:** 110 conversions from 1,000 participants; conversion proportion `0.11` (**11.0%**).
+- **Observed effect:** Absolute difference `0.01`, or **+1.0 percentage point**. Relative lift `0.10`, or **+10.0%**.
+- **Statistical result:** Two-sided p-value `0.4657`; 95% confidence interval for the absolute difference is `[-0.0169, 0.0369]`, or **[-1.69, +3.69 percentage points]**. The result is **not statistically significant** because the p-value is above `0.05`, and the interval includes zero.
+- **Power:** **Underpowered**. This is supporting diagnostic information; it does not change the non-significant result.
+- **Sample ratio mismatch:** **No SRM detected**.
+- **Guardrail:** **No concern**; no meaningful negative effects were observed.
+
+**Recommendation: Extend the experiment.**
+
+The Variant’s observed conversion rate is higher, but the evidence does not reliably distinguish the effect from random variation. Continue collecting data under the same planned allocation, monitor the purchase conversion metric and guardrails, and rerun the analysis after the extension. Before shipping, require a conclusive result and confirm that no guardrail concern or SRM has emerged.

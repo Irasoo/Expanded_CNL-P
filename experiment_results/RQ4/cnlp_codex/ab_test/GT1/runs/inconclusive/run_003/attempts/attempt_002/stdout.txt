@@ -1,0 +1,81 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Experiment**
+
+- **Test:** Checkout SRM Test
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change:** Control used the old button; variant used the new button.
+- **Primary metric:** Purchase conversion rate
+- **Duration:** 14 days
+- **Sample sizes:** Control: 12,000 users; variant: 8,000 users
+- **Minimum detectable effect:** 1 percentage point
+
+**Statistical findings**
+
+- **Control conversion rate:** 10.0% (1,200 / 12,000)
+- **Variant conversion rate:** 10.0% (800 / 8,000)
+- **Absolute difference:** 0.0 percentage points
+- **Relative lift:** 0.0%
+- **P-value:** 1.00
+- **95% confidence interval for the difference:** -0.849 to +0.849 percentage points
+- **Statistical significance:** Not statistically significant
+- **Power status:** Underpowered
+
+**Validity and guardrails**
+
+- **Sample ratio mismatch:** Present. Traffic was configured at 50% control and 50% variant, but observed sample sizes were 12,000 and 8,000, respectively.
+- **Guardrail assessment:** No meaningful negative effects were observed.
+- **Guardrail concern:** False
+
+**Recommendation**
+
+**Undetermined.** Do not conclude that the new checkout button increases purchase conversion rate based on this experiment.
+
+**Reasoning**
+
+Both groups had the same observed conversion rate, producing no measured lift. The result is not statistically significant, and the experiment is underpowered. The sample ratio mismatch also indicates that the observed allocation did not match the configured 50/50 split, reducing confidence in the experiment’s validity. No meaningful guardrail concerns were reported.
+
+**Next steps**
+
+- Investigate the cause of the sample ratio mismatch.
+- Resolve the allocation issue and repeat or rerun the experiment with a valid sample split.
+- Collect sufficient sample to address the stated 1 percentage point minimum detectable effect.

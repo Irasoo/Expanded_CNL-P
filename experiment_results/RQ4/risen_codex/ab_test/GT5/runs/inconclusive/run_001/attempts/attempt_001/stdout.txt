@@ -1,0 +1,61 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Experiment: Checkout SRM Test
+
+- Hypothesis: The new checkout button will increase purchase conversion rate.
+- Duration: 14 days.
+- Sample sizes: Control 12,000; variant 8,000.
+- Conversion rates: Control 10.0%; variant 10.0%.
+- Absolute difference: 0.0 percentage points.
+- Relative lift: 0.0%.
+- P-value: 1.0.
+- 95% confidence interval for the difference: -0.00849 to 0.00849, or approximately -0.849 to +0.849 percentage points.
+- Statistical significance: Not statistically significant.
+- Power: Underpowered. This is diagnostic only and must not override the statistical significance result.
+- Sample-ratio mismatch: Present. The configured traffic shares were 50%/50%, but the observed samples were 60% control and 40% variant.
+- Guardrails: No meaningful negative effects were observed; guardrail concern is false.
+- Metric availability: Purchase conversion rate is available.
+
+Recommendation: undetermined.
+
+Reasoning: The variant showed no observed conversion improvement, but the experiment is underpowered and has a sample-ratio mismatch. These issues make the result inconclusive despite the lack of statistical significance.
+
+Practical next steps: Investigate and resolve the sample-ratio mismatch, verify that traffic allocation and randomization are functioning as intended, and rerun or continue the experiment with adequate power before making a decision.

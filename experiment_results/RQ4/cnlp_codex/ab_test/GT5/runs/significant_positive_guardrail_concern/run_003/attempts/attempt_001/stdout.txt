@@ -1,0 +1,79 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Button Guardrail Test
+
+- **Hypothesis:** Changing the checkout button text will increase purchase conversion rate.
+- **Change tested:** Control used **“Continue”**; variant used **“Buy Now.”**
+- **Primary metric:** Purchase conversion rate, where higher is better.
+- **Duration:** 14 days
+- **Sample sizes and successes:**
+  - Control: 10,000 users, 1,000 successes
+  - Variant: 10,000 users, 1,200 successes
+
+### Results
+
+- **Control conversion rate:** 10.00%
+- **Variant conversion rate:** 12.00%
+- **Absolute difference:** +2.00 percentage points
+- **Relative lift:** +20.00%
+- **Two-sided p-value:** 0.00000619
+- **95% confidence interval for Variant minus Control:** **[+1.13 pp, +2.87 pp]**
+
+### Assessment
+
+- **Statistical significance:** Significant; p-value is below 0.05.
+- **Power status:** Underpowered. This is diagnostic and does not override the statistically significant result.
+- **SRM status:** No sample ratio mismatch detected; the result is not inconclusive due to SRM.
+- **Guardrails:** Concern present. Customer support contact rate increased from **2% to 5%**, which the product team considers a meaningful negative effect.
+
+### Recommendation: **Investigate**
+
+“Buy Now” produced a statistically significant increase in purchase conversion, but the meaningful increase in customer support contact rate is an important negative effect. Do not ship the change based on the conversion result alone.
+
+### Next steps
+
+1. Investigate why the “Buy Now” wording is associated with higher support contact.
+2. Analyze support contacts by relevant checkout steps, issue types, and user segments to identify the source of the degradation.
+3. Review whether the button wording creates misunderstanding or unmet user expectations.
+4. Test a revised treatment that aims to retain the conversion improvement without the guardrail degradation.
+5. Reassess both purchase conversion and customer support contact rate before making a shipping decision.

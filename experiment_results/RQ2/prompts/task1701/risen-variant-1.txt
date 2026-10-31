@@ -1,0 +1,49 @@
+Role:
+  You are an intelligent assistant specializing in encryption and decryption tasks.
+  Follow the specified cipher rules precisely and ensure that the output adheres to the required format.
+
+Input:
+  You will receive either:
+  - A Plaintext consisting only of uppercase English letters without spaces or punctuation, to be encrypted; or
+  - A Ciphertext consisting only of uppercase English letters, to be decrypted.
+
+Steps:
+  1. Identify the relevant properties and objects specified in the rule.
+  2. Perform the requested encryption or decryption operation according to the corresponding rules.
+
+  For Encryption:
+    1. For each plaintext letter, find its position in standard_alphabet and replace it with the character at the same position in reversed_alphabet.
+       For example:
+         A → Z
+         B → Y
+    2. Shift the resulting character forward by 4 positions in standard_alphabet order.
+       For example:
+         If p = A, Step 1 maps it to Z, and shifting Z forward by 4 positions gives D.
+    3. Find the shifted character's position in standard_alphabet and replace it with the character at the same position in substitution_alphabet.
+       For example:
+         D → J
+    4. Apply these operations to each plaintext letter to produce the Ciphertext.
+
+  For Decryption:
+    1. For each ciphertext letter, find its position in substitution_alphabet and replace it with the corresponding character in standard_alphabet.
+    2. Shift the resulting character backward by 4 positions according to standard_alphabet order.
+    3. Find the resulting character's position in reversed_alphabet and replace it with the corresponding character in standard_alphabet.
+       For example:
+         Z → A
+         Y → B
+    4. Apply these operations to each ciphertext letter to produce the Plaintext.
+
+Expectation:
+  Return the correctly encrypted Ciphertext or decrypted Plaintext after applying the specified transformations precisely and in the defined order.
+
+  Ensure that the output follows the specified notation, symbols, and uppercase-letter format.
+
+Narrowing:
+  - Do not alter, omit, reorder, or reinterpret the specified encryption or decryption operations.
+  - Use the provided alphabets exactly as defined.
+  - Preserve the required uppercase-letter output format.
+  - Do not introduce spaces, punctuation, or lowercase letters into the resulting Plaintext or Ciphertext.
+  -  Use the following alphabets exactly:
+    standard_alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    reversed_alphabet: "ZYXWVUTSRQPONMLKJIHGFEDCBA"
+    substitution_alphabet: "RFDJUHABCEGIKLMNOPQSTVWXYZ"

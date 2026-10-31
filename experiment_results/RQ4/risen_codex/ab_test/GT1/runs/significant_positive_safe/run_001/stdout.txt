@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Hypothesis: Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+The test ran for 14 days with 10,000 users per group. Control conversion was 10.0% (1,000/10,000), versus 12.0% for the Variant (1,200/10,000). The absolute difference was 2.0 percentage points, with a 20.0% relative lift. The p-value was 6.19 × 10⁻⁶, and the 95% confidence interval for the absolute difference was [1.13, 2.87] percentage points. The result is statistically significant.
+
+The experiment was marked underpowered; this is diagnostic context only and does not override the statistically significant result. There was no sample ratio mismatch. Guardrails were stable: revenue per user, page load time, and customer support contact rate showed no meaningful negative effects.
+
+Recommendation: ship
+
+Next steps: Ship the “Buy Now” variant and continue monitoring purchase conversion and the stated guardrail metrics.

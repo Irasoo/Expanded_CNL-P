@@ -1,0 +1,44 @@
+==================== AGENT OUTPUT ====================
+Please provide either a complete GitHub Repository URL or an explicit owner/repository identifier, such as octocat/Hello-World. Once the repository is identified, I can summarize its public project information, analyze recently updated open Issues while stating the actual analysis scope, and provide guidance about the latest official Release and its assets. I will read GitHub information only and will not download, create, install, extract, or execute any files.
+Please provide a complete GitHub Repository URL or an explicit owner/repository identifier (for example, owner/repository).
+
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+`sharkdp/bat` is a Rust-based command-line utility described as “a `cat(1)` clone with wings.” It displays or concatenates files and standard input while adding syntax highlighting, Git change markers, line numbers, headers, non-printable-character visualization, configurable output styles, and automatic paging. It can fall back to plain output when redirected, making it suitable as a mostly drop-in `cat` replacement. Typical uses include inspecting source code and markup, previewing files in tools such as `fzf`, displaying search or Git output, monitoring logs, colorizing manual pages and help text, and embedding its pretty-printing capabilities in Rust applications.
+
+The project is intended primarily for developers, terminal users, and command-line tool authors. Its main executable entry point is `bat`, although some older Debian and Ubuntu packages install it as `batcat`. Installation is available through package managers on major Linux distributions, macOS, Windows, and BSD systems; maintainers also publish prebuilt binaries. Source installation uses Cargo, either with `cargo install --locked bat` or `cargo install --path . --locked`, and requires Rust 1.79.0 or newer. Windows users additionally need the Visual C++ Redistributable.
+
+The repository is not archived, identifies four maintainers, provides contribution and security documentation, and was recently updated according to the supplied metadata, so it appears maintained; no specific release cadence or support commitment is established by this overview. GitHub metadata lists Apache-2.0, while the README more specifically states that users may choose either MIT or Apache License 2.0.
+
+Important limitations include incomplete automatic language detection for standard input unless its first line provides a useful clue, imperfect handling of embedded ANSI or control sequences unless stripping or sanitization is enabled, native support limited to UTF-8 and UTF-16 encodings, and best visual results requiring a correctly detected truecolor terminal or an appropriate 8-bit theme. Automatic paging can differ from traditional `cat` behavior, custom themes must use the older `.tmTheme` format, source installation does not automatically install man pages or shell completions, and the bundled man-page syntax still needs work. Windows may require a separate pager, older Windows terminals and `less` versions have color limitations, and native Windows builds do not directly understand Cygwin-style absolute paths. Snap packages are not officially recommended or supported.
+Would you like an analysis of recently updated open Issues? (yes/no)
+
+
+==================== USER INPUT 2/4 ====================
+yes
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official public Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Enter the Release analysis request in one of these exact formats:
+- overview
+- asset_match;operating_system;architecture;package_preference
+For asset_match, operating_system must be windows, macos, linux, or other; architecture must be x64, arm64, or unknown; and package_preference must be installer, portable, archive, or any. Use lowercase values and semicolons, not JSON.
+
+
+==================== USER INPUT 4/4 ====================
+asset_match;windows;x64;archive
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================

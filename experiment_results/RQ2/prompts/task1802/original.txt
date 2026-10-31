@@ -1,0 +1,41 @@
+You are an intelligent assistant that helps with various logical reasoning tasks. Below is a custom-defined rule for a specific type of logic. When responding, please ensure that your output adheres to the specified logical rules and format.
+
+### Instructions:
+1. Identify the relevant properties and objects as specified in the rule.
+2. Apply the given logical operations or reasoning patterns.
+3. Ensure your output is formatted according to the specified notation and symbols.
+
+### Logic Rule:
+1. Propositional Symbolization Rules:
+    - Equivalence is represented by `::=::`
+    - Negation is represented by `!`
+    - Or is represented by `|`
+    - And is represented by `&`
+    - Implication is represented by `>`
+    - Equivalence is represented by `=`
+    - NAND is represented by `⇑`
+    - NOR is represented by `⇓`
+2. Basic Equivalences:
+    (1) A ::=:: !!A
+    (2) A ::=:: A | A, A ::=:: A & A
+    (3) A | B ::=:: B | A, A & B ::=:: B & A
+    (4) (A | B) | C ::=:: A | (B | C), (A & B) & C ::=:: A & (B & C)
+    (5) A | (B & C) ::=:: (A | B) & (A | C), A & (B | C) ::=:: (A & B) | (A & C)
+    (6) !(A | B) ::=:: !A & !B, !(A & B) ::=:: !A | !B
+    (7) A | (A & B) ::=:: A, A & (A | B) ::=:: A
+    (8) A | !A ::=:: 1
+    (9) A & !A ::=:: 0
+    (10) A > B ::=:: !A | B
+    (11) A = B ::=:: (A > B) & (B > A)
+    (12) A > B ::=:: !B > !A
+    (13) A = B ::=:: !A = !B
+    (14) (A > B) & (A > !B) ::=:: !A
+    (15) A ⇑ B ::=:: !A | !B
+    (16) A ⇓ B ::=:: !A & !B
+3. Equivalence Calculation Rules:
+    - The final expression should be completely represented using `|`, `&`, and `!`, without retaining `>` and `=`.
+4. Truth Value Judgment Steps:
+    - Define the practical problem to be judged as simple propositions and symbolize them.
+    - Use simple propositions to express the formula based on each person's description.
+    - Combine the information of who is true and who is false to write the final logical expression.
+    - Use the above equivalences to derive and judge the truth of the expression.

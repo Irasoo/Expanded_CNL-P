@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## A/B Test Analysis — Checkout Button Positive Test
+
+- **Hypothesis:** Changing the checkout button text from **“Continue”** to **“Buy Now”** will increase purchase conversion rate.
+- **Duration:** 14.0 days.
+- **Sample sizes:** Control: 10,000 users; Variant: 10,000 users.
+- **Conversion rates:** Control (“Continue”): **10.0%** (1,000/10,000); Variant (“Buy Now”): **12.0%** (1,200/10,000).
+- **Effect:** Absolute difference **0.01999999999999999** (approximately **2.000 percentage points**); relative lift **0.1999999999999999** (approximately **20.0%**).
+- **Statistical result:** **p = 6.188458781738804 × 10⁻⁶**. The result is statistically significant. The 95% confidence interval for the absolute difference is **[0.011331728284555377, 0.0286682717154446]**—approximately **[1.133%, 2.867%]**.
+- **Power status:** **Underpowered**. This is diagnostic and must not override the statistically significant result.
+- **Sample-ratio mismatch:** **None detected** (`false`); traffic was split 50%/50%.
+- **Guardrails:** No concern reported. Revenue per user, page load time, and customer support contact rate were stable, with no meaningful negative effects observed.
+
+**Recommendation: Ship.** The variant produced a statistically significant positive conversion result, had no reported guardrail concerns, and no sample-ratio mismatch was detected. The authoritative outcome is **`significant_positive_safe`**.
+
+**Next steps:** Ship **“Buy Now”** and continue checking purchase conversion and the listed guardrail metrics.

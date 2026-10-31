@@ -1,0 +1,60 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics or concerns. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The Control used the old button, and the Variant used the new button. The test ran for 7 days with a planned 50%/50% traffic split.
+
+**Results:**
+- Control: 1,000 users, 100 conversions, **10.0% conversion rate**
+- Variant: 1,000 users, 110 conversions, **11.0% conversion rate**
+- Absolute difference: **+1.0 percentage point**
+- Relative lift: **+10.0%**
+- Two-sided p-value: **0.4657**
+- 95% confidence interval for the difference: **-1.69 to +3.69 percentage points**
+- Statistical significance: **No**. The p-value is above the 0.05 threshold, and the confidence interval includes no difference.
+- Power status: **Underpowered** relative to the provided 1 percentage point minimum detectable effect and the 80% power criterion. This is diagnostic and does not independently determine the decision.
+- Sample ratio mismatch: **None detected**. The observed sample allocation matches the planned split.
+- Guardrails: **No concern reported**. No meaningful negative effects were observed.
+
+**Recommendation: Extend the experiment.**
+
+The Variant showed a positive observed lift, but the result is not statistically conclusive and is consistent with a range from a decrease to a larger increase. The experiment is valid with respect to sample allocation, and no guardrail concerns were reported. Continue the test with sufficient additional traffic to improve statistical power, while monitoring purchase conversion and guardrails. Reassess the decision when the extended results are available.

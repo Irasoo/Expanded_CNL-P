@@ -1,0 +1,66 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please use aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The experiment ran for **14 days**, with **12,000 users in Control** and **8,000 in Variant**.
+
+**Statistical findings**
+- Control conversion rate: **10.0%**
+- Variant conversion rate: **10.0%**
+- Absolute difference: **0.0 percentage points**
+- Relative lift: **0.0%**
+- Two-sided p-value: **1.0**
+- 95% confidence interval for the absolute difference: **-0.849 to +0.849 percentage points**
+- Statistical significance: **Not significant**
+- Power status for the specified **1 percentage-point MDE**: **Underpowered**
+
+**Experiment validity:** A **sample ratio mismatch was detected**. Despite the intended 50/50 allocation, the observed samples were 12,000 Control and 8,000 Variant. Because SRM is present, the experiment is inconclusive regardless of the observed effect.
+
+**Guardrails:** No guardrail concern was reported; no meaningful negative effects were observed.
+
+**Recommendation: Undetermined.** Do not use this result to ship or reject the new button. The observed conversion rates are identical and provide no evidence of improvement, but the SRM invalidates a definitive interpretation. The underpowered status further limits sensitivity to the specified MDE, though it does not change the non-significant result.
+
+**Next steps**
+1. Investigate the SRM, including traffic assignment, eligibility rules, exposure logging, exclusions, and conversion attribution by group.
+2. Resolve any allocation or instrumentation issue before drawing a product conclusion.
+3. Rerun or extend the experiment with valid allocation and adequate sample size for 80% power at the 1 percentage-point MDE.
+4. Continue monitoring the existing guardrails during the follow-up test.

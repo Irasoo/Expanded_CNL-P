@@ -1,0 +1,393 @@
+from __future__ import annotations
+
+from collections.abc import Callable
+from typing import Any
+
+from langgraph.graph import END, START, StateGraph
+from typing_extensions import TypedDict
+
+from .commands import (
+    internalcommsdispatcher__command1,
+    internalcommsdispatcher__command2,
+    internalcommsdispatcher__command3,
+    internalcommsdispatcher__command4,
+    internalcommsdispatcher__command5,
+    internalcommsdispatcher__command6,
+    threepwriter__command7,
+    threepwriter__command8,
+    threepwriter__command9,
+    threepwriter__command10,
+    newsletterwriter__command11,
+    newsletterwriter__command12,
+    newsletterwriter__command13,
+    faqwriter__command14,
+    faqwriter__command15,
+    faqwriter__command16,
+    generalcommswriter__command17,
+    generalcommswriter__command18,
+    generalcommswriter__command19,
+    generalcommswriter__command20,
+)
+from .predicates import (
+    predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch1_1,
+    predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch2_2,
+    predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch3_3,
+    predicate_workers_InternalCommsDispatcher_exception_flow1_4,
+)
+from .model import AgentState
+from .utils import OpenAIClient
+
+
+class WorkflowState(TypedDict):
+    agent_state: AgentState
+    llm_client: OpenAIClient
+
+
+COMMAND_FUNCTIONS: dict[str, Callable] = {
+    'internalcommsdispatcher__command1': internalcommsdispatcher__command1,
+    'internalcommsdispatcher__command2': internalcommsdispatcher__command2,
+    'internalcommsdispatcher__command3': internalcommsdispatcher__command3,
+    'internalcommsdispatcher__command4': internalcommsdispatcher__command4,
+    'internalcommsdispatcher__command5': internalcommsdispatcher__command5,
+    'internalcommsdispatcher__command6': internalcommsdispatcher__command6,
+    'threepwriter__command7': threepwriter__command7,
+    'threepwriter__command8': threepwriter__command8,
+    'threepwriter__command9': threepwriter__command9,
+    'threepwriter__command10': threepwriter__command10,
+    'newsletterwriter__command11': newsletterwriter__command11,
+    'newsletterwriter__command12': newsletterwriter__command12,
+    'newsletterwriter__command13': newsletterwriter__command13,
+    'faqwriter__command14': faqwriter__command14,
+    'faqwriter__command15': faqwriter__command15,
+    'faqwriter__command16': faqwriter__command16,
+    'generalcommswriter__command17': generalcommswriter__command17,
+    'generalcommswriter__command18': generalcommswriter__command18,
+    'generalcommswriter__command19': generalcommswriter__command19,
+    'generalcommswriter__command20': generalcommswriter__command20,
+}
+
+PREDICATE_FUNCTIONS: dict[str, Callable] = {
+    'predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch1_1': predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch1_1,
+    'predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch2_2': predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch2_2,
+    'predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch3_3': predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch3_3,
+    'predicate_workers_InternalCommsDispatcher_exception_flow1_4': predicate_workers_InternalCommsDispatcher_exception_flow1_4,
+}
+
+WORKER_GRAPH_SPECS = {
+    "InternalCommsDispatcher": {
+        "entry": "internalcommsdispatcher__command1",
+        "nodes": {
+            "internalcommsdispatcher__command6": {
+                "kind": "command",
+                "function": "internalcommsdispatcher__command6"
+            },
+            "internalcommsdispatcher__decision_1": {
+                "kind": "decision"
+            },
+            "internalcommsdispatcher__command2": {
+                "kind": "command",
+                "function": "internalcommsdispatcher__command2"
+            },
+            "internalcommsdispatcher__command3": {
+                "kind": "command",
+                "function": "internalcommsdispatcher__command3"
+            },
+            "internalcommsdispatcher__command4": {
+                "kind": "command",
+                "function": "internalcommsdispatcher__command4"
+            },
+            "internalcommsdispatcher__command5": {
+                "kind": "command",
+                "function": "internalcommsdispatcher__command5"
+            },
+            "internalcommsdispatcher__command1": {
+                "kind": "command",
+                "function": "internalcommsdispatcher__command1"
+            }
+        },
+        "routes": {
+            "internalcommsdispatcher__command6": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "internalcommsdispatcher__command2": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "internalcommsdispatcher__command3": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "internalcommsdispatcher__command4": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "internalcommsdispatcher__command5": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "internalcommsdispatcher__decision_1": {
+                "kind": "predicate",
+                "choices": [
+                    {
+                        "predicate": "predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch1_1",
+                        "target": "internalcommsdispatcher__command2"
+                    },
+                    {
+                        "predicate": "predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch2_2",
+                        "target": "internalcommsdispatcher__command3"
+                    },
+                    {
+                        "predicate": "predicate_workers_InternalCommsDispatcher_main_flow_if_block1_if_branch3_3",
+                        "target": "internalcommsdispatcher__command4"
+                    }
+                ],
+                "default": "internalcommsdispatcher__command5"
+            },
+            "internalcommsdispatcher__command1": {
+                "kind": "predicate",
+                "choices": [
+                    {
+                        "predicate": "predicate_workers_InternalCommsDispatcher_exception_flow1_4",
+                        "target": "internalcommsdispatcher__command6"
+                    }
+                ],
+                "default": "internalcommsdispatcher__decision_1"
+            }
+        }
+    },
+    "ThreePWriter": {
+        "entry": "threepwriter__command7",
+        "nodes": {
+            "threepwriter__command10": {
+                "kind": "command",
+                "function": "threepwriter__command10"
+            },
+            "threepwriter__command9": {
+                "kind": "command",
+                "function": "threepwriter__command9"
+            },
+            "threepwriter__command8": {
+                "kind": "command",
+                "function": "threepwriter__command8"
+            },
+            "threepwriter__command7": {
+                "kind": "command",
+                "function": "threepwriter__command7"
+            }
+        },
+        "routes": {
+            "threepwriter__command10": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "threepwriter__command9": {
+                "kind": "direct",
+                "target": "threepwriter__command10"
+            },
+            "threepwriter__command8": {
+                "kind": "direct",
+                "target": "threepwriter__command9"
+            },
+            "threepwriter__command7": {
+                "kind": "direct",
+                "target": "threepwriter__command8"
+            }
+        }
+    },
+    "NewsletterWriter": {
+        "entry": "newsletterwriter__command11",
+        "nodes": {
+            "newsletterwriter__command13": {
+                "kind": "command",
+                "function": "newsletterwriter__command13"
+            },
+            "newsletterwriter__command12": {
+                "kind": "command",
+                "function": "newsletterwriter__command12"
+            },
+            "newsletterwriter__command11": {
+                "kind": "command",
+                "function": "newsletterwriter__command11"
+            }
+        },
+        "routes": {
+            "newsletterwriter__command13": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "newsletterwriter__command12": {
+                "kind": "direct",
+                "target": "newsletterwriter__command13"
+            },
+            "newsletterwriter__command11": {
+                "kind": "direct",
+                "target": "newsletterwriter__command12"
+            }
+        }
+    },
+    "FAQWriter": {
+        "entry": "faqwriter__command14",
+        "nodes": {
+            "faqwriter__command16": {
+                "kind": "command",
+                "function": "faqwriter__command16"
+            },
+            "faqwriter__command15": {
+                "kind": "command",
+                "function": "faqwriter__command15"
+            },
+            "faqwriter__command14": {
+                "kind": "command",
+                "function": "faqwriter__command14"
+            }
+        },
+        "routes": {
+            "faqwriter__command16": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "faqwriter__command15": {
+                "kind": "direct",
+                "target": "faqwriter__command16"
+            },
+            "faqwriter__command14": {
+                "kind": "direct",
+                "target": "faqwriter__command15"
+            }
+        }
+    },
+    "GeneralCommsWriter": {
+        "entry": "generalcommswriter__command17",
+        "nodes": {
+            "generalcommswriter__command20": {
+                "kind": "command",
+                "function": "generalcommswriter__command20"
+            },
+            "generalcommswriter__command19": {
+                "kind": "command",
+                "function": "generalcommswriter__command19"
+            },
+            "generalcommswriter__command18": {
+                "kind": "command",
+                "function": "generalcommswriter__command18"
+            },
+            "generalcommswriter__command17": {
+                "kind": "command",
+                "function": "generalcommswriter__command17"
+            }
+        },
+        "routes": {
+            "generalcommswriter__command20": {
+                "kind": "direct",
+                "target": "__end__"
+            },
+            "generalcommswriter__command19": {
+                "kind": "direct",
+                "target": "generalcommswriter__command20"
+            },
+            "generalcommswriter__command18": {
+                "kind": "direct",
+                "target": "generalcommswriter__command19"
+            },
+            "generalcommswriter__command17": {
+                "kind": "direct",
+                "target": "generalcommswriter__command18"
+            }
+        }
+    }
+}
+_COMPILED_WORKER_GRAPHS: dict[str, Any] | None = None
+
+
+def _command_node(command: Callable) -> Callable:
+    def run(graph_state: WorkflowState) -> dict[str, object]:
+        command(
+            graph_state["agent_state"],
+            graph_state["llm_client"],
+        )
+        return {}
+    return run
+
+
+def _decision_node(graph_state: WorkflowState) -> dict[str, object]:
+    return {}
+
+
+def _predicate_router(route: dict[str, Any]) -> Callable:
+    def choose(graph_state: WorkflowState) -> str:
+        for choice in route["choices"]:
+            predicate = PREDICATE_FUNCTIONS[choice["predicate"]]
+            if predicate(
+                graph_state["agent_state"],
+                graph_state["llm_client"],
+            ):
+                return choice["target"]
+        return route["default"]
+    return choose
+
+
+def _compile_worker_graph(worker_name: str, spec: dict[str, Any]):
+    builder = StateGraph(WorkflowState)
+    for node_name, node_spec in spec["nodes"].items():
+        if node_spec["kind"] == "command":
+            node = _command_node(
+                COMMAND_FUNCTIONS[node_spec["function"]]
+            )
+        else:
+            node = _decision_node
+        builder.add_node(node_name, node)
+
+    entry = spec["entry"]
+    builder.add_edge(START, END if entry == "__end__" else entry)
+    for source, route in spec["routes"].items():
+        if route["kind"] == "direct":
+            target = route["target"]
+            builder.add_edge(
+                source,
+                END if target == "__end__" else target,
+            )
+            continue
+        destinations = {
+            choice["target"] for choice in route["choices"]
+        }
+        destinations.add(route["default"])
+        path_map = {
+            destination: (
+                END if destination == "__end__" else destination
+            )
+            for destination in destinations
+        }
+        builder.add_conditional_edges(
+            source,
+            _predicate_router(route),
+            path_map=path_map,
+        )
+    return builder.compile(name=worker_name)
+
+
+def get_worker_graphs() -> dict[str, Any]:
+    global _COMPILED_WORKER_GRAPHS
+    if _COMPILED_WORKER_GRAPHS is None:
+        _COMPILED_WORKER_GRAPHS = {
+            worker_name: _compile_worker_graph(worker_name, spec)
+            for worker_name, spec in WORKER_GRAPH_SPECS.items()
+        }
+    return _COMPILED_WORKER_GRAPHS
+
+
+def invoke_worker(
+    worker_name: str,
+    *,
+    agent_state: AgentState,
+    llm_client: OpenAIClient,
+) -> AgentState:
+    try:
+        graph = get_worker_graphs()[worker_name]
+    except KeyError as exc:
+        raise ValueError(f"Unknown Worker: {worker_name!r}.") from exc
+    graph.invoke(
+        {"agent_state": agent_state, "llm_client": llm_client},
+        {"recursion_limit": 1000},
+    )
+    return agent_state

@@ -1,0 +1,63 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect if available, and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment validity:** The test ran for 14 days with the planned 50%/50% allocation: 20,000 users in Control and 20,000 in Variant. No sample ratio mismatch was detected. Sample size was adequate for the stated 1 percentage-point minimum detectable effect.
+
+**Primary metric results:**
+- Control: 2,000 / 20,000 conversions, 10.0% conversion rate
+- Variant: 2,000 / 20,000 conversions, 10.0% conversion rate
+- Absolute difference: 0.0 percentage points
+- Relative lift: 0.0%
+- Two-sided p-value: 1.00
+- 95% confidence interval for the absolute difference: -0.588 to +0.588 percentage points
+- Statistical significance: No. The p-value is not below 0.05.
+
+**Guardrails:** No meaningful negative effects were reported, so there is no identified guardrail concern.
+
+**Recommendation: Stop.**
+
+The Variant showed no observed improvement in purchase conversion, and the result is not statistically significant. The confidence interval includes both a modest decrease and a modest increase, while excluding an improvement as large as the stated 1 percentage-point minimum detectable effect. With adequate power, balanced allocation, no SRM, and no guardrail concern, this is a valid flat result rather than an inconclusive instrumentation or allocation issue.
+
+**Next steps:** Do not ship the new button based on a conversion-improvement claim. Retain the current button or use other non-experiment evidence to decide between designs. Any future checkout iteration should test a materially different change with a clearly defined expected conversion impact.

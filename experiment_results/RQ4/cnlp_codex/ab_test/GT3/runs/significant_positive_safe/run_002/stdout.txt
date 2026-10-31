@@ -1,0 +1,86 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+A/B Test Analysis: Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+Experiment details:
+- Duration: 14 days. Duration alone does not establish experiment maturity.
+- Control: 10,000 users, 1,000 successful conversions
+- Variant: 10,000 users, 1,200 successful conversions
+- Allocation: 50% control / 50% variant
+- Sample ratio mismatch: No
+
+Primary metric results:
+- Control conversion rate: 10.00%
+- Variant conversion rate: 12.00%
+- Absolute difference: +2.00 percentage points
+- Relative lift: +20.00%
+- p-value: 0.00000619
+- 95% confidence interval for the absolute difference: [+1.13, +2.87] percentage points
+
+Statistical assessment:
+- The result is statistically significant.
+- The confidence interval is entirely above zero, supporting a positive effect from the variant.
+- Power status: Underpowered. This is diagnostic/supporting detail and must not override the statistically significant result.
+
+Guardrails:
+- Revenue per user was stable.
+- Page load time was stable.
+- Customer support contact rate was stable.
+- No meaningful negative effects were observed.
+- Guardrail concern: No.
+
+Recommendation: ship
+
+Reasoning:
+The “Buy Now” variant increased purchase conversion from 10.00% to 12.00%, a 20.00% relative lift. The result is statistically significant, the confidence interval indicates a positive effect, allocation was balanced, and no guardrail concerns were reported.
+
+Next steps:
+- Ship the variant.
+- Continue monitoring purchase conversion and the reported guardrail metrics after launch.
+- Consider a follow-up or extended evaluation if additional confidence is needed because the reported power status is underpowered.

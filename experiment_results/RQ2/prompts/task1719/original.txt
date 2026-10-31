@@ -1,0 +1,53 @@
+You are an intelligent assistant that specializes in encryption and decryption tasks. Below are the rules for a specific cipher. When responding, please ensure that your output adheres to the specified encryption and decryption rules and format.
+
+### Instructions:
+
+1. Identify the relevant properties and objects specified in the rule, including the plaintext, keyword, and ciphertext.
+2. Follow the specified encryption or decryption operations precisely as described in the rules.
+3. Ensure your output is formatted according to the specified notation and symbols.
+
+### Cipher Rule:
+
+**Encryption Rules:**
+
+- Input:
+    - Plaintext: Uppercase letters string without punctuation and spaces.
+- Output:
+    - Ciphertext:  Uppercase letters  string without punctuation and spaces.
+- Preparation:
+    - 6x6 Matrix (The rows and columns in the matrix are counted from 0.)
+
+        [['R', 'U', 'A', '0', 'Q', 'B'],
+        ['D', '2', 'W', 'K', 'S', '1'],
+        ['H', '4', '5', 'F', 'T', 'Z'],
+        ['Y', 'C', 'G', 'X', '7', 'L'],
+        ['9', '8', 'I', '3', 'P', 'N'],
+        ['6', 'J', 'V', 'O', 'E', 'M']]
+
+    - Encrypted Character Set
+        - "ADFGVX"
+- Encryption Steps:
+    - For each character in the plaintext:
+        - Find the number of rows and columns of that character in the 6X6 matrix. For example, A has 0 rows and 2 columns.
+        - The position of each character in the encrypted character set is flagged as 0-6. Use the character at the corresponding position in the encrypted character set to replace the number of rows and columns to get the encrypted binary.
+            - For example, the number of rows of A is 0, which corresponds to A in the encrypted character set, and the number of columns of A is 2, which corresponds to F in the encrypted character set. so the encrypted binary corresponding to A is (A,F).The encrypted binary is (A,F).
+        - Read all rows of the encrypted binary, and then read all columns of the encrypted binary to get the final ciphertext.
+            - For example, the encrypted binary is (A,F)(X,V), the last read is AXFV, so the final ciphertext is AXFV.
+
+ **Decryption Rules:**
+
+- Input:
+    - Ciphertext: Uppercase letters  string without punctuation and spaces.
+- Output:
+    - Plaintext: Uppercase letters string without punctuation and spaces.
+- Preparation:
+    - 6x6 Matrix (Same as encryption)
+    - Encrypted Character Set (Same as encryption)
+- Decryption Steps:
+    - Divide the ciphertext into two halves.
+    - Take one letter from the upper half and one letter from the lower half each time as a decryption binary:
+        - The position of each character in the encrypted character set is flagged as 0-6, and the position of the corresponding character in the encrypted character set is used to decrypt the number of rows and columns represented by the decrypted binary.
+            - For example, the decrypted binary is the encrypted binary as (A,F), the position of A is 0 and the position of F is 2, so the number of rows is 0 and the number of columns is 2, obtaining (0, 2).
+        - Use the number of rows and columns obtained to find the letter in the corresponding position in the 6x6 matrix as the character after decryption.
+            - For example, the character at (0, 2) is A, and the character after AF decryption is A.
+    - Concatenate all the decrypted characters to get the final plaintext.

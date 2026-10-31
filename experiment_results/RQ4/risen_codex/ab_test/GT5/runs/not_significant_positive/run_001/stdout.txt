@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Test duration: 7 days. Control: 1,000 users; 100 successes; 10.0% conversion. Variant: 1,000 users; 110 successes; 11.0% conversion.
+
+Result: Absolute difference was 1.0 percentage point, with a 10.0% relative lift. The p-value was 0.4657, and the 95% confidence interval for the difference was -1.69 to 3.69 percentage points. The result was not statistically significant.
+
+Power status: Underpowered. This is diagnostic only and must not override the significance result; the current evidence does not establish that the observed lift is real. Sample-ratio mismatch: None detected; traffic shares were 50% control and 50% variant.
+
+Guardrails: No meaningful negative effects were observed; no guardrail concern was reported. No metric was reported as unavailable.
+
+Recommendation: extend.
+
+Reasoning: The variant showed a positive observed lift, but the result was not statistically significant and the confidence interval includes both a negative effect and a positive effect. Extending the test can provide more evidence while continuing to monitor purchase conversion rate and guardrails.
+
+Practical next steps: Extend the experiment, continue measuring the same primary metric for both variants, and continue monitoring guardrails. Reassess the conversion-rate difference, confidence interval, p-value, and significance after the extension.

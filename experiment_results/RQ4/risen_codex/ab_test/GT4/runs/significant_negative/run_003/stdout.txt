@@ -1,0 +1,57 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Test setup:** 14 days. Control: 10,000 users, 10.0% conversion. Variant: 10,000 users, 8.0% conversion.
+
+**Result:** Absolute difference was **-2.0 percentage points**; relative lift was **-20.0%**. The p-value was **7.75 × 10⁻⁷**, with a 95% confidence interval of **[-2.79, -1.21] percentage points**. The result was **statistically significant** and negative.
+
+**Power and allocation:** Power status was **underpowered**. This status is diagnostic and does not override the statistically significant result. Sample-ratio mismatch was **false**; if a sample-ratio mismatch were true, the experiment would be inconclusive.
+
+**Guardrails:** No additional meaningful negative guardrail effects were observed, and `guardrail_concern` was false.
+
+**Recommendation:** `dont_ship`
+
+**Reasoning:** The variant’s purchase conversion rate was lower than control, and the statistically significant confidence interval remained below zero. Guardrails did not show additional meaningful negative effects, but the primary metric result supports the recommendation.
+
+**Next steps:** Follow the recommendation to `dont_ship`; no sample-ratio mismatch is indicated by the supplied results.

@@ -1,0 +1,51 @@
+{
+  "instrumentation": {
+    "openai_sdk_available": true,
+    "patched_interfaces": [
+      "Responses.create",
+      "Completions.create",
+      "AsyncResponses.create",
+      "AsyncCompletions.create"
+    ],
+    "persistence_error": null
+  },
+  "request_count": 2,
+  "successful_request_count": 2,
+  "failed_request_count": 0,
+  "requests_without_usage_count": 0,
+  "total": {
+    "input_tokens": 21563,
+    "cached_input_tokens": 18944,
+    "output_tokens": 482,
+    "reasoning_tokens": 113,
+    "total_tokens": 22045
+  },
+  "calls": [
+    {
+      "request_index": 1,
+      "request_type": "responses",
+      "model": "gpt-5.6-sol",
+      "status": "succeeded",
+      "usage": {
+        "input_tokens": 15572,
+        "cached_input_tokens": 15104,
+        "output_tokens": 466,
+        "reasoning_tokens": 104,
+        "total_tokens": 16038
+      }
+    },
+    {
+      "request_index": 2,
+      "request_type": "responses",
+      "model": "gpt-5.6-sol",
+      "status": "succeeded",
+      "usage": {
+        "input_tokens": 5991,
+        "cached_input_tokens": 3840,
+        "output_tokens": 16,
+        "reasoning_tokens": 9,
+        "total_tokens": 6007
+      }
+    }
+  ]
+}

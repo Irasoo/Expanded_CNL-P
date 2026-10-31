@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Test: Checkout Small Positive Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate. The control uses the old button; the variant uses the new button.
+
+Duration and sample: 7 days. Control: 1,000 users and 100 successes. Variant: 1,000 users and 110 successes. Traffic was split 50%/50%, with no sample ratio mismatch.
+
+Results:
+- Control conversion rate: 10.0%
+- Variant conversion rate: 11.0%
+- Absolute difference: +1.0 percentage point
+- Relative lift: +10.0%
+- p-value: 0.4657
+- 95% confidence interval for the difference: -1.69 to +3.69 percentage points
+
+Statistical assessment: The result is not statistically significant. The confidence interval includes zero. The test is underpowered, which is a diagnostic limitation indicating that the available data may be insufficient to reliably detect an effect; it does not override the lack of statistical significance.
+
+Guardrails: No meaningful negative effects were observed, and there is no guardrail concern.
+
+Recommendation: extend
+
+Reasoning: The variant showed a positive observed lift, but the result is not statistically significant and the test is underpowered.
+
+Next steps: Extend the test, continue monitoring purchase conversion rate and guardrails, and reassess the statistical result with the additional data.

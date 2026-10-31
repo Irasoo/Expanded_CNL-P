@@ -1,0 +1,46 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Small Positive Test evaluated whether the new checkout button increases purchase conversion. Over 7 days, Control had 100 conversions from 1,000 users (10.0%) and Variant had 110 from 1,000 (11.0%). The observed absolute improvement was 1.0 percentage point, or 10.0% relative lift.
+
+The two-sided p-value was 0.466, which is not statistically significant at the 0.05 threshold. The confidence interval for the absolute difference was -1.69 to +3.69 percentage points, so the data remains compatible with both a decrease and an increase in conversion. The test was underpowered against the 1 percentage-point minimum detectable effect. There was no sample ratio mismatch, so the observed 50/50 allocation does not indicate an experiment-validity issue. No meaningful negative guardrail effects were reported.
+
+Recommendation: Extend the experiment. The Variant's observed conversion rate is higher, but the evidence is insufficient to conclude that the new button improves purchase conversion. Continue collecting data, maintain the existing traffic allocation and guardrail monitoring, then re-evaluate the primary metric once the experiment has adequate power for the 1 percentage-point effect.

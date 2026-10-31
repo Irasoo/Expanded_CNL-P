@@ -1,0 +1,112 @@
+{
+  "status": "failed",
+  "generation_id": "20260817_033842",
+  "testing_id": "20260817_130711",
+  "case_name": "github_project_navigator",
+  "compilation_method": "langgraph",
+  "compilation_trial_index": 5,
+  "compilation_trial_count": 5,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\github_project_navigator\\branch_input_groups.yaml",
+    "sha256": "9f03dc746f1c9d4d4eb8f52ffc35da53d01aa8c36bbf05bd139ec07770e6131b"
+  },
+  "input_group_name": "issue_analysis",
+  "run_index": 3,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\github_project_navigator\\langgraph_5in5\\issue_analysis\\run_003\\attempts\\attempt_001",
+  "started_at": "2026-08-17T17:35:07.917564+00:00",
+  "finished_at": "2026-08-17T17:36:11.522027+00:00",
+  "duration_seconds": 63.594,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 3,
+  "consumed_input_count": 2,
+  "unused_input_count": 1,
+  "ended_before_all_inputs_consumed": true,
+  "input_exhausted": false,
+  "input_consumption_status": "ended_with_unused_inputs",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null
+    },
+    "request_count": 3,
+    "successful_request_count": 3,
+    "failed_request_count": 0,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 47819,
+      "cached_input_tokens": 14592,
+      "output_tokens": 2062,
+      "reasoning_tokens": 359,
+      "total_tokens": 49881
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 16194,
+          "cached_input_tokens": 4864,
+          "output_tokens": 486,
+          "reasoning_tokens": 51,
+          "total_tokens": 16680
+        }
+      },
+      {
+        "request_index": 2,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 6686,
+          "cached_input_tokens": 4864,
+          "output_tokens": 5,
+          "reasoning_tokens": 0,
+          "total_tokens": 6691
+        }
+      },
+      {
+        "request_index": 3,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 24939,
+          "cached_input_tokens": 4864,
+          "output_tokens": 1571,
+          "reasoning_tokens": 308,
+          "total_tokens": 26510
+        }
+      }
+    ]
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\github_project_navigator\\langgraph_5in5\\issue_analysis\\run_003\\attempts\\attempt_001\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "TypeError",
+    "message": "The runtime LLM must return a string for a non-string target",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\main.py\", line 18, in main\n    return invoke_worker(\n           ^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\workflow.py\", line 571, in invoke_worker\n    graph.invoke(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 3913, in invoke\n    for chunk in self.stream(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 2967, in stream\n    for _ in runner.tick(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_runner.py\", line 207, in tick\n    run_with_retry(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_retry.py\", line 617, in run_with_retry\n    return task.proc.invoke(task.input, config)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 684, in invoke\n    input = context.run(step.invoke, input, config, **kwargs)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 426, in invoke\n    ret = self.func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\workflow.py\", line 487, in run\n    command(\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\commands.py\", line 507, in projectnavigator__command11\n    invoke_worker(\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\workflow.py\", line 571, in invoke_worker\n    graph.invoke(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 3913, in invoke\n    for chunk in self.stream(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 2967, in stream\n    for _ in runner.tick(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_runner.py\", line 207, in tick\n    run_with_retry(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_retry.py\", line 617, in run_with_retry\n    return task.proc.invoke(task.input, config)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 684, in invoke\n    input = context.run(step.invoke, input, config, **kwargs)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 426, in invoke\n    ret = self.func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\workflow.py\", line 487, in run\n    command(\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_5in5\\agent.cnlp\\commands.py\", line 1098, in issueanalyzer__command24\n    raise TypeError(\"The runtime LLM must return a string for a non-string target\")\nTypeError: The runtime LLM must return a string for a non-string target\nDuring task with name 'issueanalyzer__command24' and id '7fe775be-f477-1b22-c48f-cfe4f973301f'\nDuring task with name 'projectnavigator__command11' and id 'b8977bb5-3d79-cf9f-08a5-27918139f22a'\n"
+  }
+}

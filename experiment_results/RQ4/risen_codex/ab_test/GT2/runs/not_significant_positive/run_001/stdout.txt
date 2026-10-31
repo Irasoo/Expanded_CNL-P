@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**假设**：新结账按钮将提高购买转化率（对照组使用旧按钮，实验组使用新按钮）。
+
+**实验概况**：持续 7 天；对照组样本量 1,000，实验组样本量 1,000。
+
+**结果**：对照组转化率为 10.0%，实验组为 11.0%；绝对差异为 +1.0 个百分点，相对提升为 +10.0%。p-value = 0.4657；95% 置信区间为 [-1.69, 3.69] 个百分点。
+
+**统计判断**：结果不具有统计显著性。功效状态为 underpowered（统计功效不足）；功效状态是诊断信息，不能推翻或替代显著性检验结论。样本比例失配（SRM）为否。
+
+**护栏指标**：无护栏担忧；已观察到无有意义的负面影响。
+
+**建议**：`extend`。
+
+**理由与下一步**：当前点估计为正，但置信区间跨过 0，尚不足以确认新按钮带来提升；同时实验被判定为功效不足。按 `extend` 延长实验并继续收集数据，随后重新评估主要指标、统计显著性、置信区间、功效状态及护栏指标。

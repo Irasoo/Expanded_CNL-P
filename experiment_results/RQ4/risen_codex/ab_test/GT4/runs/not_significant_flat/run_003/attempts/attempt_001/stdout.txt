@@ -1,0 +1,62 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Test details:** The test ran for 14 days. Control and variant each had 20,000 observations.
+
+**Results:**
+- Control conversion rate: 0.1 (10%)
+- Variant conversion rate: 0.1 (10%)
+- Absolute difference: 0.0
+- Relative lift: 0.0
+- p-value: 1.0
+- 95% confidence interval: [-0.005879891953620162, 0.005879891953620162]
+- Statistical significance: Not significant
+
+**Validity and guardrails:** Power status was **adequate**. Power is diagnostic and does not override the statistical-significance result. Sample-ratio mismatch was **false**; if a sample-ratio mismatch were true, the experiment would be inconclusive. No meaningful negative effects were observed, and there was no guardrail concern.
+
+**Recommendation:** stop
+
+**Reasoning:** Both groups had the same conversion rate, with zero absolute difference and zero relative lift; the p-value and confidence interval do not support a statistically significant improvement.
+
+**Next steps:** Stop the test and record the result as flat and not statistically significant.

@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please provide aggregated binary-conversion data only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Flat Test evaluated whether the new checkout button would increase purchase conversion rate versus the old button over 14 days.
+
+Control had 20,000 users and a 10.00% conversion rate (2,000 conversions). Variant had 20,000 users and a 10.00% conversion rate (2,000 conversions). The absolute difference was 0.00 percentage points, with 0.00% relative lift. The two-sided p-value was 1.00, and the confidence interval for the absolute difference was -0.588 to +0.588 percentage points. The result was not statistically significant.
+
+Power status was adequate for the provided 1 percentage point minimum detectable effect at the 80% power criterion. No sample ratio mismatch was detected: the observed allocation matched the expected 50%/50% split. No guardrail concern was reported; the supplied information states that no meaningful negative effects were observed.
+
+Recommendation: stop the experiment. The variant produced no observed improvement over control, and the statistical result provides no evidence that the new button increases purchase conversion rate. The absence of guardrail issues does not establish a benefit.
+
+Next steps: stop the current test and do not ship the variant based on this result. Review the checkout-button hypothesis and consider a materially different design or test idea before running a follow-up experiment. Retain the current control unless a separate product or business rationale supports changing it.

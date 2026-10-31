@@ -1,0 +1,100 @@
+{
+  "status": "failed",
+  "generation_id": "20260910_000226",
+  "testing_id": "20260910_005443",
+  "case_name": "creative_concept_refinement",
+  "compilation_method": "codex",
+  "compilation_trial_index": 1,
+  "compilation_trial_count": 1,
+  "compilation_trial_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\creative_concept_refinement\\codex_1in1",
+  "agent_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\creative_concept_refinement\\codex_1in1\\agent.nl",
+  "compilation_log_path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\creative_concept_refinement\\codex_1in1\\compilation_log.json",
+  "input_file": {
+    "path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\creative_concept_refinement\\branch_input_groups.yaml",
+    "sha256": "777e18d227258d762a4dd4c0a3b5d140f1be890623978015b723e3c8cda50dd7"
+  },
+  "input_group_name": "foldbrew_high_candidate",
+  "run_index": 2,
+  "run_count": 3,
+  "result_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\results\\20260910_000226\\20260910_005443\\creative_concept_refinement\\codex_1in1\\foldbrew_high_candidate\\run_002\\attempts\\attempt_001",
+  "started_at": "2026-09-09T17:21:13.177805+00:00",
+  "finished_at": "2026-09-09T17:22:27.339077+00:00",
+  "duration_seconds": 74.156,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 1,
+  "consumed_input_count": 1,
+  "unused_input_count": 0,
+  "ended_before_all_inputs_consumed": false,
+  "input_exhausted": false,
+  "input_consumption_status": "matched",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null,
+      "initialization_error": null
+    },
+    "request_count": 2,
+    "successful_request_count": 2,
+    "failed_request_count": 0,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 5348,
+      "cached_input_tokens": 3840,
+      "output_tokens": 1303,
+      "reasoning_tokens": 246,
+      "total_tokens": 6651
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 629,
+          "cached_input_tokens": 0,
+          "output_tokens": 240,
+          "reasoning_tokens": 16,
+          "total_tokens": 869
+        }
+      },
+      {
+        "request_index": 2,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 4719,
+          "cached_input_tokens": 3840,
+          "output_tokens": 1063,
+          "reasoning_tokens": 230,
+          "total_tokens": 5782
+        }
+      }
+    ]
+  },
+  "runtime_token_usage_file": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\results\\20260910_000226\\20260910_005443\\creative_concept_refinement\\codex_1in1\\foldbrew_high_candidate\\run_002\\attempts\\attempt_001\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "ValueError",
+    "message": "The language model returned an empty response.",
+    "traceback": "Traceback (most recent call last):\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\creative_concept_refinement\\codex_1in1\\agent.nl\\main.py\", line 458, in main\n    current_concept = generate_creative_concept(creative_brief)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\creative_concept_refinement\\codex_1in1\\agent.nl\\main.py\", line 225, in generate_creative_concept\n    concept = _ask_model(prompt).strip()\n              ^^^^^^^^^^^^^^^^^^\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\creative_concept_refinement\\codex_1in1\\agent.nl\\main.py\", line 171, in _ask_model\n    raise ValueError(\"The language model returned an empty response.\")\nValueError: The language model returned an empty response.\n"
+  }
+}

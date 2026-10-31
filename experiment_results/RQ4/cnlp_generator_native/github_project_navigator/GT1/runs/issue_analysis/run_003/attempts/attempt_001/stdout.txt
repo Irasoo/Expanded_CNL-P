@@ -1,0 +1,80 @@
+==================== AGENT OUTPUT ====================
+Please provide either a complete GitHub Repository URL (for example, https://github.com/owner/repository) or an explicit owner/repository identifier. I cannot guess the Repository from a vague description.
+
+For a public Repository, I can summarize project information from its metadata and README, analyze a limited sample of recently updated open Issues while stating the scope reviewed, and provide guidance about the latest official Release or the compatibility of its Assets. I will only read GitHub information and will not download, create, modify, install, extract, or execute files.
+Please provide a complete GitHub Repository URL or an explicit owner/repository identifier, such as https://github.com/owner/repository or owner/repository.
+
+
+==================== USER INPUT 1/3 ====================
+sharkdp/bat
+================== END USER INPUT 1/3 ==================
+
+==================== AGENT OUTPUT ====================
+`project_summary = """bat is a Rust-based command-line utility from the sharkdp/bat repository. Described as “a cat(1) clone with wings,” it displays and concatenates files while adding syntax highlighting, Git modification markers, optional line numbers and decorations, non-printable-character visualization, and automatic paging. When output is redirected to another process or file, bat generally falls back to plain file content, allowing it to serve as a practical cat replacement.
+
+Typical uses include inspecting source code and markup in a terminal, previewing files in fzf or find/fd workflows, displaying highlighted piped input, monitoring logs with tail -f, viewing content from git commands, and colorizing man pages or command help. It is intended primarily for developers, terminal users, and system administrators who want a more readable file viewer while retaining common cat-style workflows. Its primary implementation language is Rust, and the README also documents a Rust library API for applications that need bat's pretty-printing functionality.
+
+The normal execution entry point is the bat command, for example `bat README.md`, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Installation is documented through numerous operating-system package managers, including apt, Homebrew, WinGet, Chocolatey, Scoop, and several Linux and BSD package systems. Maintainers also publish prebuilt binaries through GitHub Releases. Source installation is available with Cargo using `cargo install --locked bat` or `cargo install --path . --locked`; building from source requires Rust 1.79.0 or newer. Source archives should be treated as source material rather than directly installable applications.
+
+The project supports configurable themes, output styles, paging, syntax mappings, shell completions, configuration files, and user-provided Sublime Text syntax and theme definitions. Notable README limitations include incomplete manpage syntax support; no support for newer `.sublime-color-scheme` theme files; native handling only for UTF-8 and UTF-16, with other encodings potentially requiring conversion; possible garbled highlighting for input containing ANSI or control sequences; terminal-dependent color quality; Windows requirements for the Visual C++ Redistributable and potentially a separate pager; and lack of native support for Cygwin-style absolute paths. The README does not recommend or officially support available Snap packages. Cargo installation also does not automatically install every ancillary file, such as man pages and shell completions.
+
+The README offers the software under the user's choice of the MIT License or Apache License 2.0, while the repository metadata reports Apache-2.0. The repository is not archived, identifies multiple maintainers, provides contribution and security documentation, and has a supplied last-updated timestamp of 2026-08-17T15:05:03Z. Those facts indicate ongoing maintenance activity in the supplied data, but they do not by themselves establish release cadence, response time, or long-term support guarantees. Star and open-Issue counts are not used here as measures of project quality or maintenance health."""`
+Would you like an analysis of recently updated open Issues? Please answer yes or no.
+
+
+==================== USER INPUT 2/3 ====================
+yes
+================== END USER INPUT 2/3 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/3 ====================
+no
+================== END USER INPUT 3/3 ==================
+
+==================== AGENT OUTPUT ====================
+Project Overview
+`project_summary = """bat is a Rust-based command-line utility from the sharkdp/bat repository. Described as “a cat(1) clone with wings,” it displays and concatenates files while adding syntax highlighting, Git modification markers, optional line numbers and decorations, non-printable-character visualization, and automatic paging. When output is redirected to another process or file, bat generally falls back to plain file content, allowing it to serve as a practical cat replacement.
+
+Typical uses include inspecting source code and markup in a terminal, previewing files in fzf or find/fd workflows, displaying highlighted piped input, monitoring logs with tail -f, viewing content from git commands, and colorizing man pages or command help. It is intended primarily for developers, terminal users, and system administrators who want a more readable file viewer while retaining common cat-style workflows. Its primary implementation language is Rust, and the README also documents a Rust library API for applications that need bat's pretty-printing functionality.
+
+The normal execution entry point is the bat command, for example `bat README.md`, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Installation is documented through numerous operating-system package managers, including apt, Homebrew, WinGet, Chocolatey, Scoop, and several Linux and BSD package systems. Maintainers also publish prebuilt binaries through GitHub Releases. Source installation is available with Cargo using `cargo install --locked bat` or `cargo install --path . --locked`; building from source requires Rust 1.79.0 or newer. Source archives should be treated as source material rather than directly installable applications.
+
+The project supports configurable themes, output styles, paging, syntax mappings, shell completions, configuration files, and user-provided Sublime Text syntax and theme definitions. Notable README limitations include incomplete manpage syntax support; no support for newer `.sublime-color-scheme` theme files; native handling only for UTF-8 and UTF-16, with other encodings potentially requiring conversion; possible garbled highlighting for input containing ANSI or control sequences; terminal-dependent color quality; Windows requirements for the Visual C++ Redistributable and potentially a separate pager; and lack of native support for Cygwin-style absolute paths. The README does not recommend or officially support available Snap packages. Cargo installation also does not automatically install every ancillary file, such as man pages and shell completions.
+
+The README offers the software under the user's choice of the MIT License or Apache License 2.0, while the repository metadata reports Apache-2.0. The repository is not archived, identifies multiple maintainers, provides contribution and security documentation, and has a supplied last-updated timestamp of 2026-08-17T15:05:03Z. Those facts indicate ongoing maintenance activity in the supplied data, but they do not by themselves establish release cadence, response time, or long-term support guarantees. Star and open-Issue counts are not used here as measures of project quality or maintenance health."""`
+
+Recent Open Issue Analysis
+Issues analyzed: 37
+Common problems:
+- Pager and terminal integration is a repeated concern: the sample includes reports involving paging colors on PowerShell (#3833), `less --quit-if-one-screen` with `--wrap=never` (#3738), `$LESS=-J` corrupting decorations (#2497), `BAT_OPTS` making `--list-themes` unusable (#1618), slow seeking in a large file (#3831), and visible ANSI reset codes in man pages (#3724). These reports concern different interactions and do not establish one shared root cause.
+- Output formatting and decoration behavior appears repeatedly: reports cover decorations unexpectedly appearing in piped output (#3710), style selection for single files, multiple files, and stdin (#3425), inability to disable individual style components (#1032), and a proposed clarification of `--style` versus `--decorations` (#3752). Some are feature or design requests rather than confirmed defects.
+- Syntax highlighting and syntax coverage recur across the sample: a Swift highlighting-state bug (#3826), requests for Astro, Djot, Device Tree Source, JSON5, and zsh-history support (#2966, #3810, #3805, #3797, #2666), and a request to reset highlighting state between records (#3811). These are distinct language or workflow concerns, not evidence that highlighting generally fails.
+- Documentation problems recur in translated READMEs and feature documentation: broken relative links (#3839), inconsistent translated instructions (#3730), unclear custom-theme format support (#1948), and possibly outdated Debian/Ubuntu naming guidance (#2455).
+Confirmed problems:
+None listed.
+Unresolved problems:
+- Repeated concern: pager and terminal interactions remain represented by multiple open reports, but the supplied issue text does not show maintainer confirmation or a common diagnosis.
+- Repeated concern: documentation defects and inconsistencies remain open across translated READMEs, custom-theme guidance, and Debian/Ubuntu command naming.
+- Repeated concern: syntax support and highlighting behavior remain incomplete for several languages and workflows; most entries are feature requests, while #3826 reports a specific Swift defect.
+- Isolated high-severity report: #3878 describes unbounded memory consumption and possible macOS failure from a recursive custom syntax definition. The report includes a bounded reproduction and measurements, but no maintainer confirmation is present in the supplied data.
+- Isolated robustness report: #3845 describes a `capacity overflow` panic from an extremely large offset-from-end `--line-range`, with a reproduction and proposed root cause but no supplied maintainer confirmation.
+- Isolated robustness report: #3844 describes a width-one wrapping panic for double-width characters when a background is painted. It calls this the same defect class as another issue not included in the sample, so repetition cannot be independently established from the supplied Issues.
+- Isolated performance report: #3831 reports that seeking to the end of a roughly 94,000-line file takes more than 25 seconds, but the supplied data does not establish prevalence across systems or configurations.
+- Isolated packaging report: #3029 reports a Homebrew-built macOS binary linked to an unavailable older `libgit2`; the sample does not establish whether current packages or other installation methods are affected.
+Representative issues:
+- #3878: Recursive custom syntax definition reportedly causes unbounded memory growth and macOS OOM failure.
+- #3845: Huge offset-from-end `--line-range` reportedly triggers a capacity-overflow panic.
+- #3831: Seeking to the end of a large file through the pager is reported as substantially slower than `less`.
+- #3724: Man-page rendering reportedly exposes ANSI bold-reset text while available workarounds remove links.
+- #3710: `--decorations=auto` reportedly emits decorations into piped output when color is forced.
+- #3839: Multiple translated README links are reported broken because their relative paths assume the repository root.
+Limitations:
+- This analysis covers exactly 37 recently updated open Issues supplied for review; it is not an analysis of all open Issues, closed Issues, pull requests, discussions, commits, or releases.
+- Because the sample is selected by recent update time, older but important concerns and resolved outcomes may be absent, while long-running Issues with recent activity may be overrepresented.
+- The supplied records include Issue bodies, labels, comment counts, and update times, but not the comment contents. Therefore, no problem can be classified as explicitly maintainer-confirmed from this data.
+- Open status shows that an Issue has not been closed; it does not prove the report is reproducible, accepted, currently applicable, or scheduled for a fix.
+- Repeated categories may group distinct causes and environments. The sample cannot establish prevalence, affected-user frequency, severity across installations, or a project-wide reliability trend.
+- The number of open Issues is not evidence by itself of project quality or maintenance health.

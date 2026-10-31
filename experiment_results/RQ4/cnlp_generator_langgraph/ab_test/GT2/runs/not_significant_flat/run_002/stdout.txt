@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics or concerns. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test Analysis**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment:** The test ran for 14 days with a 50%/50% traffic allocation. Each group had 20,000 users.
+
+**Primary metric results:**
+- Control conversion rate: 10.0%
+- Variant conversion rate: 10.0%
+- Absolute difference: 0.0 percentage points
+- Relative lift: 0.0%
+- Two-sided p-value: 1.00
+- 95% confidence interval for the difference: -0.588 to +0.588 percentage points
+
+**Statistical assessment:** The result is not statistically significant because the p-value is not below 0.05. The data show no observed improvement in purchase conversion from the new button. The stated 1 percentage-point minimum detectable effect had adequate sample-size power according to the supplied result; this is supporting diagnostic information and does not change the observed flat result.
+
+**Experiment validity:**
+- Sample ratio mismatch: Not detected
+- Traffic allocation: Consistent with the planned 50%/50% split
+- Guardrails: No meaningful negative effects were reported
+- Duration: 14 days; duration alone is not used to infer experiment maturity
+
+**Recommendation: Stop.** Do not ship the new checkout button based on this test. The variant produced the same measured conversion rate as the control, with no statistically significant evidence of benefit. There is no guardrail concern, but the absence of harm does not establish an improvement.
+
+**Next steps:**
+1. Keep the existing checkout button in place.
+2. Document the null result and the tested hypothesis.
+3. Investigate alternative button designs or checkout improvements if increasing purchase conversion remains a priority.
+4. Run a follow-up experiment only with a clearly differentiated hypothesis or treatment.

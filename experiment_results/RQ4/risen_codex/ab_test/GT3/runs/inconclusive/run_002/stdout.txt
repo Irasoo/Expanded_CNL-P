@@ -1,0 +1,60 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## A/B Test Analysis — Checkout SRM Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 14 days.
+- **Setup:** Control used the old button; variant used the new button.
+- **Sample sizes:** Control: 12,000 users and 1,200 successes; variant: 8,000 users and 800 successes.
+- **Conversion rates:** Control **10.0%**; variant **10.0%**.
+- **Effect:** Absolute difference **0.0 percentage points**; relative lift **0.0%**.
+- **Statistical result:** p-value **1.0**; 95% confidence interval for the difference **[-0.0084868930, 0.0084868930]** in rate terms, or **[-0.8486893, +0.8486893] percentage points**. The result is **not statistically significant** (`statistically_significant: false`).
+- **Power:** **Underpowered**. This is diagnostic information and must not override the statistical-significance result; significance is assessed separately using the p-value and confidence interval.
+- **Sample-ratio mismatch:** **Present**. The intended traffic split was 50%/50%, while the observed sample split was 60% control / 40% variant.
+- **Guardrails:** No meaningful negative effects were observed; guardrail concern is **false**.
+
+**Outcome:** Inconclusive.  
+**Recommendation:** Undetermined.
+
+**Reasoning:** Both groups had identical observed conversion rates and zero measured lift. The confidence interval includes zero, and the p-value is 1.0. The sample-ratio mismatch further limits confidence in the experiment’s allocation.
+
+**Next steps:** Investigate and resolve the 50%/50% allocation mismatch, then reassess the experiment before making a rollout decision.

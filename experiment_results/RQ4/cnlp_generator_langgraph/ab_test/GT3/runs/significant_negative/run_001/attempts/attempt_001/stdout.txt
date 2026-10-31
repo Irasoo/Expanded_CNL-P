@@ -1,0 +1,46 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Negative Test evaluated whether the new checkout button would increase purchase conversion. Over 14 days, Control had 10,000 users and a 10.0% conversion rate (1,000 conversions); Variant had 10,000 users and an 8.0% conversion rate (800 conversions). The Variant decreased conversion by 2.0 percentage points, or 20.0% relative lift. This difference is statistically significant (two-sided p=0.000000775); the 95% confidence interval is -2.79 to -1.21 percentage points, indicating a likely negative effect.
+
+The sample was flagged as underpowered against the provided 1 percentage-point minimum detectable effect, but this does not overturn the statistically significant negative result. No sample ratio mismatch was detected. No meaningful negative guardrail effects were reported.
+
+Recommendation: do not ship the new checkout button. Keep the old button as the default, investigate why the new button reduced purchase conversion, and only retest after addressing the identified checkout experience issues.

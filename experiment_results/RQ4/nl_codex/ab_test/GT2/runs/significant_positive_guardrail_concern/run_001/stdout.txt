@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{
+  "hypothesis": "Changing the checkout button text from \"Continue\" to \"Buy Now\" will increase purchase conversion rate.",
+  "duration": "14 days",
+  "sample_sizes": {
+    "control": 10000,
+    "variant": 10000
+  },
+  "conversion_rates": {
+    "control": "10.0% (1000/10000)",
+    "variant": "12.0% (1200/10000)"
+  },
+  "absolute_difference": "0.0200, or +2.0 percentage points",
+  "relative_lift": "+20.0%",
+  "p_value": 0.000006188458781738804,
+  "confidence_interval": "[0.011331728284555377, 0.0286682717154446], equivalent to approximately +1.13 to +2.87 percentage points",
+  "statistical_significance": "Statistically significant according to the provided result (p-value = 0.000006188458781738804; statistically_significant = true).",
+  "power_status": "Underpowered. This is a limitation and should not override the statistically significant result.",
+  "sample_ratio_mismatch": "No sample ratio mismatch detected; both groups received 50% of traffic and had 10000 users.",
+  "guardrail_assessment": "Guardrail concern is present. Customer support contact rate increased from 2% to 5%, and the product team considers this a meaningful negative effect.",
+  "recommendation": "Investigate before rollout. Do not recommend immediate full rollout based on the primary metric alone because the significant conversion improvement is accompanied by a meaningful guardrail concern and the experiment is reported as underpowered.",
+  "reasoning": "The Variant increased purchase conversion from 10.0% to 12.0%, producing a +2.0 percentage-point absolute difference and a +20.0% relative lift. The reported p-value and confidence interval support a statistically significant positive primary-metric result. However, support contact rate increased from 2% to 5%, which is explicitly identified as a meaningful negative guardrail effect. The absence of sample ratio mismatch supports the observed allocation quality, while the underpowered status limits confidence in the experiment's overall evidence strength.",
+  "next_steps": [
+    "Investigate why the \"Buy Now\" wording is associated with the increase in customer support contact rate.",
+    "Review the guardrail impact and determine whether the conversion improvement is acceptable given the support contact increase.",
+    "Address or mitigate the guardrail issue and run additional testing or collect more data before making a rollout decision, taking the underpowered status into account."
+  ]
+}

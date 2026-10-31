@@ -1,0 +1,76 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Button Guardrail Test**
+
+- **Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+- **Duration:** 14 days. This duration is reported, but does not by itself establish experiment maturity.
+- **Primary metric:** Purchase conversion rate, calculated as successful purchases divided by sample size.
+
+**Results**
+
+| Metric | Control | Variant |
+|---|---:|---:|
+| Sample size | 10,000 | 10,000 |
+| Successful purchases | 1,000 | 1,200 |
+| Conversion rate | 0.10 proportion (10%) | 0.12 proportion (12%) |
+
+The Variant increased conversion by **0.02 proportion points (2 percentage points)** versus Control, from 10% to 12%. This is a **20% relative lift**.
+
+The result is statistically significant: **p = 0.00000619** (two-sided), below the 0.05 threshold. The 95% confidence interval for the absolute conversion-rate difference is **0.0113 to 0.0287 proportions**, equivalent to approximately **1.13 to 2.87 percentage points**. The interval is entirely positive.
+
+**Experiment validity and diagnostics**
+
+- **Sample ratio mismatch:** No. Observed allocation is consistent with the expected 50/50 traffic split.
+- **Power status:** Underpowered. This is a diagnostic concern for the experiment design, but it does not override the already statistically significant primary-metric result.
+- **Guardrail assessment:** Concern present. Customer support contact rate increased from 2% to 5%, and the product team explicitly considers this a meaningful negative effect.
+
+**Recommendation: Investigate**
+
+The “Buy Now” variant produced a statistically significant increase in purchase conversion, but the reported guardrail degradation is meaningful. Do not ship based on the primary metric alone. Investigate why the new wording increased customer support contacts, determine whether it creates customer confusion or other adverse outcomes, and evaluate whether the conversion gain remains worthwhile after accounting for that impact.
+
+**Next steps**
+
+1. Analyze the support-contact increase by reason, user segment, and point in the purchase journey.
+2. Determine whether “Buy Now” creates misleading expectations about payment, order finality, or the next checkout step.
+3. Develop and test revised button language that preserves the conversion improvement while addressing the guardrail concern.
+4. Ensure a follow-up experiment is adequately powered; retain monitoring of purchase conversion and customer support contact rate.

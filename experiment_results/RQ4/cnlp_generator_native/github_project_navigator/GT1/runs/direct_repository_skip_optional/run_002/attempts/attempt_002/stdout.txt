@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+Please provide either a complete GitHub Repository URL (for example, https://github.com/owner/repository) or an explicit owner/repository identifier. I cannot guess the Repository from a vague description.
+
+For a public Repository, I can summarize project information from its metadata and README, analyze a limited sample of recently updated open Issues while stating the scope reviewed, and provide guidance about the latest official Release or the compatibility of its Assets. I will only read GitHub information and will not download, create, modify, install, extract, or execute files.
+Please provide a complete GitHub Repository URL or an explicit owner/repository identifier, such as https://github.com/owner/repository or owner/repository.
+
+
+==================== USER INPUT 1/3 ====================
+https://github.com/sharkdp/bat
+================== END USER INPUT 1/3 ==================
+
+==================== AGENT OUTPUT ====================
+project_summary = """`sharkdp/bat` is a Rust command-line utility described as “a cat(1) clone with wings.” Its purpose is to display and concatenate files while providing a more readable interactive terminal experience than traditional `cat`.
+
+Core capabilities include syntax highlighting for many programming and markup languages, Git modification markers, line numbers and file headers, visualization of non-printable characters, configurable themes and output styles, and automatic paging for output longer than the terminal screen. When output is redirected to a file or another process, `bat` normally emits plain file content, allowing it to serve many of the same pipeline and concatenation use cases as `cat`. It also supports configuration files, custom Sublime Text syntax definitions and `.tmTheme` themes, explicit language selection, shell completions, and integration with tools such as `fzf`, `find`, `fd`, `ripgrep`-related utilities, `git`, `tail`, `man`, and formatters.
+
+Typical uses include interactively inspecting source code and configuration files, previewing files in fuzzy-search workflows, viewing Git revisions with highlighting, monitoring logs, colorizing manual or help pages, and concatenating files in shell pipelines. The intended users are developers, system administrators, and other terminal users who want richer file viewing while retaining broadly `cat`-compatible behavior.
+
+Rust is the repository’s primary language. The main execution entry point is the `bat` command, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Common installation entry points documented by the project include operating-system package managers such as `apt`, Homebrew, WinGet, Chocolatey, Scoop, `dnf`, `pacman`, and others; prebuilt binaries from GitHub Releases; and `cargo install --locked bat`. Building from local source uses `cargo install --path . --locked` and requires Rust 1.79.0 or newer according to the supplied README. Windows installations require the Visual C++ Redistributable.
+
+The README states that the project is dual-licensed under the MIT License or Apache License 2.0, at the user’s option. GitHub’s supplied license metadata identifies Apache-2.0, but the README’s dual-license statement provides the fuller licensing description.
+
+The repository is not archived and its metadata reports a recent `updated_at` value, while the README names four maintainers and provides contribution and security-policy documents. These facts support describing it as maintained at the repository level, but they do not establish a release cadence, response time, or support guarantee. Star and open-Issue counts are not used here as measures of project quality or maintenance.
+
+Important documented limitations include reduced visual results on terminals without 24-bit color unless an appropriate 8-bit theme is selected; native support for UTF-8 and UTF-16 but not reliable automatic handling of other encodings; possible garbled rendering for input containing ANSI escapes or control characters unless stripping or sanitization options are used; lack of native support for Cygwin-style absolute paths on Windows without a wrapper; and additional pager setup that may be needed on Windows. Syntax detection from standard input may require a recognizable first line, such as a shebang, or an explicit language option. Custom themes must use `.tmTheme` files because `.sublime-color-scheme` is not supported. Source installation through Cargo does not automatically install every ancillary file, such as man pages and shell completion files. The README does not recommend Snap packages, notes that the bundled man-page syntax still needs work, and explains that automatic pager behavior and decorative output can differ between interactive terminals and redirected output."""
+Would you like an analysis of recently updated open Issues? Please answer yes or no.
+
+
+==================== USER INPUT 2/3 ====================
+no
+================== END USER INPUT 2/3 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/3 ====================
+no
+================== END USER INPUT 3/3 ==================
+
+==================== AGENT OUTPUT ====================
+Project Overview
+project_summary = """`sharkdp/bat` is a Rust command-line utility described as “a cat(1) clone with wings.” Its purpose is to display and concatenate files while providing a more readable interactive terminal experience than traditional `cat`.
+
+Core capabilities include syntax highlighting for many programming and markup languages, Git modification markers, line numbers and file headers, visualization of non-printable characters, configurable themes and output styles, and automatic paging for output longer than the terminal screen. When output is redirected to a file or another process, `bat` normally emits plain file content, allowing it to serve many of the same pipeline and concatenation use cases as `cat`. It also supports configuration files, custom Sublime Text syntax definitions and `.tmTheme` themes, explicit language selection, shell completions, and integration with tools such as `fzf`, `find`, `fd`, `ripgrep`-related utilities, `git`, `tail`, `man`, and formatters.
+
+Typical uses include interactively inspecting source code and configuration files, previewing files in fuzzy-search workflows, viewing Git revisions with highlighting, monitoring logs, colorizing manual or help pages, and concatenating files in shell pipelines. The intended users are developers, system administrators, and other terminal users who want richer file viewing while retaining broadly `cat`-compatible behavior.
+
+Rust is the repository’s primary language. The main execution entry point is the `bat` command, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Common installation entry points documented by the project include operating-system package managers such as `apt`, Homebrew, WinGet, Chocolatey, Scoop, `dnf`, `pacman`, and others; prebuilt binaries from GitHub Releases; and `cargo install --locked bat`. Building from local source uses `cargo install --path . --locked` and requires Rust 1.79.0 or newer according to the supplied README. Windows installations require the Visual C++ Redistributable.
+
+The README states that the project is dual-licensed under the MIT License or Apache License 2.0, at the user’s option. GitHub’s supplied license metadata identifies Apache-2.0, but the README’s dual-license statement provides the fuller licensing description.
+
+The repository is not archived and its metadata reports a recent `updated_at` value, while the README names four maintainers and provides contribution and security-policy documents. These facts support describing it as maintained at the repository level, but they do not establish a release cadence, response time, or support guarantee. Star and open-Issue counts are not used here as measures of project quality or maintenance.
+
+Important documented limitations include reduced visual results on terminals without 24-bit color unless an appropriate 8-bit theme is selected; native support for UTF-8 and UTF-16 but not reliable automatic handling of other encodings; possible garbled rendering for input containing ANSI escapes or control characters unless stripping or sanitization options are used; lack of native support for Cygwin-style absolute paths on Windows without a wrapper; and additional pager setup that may be needed on Windows. Syntax detection from standard input may require a recognizable first line, such as a shebang, or an explicit language option. Custom themes must use `.tmTheme` files because `.sublime-color-scheme` is not supported. Source installation through Cargo does not automatically install every ancillary file, such as man pages and shell completion files. The README does not recommend Snap packages, notes that the bundled man-page syntax still needs work, and explains that automatic pager behavior and decorative output can differ between interactive terminals and redirected output."""

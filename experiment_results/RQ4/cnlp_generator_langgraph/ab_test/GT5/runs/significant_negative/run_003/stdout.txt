@@ -1,0 +1,66 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please use aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Negative Test**
+
+**Hypothesis:** The new checkout button would increase purchase conversion rate. The experiment ran for **14 days**, with **10,000 users in Control** and **10,000 in Variant**.
+
+**Statistical findings**
+- Control conversion rate: **10.0%**
+- Variant conversion rate: **8.0%**
+- Absolute difference: **-2.0 percentage points**
+- Relative lift: **-20.0%**
+- Two-sided p-value: **7.75 × 10⁻⁷**
+- 95% confidence interval for the absolute difference: **-2.79 to -1.21 percentage points**
+- Statistical significance: **Significant** at the 0.05 threshold
+- Power status: **Underpowered** for the specified 1 percentage-point minimum detectable effect at 80% power
+- Sample ratio mismatch: **Not detected**
+- Guardrails: **No concern reported**; no additional meaningful negative guardrail effects were observed
+
+**Recommendation: Don’t ship the new button.**
+
+The variant produced a statistically significant reduction in purchase conversion. The confidence interval is entirely negative, indicating that the data are consistent with a conversion decrease of approximately **1.21 to 2.79 percentage points**, rather than the hypothesized increase. The lack of sample ratio mismatch supports experiment validity, and no separate guardrail concern was reported. Although the experiment is underpowered for detecting the specified 1 percentage-point effect, that diagnostic does not override the already statistically significant negative result.
+
+**Next steps**
+1. Keep the existing checkout button in production and stop rollout of this variant.
+2. Investigate the new button’s implementation and checkout interaction for plausible causes of the conversion decline.
+3. Develop a revised variant based on that investigation.
+4. Test the revised design in a new experiment with sample sizing appropriate for the 1 percentage-point minimum detectable effect.

@@ -1,0 +1,53 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+### A/B 测试分析：Checkout Small Positive Test
+
+- **假设**：新结账按钮将提升购买转化率。实验持续 **7 天**；对照组使用旧按钮，变体组使用新按钮。
+- **样本与转化**：对照组 **1,000** 人，转化率 **10.0%**（100 次）；变体组 **1,000** 人，转化率 **11.0%**（110 次）。
+- **效果**：绝对差异为 **+1.0 个百分点**；相对提升为 **+10.0%**。
+- **统计结果**：p-value = **0.4657**；绝对差异的 95% 置信区间为 **[-1.69, 3.69] 个百分点**。结果**不具有统计显著性**。
+- **诊断**：统计功效状态为 **underpowered**。功效状态仅用于诊断，不能推翻或替代显著性检验结论。样本比例失配（SRM）为 **false**，未发现样本分配异常。
+- **护栏指标**：未观察到有意义的负面影响；当前**无护栏担忧**。
+- **建议**：`extend`
+
+**理由与下一步**：虽然变体方向上呈现正向提升，但当前 p-value 较高且置信区间同时包含负向和正向效果，尚不能确认新按钮提升购买转化率。按 `extend` 执行，继续收集数据后重新评估主要指标、统计显著性、置信区间及护栏指标。

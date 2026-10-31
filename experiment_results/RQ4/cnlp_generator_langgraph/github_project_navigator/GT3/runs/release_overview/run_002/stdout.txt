@@ -1,0 +1,105 @@
+==================== AGENT OUTPUT ====================
+Please provide either a complete GitHub Repository URL or an explicit owner/repository identifier. I can summarize public project information, analyze recent open Issues, and provide Release guidance without downloading files.
+Please enter a complete GitHub repository URL or an explicit owner/repository identifier (for example, https://github.com/owner/repository or owner/repository).
+
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+`sharkdp/bat` is a command-line file viewer described as “a cat(1) clone with wings.” Its purpose is to preserve the familiar file-printing and concatenation workflows of POSIX `cat` while adding terminal-oriented presentation features.
+
+Its core capabilities include syntax highlighting for many programming and markup languages, Git modification indicators, line numbers and file headers, visualization of non-printable characters, automatic paging, configurable output styles, and custom syntax and theme support. It reads named files or standard input, handles multiple files, and emits plain content when output is redirected, supporting many `cat`-compatible pipelines.
+
+Typical uses include inspecting source code and configuration files, previewing `fzf`, `find`, or `fd` results, displaying `ripgrep` output through `batgrep`, monitoring logs with `tail -f`, viewing content from `git show`, colorizing manual pages and command help, and concatenating files. It is primarily intended for developers, terminal users, system administrators, and others who regularly inspect text files or compose command-line pipelines. A library API is also documented for Rust applications that need `bat`’s pretty-printing behavior.
+
+Rust is the repository’s primary language. The main execution entry point is the `bat` command, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Installation paths documented by the project include system package managers on Linux and BSD, Homebrew or MacPorts on macOS, WinGet, Chocolatey, or Scoop on Windows, official prebuilt Release binaries, and Cargo. Source installation requires Rust 1.79.0 or newer and uses `cargo install --path . --locked`; installation from crates.io uses `cargo install --locked bat`. Windows installations require the Visual C++ Redistributable.
+
+The project is available under either the MIT License or Apache License 2.0, at the user’s option. GitHub metadata identifies Apache-2.0, while the README explicitly documents the dual-license choice.
+
+The repository is not archived, names four maintainers, documents development and contribution workflows, and provides security-reporting guidance. Its supplied metadata reports recent repository activity, but no release cadence, support commitment, or maintainer response-time data is available here. Stars and open Issue counts are therefore not used to infer project quality or maintenance health.
+
+Important README limitations and caveats include:
+
+- Automatic syntax detection for standard input may require a recognizable first line, such as a shebang; otherwise the language should be specified explicitly.
+- Files containing ANSI escape sequences or control characters can produce garbled highlighting or wrapping. The README recommends stripping or sanitizing such input, or disabling color and wrapping.
+- Native encoding support is limited to UTF-8 and UTF-16; other encodings may need conversion first.
+- Truecolor themes work best in terminals with 24-bit color support and appropriate `COLORTERM` configuration. Restricted-color terminals may need one of the provided 8-bit themes.
+- Custom themes must use the older `.tmTheme` format; `.sublime-color-scheme` files are not supported.
+- Cargo installation does not automatically install auxiliary files such as man pages and shell completions.
+- Windows paging may require a separate `less` installation, and native Windows builds do not directly accept Cygwin-style absolute paths without a wrapper.
+- No Snap package is currently recommended or officially supported.
+- The bundled man-page syntax is described as needing further work.
+- Source archives should be treated as source code, not as directly installable software; users seeking ready-to-run builds should use an appropriate package manager or compatible prebuilt Release asset.
+Would you like an analysis of recently updated open Issues? Please answer yes or no.
+
+
+==================== USER INPUT 2/4 ====================
+no
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official GitHub Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Enter the Release analysis request in one of these exact formats:
+- overview
+- asset_match;operating_system;architecture;package_preference
+For asset_match, operating_system must be windows, macos, linux, or other; architecture must be x64, arm64, or unknown; and package_preference must be installer, portable, archive, or any. Do not use JSON syntax.
+
+
+==================== USER INPUT 4/4 ====================
+overview
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================
+Project summary
+`sharkdp/bat` is a command-line file viewer described as “a cat(1) clone with wings.” Its purpose is to preserve the familiar file-printing and concatenation workflows of POSIX `cat` while adding terminal-oriented presentation features.
+
+Its core capabilities include syntax highlighting for many programming and markup languages, Git modification indicators, line numbers and file headers, visualization of non-printable characters, automatic paging, configurable output styles, and custom syntax and theme support. It reads named files or standard input, handles multiple files, and emits plain content when output is redirected, supporting many `cat`-compatible pipelines.
+
+Typical uses include inspecting source code and configuration files, previewing `fzf`, `find`, or `fd` results, displaying `ripgrep` output through `batgrep`, monitoring logs with `tail -f`, viewing content from `git show`, colorizing manual pages and command help, and concatenating files. It is primarily intended for developers, terminal users, system administrators, and others who regularly inspect text files or compose command-line pipelines. A library API is also documented for Rust applications that need `bat`’s pretty-printing behavior.
+
+Rust is the repository’s primary language. The main execution entry point is the `bat` command, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Installation paths documented by the project include system package managers on Linux and BSD, Homebrew or MacPorts on macOS, WinGet, Chocolatey, or Scoop on Windows, official prebuilt Release binaries, and Cargo. Source installation requires Rust 1.79.0 or newer and uses `cargo install --path . --locked`; installation from crates.io uses `cargo install --locked bat`. Windows installations require the Visual C++ Redistributable.
+
+The project is available under either the MIT License or Apache License 2.0, at the user’s option. GitHub metadata identifies Apache-2.0, while the README explicitly documents the dual-license choice.
+
+The repository is not archived, names four maintainers, documents development and contribution workflows, and provides security-reporting guidance. Its supplied metadata reports recent repository activity, but no release cadence, support commitment, or maintainer response-time data is available here. Stars and open Issue counts are therefore not used to infer project quality or maintenance health.
+
+Important README limitations and caveats include:
+
+- Automatic syntax detection for standard input may require a recognizable first line, such as a shebang; otherwise the language should be specified explicitly.
+- Files containing ANSI escape sequences or control characters can produce garbled highlighting or wrapping. The README recommends stripping or sanitizing such input, or disabling color and wrapping.
+- Native encoding support is limited to UTF-8 and UTF-16; other encodings may need conversion first.
+- Truecolor themes work best in terminals with 24-bit color support and appropriate `COLORTERM` configuration. Restricted-color terminals may need one of the provided 8-bit themes.
+- Custom themes must use the older `.tmTheme` format; `.sublime-color-scheme` files are not supported.
+- Cargo installation does not automatically install auxiliary files such as man pages and shell completions.
+- Windows paging may require a separate `less` installation, and native Windows builds do not directly accept Cygwin-style absolute paths without a wrapper.
+- No Snap package is currently recommended or officially supported.
+- The bundled man-page syntax is described as needing further work.
+- Source archives should be treated as source code, not as directly installable software; users seeking ready-to-run builds should use an appropriate package manager or compatible prebuilt Release asset.
+
+Release guidance
+Status: overview
+Version: v0.26.1
+
+Summary
+The latest official public Release in the supplied data is version v0.26.1, named "v0.26.1", published at 2025-12-02T20:48:10Z. Key Release Notes include paging for `-h` and `--help`; fixes for an explicit-pager hang with `--list-themes`, negative line-range parsing, custom Docker assets, decorations unexpectedly appearing in piped output, builtin-pager diagnostics, and config-file handling by `--help`; improved PowerShell 5.1 and Bash completions; and syntax updates for Quadlet, Ada, Podman artifact files, and Korn shell scripts. The Release contains 21 maintainer-uploaded Assets. No file operation was performed.
+
+Acquisition URL
+
+
+Integrity guidance
+This is a no-download overview. Before acquiring an Asset, select one matching the operating system, CPU architecture, libc or ABI requirements, and preferred package format. Use the official GitHub Release Asset URL and verify its SHA-256 digest against the digest supplied by GitHub before installation or execution. The automatically generated source-code zip and tar archives are source distributions and should not be treated as directly installable software by default.
+
+Limitations
+- This overview uses only the supplied latest official public Release metadata and does not independently verify GitHub's current state.
+- No operating system, architecture, libc or ABI, or package preference was provided, so no specific Asset is recommended.
+- The publication timestamp is reported exactly as supplied: 2025-12-02T20:48:10Z.
+- No file operation was performed.

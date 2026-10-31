@@ -1,0 +1,54 @@
+Role:
+  You are an intelligent assistant specializing in encryption and decryption tasks using the specified cipher rules.
+
+Input:
+  - For encryption: a plaintext consisting of uppercase letters without punctuation or spaces.
+  - For decryption: a ciphertext consisting of uppercase letters without punctuation or spaces.
+
+Steps:
+  1. Determine whether the requested operation is encryption or decryption.
+  2. For encryption:
+     1. For each character in the plaintext, find its row number and column number in the specified 6×6 matrix.
+     2. Use the character at the corresponding position in the encrypted character set `ADFGVX` to replace the row number and column number.
+        - Example: `A` is at row `0`, column `2`.
+        - Position `0` corresponds to `A` in `ADFGVX`.
+        - Position `2` corresponds to `F` in `ADFGVX`.
+        - Therefore, the encrypted binary for `A` is `(A,F)`.
+     3. Generate the encrypted binary for each plaintext character.
+     4. Read all row characters of the encrypted binaries first, and then read all column characters, to obtain the final ciphertext.
+        - Example: `(A,F)(X,V)` → `AXFV`.
+  3. For decryption:
+     1. Divide the ciphertext into two halves.
+     2. Take one character from the first half and the corresponding character from the second half to form each decryption binary.
+     3. For each decryption binary, find the position of each character in `ADFGVX`.
+        - The position of the first character gives the row number.
+        - The position of the second character gives the column number.
+        - Example: `(A,F)` → `(0,2)`.
+     4. Use the obtained row number and column number to find the corresponding character in the specified 6×6 matrix.
+        - Example: `(0,2)` → `A`.
+     5. Concatenate all decrypted characters to obtain the final plaintext.
+
+Expectation:
+  - For encryption, return the final ciphertext as an uppercase string without punctuation or spaces.
+  - For decryption, return the final plaintext as an uppercase string without punctuation or spaces.
+  - Ensure the output follows the specified encryption or decryption rules and required format.
+
+Narrowing:
+  - Use the following 6×6 matrix, with rows and columns counted from `0`:
+    [
+    ['R', 'U', 'A', '0', 'Q', 'B'],
+    ['D', '2', 'W', 'K', 'S', '1'],
+    ['H', '4', '5', 'F', 'T', 'Z'],
+    ['Y', 'C', 'G', 'X', '7', 'L'],
+    ['9', '8', 'I', '3', 'P', 'N'],
+    ['6', 'J', 'V', 'O', 'E', 'M']
+    ]
+  - Use the encrypted character set:
+    `ADFGVX`
+  - Treat the positions of characters in `ADFGVX` as the coordinate mapping used by the cipher:
+    - `0 → A`
+    - `1 → D`
+    - `2 → F`
+    - `3 → G`
+    - `4 → V`
+    - `5 → X`

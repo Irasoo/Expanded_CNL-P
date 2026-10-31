@@ -1,0 +1,56 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+**Test setup:** The experiment ran for 14 days. Control had 10,000 users and a 10.0% conversion rate; the variant had 10,000 users and a 12.0% conversion rate.
+
+**Primary result:** The absolute difference was **+2.0 percentage points**, with a **20.0% relative lift**. The 95% confidence interval for the difference was **1.13 to 2.87 percentage points**. The p-value was **6.19 × 10⁻⁶**, so the result was statistically significant.
+
+**Power and allocation:** The analysis reports the test as **underpowered**. Power status is diagnostic and does not override the statistically significant result. Sample-ratio mismatch was **false**: traffic shares were 50%/50%, with equal sample sizes. If sample-ratio mismatch were true, the experiment would be inconclusive.
+
+**Guardrail:** Customer support contact rate increased from **2% to 5%**. The product team considers this a meaningful negative effect and a guardrail concern.
+
+**Recommendation:** **investigate**
+
+**Reasoning and next steps:** The variant produced a statistically significant increase in purchase conversion, but the increase in customer support contact rate is a reported guardrail concern. Investigate the cause and implications of that guardrail change.

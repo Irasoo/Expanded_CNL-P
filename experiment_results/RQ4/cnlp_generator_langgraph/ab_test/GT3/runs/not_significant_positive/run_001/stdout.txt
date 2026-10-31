@@ -1,0 +1,48 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Hypothesis: The new checkout button will increase purchase conversion rate. Over 7 days, the Control using the old button had 1,000 users and a 10.00% conversion rate; the Variant using the new button had 1,000 users and an 11.00% conversion rate. The absolute difference was +1.00 percentage point, with a relative lift of +10.00%.
+
+The two-sided p-value was 0.4657, so the result was not statistically significant at the 0.05 threshold. The confidence interval for the Control-Variant difference was [-1.69, 3.69] percentage points, which includes zero. The result was underpowered relative to the provided 1 percentage-point minimum detectable effect, so the current data is insufficient to confidently distinguish the observed improvement from random variation.
+
+The experiment passed the sample-ratio-mismatch check: no SRM was detected. No guardrail concern was reported, as no meaningful negative effects were observed.
+
+Recommendation: Extend the experiment. The observed direction is positive, but there is currently insufficient statistical evidence to ship the new button confidently. Continue collecting data with the planned traffic allocation, monitor guardrails, and reassess the conversion-rate difference, confidence interval, and p-value after obtaining more observations.

@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Test details:** The test ran for 7 days. Control had 1,000 users; the variant had 1,000 users.
+
+**Results:** Control conversion was 10.0% (100/1,000), versus 11.0% (110/1,000) for the variant. The absolute difference was +1.0 percentage point, with a 10.0% relative lift. The p-value was 0.4657, and the 95% confidence interval for the difference was −1.69 to +3.69 percentage points.
+
+**Inference:** The result was not statistically significant. Power was underpowered; power status is diagnostic and does not override statistical significance. The sample-ratio mismatch check was negative (no mismatch). If a true sample-ratio mismatch were present, the experiment would be inconclusive.
+
+**Guardrails:** No meaningful negative effects were observed, and there was no guardrail concern.
+
+**Recommendation:** extend
+
+**Reasoning and next steps:** The variant showed a positive observed difference, but the result was not statistically significant and the test was underpowered. Extend the experiment and reassess the primary metric using the additional results.

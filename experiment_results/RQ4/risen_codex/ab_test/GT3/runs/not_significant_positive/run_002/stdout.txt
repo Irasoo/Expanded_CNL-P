@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**A/B Test Analysis: Checkout Small Positive Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 7 days.
+- **Samples:** Control: 1,000 users, 100 successes; Variant: 1,000 users, 110 successes. Traffic split was 50%/50%.
+- **Conversion rate:** Control 10.0%; Variant 11.0%.
+- **Observed effect:** Absolute difference of 0.010000, or 1.0 percentage point. Relative lift was 0.100000, or 10.0%.
+- **Statistical result:** p-value = 0.4657436. The 95% confidence interval for the difference was -0.0168665 to 0.0368665, or -1.6867 to 3.6867 percentage points.
+- **Significance:** The result was not statistically significant (`statistically_significant: false`), so the observed positive difference is not conclusive.
+- **Power:** The test was underpowered. Power status is diagnostic and must not override the statistical-significance result.
+- **Sample-ratio mismatch:** None detected (`false`).
+- **Guardrails:** No meaningful negative effects were observed; guardrail concern was `false`.
+
+**Recommendation:** Extend the test. The outcome is `not_significant_positive`: the variant showed a 10.0% relative lift, but the confidence interval includes zero and the p-value does not support statistical significance. Continue collecting data, then reassess the primary metric, statistical significance, power status, and guardrails.

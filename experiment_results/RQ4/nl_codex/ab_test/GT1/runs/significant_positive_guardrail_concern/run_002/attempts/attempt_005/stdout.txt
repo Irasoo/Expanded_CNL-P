@@ -1,0 +1,77 @@
+==================== AGENT OUTPUT ====================
+ABTestAnalysisAssistant: 请在一条消息中提供完整的 A/B 测试信息。
+请包含测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE 和护栏信息。
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+Hypothesis:
+Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+Test duration and sample sizes:
+14 days. Control: 10,000 users; Variant: 10,000 users. Traffic split was 50%/50%.
+
+Primary metric:
+Purchase conversion rate was 10.0% for Control and 12.0% for Variant.
+
+Effect:
+Absolute difference: +2.0 percentage points.
+Relative lift: +20.0%.
+
+Statistical result:
+p-value: 6.19e-06.
+95% confidence interval for the difference: +1.13 to +2.87 percentage points.
+The result is statistically significant.
+
+Power and sample-ratio status:
+Power status: underpowered. This is diagnostic and does not override the statistically significant result.
+Sample-ratio mismatch: none detected.
+
+Guardrail:
+Customer support contact rate increased from 2% to 5%. The product team considers this a meaningful negative effect and a guardrail concern.
+
+Recommendation:
+investigate
+
+Reasoning:
+The Variant significantly improved purchase conversion, but the increase in customer support contact rate is a meaningful guardrail concern. The positive primary-metric result should therefore not be treated as sufficient for rollout.
+
+Next steps:
+Investigate why support contacts increased, assess the relationship between the button-text change and the guardrail impact, and resolve the guardrail concern before making a rollout decision.

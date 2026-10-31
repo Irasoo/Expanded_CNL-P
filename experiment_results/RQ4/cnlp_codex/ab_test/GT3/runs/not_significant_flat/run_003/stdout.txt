@@ -1,0 +1,65 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+A/B Test Analysis: Checkout Flat Test
+
+- Hypothesis: The new checkout button will increase purchase conversion rate.
+- Variant change: Control used the old button; variant used the new button.
+- Duration: 14 days.
+- Sample sizes: 20,000 control users and 20,000 variant users.
+- Primary metric: Purchase conversion rate.
+- Control conversion rate: 10.0% (2,000/20,000).
+- Variant conversion rate: 10.0% (2,000/20,000).
+- Absolute difference: 0.0 percentage points.
+- Relative lift: 0.0%.
+- p-value: 1.0.
+- 95% confidence interval for the difference: -0.588 to +0.588 percentage points.
+- Statistical significance: Not significant. The test provides no evidence that the variant changes purchase conversion.
+- Power status: Adequate. This is diagnostic/supporting detail and must not override the statistical significance result.
+- Sample ratio mismatch: None detected; observed allocation matched the expected 50%/50%.
+- Guardrails: No meaningful negative effects were observed; no guardrail concern was reported.
+
+Recommendation: stop
+
+Reasoning: The variant produced the same conversion rate as the control, with zero observed lift and a confidence interval spanning both modest decreases and increases. The result does not support the hypothesis or shipping the variant based on this test.
+
+Next steps: Stop the experiment as recommended. If the checkout-button hypothesis remains important, investigate or revise the proposed change and run a new experiment.

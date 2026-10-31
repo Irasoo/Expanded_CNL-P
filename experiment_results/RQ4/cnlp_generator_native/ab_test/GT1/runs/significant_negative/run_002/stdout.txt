@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Negative Test**
+
+**Hypothesis:** The new checkout button would increase purchase conversion rate.
+
+The experiment ran for **14 days**, with **10,000 users in Control** and **10,000 in Variant**. Purchase conversion was **10.0% for Control** and **8.0% for Variant**. The Variant decreased conversion by **2.0 percentage points**, a **20.0% relative decline**.
+
+The result is **statistically significant**: two-sided **p-value = 7.75 × 10⁻⁷**, with a **95% confidence interval of -2.79 to -1.21 percentage points** for the Variant-minus-Control difference. The interval is entirely negative, providing strong evidence that the new button reduces purchase conversion.
+
+The test is marked **underpowered** against the specified **1 percentage point minimum detectable effect** at 80% power. This is a diagnostic limitation, but it does not override the already statistically significant negative result. There was **no sample ratio mismatch**, so the observed 50/50 allocation does not indicate a traffic-allocation validity issue. No additional meaningful negative guardrail effects were reported.
+
+**Recommendation: Do not ship the new checkout button.** Retain the Control experience. Investigate why the new button reduced conversion, review the implementation and checkout funnel for behavioral or technical issues, and develop a revised variant before running a new experiment.

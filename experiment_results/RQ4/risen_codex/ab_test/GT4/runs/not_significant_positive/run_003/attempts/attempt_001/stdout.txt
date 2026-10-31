@@ -1,0 +1,57 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Test details:** The test ran for 7 days. Control had 1,000 users and a 10% conversion rate; the variant had 1,000 users and an 11% conversion rate.
+
+**Result:** The absolute difference was +1 percentage point, with a 10% relative lift. The p-value was 0.4657, and the 95% confidence interval for the difference was -1.6867 to 3.6867 percentage points. The result was not statistically significant.
+
+**Power:** The test was underpowered. This is diagnostic information and does not override the statistical-significance result.
+
+**Data quality and guardrails:** Sample-ratio mismatch was false; the traffic shares were 50% control and 50% variant. If a true sample-ratio mismatch were present, the experiment would be inconclusive. No meaningful negative effects were observed in the guardrails.
+
+**Recommendation:** extend
+
+**Reasoning:** The observed result was positive, but it was not statistically significant and the test was underpowered. The confidence interval includes both a negative difference and a positive difference.
+
+**Next steps:** Extend the experiment and reassess the conversion-rate result with the additional data.

@@ -1,0 +1,76 @@
+==================== AGENT OUTPUT ====================
+ABTestAnalysisAssistant: 请在一条消息中提供完整的 A/B 测试信息。
+请包含测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE 和护栏信息。
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+Test: Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Duration and sample:
+14 days. Control: 12,000 users and 1,200 conversions. Variant: 8,000 users and 800 conversions.
+
+Results:
+- Control conversion rate: 10.0%
+- Variant conversion rate: 10.0%
+- Absolute difference: 0.0 percentage points
+- Relative lift: 0.0%
+- P-value: 1.0
+- 95% confidence interval for the difference: -0.85 to +0.85 percentage points
+
+Significance and power:
+The result is not statistically significant. Power status is underpowered. This status is diagnostic and does not override statistical significance; here, the test is both non-significant and underpowered.
+
+Sample-ratio mismatch:
+Yes. The planned allocation was 50% control and 50% variant, but observed allocation was 60% control and 40% variant.
+
+Guardrails:
+No meaningful negative effects were observed. No guardrail concern was identified.
+
+Recommendation:
+undetermined
+
+Reasoning:
+Observed conversion was identical between groups, with no evidence of an improvement. The sample-ratio mismatch and underpowered status make the result inconclusive.
+
+Next steps:
+Investigate and resolve the sample-ratio mismatch, including assignment and exposure measurement. After correction, rerun or extend the test with valid allocation and reassess the primary metric.

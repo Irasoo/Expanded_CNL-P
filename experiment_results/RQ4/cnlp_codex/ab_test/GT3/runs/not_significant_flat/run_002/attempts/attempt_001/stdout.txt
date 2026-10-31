@@ -1,0 +1,65 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+Test: Checkout Flat Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Duration: 14 days.
+
+Results:
+- Control: 2,000 / 20,000 conversions (10.0%)
+- Variant: 2,000 / 20,000 conversions (10.0%)
+- Absolute difference: 0.00 percentage points
+- Relative lift: 0.0%
+- 95% confidence interval: -0.588 to +0.588 percentage points
+- p-value: 1.0
+- Statistically significant: No
+- Power status: Adequate. This is diagnostic/supporting information and does not override the non-significant result.
+- Sample ratio mismatch: No; observed allocation matches the expected 50/50 split.
+- Guardrails: No concern. No meaningful negative effects were observed.
+
+Recommendation: stop
+
+Reasoning: The variant produced exactly the same observed purchase conversion rate as the control, with no statistically significant improvement. Although no guardrail issues or allocation problems were identified, the hypothesis was not supported.
+
+Next steps: End the experiment and do not ship the new button on the basis of conversion improvement. Consider developing a different checkout change and testing it under a new hypothesis.

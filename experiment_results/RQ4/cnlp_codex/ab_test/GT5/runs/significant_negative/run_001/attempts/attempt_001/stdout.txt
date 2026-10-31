@@ -1,0 +1,74 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Negative Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate — successful purchases divided by sample size.
+- **Duration:** 14 days
+- **Control:** 10,000 users, 1,000 successes; **10.00% conversion**
+- **Variant:** 10,000 users, 800 successes; **8.00% conversion**
+
+### Results
+
+- **Absolute difference:** **-2.00 percentage points** for Variant versus Control
+- **Relative lift:** **-20.00%**
+- **Two-sided p-value:** **7.75 × 10⁻⁷**
+- **95% confidence interval for Variant minus Control:** **[-2.79, -1.21] percentage points**
+
+The Variant performed significantly worse than Control. The confidence interval is entirely below zero, indicating a negative effect on purchase conversion rate.
+
+- **Statistical significance:** Significant; p-value is below 0.05.
+- **Power status:** Underpowered. This is diagnostic and does not override the statistically significant result.
+- **SRM status:** No sample ratio mismatch detected; the experiment is not inconclusive due to SRM.
+- **Guardrails:** No concern reported. The supplied information states that no additional meaningful negative guardrail effects were observed.
+
+## Recommendation
+
+**Do not ship** the new checkout button. It reduced purchase conversion from 10.00% to 8.00%, with a statistically significant negative result, directly contradicting the hypothesis.
+
+## Next steps
+
+1. Keep the old checkout button as the active experience.
+2. Investigate the new button’s user experience and implementation for causes of the conversion decline.
+3. Address identified issues and test a revised checkout button in a follow-up experiment.
+4. Use the same purchase conversion metric and continue monitoring guardrails in the follow-up test.

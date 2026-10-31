@@ -1,0 +1,812 @@
+{
+  "entry_worker": "ProjectNavigator",
+  "workers": {
+    "ProjectNavigator": {
+      "worker_name": "ProjectNavigator",
+      "description": "Confirm the target Repository, explain the project, and coordinate optional Issue and Release analysis",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "project_summary",
+          "is_required": true
+        },
+        {
+          "variable_name": "issue_analysis_result",
+          "is_required": false
+        },
+        {
+          "variable_name": "release_advice",
+          "is_required": false
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command1",
+          "command_index": 1,
+          "command_type": "display_message",
+          "description": "Explain that the Agent requires either a complete GitHub Repository URL or an explicit owner/repository identifier and can summarize public project information, analyze recent open Issues, and provide Release guidance without downloading files",
+          "required_variables": [],
+          "display_content_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        },
+        {
+          "command_name": "command2",
+          "command_index": 2,
+          "command_type": "request_input",
+          "description": "Ask the user for a complete GitHub Repository URL or an explicit owner/repository identifier",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "project_input",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command3",
+          "command_index": 3,
+          "command_type": "general_command",
+          "description": "Classify variable: `project_input` as repository_url, repository_name, or unclear and write the classification to variable: `input_kind`",
+          "required_variables": [
+            "project_input",
+            "input_kind"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "input_kind",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command4",
+          "command_index": 4,
+          "command_type": "general_command",
+          "description": "Set variable: `repository_input_limit_exceeded` to true when variable: `input_kind` is still unclear and variable: `repository_input_retry_count` has reached 3; otherwise set it to false",
+          "required_variables": [
+            "repository_input_limit_exceeded",
+            "input_kind",
+            "repository_input_retry_count"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "repository_input_limit_exceeded",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command5",
+          "command_index": 5,
+          "command_type": "call_api",
+          "api_name": "parse_github_repository_input",
+          "arguments": [
+            {
+              "parameter_name": "project_input",
+              "argument_name": "project_input",
+              "argument_description": "The Repository URL, owner/repository identifier, or unclear text provided by the user.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "selected_repository",
+            "variable_description": "The target Repository parsed from an explicit user input.",
+            "variable_type": {
+              "declared_type_name": "SelectedRepository"
+            }
+          },
+          "description": "将用户已经明确提供的完整 GitHub Repository URL 或 owner/repository 标识解析为结构化的目标 Repository，得到 owner、repository 和 repository_url，供后续查询项目概览并确认目标项目使用。",
+          "reference_function_name": "parse_github_repository_input",
+          "required_variables": [
+            "project_input"
+          ],
+          "written_variable": "selected_repository",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command6",
+          "command_index": 6,
+          "command_type": "call_api",
+          "api_name": "get_github_project_overview",
+          "arguments": [
+            {
+              "parameter_name": "owner",
+              "argument_name": "selected_repository.owner",
+              "argument_description": null,
+              "argument_type": {
+                "simple_type": "text"
+              }
+            },
+            {
+              "parameter_name": "repository",
+              "argument_name": "selected_repository.repository",
+              "argument_description": null,
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "project_overview",
+            "variable_description": "Repository metadata and README content returned by GitHub.",
+            "variable_type": {
+              "declared_type_name": "ProjectOverview"
+            }
+          },
+          "description": "读取已解析目标 Repository 的公开项目信息和 README 内容，以确认该 Repository 是否存在，并为后续生成项目名称、用途、能力、技术、使用入口、许可证、维护状态及 README 限制等项目概览提供事实依据。",
+          "reference_function_name": "get_github_project_overview",
+          "required_variables": [
+            "selected_repository"
+          ],
+          "written_variable": "project_overview",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command7",
+          "command_index": 7,
+          "command_type": "general_command",
+          "description": "Set variable: `repository_found` from variable: `project_overview.found`",
+          "required_variables": [
+            "repository_found",
+            "project_overview"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "repository_found",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command8",
+          "command_index": 8,
+          "command_type": "general_command",
+          "description": "Use variable: `project_overview` to explain the project name, purpose, core capabilities, typical use cases, intended users, primary technology, execution or installation entry points, license, maintenance status, and important README limitations, and write the result to variable: `project_summary`. Do not merely copy the README and do not judge quality from Stars or open Issue count alone",
+          "required_variables": [
+            "project_overview",
+            "project_summary"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "project_summary",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command9",
+          "command_index": 9,
+          "command_type": "display_message",
+          "description": "Show variable: `project_summary` to the user",
+          "required_variables": [
+            "project_summary"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        },
+        {
+          "command_name": "command10",
+          "command_index": 10,
+          "command_type": "request_input",
+          "description": "Ask whether the user wants an analysis of recently updated open Issues",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": true,
+            "llm_based": true
+          },
+          "written_variable": "issue_analysis_choice",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command11",
+          "command_index": 11,
+          "command_type": "call_worker",
+          "target_worker_name": "IssueAnalyzer",
+          "arguments": [
+            {
+              "parameter_name": "selected_repository",
+              "argument_name": "selected_repository",
+              "argument_description": "The target Repository parsed from an explicit user input.",
+              "argument_type": {
+                "declared_type_name": "SelectedRepository"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "issue_analysis_result",
+            "variable_description": "The analysis returned by the independent Issue Worker.",
+            "variable_type": {
+              "declared_type_name": "IssueAnalysisResult"
+            }
+          },
+          "target_inputs": [
+            {
+              "variable_name": "selected_repository",
+              "is_required": true
+            }
+          ],
+          "target_outputs": [
+            {
+              "variable_name": "issue_analysis_result",
+              "is_required": true
+            }
+          ],
+          "required_variables": [
+            "selected_repository"
+          ],
+          "written_variable": "issue_analysis_result",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command12",
+          "command_index": 12,
+          "command_type": "request_input",
+          "description": "Ask whether the user wants guidance about the latest official Release",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": true,
+            "llm_based": true
+          },
+          "written_variable": "release_analysis_choice",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command13",
+          "command_index": 13,
+          "command_type": "request_input",
+          "description": "Ask the user to enter either overview or asset_match;operating_system;architecture;package_preference as the exact ReleaseRequest format. The overview format is the single word overview. The asset_match format contains exactly four semicolon-separated values and must not use JSON syntax. operating_system must be windows, macos, linux, or other; architecture must be x64, arm64, or unknown; package_preference must be installer, portable, archive, or any",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": true,
+            "llm_based": false
+          },
+          "written_variable": "release_request",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command14",
+          "command_index": 14,
+          "command_type": "call_worker",
+          "target_worker_name": "ReleaseAdvisor",
+          "arguments": [
+            {
+              "parameter_name": "selected_repository",
+              "argument_name": "selected_repository",
+              "argument_description": "The target Repository parsed from an explicit user input.",
+              "argument_type": {
+                "declared_type_name": "SelectedRepository"
+              }
+            },
+            {
+              "parameter_name": "release_request",
+              "argument_name": "release_request",
+              "argument_description": "The requested Release-analysis mode and optional platform preferences.",
+              "argument_type": {
+                "declared_type_name": "ReleaseRequest"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "release_advice",
+            "variable_description": "The no-download guidance returned by the independent Release Worker.",
+            "variable_type": {
+              "declared_type_name": "ReleaseAdvice"
+            }
+          },
+          "target_inputs": [
+            {
+              "variable_name": "selected_repository",
+              "is_required": true
+            },
+            {
+              "variable_name": "release_request",
+              "is_required": true
+            }
+          ],
+          "target_outputs": [
+            {
+              "variable_name": "release_advice",
+              "is_required": true
+            }
+          ],
+          "required_variables": [
+            "selected_repository",
+            "release_request"
+          ],
+          "written_variable": "release_advice",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command15",
+          "command_index": 15,
+          "command_type": "display_message",
+          "description": "Show the final result. Always show variable: `project_summary`; show variable: `issue_analysis_result` when variable: `issue_analysis_choice` is yes; show variable: `release_advice` when variable: `release_analysis_choice` is yes",
+          "required_variables": [
+            "project_summary",
+            "issue_analysis_result",
+            "issue_analysis_choice",
+            "release_advice",
+            "release_analysis_choice"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        },
+        {
+          "command_name": "command16",
+          "command_index": 16,
+          "command_type": "general_command",
+          "description": "Use variable: `selected_repository` to create a Repository-not-found explanation and write it to variable: `project_summary`. Do not reinterpret a missing Repository as a network, authentication, rate-limit, or service failure",
+          "required_variables": [
+            "selected_repository",
+            "project_summary"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "project_summary",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command17",
+          "command_index": 17,
+          "command_type": "display_message",
+          "description": "Show variable: `project_summary` to the user",
+          "required_variables": [
+            "project_summary"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        },
+        {
+          "command_name": "command18",
+          "command_index": 18,
+          "command_type": "request_input",
+          "description": "Explain that the current input does not uniquely identify a Repository and again request a complete GitHub Repository URL or an explicit owner/repository identifier",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "project_input",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command19",
+          "command_index": 19,
+          "command_type": "general_command",
+          "description": "Increase variable: `repository_input_retry_count` by 1",
+          "required_variables": [
+            "repository_input_retry_count"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "repository_input_retry_count",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command20",
+          "command_index": 20,
+          "command_type": "general_command",
+          "description": "Reclassify variable: `project_input` as repository_url, repository_name, or unclear and update variable: `input_kind`",
+          "required_variables": [
+            "project_input",
+            "input_kind"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "input_kind",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command21",
+          "command_index": 21,
+          "command_type": "general_command",
+          "description": "Create a termination explanation stating that the target Repository could not be determined and write it to variable: `project_summary`",
+          "required_variables": [
+            "project_summary"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "project_summary",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command22",
+          "command_index": 22,
+          "command_type": "display_message",
+          "description": "Show variable: `project_summary` and explain that GitHub was not accessed and no Issue or Release analysis was performed",
+          "required_variables": [
+            "project_summary"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": [
+        {
+          "predicate_name": "predicate1",
+          "predicate_index": 1,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_input_limit_exceeded` is false",
+          "required_variables": [
+            "repository_input_limit_exceeded"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate2",
+          "predicate_index": 2,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block2",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_found` is true",
+          "required_variables": [
+            "repository_found"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate3",
+          "predicate_index": 3,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block3",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_found` is true and variable: `issue_analysis_choice` is yes",
+          "required_variables": [
+            "repository_found",
+            "issue_analysis_choice"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate4",
+          "predicate_index": 4,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block4",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_found` is true",
+          "required_variables": [
+            "repository_found"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate5",
+          "predicate_index": 5,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block5",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_found` is true and variable: `release_analysis_choice` is yes",
+          "required_variables": [
+            "repository_found",
+            "release_analysis_choice"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate6",
+          "predicate_index": 6,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block6",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_found` is true",
+          "required_variables": [
+            "repository_found"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate7",
+          "predicate_index": 7,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block7",
+            "if_branch1"
+          ],
+          "description": "variable: `repository_input_limit_exceeded` is false and variable: `repository_found` is false",
+          "required_variables": [
+            "repository_input_limit_exceeded",
+            "repository_found"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate8",
+          "predicate_index": 8,
+          "owner_name": "alternative_flow1",
+          "condition_kind": "alternative_flow",
+          "condition_path": [
+            "worker",
+            "alternative_flow1"
+          ],
+          "description": "variable: `input_kind` is unclear after COMMAND-3 classifies the Repository input",
+          "required_variables": [
+            "input_kind"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate9",
+          "predicate_index": 9,
+          "owner_name": "while_block1",
+          "condition_kind": "while",
+          "condition_path": [
+            "worker",
+            "alternative_flow1",
+            "while_block1"
+          ],
+          "description": "variable: `input_kind` is unclear and variable: `repository_input_retry_count` is less than 3",
+          "required_variables": [
+            "input_kind",
+            "repository_input_retry_count"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate10",
+          "predicate_index": 10,
+          "owner_name": "exception_flow1",
+          "condition_kind": "exception_flow",
+          "condition_path": [
+            "worker",
+            "exception_flow1"
+          ],
+          "description": "variable: `repository_input_limit_exceeded` is true after COMMAND-4 checks the retry limit",
+          "required_variables": [
+            "repository_input_limit_exceeded"
+          ],
+          "llm_based_processing": false
+        }
+      ]
+    },
+    "IssueAnalyzer": {
+      "worker_name": "IssueAnalyzer",
+      "description": "Read and analyze recently updated open Issues from the target Repository",
+      "inputs": [
+        {
+          "variable_name": "selected_repository",
+          "is_required": true
+        }
+      ],
+      "outputs": [
+        {
+          "variable_name": "issue_analysis_result",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command23",
+          "command_index": 23,
+          "command_type": "call_api",
+          "api_name": "get_github_issue_information",
+          "arguments": [
+            {
+              "parameter_name": "owner",
+              "argument_name": "selected_repository.owner",
+              "argument_description": null,
+              "argument_type": {
+                "simple_type": "text"
+              }
+            },
+            {
+              "parameter_name": "repository",
+              "argument_name": "selected_repository.repository",
+              "argument_description": null,
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "issue_information",
+            "variable_description": "Recently updated open Issues returned by GitHub.",
+            "variable_type": {
+              "declared_type_name": "IssueInformationResult"
+            }
+          },
+          "description": "读取目标 Repository 中最近更新的开放 Issues 及其分析所需信息，供后续 Issue Worker 在限定样本范围内区分重复关注、孤立报告、维护者确认的问题和仍未解决的问题，并选取代表性 Issues，同时披露实际分析数量和样本局限。",
+          "reference_function_name": "get_github_issue_information",
+          "required_variables": [
+            "selected_repository"
+          ],
+          "written_variable": "issue_information",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command24",
+          "command_index": 24,
+          "command_type": "general_command",
+          "description": "Analyze variable: `issue_information.issues` to distinguish repeated concerns, isolated user reports, maintainer-confirmed problems, and unresolved reports. Select a small set of representative Issues, record variable: `issue_information.analyzed_issue_count`, state what the limited sample cannot establish, and write the result to variable: `issue_analysis_result`",
+          "required_variables": [
+            "issue_information",
+            "issue_analysis_result"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "issue_analysis_result",
+          "write_operation": "SET"
+        }
+      ],
+      "predicates": []
+    },
+    "ReleaseAdvisor": {
+      "worker_name": "ReleaseAdvisor",
+      "description": "Read the latest Release metadata and provide either a Release overview or Asset compatibility guidance",
+      "inputs": [
+        {
+          "variable_name": "selected_repository",
+          "is_required": true
+        },
+        {
+          "variable_name": "release_request",
+          "is_required": true
+        }
+      ],
+      "outputs": [
+        {
+          "variable_name": "release_advice",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command25",
+          "command_index": 25,
+          "command_type": "call_api",
+          "api_name": "get_github_release",
+          "arguments": [
+            {
+              "parameter_name": "owner",
+              "argument_name": "selected_repository.owner",
+              "argument_description": null,
+              "argument_type": {
+                "simple_type": "text"
+              }
+            },
+            {
+              "parameter_name": "repository",
+              "argument_name": "selected_repository.repository",
+              "argument_description": null,
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "release_information",
+            "variable_description": "The latest official Release and maintainer-uploaded Asset metadata returned by GitHub.",
+            "variable_type": {
+              "declared_type_name": "ReleaseInformation"
+            }
+          },
+          "description": "读取目标 Repository 最新官方公开 Release 的版本、名称、发布时间、Release Notes 以及维护者上传的 Release Assets 元数据，为后续按用户选择生成 Release 概览，或根据操作系统、处理器架构和包类型偏好进行 Asset 兼容性判断提供依据；该调用只获取信息，不执行文件操作。",
+          "reference_function_name": "get_github_release",
+          "required_variables": [
+            "selected_repository"
+          ],
+          "written_variable": "release_information",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command26",
+          "command_index": 26,
+          "command_type": "general_command",
+          "description": "Use variable: `release_information` to create an overview of the latest official Release, including its version, name, publication time, key Release Notes, and Asset count. Set variable: `release_advice.status` to overview and explicitly state that no file operation was performed",
+          "required_variables": [
+            "release_information",
+            "release_advice"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "release_advice",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command27",
+          "command_index": 27,
+          "command_type": "general_command",
+          "description": "Use variable: `release_request.operating_system`, variable: `release_request.architecture`, and variable: `release_request.package_preference` to select the most suitable maintainer-uploaded Asset from variable: `release_information.assets` and write the result to variable: `asset_selection`. Never treat an automatically generated Source code zip or Source code tar archive as an installable Asset by default",
+          "required_variables": [
+            "release_request",
+            "release_information",
+            "asset_selection"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "asset_selection",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command28",
+          "command_index": 28,
+          "command_type": "general_command",
+          "description": "Use variable: `asset_selection` and variable: `release_information` to create Release guidance. When a matching Asset is found, set the status to recommended and provide its name, size, URL, digest, compatibility rationale, and user-side verification guidance; otherwise set the status to no_match and explain why. Explicitly state that no file was downloaded, created, installed, extracted, or executed",
+          "required_variables": [
+            "asset_selection",
+            "release_information"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "release_advice",
+          "write_operation": "SET"
+        }
+      ],
+      "predicates": [
+        {
+          "predicate_name": "predicate1",
+          "predicate_index": 1,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch1"
+          ],
+          "description": "variable: `release_request.analysis_mode` is overview",
+          "required_variables": [
+            "release_request"
+          ],
+          "llm_based_processing": false
+        }
+      ]
+    }
+  }
+}

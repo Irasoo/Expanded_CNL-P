@@ -1,0 +1,69 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout Small Positive Test
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Tested change:** Control used the old button; Variant used the new button.  
+**Primary metric:** Purchase conversion rate  
+**Duration:** 7 days
+
+### Results
+
+| Group | Sample size | Conversion rate |
+|---|---:|---:|
+| Control | 1,000 | 10.00% |
+| Variant | 1,000 | 11.00% |
+
+- **Absolute difference (Variant − Control):** +1.00 percentage point
+- **Relative lift:** +10.00%
+- **Two-sided p-value:** 0.4657
+- **95% confidence interval (Variant − Control):** −1.69 to +3.69 percentage points
+- **Statistical significance:** Not significant at the 0.05 level
+- **Power status:** Underpowered; this is a diagnostic limitation and does not override the non-significant result
+- **Sample ratio mismatch:** None detected
+- **Guardrails:** No meaningful negative effects were observed
+
+### Recommendation: extend
+
+The Variant had a higher observed conversion rate, but the difference is not statistically significant, and the confidence interval includes both a negative effect and a positive effect. Extend the test, continue monitoring the primary metric and guardrails, and reassess the results after collecting additional data.

@@ -1,0 +1,43 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{"hypothesis":"The new checkout button will increase purchase conversion rate.","duration":"7.0 days","sample_sizes":{"control":1000,"variant":1000},"conversion_rates":{"control":0.1,"variant":0.11},"absolute_difference":0.009999999999999995,"relative_lift":0.09999999999999995,"p_value":0.4657435879336353,"confidence_interval":{"lower":-0.01686652401053077,"upper":0.03686652401053076},"statistical_significance":{"statistically_significant":false,"reasoning":"The p-value is 0.4657435879336353, and the confidence interval includes zero."},"power_status":"underpowered; this is a limitation and does not override the statistical significance result.","sample_ratio_mismatch":{"detected":false,"control_traffic_share":0.5,"variant_traffic_share":0.5},"guardrail_assessment":{"concern":false,"result":"No meaningful negative effects were observed."},"recommendation":"Extend the experiment.","reasoning":"The variant shows a positive observed difference of 0.009999999999999995 and a relative lift of 0.09999999999999995, but the result is not statistically significant and the experiment is underpowered. There is no detected sample ratio mismatch or guardrail concern.","next_steps":["Extend the experiment and collect additional observations.","Reassess the conversion rates, difference, confidence interval, p-value, and statistical significance after the extension."]}

@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Small Positive Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Over 7 days, the control had 100 conversions from 1,000 users (10.0%) and the variant had 110 conversions from 1,000 users (11.0%). The observed absolute increase was 1.0 percentage point, or 10.0% relative lift.
+
+The two-sided p-value was 0.466, which is above the 0.05 significance threshold. The 95% confidence interval for the conversion-rate difference was -1.69 to +3.69 percentage points, so the result is not statistically significant. The experiment was underpowered against the stated 1 percentage point minimum detectable effect at the 80% power standard.
+
+There is no sample ratio mismatch, so the observed 50/50 allocation does not indicate an experiment-validity issue. No meaningful negative guardrail effects were reported.
+
+Recommendation: Extend the experiment. The variant shows a positive directional result, but the current evidence cannot distinguish a real improvement from random variation. Continue collecting data until the test has adequate power for the 1 percentage point minimum detectable effect, then reassess the primary metric and guardrails.

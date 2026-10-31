@@ -1,0 +1,80 @@
+{
+  "status": "failed",
+  "generation_id": "20260817_033842",
+  "testing_id": "20260817_130711",
+  "case_name": "ab_test",
+  "compilation_method": "langgraph",
+  "compilation_trial_index": 2,
+  "compilation_trial_count": 5,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\ab_test\\branch_input_groups.yaml",
+    "sha256": "e446f6ae592bfa1bdacf0aca9a198815ae79348eaf53d2cb9989dd3a4686441f"
+  },
+  "input_group_name": "not_significant_positive",
+  "run_index": 1,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\ab_test\\langgraph_2in5\\not_significant_positive\\run_001\\attempts\\attempt_001",
+  "started_at": "2026-08-17T06:41:51.591246+00:00",
+  "finished_at": "2026-08-17T06:42:12.457864+00:00",
+  "duration_seconds": 20.875,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 1,
+  "consumed_input_count": 1,
+  "unused_input_count": 0,
+  "ended_before_all_inputs_consumed": false,
+  "input_exhausted": false,
+  "input_consumption_status": "matched",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null
+    },
+    "request_count": 1,
+    "successful_request_count": 0,
+    "failed_request_count": 1,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "total_tokens": 0
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "failed",
+        "usage": null
+      }
+    ]
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\ab_test\\langgraph_2in5\\not_significant_positive\\run_001\\attempts\\attempt_001\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "APIConnectionError",
+    "message": "Connection error.",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpcore\\_sync\\connection_pool.py\", line 216, in handle_request\n    raise exc from None\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpcore\\_sync\\connection_pool.py\", line 196, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpcore\\_sync\\http_proxy.py\", line 317, in handle_request\n    stream = stream.start_tls(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpcore\\_sync\\http11.py\", line 383, in start_tls\n    return self._stream.start_tls(ssl_context, server_hostname, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpcore\\_backends\\sync.py\", line 152, in start_tls\n    with map_exceptions(exc_map):\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\contextlib.py\", line 158, in __exit__\n    self.gen.throw(typ, value, traceback)\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpcore\\_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 982, in request\n    response = self._client.send(\n               ^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_client.py\", line 914, in send\n    response = self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_client.py\", line 942, in _send_handling_auth\n    response = self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_client.py\", line 979, in _send_handling_redirects\n    response = self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_client.py\", line 1014, in _send_single_request\n    response = transport.handle_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\contextlib.py\", line 158, in __exit__\n    self.gen.throw(typ, value, traceback)\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\main.py\", line 18, in main\n    return invoke_worker(\n           ^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\workflow.py\", line 295, in invoke_worker\n    graph.invoke(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 3913, in invoke\n    for chunk in self.stream(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 2967, in stream\n    for _ in runner.tick(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_runner.py\", line 207, in tick\n    run_with_retry(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_retry.py\", line 617, in run_with_retry\n    return task.proc.invoke(task.input, config)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 684, in invoke\n    input = context.run(step.invoke, input, config, **kwargs)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 426, in invoke\n    ret = self.func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\workflow.py\", line 211, in run\n    command(\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\commands.py\", line 79, in abtestanalyzer__command2\n    result = llm_client.complete(\n             ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\utils.py\", line 357, in complete\n    return self._complete_typed_dict(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\utils.py\", line 405, in _complete_typed_dict\n    response = self._create_response(\n               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\ab_test\\langgraph_2in5\\agent.cnlp\\utils.py\", line 492, in _create_response\n    return self._get_client().responses.create(**request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\runtime_token_tracker.py\", line 266, in wrapped\n    response = original(resource, *args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\resources\\responses\\responses.py\", line 866, in create\n    return self._post(\n           ^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 1259, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 1014, in request\n    raise APIConnectionError(request=request) from err\nopenai.APIConnectionError: Connection error.\nDuring task with name 'abtestanalyzer__command2' and id 'a3b44df8-76d9-ee80-196a-386634a16eca'\n"
+  }
+}

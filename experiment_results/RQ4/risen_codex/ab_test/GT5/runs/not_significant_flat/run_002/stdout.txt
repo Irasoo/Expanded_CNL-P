@@ -1,0 +1,60 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Flat Test A/B analysis
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+Duration: 14 days.
+
+Results:
+- Control: 20,000 users; 2,000 successes; 10.0% conversion.
+- Variant: 20,000 users; 2,000 successes; 10.0% conversion.
+- Absolute difference: 0.0 percentage points.
+- Relative lift: 0.0%.
+- P-value: 1.0.
+- 95% confidence interval for the difference: -0.58799 to +0.58799 percentage points.
+
+The result is not statistically significant. Power status is adequate, but this is diagnostic only and must not override the significance result. There is no sample-ratio mismatch; traffic was split 50%/50%. No meaningful negative guardrail effects were observed, and there is no reported guardrail concern. No requested metric is unavailable.
+
+Recommendation: stop.
+
+Reasoning: The variant produced the same observed purchase conversion rate as control, with zero absolute difference and zero relative lift. The confidence interval includes both a small decrease and a small increase, and the test does not support an improvement.
+
+Practical next steps: Stop this experiment, retain the current control experience, and document the result. Any future checkout-button change should be evaluated in a new test.

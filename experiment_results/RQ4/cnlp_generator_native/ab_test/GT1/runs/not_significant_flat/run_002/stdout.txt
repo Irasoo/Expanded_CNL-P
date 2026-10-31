@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+The experiment ran for **14 days**, with **20,000 users per group**. Control recorded a **10.0%** conversion rate (2,000/20,000), and Variant also recorded **10.0%** (2,000/20,000). The absolute difference was **0.00 percentage points**, equivalent to **0.0% relative lift**. The two-sided **p-value was 1.00**, and the 95% confidence interval for the absolute difference was **-0.588 to +0.588 percentage points**. The result is **not statistically significant**.
+
+Power was **adequate** to evaluate the specified minimum detectable effect of 1 percentage point. No sample ratio mismatch was detected, so the expected 50/50 allocation and observed sample counts do not raise an experiment-validity concern. The reported guardrail information indicates **no meaningful negative effects**, so there is no guardrail concern.
+
+**Recommendation: Stop the test and do not ship the Variant based on this hypothesis.** The experiment was adequately powered and valid, but observed no improvement in purchase conversion; the confidence interval also excludes the specified 1 percentage-point improvement.
+
+**Next steps:** Retain the Control, document the flat result, and investigate a materially different checkout change before running a new experiment. Define a new hypothesis and expected effect before retesting.

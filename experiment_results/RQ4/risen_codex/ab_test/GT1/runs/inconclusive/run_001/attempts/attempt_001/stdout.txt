@@ -1,0 +1,53 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Duration: 14 days.  
+- Control: 12,000 users; 10.0% conversion rate (1,200 successes)  
+- Variant: 8,000 users; 10.0% conversion rate (800 successes)
+
+The absolute difference was 0.0 percentage points, with a relative lift of 0.0%. The p-value was 1.0, and the 95% confidence interval for the difference was [-0.008486893005571289, 0.008486893005571289]. The result was not statistically significant.
+
+Power status was underpowered and should be treated as diagnostic context only; it does not override the statistical result. A sample ratio mismatch was detected despite the intended 50%/50% traffic allocation, making the experiment inconclusive. No meaningful negative guardrail effects were observed, and there was no guardrail concern.
+
+Recommendation: undetermined
+
+Next steps: Investigate and resolve the sample ratio mismatch and validate experiment assignment and measurement before drawing conclusions or rerunning the test.

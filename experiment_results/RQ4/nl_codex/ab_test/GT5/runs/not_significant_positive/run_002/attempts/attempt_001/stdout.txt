@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Duration:** 7 days
+
+**Sample Sizes:** Control: 1,000; Variant: 1,000
+
+**Conversion Rates:** Control: 100/1,000 = 10.0%; Variant: 110/1,000 = 11.0%
+
+**Absolute Difference:** +0.0100 proportion, or +1.00 percentage point
+
+**Relative Lift:** +0.1000, or +10.0%
+
+**P-Value:** 0.4657
+
+**95% Confidence Interval:** Difference from -0.0169 to 0.0369 proportion, or -1.69 to +3.69 percentage points
+
+**Statistical Significance:** Not statistically significant.
+
+**Power Status:** Underpowered. Power status is diagnostic and does not override statistical significance.
+
+**Sample-Ratio Mismatch:** No mismatch detected; traffic shares and observed sample sizes are balanced at 50%/50%.
+
+**Guardrail Assessment:** No meaningful negative effects were observed. Guardrail concern: false.
+
+**Recommendation:** Extend the experiment.
+
+**Reasoning:** The observed result is positive, but the p-value is 0.4657 and the confidence interval includes zero, so the evidence does not establish that the new button increases purchase conversion rate. The experiment is also underpowered. No sample-ratio mismatch or guardrail concern was reported.
+
+**Next Steps:** Continue collecting data by extending the experiment, then reassess the conversion-rate difference, statistical significance, confidence interval, power status, sample-ratio mismatch, and guardrails.

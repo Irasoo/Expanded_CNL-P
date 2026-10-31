@@ -1,0 +1,60 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+**Experiment:** 14 days. Control: 10,000 users, 10.0% conversion. Variant: 10,000 users, 12.0% conversion.
+
+**Result:** Absolute difference was **+2.0 percentage points**; relative lift was **+20.0%**. The p-value was **6.19 × 10⁻⁶**. The 95% confidence interval for the absolute difference was **[1.13, 2.87] percentage points**.
+
+**Statistical assessment:** The result was statistically significant. Power status was **underpowered**; this is diagnostic and does not override the statistically significant result.
+
+**Experiment quality and guardrails:** No sample-ratio mismatch was detected. If a sample-ratio mismatch were present, the experiment would be inconclusive. Revenue per user, page load time, and customer support contact rate were stable, with no meaningful negative effects observed. Guardrail concern: **false**.
+
+**Recommendation:** **ship**
+
+**Reasoning:** The variant increased purchase conversion rate with a statistically significant result, and the reported guardrails remained stable.
+
+**Next steps:** Ship the variant and track purchase conversion rate and the reported guardrails.

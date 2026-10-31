@@ -1,0 +1,67 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message. Include the test name, hypothesis, tested change, primary metric, Control sample size and number of successes, Variant sample size and number of successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Observed results**
+- Duration: 7 days
+- Control: 1,000 users, 10.0% conversion rate
+- Variant: 1,000 users, 11.0% conversion rate
+- Absolute difference: +1.0 percentage point
+- Relative lift: +10.0%
+- Two-sided p-value: 0.466
+- 95% confidence interval for the absolute difference: -1.69 to +3.69 percentage points
+- Statistical significance: Not significant at the 0.05 threshold
+- Power status: Underpowered for the supplied 1 percentage-point minimum detectable effect at 80% power
+- Sample ratio mismatch: Not detected
+- Guardrails: No concern; no meaningful negative effects were reported
+
+**Decision: Ship**
+
+The observed result favors the variant, and there is no sample ratio mismatch or reported guardrail concern. However, the experiment does not provide statistically significant evidence that the new button improves conversion: the confidence interval includes no effect and possible degradation, and the test was underpowered for the supplied minimum detectable effect. The ship recommendation should therefore be treated as a product decision made with uncertain evidence, not as a validated conversion win.
+
+**Next steps**
+1. Ship with monitoring of purchase conversion and the existing guardrails.
+2. Avoid recording the variant as a statistically confirmed improvement.
+3. Continue or run a follow-up adequately powered experiment to narrow the confidence interval and verify whether the observed lift is reproducible.
+4. Investigate promptly if post-launch conversion or guardrails show meaningful deterioration.

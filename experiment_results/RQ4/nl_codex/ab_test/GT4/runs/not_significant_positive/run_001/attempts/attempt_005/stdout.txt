@@ -1,0 +1,62 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Test: Checkout Small Positive Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate. The control used the old button, and the variant used the new button. The primary metric was purchase conversion rate.
+
+Duration and sample sizes: 7 days; control n=1,000 and variant n=1,000, with 50% traffic allocated to each. The stated minimum detectable effect was 0.01.
+
+Results:
+- Control conversion rate: 10.0% (100/1,000)
+- Variant conversion rate: 11.0% (110/1,000)
+- Absolute difference: +1.0 percentage point
+- Relative lift: +10.0%
+- p-value: 0.4657
+- 95% confidence interval for the difference: -1.69 to +3.69 percentage points
+
+Statistical assessment: The result is not statistically significant. The confidence interval includes both a negative effect and a positive effect, so the observed increase is inconclusive. The test is marked underpowered; this is diagnostic support that more data may be needed, but it does not override the non-significant result.
+
+Experiment quality and guardrails: No sample ratio mismatch was detected. No meaningful negative guardrail effects were observed, and there is no guardrail concern.
+
+Recommendation: Extend the test.
+
+Reasoning and next steps: Continue collecting data and reassess the purchase conversion rate after the extension. The current result does not establish that the new button improves conversion, while the underpowered status indicates limited ability to detect the stated effect. No extension duration or stopping threshold is provided.

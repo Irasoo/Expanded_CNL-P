@@ -1,0 +1,242 @@
+case_name: ab_test
+
+# Each input group targets exactly one AnalysisOutcome and Recommendation
+# branch. RQ4/main.py repeats every group three times for each compiled Agent.
+input_groups:
+  significant_positive_safe:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - |-
+        Test name:
+        Checkout Button Positive Test
+
+        Hypothesis:
+        Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+        Variant change:
+        Control uses "Continue".
+        Variant uses "Buy Now".
+
+        Primary metric:
+        Purchase conversion rate
+
+        Control group:
+        Sample size: 10000
+        Successful conversions: 1000
+
+        Variant group:
+        Sample size: 10000
+        Successful conversions: 1200
+
+        Test duration:
+        14 days
+
+        Traffic split:
+        Control: 50%
+        Variant: 50%
+
+        Minimum detectable effect:
+        1 percentage point
+
+        Guardrail information:
+        Revenue per user was stable.
+        Page load time was stable.
+        Customer support contact rate was stable.
+        No meaningful negative effects were observed.
+
+  significant_positive_guardrail_concern:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - |-
+        Test name:
+        Checkout Button Guardrail Test
+
+        Hypothesis:
+        Changing the checkout button text will increase purchase conversion rate.
+
+        Variant change:
+        Control uses "Continue".
+        Variant uses "Buy Now".
+
+        Primary metric:
+        Purchase conversion rate
+
+        Control group:
+        Sample size: 10000
+        Successful conversions: 1000
+
+        Variant group:
+        Sample size: 10000
+        Successful conversions: 1200
+
+        Test duration:
+        14 days
+
+        Traffic split:
+        Control: 50%
+        Variant: 50%
+
+        Minimum detectable effect:
+        1 percentage point
+
+        Guardrail information:
+        The customer support contact rate increased from 2% to 5%.
+        The product team considers this a meaningful negative effect and a guardrail concern.
+
+  not_significant_positive:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - |-
+        Test name:
+        Checkout Small Positive Test
+
+        Hypothesis:
+        The new checkout button will increase purchase conversion rate.
+
+        Variant change:
+        Control uses the old button.
+        Variant uses the new button.
+
+        Primary metric:
+        Purchase conversion rate
+
+        Control group:
+        Sample size: 1000
+        Successful conversions: 100
+
+        Variant group:
+        Sample size: 1000
+        Successful conversions: 110
+
+        Test duration:
+        7 days
+
+        Traffic split:
+        Control: 50%
+        Variant: 50%
+
+        Minimum detectable effect:
+        1 percentage point
+
+        Guardrail information:
+        No meaningful negative effects were observed.
+
+  not_significant_flat:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - |-
+        Test name:
+        Checkout Flat Test
+
+        Hypothesis:
+        The new checkout button will increase purchase conversion rate.
+
+        Variant change:
+        Control uses the old button.
+        Variant uses the new button.
+
+        Primary metric:
+        Purchase conversion rate
+
+        Control group:
+        Sample size: 20000
+        Successful conversions: 2000
+
+        Variant group:
+        Sample size: 20000
+        Successful conversions: 2000
+
+        Test duration:
+        14 days
+
+        Traffic split:
+        Control: 50%
+        Variant: 50%
+
+        Minimum detectable effect:
+        1 percentage point
+
+        Guardrail information:
+        No meaningful negative effects were observed.
+
+  significant_negative:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - |-
+        Test name:
+        Checkout Negative Test
+
+        Hypothesis:
+        The new checkout button will increase purchase conversion rate.
+
+        Variant change:
+        Control uses the old button.
+        Variant uses the new button.
+
+        Primary metric:
+        Purchase conversion rate
+
+        Control group:
+        Sample size: 10000
+        Successful conversions: 1000
+
+        Variant group:
+        Sample size: 10000
+        Successful conversions: 800
+
+        Test duration:
+        14 days
+
+        Traffic split:
+        Control: 50%
+        Variant: 50%
+
+        Minimum detectable effect:
+        1 percentage point
+
+        Guardrail information:
+        No additional meaningful negative guardrail effects were observed.
+
+  inconclusive:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - |-
+        Test name:
+        Checkout SRM Test
+
+        Hypothesis:
+        The new checkout button will increase purchase conversion rate.
+
+        Variant change:
+        Control uses the old button.
+        Variant uses the new button.
+
+        Primary metric:
+        Purchase conversion rate
+
+        Control group:
+        Sample size: 12000
+        Successful conversions: 1200
+
+        Variant group:
+        Sample size: 8000
+        Successful conversions: 800
+
+        Test duration:
+        14 days
+
+        Traffic split:
+        Control: 50%
+        Variant: 50%
+
+        Minimum detectable effect:
+        1 percentage point
+
+        Guardrail information:
+        No meaningful negative effects were observed.

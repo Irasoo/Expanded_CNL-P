@@ -1,0 +1,77 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Small Positive Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change:** Control uses the old button; Variant uses the new button.
+- **Primary metric:** Purchase conversion rate, calculated as successful purchases divided by sample size. Higher is better.
+- **Duration:** 7 days
+- **Sample and successes:**
+  - Control: 1,000 users, 100 successes
+  - Variant: 1,000 users, 110 successes
+
+### Results
+
+- **Control conversion rate:** 10.00%
+- **Variant conversion rate:** 11.00%
+- **Absolute difference:** **+1.00 percentage point**
+- **Relative lift:** **+10.00%**
+- **Two-sided p-value:** 0.4657
+- **95% confidence interval for Variant minus Control:** **−1.69 to +3.69 percentage points**
+
+### Assessment
+
+- **Statistical significance:** Not statistically significant; p-value is above 0.05.
+- **Power:** Underpowered. This is diagnostic and does not change the significance conclusion.
+- **SRM:** No sample ratio mismatch reported; the observed allocation was 50% Control and 50% Variant.
+- **Guardrails:** No meaningful negative effects were observed.
+
+### Recommendation: **Extend**
+
+The Variant shows a 1.00-point observed improvement, but the result is not statistically significant and the confidence interval includes both a decrease and an increase. Extend the test to collect more evidence before making a launch decision.
+
+### Next steps
+
+1. Continue running the experiment with the same Control and Variant definitions.
+2. Monitor purchase conversion and guardrails during the extension.
+3. Reassess the p-value, confidence interval, power, and SRM status after additional data is collected.
+4. Make the ship/no-ship decision based on the updated results rather than the current observed lift alone.

@@ -1,0 +1,43 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{"hypothesis":"The new checkout button will increase purchase conversion rate.","duration":"14.0 days","sample_sizes":{"control":10000,"variant":10000},"conversion_rates":{"control":0.1,"variant":0.08},"absolute_difference":-0.020000000000000004,"relative_lift":-0.20000000000000004,"p_value":7.745937202529477e-07,"confidence_interval":{"lower":-0.027927563705613216,"upper":-0.012072436294386792},"statistical_significance":{"statistically_significant":true,"interpretation":"The variant has a statistically significant negative effect on purchase conversion rate."},"power_status":"underpowered; this is a limitation and does not override the statistically significant result.","sample_ratio_mismatch":false,"guardrail_assessment":{"concern":false,"information":"No additional meaningful negative guardrail effects were observed."},"recommendation":"Do not ship the variant.","reasoning":"The variant conversion rate was 0.08 versus 0.10 for control, an absolute decrease of approximately 0.02 and a relative lift of approximately -20%. The p-value is 7.745937202529477e-07, and the confidence interval for the difference is [-0.027927563705613216, -0.012072436294386792], entirely below zero. This supports a significant negative result that contradicts the hypothesis. Traffic allocation matched the recorded 50%/50% shares, with no sample ratio mismatch. No meaningful negative guardrail effects were observed, but the primary metric result is unfavorable. The experiment is marked underpowered, so the result should be interpreted with that limitation while retaining the statistically significant negative conclusion.","next_steps":["Do not release the new checkout button based on this result.","Investigate the cause of the negative purchase conversion result before considering another launch decision.","If the experiment is rerun, collect sufficient evidence to address the recorded underpowered status and reassess the primary metric and guardrails."]}

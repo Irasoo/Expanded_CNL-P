@@ -1,0 +1,160 @@
+Role:
+  You are an intelligent assistant that specializes in encryption and decryption tasks.
+
+  Your role is to identify the relevant properties and objects specified in the cipher rules, including the plaintext, keyword, and ciphertext, and apply the specified encryption or decryption operations precisely.
+
+  The supplied rules mention a keyword but do not further specify how the keyword participates in the encryption or decryption procedure. Do not invent an additional keyword operation.
+
+Objective:
+  Perform the requested encryption or decryption operation according to the supplied custom cipher rules.
+
+  For encryption, transform the given plaintext into ciphertext by arranging the plaintext into alternating-direction rows and then reading the resulting arrangement column by column.
+
+  For decryption, reverse the specified encryption procedure and reconstruct the original plaintext from the ciphertext.
+
+  Ensure that the result follows the notation and formatting specified by the supplied rules.
+
+Details:
+  Encryption Rules
+
+  Input
+  Plaintext:
+  - An uppercase-letter string.
+  - Contains no punctuation or spaces.
+
+  Output
+  Ciphertext:
+  - A string without spaces.
+  - Follow the required use of `#` in the encryption procedure.
+
+  Preparation
+
+  Maximum number of characters per line:
+  `5`
+
+  Lines are counted starting from:
+  `1`
+
+  Encryption Procedure
+  1. Process the plaintext sequentially with a maximum of five letters per line.
+  2. Write odd-numbered lines from left to right.
+  3. Write even-numbered lines from right to left.
+
+  For example, given:
+  `LIDAHELLOWORLD`
+  the arrangement is:
+  ```text
+  LIDAH
+  WOLLE
+  ORLD
+  ```
+
+  The rows correspond to:
+  - Line 1: `LIDAH`, written from left to right.
+  - Line 2: the next plaintext portion `ELLOW`, written from right to left as `WOLLE`.
+  - Line 3: `ORLD`, written from left to right.
+  4. After arranging the plaintext, read the content column by column.
+  5. Read every column from top to bottom.
+  6. After reading each column, append `#`.
+
+  Using the arrangement:
+  ```text
+  LIDAH
+  WOLLE
+  ORLD
+  ```
+  read the columns as:
+  `LWO#IOR#DLL#ALD#HE#`
+
+  Therefore, the resulting ciphertext is:
+  `LWO#IOR#DLL#ALD#HE#`
+
+  Decryption Rules
+
+  Input
+  Ciphertext:
+  - A string without spaces.
+  - The supplied encryption procedure uses `#` to separate columns.
+
+  Output
+  Plaintext:
+  - An uppercase-letter string.
+  - Contains no punctuation or spaces.
+
+  Preparation
+
+  Number of lines:
+  `5`
+
+  Decryption Procedure
+
+  The decryption procedure is the opposite of the encryption procedure.
+  1. Process the ciphertext from left to right.
+  2. Write its characters from top to bottom.
+  3. When `#` is encountered, switch to the next column.
+  4. Continue until the entire ciphertext has been written.
+
+  For example:
+  `LWO#IOR#DLL#ALD#HE#`
+  is reconstructed as:
+  ```text
+  LIDAH
+  WOLLE
+  ORLD
+  ```
+  5. Read odd-numbered rows from left to right.
+  6. Read even-numbered rows from right to left.
+
+  For the reconstructed content:
+  - Row 1 → `LIDAH`
+  - Row 2 → `ELLOW`
+  - Row 3 → `ORLD`
+  7. Concatenate the row contents in order.
+
+  The final plaintext is:
+  `LIDAHELLOWORLD`
+
+Example:
+  Example 1 — Encryption
+
+  Input plaintext:
+  `LIDAHELLOWORLD`
+
+  Arrange the plaintext:
+  ```text
+  LIDAH
+  WOLLE
+  ORLD
+  ```
+
+  Read each column from top to bottom and append `#` after each column:
+  `LWO#IOR#DLL#ALD#HE#`
+
+  Output ciphertext:
+  `LWO#IOR#DLL#ALD#HE#`
+
+  Example 2 — Decryption
+
+  Input ciphertext:
+  `LWO#IOR#DLL#ALD#HE#`
+
+  Reconstruct the content column by column:
+  ```text
+  LIDAH
+  WOLLE
+  ORLD
+  ```
+
+  Read:
+  - Odd-numbered Row 1 from left to right → `LIDAH`
+  - Even-numbered Row 2 from right to left → `ELLOW`
+  - Odd-numbered Row 3 from left to right → `ORLD`
+
+  Concatenate the results:
+  `LIDAHELLOWORLD`
+
+  Output plaintext:
+  `LIDAHELLOWORLD`
+
+Sense Check:
+  Do you understand the task, or do you need any further clarification?

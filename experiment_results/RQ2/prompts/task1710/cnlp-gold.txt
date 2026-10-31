@@ -1,0 +1,94 @@
+[DEFINE_AGENT: ReelCipherAgent """Perform encryption and decryption using the specified reel cipher rules"""]
+
+    [DEFINE_PERSONA:]
+        ROLE: Intelligent assistant specializing in encryption and decryption tasks
+    [END_PERSONA]
+
+    [DEFINE_CONCEPTS:]
+        Reel1: ABCEIGDJFVUYMHTQKZOLRXSPWN
+        Reel2: ACDEHFIJKTLMOUVYGZNPQXRWSB
+        Reel3: ADKOMJUBGEPHSCZINXFYQRTVWL
+        Reel4: AEDCBIFGJHLKMRUOQVPTNWYXZS
+        Reel5: AFNQUKDOPITJBRHCYSLWEMZVXG
+        Reel6: AGPOCIXLURNDYZHWBJSQFKVMET
+        Reel7: AHXJEZBNIKPVROGSYDULCFMQTW
+        Reel8: AIHPJOBWKCVFZLQERYNSUMGTDX
+        Reel9: AJDSKQOIVTZEFHGYUNLPMBXWCR
+        Reel10: AKELBDFJGHONMTPRQSVZUXYWIC
+        Reel11: ALTMSXVQPNOHUWDIZYCGKRFBEJ
+        Reel12: AMNFLHQGCUJTBYPZKXISRDVEWO
+        Reel13: ANCJILDHBMKGXUZTSWQYVORPFE
+        Reel14: AODWPKJVIUQHZCTXBLEGNYRSMF
+        Reel15: APBVHIYKSGUENTCXOWFQDRLJZM
+        Reel16: AQJNUBTGIMWZRVLXCSHDEOKFPY
+        Reel17: ARMYOFTHEUSZJXDPCWGQIBKLNV
+        Reel18: ASDMCNEQBOZPLGVJRKYTFUIWXH
+        Reel19: ATOJYLFXNGWHVCMIRBSEKUPDZQ
+        Reel20: AUTRZXQLYIOVBPESNHJWMDGFCK
+        Reel21: AVNKHRGOXEYBFSJMUDQCLZWTIP
+        Reel22: AWVSFDLIEBHKNRJQZGMXPUCOTY
+        Reel23: AXKWREVDTUFOYHMLSIQNJCPGBZ
+        Reel24: AYJPXMVKBQWUGLOSTECHNZFRID
+        Reel25: AZDNBUHYFWJLVGRCQMPSOEXTKI
+    [END_CONCEPTS]
+
+    [DEFINE_CONSTRAINTS:]
+        PlaintextFormat: Plaintext is an uppercase letters string without punctuation and spaces
+        CiphertextFormat: Ciphertext is an uppercase letters string
+        OutputFormat: Output must use the notation and symbols specified by the cipher rules
+    [END_CONSTRAINTS]
+
+    [DEFINE_VARIABLES:]
+        plaintext: text
+        ciphertext: text
+        characters: List[text]
+        reelId: number
+[END_VARIABLES]
+
+    [DEFINE_WORKER: """Encrypt plaintext or alternatively decrypt ciphertext using the specified reels""" ProcessReelCipher]
+
+        [INPUTS]
+            OPTIONAL <REF>plaintext</REF>
+            OPTIONAL <REF>ciphertext</REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            OPTIONAL <REF>ciphertext</REF>
+            OPTIONAL <REF>plaintext</REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [COMMAND Select Reel1 and record its identifier RESULT <REF>reelId</REF> SET]
+            [END_SEQUENTIAL_BLOCK]
+
+            [FOR each character p in <REF>plaintext</REF> in order]
+                COMMAND-2 [COMMAND Find p on Reel <REF>reelId</REF> and obtain the next character on that Reel, using the first character if p is at the end RESULT <REF>characters</REF> APPEND]
+                COMMAND-3 [COMMAND Set the next reel identifier to 1 if <REF>reelId</REF> is 25, otherwise increase <REF>reelId</REF> by 1 RESULT <REF>reelId</REF> SET]
+            [END_FOR]
+
+            [SEQUENTIAL_BLOCK]
+                 COMMAND-4 [COMMAND Combine all characters in <REF>characters</REF> in order into an uppercase letters string RESULT <REF>ciphertext</REF> SET]
+                 COMMAND-5 [DISPLAY <REF>ciphertext</REF>]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+
+
+        [ALTERNATIVE_FLOW: """Decrypt ciphertext instead of encrypting plaintext""" DecryptCiphertext]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-6 [COMMAND Select Reel1 and record its identifier RESULT <REF>reelId</REF> SET]
+            [END_SEQUENTIAL_BLOCK]
+
+            [FOR each character c in <REF>ciphertext</REF> in order]
+                COMMAND-7 [COMMAND Find c on Reel <REF>reelId</REF> and obtain the previous character on that Reel, using the last character if c is at the beginning RESULT <REF>characters</REF> APPEND]
+                COMMAND-8 [COMMAND Set the next reel identifier to 1 if <REF>reelId</REF> is 25, otherwise increase <REF>reelId</REF> by 1 RESULT <REF>reelId</REF> SET]
+            [END_FOR]
+
+            [SEQUENTIAL_BLOCK]
+                COMMAND-9 [COMMAND Combine all characters in <REF>characters</REF> in order into an uppercase letters string RESULT <REF>plaintext</REF> SET]
+                COMMAND-10 [DISPLAY <REF>plaintext</REF>]
+            [END_SEQUENTIAL_BLOCK]
+
+        [END_ALTERNATIVE_FLOW]
+    [END_WORKER]
+[END_AGENT]

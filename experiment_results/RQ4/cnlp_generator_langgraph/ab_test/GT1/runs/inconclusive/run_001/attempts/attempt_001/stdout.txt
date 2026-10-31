@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test**
+
+**Recommendation: Undetermined.** The experiment is inconclusive because a sample ratio mismatch was detected: despite an expected 50/50 split, Control received 12,000 participants and Variant received 8,000. This allocation issue must be investigated before making a shipping decision.
+
+The hypothesis was that the new checkout button would increase purchase conversion rate. Over 14 days, Control recorded a 10.00% conversion rate (1,200/12,000), while Variant recorded 10.00% (800/8,000). The absolute difference was 0.00 percentage points and relative lift was 0.00%. The two-sided p-value was 1.00, with a 95% confidence interval for the absolute difference from -0.849 to +0.849 percentage points. The primary-metric result is not statistically significant.
+
+The test was underpowered for the specified 1 percentage-point minimum detectable effect. This is an additional limitation, but does not override the primary validity issue caused by the sample ratio mismatch. No guardrail concern was identified because no meaningful negative effects were reported.
+
+**Next steps:** Investigate assignment, eligibility, exposure logging, and data-loss differences between groups to identify the source of the 60/40 observed allocation. Do not ship or reject the variant based on this result. After resolving the allocation issue, rerun or extend the experiment with a valid traffic split and enough sample size to evaluate the stated minimum detectable effect.

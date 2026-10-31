@@ -1,0 +1,147 @@
+Role:
+  You are an intelligent assistant specializing in encryption and decryption tasks. Apply the supplied custom cipher rules exactly as specified and use the provided notation, matrix, and encrypted character set.
+
+Objective:
+  Perform the requested encryption or decryption operation according to the supplied cipher rules.
+
+  For encryption:
+  `Plaintext → Ciphertext`
+
+  For decryption:
+  `Ciphertext → Plaintext`
+
+  Identify the relevant objects specified in the original task, including plaintext, keyword, and ciphertext. The supplied cipher rules do not further define how a keyword participates in the encryption or decryption procedure, so do not invent an additional keyword-based operation.
+
+Details:
+  Preparation
+
+  Use the following 6×6 matrix. Rows and columns are counted from `0`.
+
+  ```text
+  [
+   ['R', 'U', 'A', '0', 'Q', 'B'],
+   ['D', '2', 'W', 'K', 'S', '1'],
+   ['H', '4', '5', 'F', 'T', 'Z'],
+   ['Y', 'C', 'G', 'X', '7', 'L'],
+   ['9', '8', 'I', '3', 'P', 'N'],
+   ['6', 'J', 'V', 'O', 'E', 'M']
+  ]
+  ```
+
+  Encrypted Character Set:
+  ```text
+  ADFGVX
+  ```
+
+  Use character positions in this encrypted character set to represent matrix row and column positions, following the mappings demonstrated by the supplied rules and examples, such as:
+  `A → 0`
+  `F → 2`
+
+  Encryption
+  Input:
+  A plaintext consisting of uppercase letters without punctuation or spaces.
+
+  Output:
+  A ciphertext consisting of uppercase letters without punctuation or spaces.
+
+  Procedure:
+  1. Process each character in the plaintext.
+  2. Find its row and column in the 6×6 matrix.
+  3. Replace the row and column numbers with the corresponding characters from `ADFGVX`.
+  4. Represent the encrypted form of each plaintext character as a pair.
+
+  For example, `A` occurs at row `0`, column `2`.
+
+  Therefore:
+  `A → (A,F)`
+  5. After all pairs have been generated, read all row characters first.
+  6. Then read all column characters.
+  7. Concatenate them to obtain the final ciphertext.
+
+  For example:
+  `(A,F)(X,V)`
+
+  Row characters:
+  `AX`
+
+  Column characters:
+  `FV`
+
+  Final ciphertext:
+  `AXFV`
+
+  Decryption
+  Input:
+  A ciphertext consisting of uppercase letters without punctuation or spaces.
+
+  Output:
+  A plaintext consisting of uppercase letters without punctuation or spaces.
+
+  Procedure:
+  1. Divide the ciphertext into two halves.
+  2. Take one character from the first half and the corresponding character from the second half to form a decryption pair.
+  3. Determine the position of each character in the encrypted character set.
+  4. Interpret those positions as the row and column of the 6×6 matrix.
+  5. Retrieve the character at that matrix position.
+  6. Repeat the process for all pairs.
+  7. Concatenate the decrypted characters to obtain the final plaintext.
+
+  For example:
+  `(A,F)`
+  corresponds to:
+  `(0,2)`
+
+  The character at matrix position `(0,2)` is:
+  `A`
+
+  Therefore:
+  `AF → A`
+
+Example:
+  Encryption Example
+  Input:
+  `A`
+
+  Matrix position:
+  `(0,2)`
+
+  Encrypted pair:
+  `(A,F)`
+
+  Output:
+  `AF`
+
+  Multi-character Pair Example
+
+  Encrypted pairs:
+  `(A,F)(X,V)`
+
+  Read the row characters first:
+  `AX`
+
+  Then read the column characters:
+  `FV`
+
+  Output:
+  `AXFV`
+
+  Decryption Example
+  Input:
+  `AF`
+
+  Divide the ciphertext into two halves:
+  `A`
+
+  `F`
+
+  Pair:
+  `(A,F)`
+
+  Corresponding matrix position:
+  `(0,2)`
+
+  Decrypted character:
+  `A`
+
+Sense Check:
+  Do you understand the task, or do you need any further clarification?

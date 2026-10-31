@@ -1,0 +1,44 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{"hypothesis":"将结账按钮文案从\"Continue\"改为\"Buy Now\"会提高购买转化率。","duration":"14天","sample_sizes":{"control":10000,"variant":10000},"conversion_rates":{"control":0.10,"variant":0.12},"absolute_difference":0.01999999999999999,"relative_lift":0.1999999999999999,"p_value":6.188458781738804e-06,"confidence_interval":{"lower":0.011331728284555377,"upper":0.0286682717154446},"statistical_significance":"显著；statistically_significant=true。","power_status":"underpowered；该信息仅作为限制，不能覆盖统计显著性结论。","sample_ratio_mismatch":"无；sample_ratio_mismatch=false，且两组流量占比均为0.5。","guardrail_assessment":"存在护栏风险：客户支持联系率从2%升至5%，产品团队认为这是有意义的负面影响。","recommendation":"调查，不建议仅依据购买转化率结果直接推广变体。","reasoning":"变体购买转化率为12%，对照组为10%，绝对提升约2个百分点，相对提升约20%；p-value为6.188458781738804e-06，且置信区间为[0.011331728284555377, 0.0286682717154446]，支持购买转化率的正向差异具有统计显著性。但同时观察到被产品团队认定为有意义负面影响的客户支持联系率上升，构成护栏担忧；此外实验被标记为underpowered，因此结论仍受统计功效限制。","next_steps":["调查客户支持联系率从2%升至5%的原因及其与变体的关系。","在护栏担忧得到处理或解释前，暂不基于本次转化率结果直接推广变体。","鉴于power_status为underpowered，结合后续数据收集重新评估主要指标和护栏指标。"]}

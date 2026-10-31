@@ -1,0 +1,77 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout SRM Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change:** Control uses the old button; Variant uses the new button.
+- **Primary metric:** Purchase conversion rate, where higher is better.
+- **Duration:** 14 days
+- **Sample sizes and successes:**
+  - Control: 12,000 users; 1,200 successes
+  - Variant: 8,000 users; 800 successes
+
+### Results
+
+- **Control conversion rate:** 10.00%
+- **Variant conversion rate:** 10.00%
+- **Absolute difference:** 0.00 percentage points
+- **Relative lift:** 0.00%
+- **Two-sided p-value:** 1.00
+- **95% confidence interval:** −0.849 to +0.849 percentage points for **Variant minus Control**
+
+### Assessment
+
+- **Statistical significance:** Not statistically significant; p = 1.00 is not below 0.05.
+- **Power:** Underpowered. This is diagnostic and does not override the non-significant result.
+- **SRM:** Sample ratio mismatch is present. Traffic was intended to be 50/50 but was observed as 60% Control and 40% Variant. The experiment is therefore **inconclusive**. An SRM p-value was not supplied.
+- **Guardrails:** No meaningful negative effects were observed; no guardrail concern is reported.
+
+### Recommendation
+
+**Undetermined.** The observed conversion rates are identical, but the SRM makes the experiment inconclusive, so the result should not be used to decide whether to ship the new checkout button.
+
+### Next steps
+
+1. Investigate the allocation and randomization issue causing the sample ratio mismatch.
+2. Validate that users are being assigned and exposed to the intended Control/Variant split.
+3. Correct the issue and rerun the experiment before making a ship decision.
+4. Reassess conversion, SRM, statistical significance, power, and guardrails after the rerun.

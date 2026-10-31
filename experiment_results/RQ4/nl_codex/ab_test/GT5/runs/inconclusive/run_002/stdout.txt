@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The control uses the old button; the variant uses the new button.
+
+**Duration:** 14 days.
+
+**Sample sizes:** Control: 12,000; variant: 8,000. Reported traffic shares were 50% control and 50% variant.
+
+**Conversion rates:** Control: 1,200/12,000 = 10.0%; variant: 800/8,000 = 10.0%.
+
+**Absolute difference:** 0.0 percentage points (0.000 proportion).
+
+**Relative lift:** 0.0% (0.000 proportion).
+
+**P-value:** 1.0.
+
+**95% confidence interval:** -0.008486893 to +0.008486893 proportions, or -0.8486893 to +0.8486893 percentage points.
+
+**Statistical significance:** Not statistically significant.
+
+**Power status:** Underpowered. Power status is diagnostic and does not override statistical significance.
+
+**Sample-ratio mismatch:** Detected. Although the reported traffic shares were equal, the observed sample sizes were not, so the experiment is inconclusive.
+
+**Guardrail assessment:** No meaningful negative effects were observed; no guardrail concern was explicitly reported.
+
+**Recommendation:** Undetermined. Do not conclude that the new checkout button increases conversion based on this experiment.
+
+**Reasoning:** Both variants converted at 10.0%, with no observed difference. The result is not statistically significant, the experiment is underpowered, and the sample-ratio mismatch makes the outcome inconclusive.
+
+**Next steps:** Investigate and resolve the sample-ratio mismatch, then collect and analyze a valid experiment result with adequate power relative to the 0.01 minimum detectable effect.

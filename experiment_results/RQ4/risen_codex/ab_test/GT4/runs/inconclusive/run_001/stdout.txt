@@ -1,0 +1,63 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Test details:** The experiment ran for 14 days. Control had 12,000 participants; variant had 8,000.
+
+**Results:**
+- Control conversion rate: 10.0% (1,200/12,000)
+- Variant conversion rate: 10.0% (800/8,000)
+- Absolute difference: 0.0 percentage points
+- Relative lift: 0.0%
+- p-value: 1.0
+- 95% confidence interval for the difference: −0.00849 to 0.00849
+
+**Validity and significance:** The result is not statistically significant. Power status is **underpowered**; this is diagnostic and does not override statistical significance. Sample-ratio mismatch is **true**. When sample-ratio mismatch is true, the experiment is inconclusive.
+
+**Guardrails:** No meaningful negative effects were observed; there is no guardrail concern.
+
+**Recommendation:** **undetermined**
+
+**Reasoning:** The observed conversion rates are identical and the result is not statistically significant, but the sample-ratio mismatch makes the experiment inconclusive. The underpowered status is also diagnostic context, not a replacement for the significance result.
+
+**Next steps:** Investigate the sample-ratio mismatch and treat the current experiment as inconclusive before relying on its result.

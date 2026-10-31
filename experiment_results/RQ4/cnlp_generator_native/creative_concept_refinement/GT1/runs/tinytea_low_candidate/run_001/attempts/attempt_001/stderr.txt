@@ -1,0 +1,87 @@
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http_proxy.py", line 317, in handle_request
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http11.py", line 383, in start_tls
+    return self._stream.start_tls(ssl_context, server_hostname, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\Anaconda3\envs\CNLP\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\Anaconda3\envs\CNLP\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 253, in _main
+    _run_agent(agent_directory)
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 206, in _run_agent
+    main_function()
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\creative_concept_refinement\native_1in5\agent.cnlp\main.py", line 91, in main
+    return run_creativeconceptdeveloper(state=state, llm_client=llm_client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\creative_concept_refinement\native_1in5\agent.cnlp\main.py", line 74, in run_creativeconceptdeveloper
+    creativeconceptdeveloper__command1(state, llm_client)
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\creative_concept_refinement\native_1in5\agent.cnlp\commands.py", line 54, in creativeconceptdeveloper__command1
+    processed_value = llm_client.complete(
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\creative_concept_refinement\native_1in5\agent.cnlp\utils.py", line 357, in complete
+    return self._complete_typed_dict(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\creative_concept_refinement\native_1in5\agent.cnlp\utils.py", line 405, in _complete_typed_dict
+    response = self._create_response(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\creative_concept_refinement\native_1in5\agent.cnlp\utils.py", line 492, in _create_response
+    return self._get_client().responses.create(**request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\runtime_token_tracker.py", line 266, in wrapped
+    response = original(resource, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\resources\responses\responses.py", line 866, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.

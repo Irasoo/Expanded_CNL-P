@@ -1,0 +1,53 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message. Include the test name, hypothesis, tested change, primary metric, Control sample size and number of successes, Variant sample size and number of successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Button Positive Test
+
+**Observed results:** The hypothesis was that changing the checkout button from “Continue” to “Buy Now” would increase purchase conversion. Over 14 days, Control recorded 1,000 conversions from 10,000 users (10.0%), while Variant recorded 1,200 from 10,000 (12.0%). The Variant improved conversion by 2.0 percentage points, a 20.0% relative lift. The two-sided p-value was 0.0000062, with a 95% confidence interval for the absolute difference of +1.13 to +2.87 percentage points. This is statistically significant.
+
+The sample was evenly allocated and no sample ratio mismatch was detected. Power status was underpowered against the supplied 1 percentage-point minimum detectable effect; this is diagnostic information and does not negate the statistically significant result. Guardrails showed no concern: revenue per user, page load time, and customer-support contact rate were stable, with no meaningful negative effects reported.
+
+**Recommendation: Undetermined.** The observed primary-metric result is positive, statistically significant, and has no reported guardrail issue or traffic-allocation problem. However, the supplied recommendation remains undetermined, so this result alone does not authorize shipment.
+
+**Next steps:** Confirm the decision criteria or remaining business considerations that led to the undetermined recommendation. Once resolved, use the significant conversion increase, absence of SRM, and stable reported guardrails as the evidence base for a ship decision; otherwise, document the blocking concern and determine whether follow-up validation is needed.

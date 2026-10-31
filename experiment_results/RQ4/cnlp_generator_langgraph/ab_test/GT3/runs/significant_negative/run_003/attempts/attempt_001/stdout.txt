@@ -1,0 +1,46 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Negative Test evaluated whether the new checkout button would increase purchase conversion rate over 14 days. Control converted 1,000/10,000 users (10.0%); Variant converted 800/10,000 (8.0%). The Variant decreased conversion by 2.0 percentage points, a relative lift of -20.0%.
+
+The result is statistically significant (two-sided p-value: 0.000000775; 95% confidence interval for the absolute difference: -2.79 to -1.21 percentage points), indicating the decline is unlikely to be due to random variation. The power status is underpowered relative to the provided 1 percentage point minimum detectable effect, but this does not override the significant negative result. No sample ratio mismatch was detected. No meaningful negative guardrail effects were reported.
+
+Recommendation: Do not ship the new checkout button. The primary purchase conversion metric declined significantly, with no experiment-validity issue from traffic allocation. Keep the old button, investigate why the new button reduced checkout conversion, and test a revised design only after identifying and addressing the likely usability or decision-friction issue.

@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\generated\20260910_000226\github_project_navigator\codex_1in1\agent.nl\main.py", line 283, in json_response
+    response = self.client.responses.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\testing\runtime_token_tracker.py", line 275, in wrapped
+    response = original(resource, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\ProductionEnviroment\Anaconda\envs\CNL-P\Lib\site-packages\openai\resources\responses\responses.py", line 828, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "G:\ProductionEnviroment\Anaconda\envs\CNL-P\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\ProductionEnviroment\Anaconda\envs\CNL-P\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Your account is restricted to streaming requests only. Please set "stream": true.  (request id: 2026091013223630092841363672201)', 'type': 'v_api_biz_error', 'param': '', 'code': None}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\testing\agent_process.py", line 253, in _main
+    _run_agent(agent_directory)
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\testing\agent_process.py", line 206, in _run_agent
+    main_function()
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\generated\20260910_000226\github_project_navigator\codex_1in1\agent.nl\main.py", line 533, in main
+    project_summary = create_project_summary(model, project_overview)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\generated\20260910_000226\github_project_navigator\codex_1in1\agent.nl\main.py", line 339, in create_project_summary
+    result = model.json_response(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "I:\CNL-P TOSEM Major Revision\RQ4_NL\generated\20260910_000226\github_project_navigator\codex_1in1\agent.nl\main.py", line 294, in json_response
+    raise RuntimeError(
+RuntimeError: Runtime language-model call failed: BadRequestError: Error code: 400 - {'error': {'message': 'Your account is restricted to streaming requests only. Please set "stream": true.  (request id: 2026091013223630092841363672201)', 'type': 'v_api_biz_error', 'param': '', 'code': None}}

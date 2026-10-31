@@ -1,0 +1,90 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{
+  "hypothesis": "The new checkout button will increase purchase conversion rate.",
+  "duration": "14.0 days",
+  "sample_sizes": {
+    "control": 12000,
+    "variant": 8000
+  },
+  "conversion_rates": {
+    "control": 0.1,
+    "variant": 0.1
+  },
+  "absolute_difference": 0.0,
+  "relative_lift": 0.0,
+  "p_value": 1.0,
+  "confidence_interval": {
+    "lower": -0.008486893005571289,
+    "upper": 0.008486893005571289
+  },
+  "statistical_significance": {
+    "significant": false,
+    "interpretation": "The result is not statistically significant."
+  },
+  "power_status": "underpowered",
+  "sample_ratio_mismatch": {
+    "detected": true,
+    "configured_traffic_share": {
+      "control": 0.5,
+      "variant": 0.5
+    },
+    "observed_sample_share": {
+      "control": 0.6,
+      "variant": 0.4
+    }
+  },
+  "guardrail_assessment": {
+    "concern": false,
+    "summary": "No meaningful negative effects were observed."
+  },
+  "analysis_outcome": "inconclusive",
+  "recommendation": "Undetermined: do not conclude that the new checkout button increases purchase conversion based on this test.",
+  "reasoning": "Control and variant conversion rates were both 0.1, with an absolute difference and relative lift of 0.0. The p-value is 1.0, the confidence interval ranges from -0.008486893005571289 to 0.008486893005571289, and the result is not statistically significant. The experiment is underpowered, and a sample ratio mismatch was detected because the observed sample shares were 0.6 control and 0.4 variant despite configured traffic shares of 0.5 and 0.5. No guardrail concern was observed.",
+  "next_steps": [
+    "Investigate and resolve the sample ratio mismatch before relying on the experiment result.",
+    "Review traffic allocation and experiment instrumentation for the cause of the mismatch.",
+    "After the allocation issue is addressed, collect or analyze additional data with the stated minimum detectable effect of 0.01 and reassess statistical significance and confidence intervals.",
+    "Keep the outcome classified as inconclusive until the allocation issue and power limitation are addressed."
+  ]
+}

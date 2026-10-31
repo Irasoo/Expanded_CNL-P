@@ -1,0 +1,56 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics, thresholds, degradation, breaches, or other important negative effects. Please provide aggregated binary-conversion information rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The test ran for 14 days.
+
+Purchase conversion was identical in both groups:
+- Control: 2,000 / 20,000 conversions, **10.0%**
+- Variant: 2,000 / 20,000 conversions, **10.0%**
+
+The absolute difference was **0.0 percentage points**, with **0.0% relative lift**. The two-sided p-value was **1.00**, and the 95% confidence interval for the difference was **-0.59 to +0.59 percentage points**. This result is **not statistically significant**.
+
+The sample size was assessed as **adequate** for the supplied 1 percentage point minimum detectable effect. There was **no sample ratio mismatch**. No guardrail concern was reported: the supplied information states that no meaningful negative effects were observed.
+
+**Recommendation: Stop.** The new button did not improve purchase conversion, and the observed result is fully consistent with no effect. Do not ship the new button on the basis of this test.
+
+Next steps: retain the existing button experience, document the null result, and investigate a meaningfully different checkout-button hypothesis before running another experiment.

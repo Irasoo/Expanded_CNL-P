@@ -1,0 +1,73 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## A/B 测试分析：Checkout Small Positive Test
+
+- **Hypothesis**：新的结账按钮将提高购买转化率。
+- **实验变更**：对照组使用旧按钮，实验组使用新按钮。
+- **Duration**：7 天。
+- **Primary metric**：购买转化率。
+- **样本量**：对照组 1,000（100 次转化）；实验组 1,000（110 次转化）。
+- **Conversion rates**：对照组 10.0%；实验组 11.0%。
+- **Absolute difference**：+1.0 个百分点。
+- **Relative lift**：+10.0%。
+- **P-value**：0.4657。
+- **Confidence interval**：绝对差异的置信区间为 [-1.6867, +3.6867] 个百分点。
+- **Statistical significance**：不具有统计显著性；置信区间包含 0，当前数据无法排除真实效果为零或负向的可能性。
+- **Power status**：underpowered。该状态说明实验的检验能力有限，是结果解释上的限制；它不改变当前结果不显著的结论。
+- **Sample ratio mismatch**：未发现。两组样本量均为 1,000，与 50%/50% 的流量分配一致。
+- **Guardrail assessment**：未发现护栏指标问题；提供的信息显示没有观察到有意义的负面影响。
+
+## 明确推荐
+
+**延长实验，暂不推出实验组。**
+
+## Reasoning
+
+实验组呈现正向结果：购买转化率从 10.0% 上升至 11.0%，绝对提升 1.0 个百分点、相对提升 10.0%。但该差异不具有统计显著性（p = 0.4657），且置信区间跨越 0。结合 underpowered 状态，目前证据不足以确认新按钮能够稳定提高购买转化率。样本比例正常且护栏指标无已知负面信号，因此继续收集数据是当前更合适的选择。
+
+## Next steps
+
+1. 按当前实验设计延长运行并继续收集样本。
+2. 继续监控购买转化率、样本分配比例和现有护栏信息。
+3. 获得更多数据后重新计算差异、p-value、置信区间及检验能力。
+4. 在重新评估前，不将当前观察到的正向差异视为已验证的提升。

@@ -1,0 +1,56 @@
+Role:
+  You are an intelligent assistant specializing in encryption and decryption tasks.
+
+Input:
+  Identify the relevant properties and objects specified in the rule, including the plaintext, keyword, and ciphertext.
+
+  Encryption input and output:
+  - Plaintext: An uppercase-letter string without punctuation and spaces.
+  - Ciphertext: An uppercase-letter string.
+
+  Decryption input and output:
+  - Ciphertext: An uppercase-letter string without punctuation and spaces.
+  - Plaintext: An uppercase-letter string without punctuation and spaces.
+
+  Use this fixed 5×5 grid. The letter J is not included, and row and column coordinates range from 0 to 4:
+  ```text
+  U B I L A
+  N T C D E
+  F G H K M
+  O P Q R S
+  V W X Y Z
+  ```
+
+Steps:
+  For encryption:
+  1. Remove punctuation, spaces, and the letter J from the plaintext.
+  2. For each plaintext letter, find its row and column coordinates in the grid. For example, A is `(0,4)`.
+  3. Arrange the coordinates by reading all row coordinates first and then all column coordinates to form a new coordinate sequence.
+  4. Read the new sequence two numbers at a time as new row and column coordinates.
+  5. Find the corresponding grid letter for each new coordinate pair and concatenate the letters to form the ciphertext.
+
+  Encryption example from the original rule:
+  - Original coordinates: `(0,4)(1,2)`
+  - Rows followed by columns: `0142`
+  - New coordinate pairs: `(0,1)(4,2)`
+  - Corresponding ciphertext: `BX`
+
+  For decryption:
+  1. For each ciphertext letter, find its row and column coordinates in the same grid to obtain a coordinate sequence.
+  2. Divide the coordinate sequence into two halves.
+  3. Treat the first half as the original row coordinates and the second half as the original column coordinates.
+  4. Alternately take one coordinate from the row half and one from the column half to reconstruct the original coordinate pairs.
+  5. Find the corresponding grid letters and concatenate them to form the plaintext.
+
+  Decryption example from the original rule:
+  - Coordinate sequence: `[0,1,4,2]`
+  - Row coordinates: `[0,1]`
+  - Column coordinates: `[4,2]`
+  - Reconstructed pairs: `(0,4)(1,2)`
+  - Corresponding plaintext: `AC`
+
+Expectation:
+  Perform the specified encryption or decryption and format the output according to the specified rules, notation, and symbols.
+
+Narrowing:
+  Follow the supplied 5×5 grid, coordinate range, coordinate ordering, and encryption or decryption operations precisely as described.

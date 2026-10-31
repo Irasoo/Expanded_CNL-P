@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout SRM Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate
+- **Duration:** 14 days
+- **Sample sizes:** Control: 12,000; Variant: 8,000
+- **Conversion rates:** Control: **10.0%** (1,200/12,000); Variant: **10.0%** (800/8,000)
+- **Absolute difference:** **0.00 percentage points**
+- **Relative lift:** **0.0%**
+- **Two-sided p-value:** **1.0**
+- **95% confidence interval (Variant minus Control):** **−0.8487 to +0.8487 percentage points**
+- **Statistical significance:** Not statistically significant
+- **Power:** Underpowered
+- **Sample ratio mismatch:** Present. Despite the planned 50%/50% split, observed allocation was 60% Control and 40% Variant. This makes the experiment **inconclusive**.
+- **Guardrails:** No concern; no meaningful negative effects were observed.
+
+**Recommendation: undetermined**
+
+**Reasoning:** The observed conversion rates were identical, and the result was not statistically significant. More importantly, the sample ratio mismatch prevents a reliable ship/no-ship conclusion. Underpowering is an additional limitation but does not override the statistical result.
+
+**Next steps:** Investigate the traffic allocation and experiment instrumentation, resolve the source of the mismatch, and rerun the test with a valid allocation and sufficient planned power to assess the specified 1-percentage-point minimum detectable effect.

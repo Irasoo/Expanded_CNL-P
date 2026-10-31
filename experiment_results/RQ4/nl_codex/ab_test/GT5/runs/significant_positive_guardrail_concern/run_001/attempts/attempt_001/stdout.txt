@@ -1,0 +1,71 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+**Duration:** 14 days
+
+**Sample sizes:** Control: 10,000; Variant: 10,000
+
+**Conversion rates:** Control: 10.00% (1,000/10,000); Variant: 12.00% (1,200/10,000)
+
+**Absolute difference:** +0.0200 proportion, or +2.00 percentage points
+
+**Relative lift:** +20.00%
+
+**P-value:** 0.00000619
+
+**95% confidence interval:** 0.01133 to 0.02867 proportion, or +1.13 to +2.87 percentage points
+
+**Statistical significance:** Statistically significant
+
+**Power status:** Underpowered. This is diagnostic and does not override the statistically significant result.
+
+**Sample-ratio mismatch:** No mismatch detected; traffic shares were 50% control and 50% variant.
+
+**Guardrail assessment:** Concern present. Customer support contact rate increased from 2% to 5%, which the product team considers a meaningful negative effect.
+
+**Recommendation:** Investigate.
+
+**Reasoning:** The variant produced a statistically significant 2.00 percentage-point increase in purchase conversion, but the customer support contact-rate increase is an explicitly reported guardrail concern. The positive primary-metric result should therefore not be treated as sufficient for rollout.
+
+**Next steps:** Investigate the checkout button text change alongside the increase in customer support contact rate before making a product decision.

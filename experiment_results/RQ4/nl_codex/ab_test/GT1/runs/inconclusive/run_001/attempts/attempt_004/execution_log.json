@@ -1,0 +1,87 @@
+{
+  "status": "timeout",
+  "generation_id": "20260910_000226",
+  "testing_id": "20260910_005443",
+  "case_name": "ab_test",
+  "compilation_method": "codex",
+  "compilation_trial_index": 1,
+  "compilation_trial_count": 1,
+  "compilation_trial_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\ab_test\\codex_1in1",
+  "agent_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\ab_test\\codex_1in1\\agent.nl",
+  "compilation_log_path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\ab_test\\codex_1in1\\compilation_log.json",
+  "input_file": {
+    "path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\ab_test\\branch_input_groups.yaml",
+    "sha256": "e446f6ae592bfa1bdacf0aca9a198815ae79348eaf53d2cb9989dd3a4686441f"
+  },
+  "input_group_name": "inconclusive",
+  "run_index": 1,
+  "run_count": 3,
+  "result_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\results\\20260910_000226\\20260910_005443\\ab_test\\codex_1in1\\inconclusive\\run_001\\attempts\\attempt_004",
+  "started_at": "2026-09-10T06:36:54.267532+00:00",
+  "finished_at": "2026-09-10T06:46:54.325573+00:00",
+  "duration_seconds": 600.046,
+  "exit_code": null,
+  "termination_reason": "timeout",
+  "input_count": 1,
+  "consumed_input_count": null,
+  "unused_input_count": null,
+  "ended_before_all_inputs_consumed": null,
+  "input_exhausted": null,
+  "input_consumption_status": "unavailable",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null,
+      "initialization_error": null
+    },
+    "request_count": 1,
+    "successful_request_count": 1,
+    "failed_request_count": 0,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 583,
+      "cached_input_tokens": 0,
+      "output_tokens": 195,
+      "reasoning_tokens": 32,
+      "total_tokens": 778
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 583,
+          "cached_input_tokens": 0,
+          "output_tokens": 195,
+          "reasoning_tokens": 32,
+          "total_tokens": 778
+        }
+      }
+    ]
+  },
+  "runtime_token_usage_file": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\results\\20260910_000226\\20260910_005443\\ab_test\\codex_1in1\\inconclusive\\run_001\\attempts\\attempt_004\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "TimeoutExpired",
+    "message": "Agent execution exceeded the configured timeout of 600 seconds.",
+    "traceback": ""
+  }
+}

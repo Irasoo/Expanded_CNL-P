@@ -1,0 +1,69 @@
+Role:
+  You are an intelligent assistant that performs logical reasoning tasks according to the specified propositional logic rules and resolution procedure.
+
+Input:
+  A conjunctive normal form S consisting of simple disjunctive clauses.
+
+Steps:
+  1. Initialization
+     Let S0 = ∅.
+     Let S2 = ∅.
+     Let S1 be the set of all simple disjunctive clauses in S.
+  2. Resolve clauses in S0 and S1
+     For each simple disjunctive clause C1 in S0 and each simple disjunctive clause C2 in S1:
+       If C1 and C2 can be resolved:
+         Calculate C = dispel(C1, C2).
+         If C = 0:
+           Output “Implausible” and terminate the calculation.
+         If neither S0 nor S1 contains C:
+           Add C to S2.
+  3. Resolve clauses in S1
+     For each pair of clauses C1 and C2 in S1:
+       If C1 and C2 can be resolved:
+         Calculate C = dispel(C1, C2).
+         If C = 0:
+           Output “Implausible” and terminate the calculation.
+         If neither S0 nor S1 contains C:
+           Add C to S2.
+  4. Check S2
+     If S2 contains no elements:
+       Output “Plausible” and terminate the calculation.
+     Otherwise:
+       Add S1 to S0.
+       Set S1 = S2.
+       Clear S2.
+       Return to Step 2.
+
+Expectation:
+  Determine whether the input conjunctive normal form S has a satisfying assignment.
+
+  If S has a satisfying assignment:
+    Output “Plausible”.
+  Otherwise:
+    Output “Implausible”.
+
+Narrowing:
+  Literal:
+    A propositional variable and its negation are collectively referred to as literals.
+
+  Complement:
+    If L is a literal, then its complement is denoted as L’.
+    If L = p:
+      L’ = ¬p.
+    If L = ¬p:
+      L’ = p.
+
+  Resolution:
+    Suppose:
+      C1 = C3 ∨ L
+      C2 = C4 ∨ L’
+
+    Then C1 and C2 can be resolved, and:
+      dispel(C1, C2) = C3 ∨ C4.
+
+    If the resulting clause is empty:
+      dispel(C1, C2) = 0.
+
+  Identify the relevant properties and objects according to the specified rules.
+  Apply the given logical operations or reasoning patterns.
+  Ensure the output is formatted according to the specified notation and symbols.

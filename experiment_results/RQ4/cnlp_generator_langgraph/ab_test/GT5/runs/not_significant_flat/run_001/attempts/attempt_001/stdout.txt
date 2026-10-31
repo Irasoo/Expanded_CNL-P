@@ -1,0 +1,62 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please use aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+**Recommendation: Stop the experiment and do not ship the new button based on purchase-conversion uplift.**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change:** Control used the old button; Variant used the new button.
+- **Duration:** 14 days.
+- **Sample sizes:** Control 20,000; Variant 20,000.
+- **Conversion rates:** Control 10.00%; Variant 10.00%.
+- **Absolute difference:** 0.00 percentage points.
+- **Relative lift:** 0.00%.
+- **Two-sided p-value:** 1.00.
+- **95% confidence interval for the absolute difference:** -0.588 to +0.588 percentage points.
+- **Statistical significance:** Not significant at the 0.05 threshold.
+- **Power status:** Adequate for the supplied minimum detectable effect of 1 percentage point.
+- **Sample ratio mismatch:** None detected. The observed sample allocation is consistent with the planned 50/50 split.
+- **Guardrails:** No concern was reported; no meaningful negative effects were observed.
+
+**Reasoning:** The Variant produced exactly the same observed purchase conversion rate as Control. The p-value provides no evidence of an improvement, and the confidence interval includes zero. The experiment appears valid based on the supplied traffic-allocation and guardrail results, while adequate power indicates that sample-size inadequacy is not the stated limitation for detecting the specified 1-percentage-point effect.
+
+**Next steps:** Stop the current test, retain the existing button, and record the hypothesis as unsupported. Before testing another checkout-button iteration, define a materially different change and a new hypothesis. Any decision to ship this Variant for reasons unrelated to purchase conversion would require separate evidence.

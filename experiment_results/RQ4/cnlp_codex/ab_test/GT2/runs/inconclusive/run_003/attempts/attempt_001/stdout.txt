@@ -1,0 +1,66 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout SRM Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate.
+- **Duration:** 14 days.
+- **Samples:** Control **12,000**; Variant **8,000**.
+
+### Results
+- **Control conversion:** 10.00% (1,200/12,000)
+- **Variant conversion:** 10.00% (800/8,000)
+- **Absolute difference:** **0.00 percentage points** (Variant − Control)
+- **Relative lift:** **0.00%**
+- **Two-sided p-value:** **1.00**
+- **95% confidence interval (Variant − Control):** **−0.849 to +0.849 percentage points**
+- **Statistical significance:** Not significant.
+- **Power:** Underpowered; this is an additional limitation and does not alter the significance result.
+- **Sample ratio mismatch:** Present. The observed allocation was 60% Control and 40% Variant, despite an expected 50/50 split. This makes the experiment **inconclusive**.
+- **Guardrails:** No concern; no meaningful negative effects were observed.
+
+### Recommendation
+**undetermined**
+
+The groups had identical observed conversion rates, but the SRM prevents a valid ship/no-ship conclusion. Investigate the allocation discrepancy and validate randomization, eligibility, assignment, and tracking. After resolving the SRM, rerun the test with a clean 50/50 allocation and a sample plan adequate to assess the supplied 1-percentage-point minimum detectable effect.

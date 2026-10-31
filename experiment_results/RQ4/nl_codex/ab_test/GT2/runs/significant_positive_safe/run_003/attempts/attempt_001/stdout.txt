@@ -1,0 +1,46 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{"hypothesis":"Changing the checkout button text from \"Continue\" to \"Buy Now\" will increase purchase conversion rate.","duration":"14 days","sample_sizes":{"control":10000,"variant":10000},"conversion_rates":{"control":0.1,"variant":0.12},"absolute_difference":0.01999999999999999,"relative_lift":0.1999999999999999,"p_value":6.188458781738804e-06,"confidence_interval":{"metric":"variant minus control conversion rate","lower":0.011331728284555377,"upper":0.0286682717154446},"statistical_significance":{"significant":true,"reasoning":"The p-value is 6.188458781738804e-06, and the confidence interval for the conversion-rate difference is entirely above zero."},"power_status":"underpowered; this is a limitation or supporting consideration and does not override the statistically significant result.","sample_ratio_mismatch":{"detected":false,"control_traffic_share":0.5,"variant_traffic_share":0.5},"guardrail_assessment":{"concern":false,"assessment":"Revenue per user, page load time, and customer support contact rate were stable. No meaningful negative effects were observed."},"recommendation":"Ship the variant using \"Buy Now\".","reasoning":"The variant increased purchase conversion from 0.10 to 0.12, an absolute increase of approximately 0.02 and a relative lift of approximately 20%. The result is statistically significant, the confidence interval remains positive, no sample ratio mismatch was detected, and no guardrail concern was reported. The underpowered status should be treated as a limitation but does not overturn the positive significant result.","next_steps":["Ship the \"Buy Now\" variant.","Monitor purchase conversion rate and the reported guardrail metrics after launch."]}

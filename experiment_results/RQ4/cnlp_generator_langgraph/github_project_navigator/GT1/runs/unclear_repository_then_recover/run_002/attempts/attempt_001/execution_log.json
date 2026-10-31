@@ -1,0 +1,80 @@
+{
+  "status": "failed",
+  "generation_id": "20260817_033842",
+  "testing_id": "20260817_130711",
+  "case_name": "github_project_navigator",
+  "compilation_method": "langgraph",
+  "compilation_trial_index": 1,
+  "compilation_trial_count": 5,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\github_project_navigator\\branch_input_groups.yaml",
+    "sha256": "9f03dc746f1c9d4d4eb8f52ffc35da53d01aa8c36bbf05bd139ec07770e6131b"
+  },
+  "input_group_name": "unclear_repository_then_recover",
+  "run_index": 2,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\github_project_navigator\\langgraph_1in5\\unclear_repository_then_recover\\run_002\\attempts\\attempt_001",
+  "started_at": "2026-08-17T16:35:16.937302+00:00",
+  "finished_at": "2026-08-17T16:35:24.083439+00:00",
+  "duration_seconds": 7.141,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 5,
+  "consumed_input_count": 3,
+  "unused_input_count": 2,
+  "ended_before_all_inputs_consumed": true,
+  "input_exhausted": false,
+  "input_consumption_status": "ended_with_unused_inputs",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null
+    },
+    "request_count": 1,
+    "successful_request_count": 0,
+    "failed_request_count": 1,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "total_tokens": 0
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "failed",
+        "usage": null
+      }
+    ]
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\github_project_navigator\\langgraph_1in5\\unclear_repository_then_recover\\run_002\\attempts\\attempt_001\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "InternalServerError",
+    "message": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\main.py\", line 18, in main\n    return invoke_worker(\n           ^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\workflow.py\", line 571, in invoke_worker\n    graph.invoke(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 3913, in invoke\n    for chunk in self.stream(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\main.py\", line 2967, in stream\n    for _ in runner.tick(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_runner.py\", line 207, in tick\n    run_with_retry(\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\pregel\\_retry.py\", line 617, in run_with_retry\n    return task.proc.invoke(task.input, config)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 684, in invoke\n    input = context.run(step.invoke, input, config, **kwargs)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py\", line 426, in invoke\n    ret = self.func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\workflow.py\", line 487, in run\n    command(\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\commands.py\", line 420, in projectnavigator__command8\n    raw_result = llm_client.complete(\n                 ^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\utils.py\", line 363, in complete\n    return self._complete_string(messages)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\utils.py\", line 388, in _complete_string\n    response = self._create_response(messages=messages)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\langgraph_1in5\\agent.cnlp\\utils.py\", line 492, in _create_response\n    return self._get_client().responses.create(**request)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\runtime_token_tracker.py\", line 266, in wrapped\n    response = original(resource, *args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\resources\\responses\\responses.py\", line 866, in create\n    return self._post(\n           ^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 1259, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 1047, in request\n    raise self._make_status_error_from_response(err.response) from None\nopenai.InternalServerError: <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\nDuring task with name 'projectnavigator__command8' and id '7bfcebf3-6355-3a8b-632b-bf855c61192e'\n"
+  }
+}

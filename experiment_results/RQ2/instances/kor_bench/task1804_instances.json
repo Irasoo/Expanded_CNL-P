@@ -1,0 +1,72 @@
+[
+    {
+        "id": "task1804-31",
+        "input": "Can clauses C1 = p ∨ q and C2 = p ∨ r be resolved? \nA. Yes \nB.No\nAnswer format: [[option]].",
+        "output": [
+            "[[B]]"
+        ]
+    },
+    {
+        "id": "task1804-32",
+        "input": "If C1 = ¬p ∨ ¬q ∨ r and C2 = ¬q ∨ ¬r ∨ s ∨ ¬t, \nwhat is dispel(C1, C2)? \nPlease provide your answer in the format [[]].",
+        "output": [
+            "[[¬p∨¬q∨s∨¬t]]"
+        ]
+    },
+    {
+        "id": "task1804-33",
+        "input": "If C1 = p ∨ ¬q ∨ r ∨ ¬s, C2 = s, \nthen dispel(C1, C2) = ?\nPlease provide the answer in the format [[]].",
+        "output": [
+            "[[p∨¬q∨r]]"
+        ]
+    },
+    {
+        "id": "task1804-34",
+        "input": "If C1 = ¬p ∨ q ∨ r and C2 = p ∨ ¬r ∨ ¬s, \nthen dispel(C1, C2) = ? \nProvide the answer in the format [[]], \nor [[];[];…] if there are multiple answers.",
+        "output": [
+            "[[q∨r∨¬r∨¬s];[¬p∨q∨p∨¬s]]"
+        ]
+    },
+    {
+        "id": "task1804-35",
+        "input": "Regarding (¬p ∨ q)∧(p ∨ q) ∧ (q), \nwhat are S0, S1, and S2 before starting the resolution algorithm, \nand why is S2 after the first loop iteration? \nProvide the answers in the format [[];[];[];[]],\nwhere sets are represented using {}, \nand an empty set is denoted by ∅.",
+        "output": [
+            "[[∅];[{¬p∨q,p∨q,q}];[∅];[∅]]"
+        ]
+    },
+    {
+        "id": "task1804-36",
+        "input": "For (¬p ∨ q)∧(p ∨ q) ∧ (q), \nwhat is the output of the resolution algorithm?\nHow many cycles will it iterate? \nPlease provide the answer in the format [[output];[number]].",
+        "output": [
+            "[[Plausible];[1]]"
+        ]
+    },
+    {
+        "id": "task1804-37",
+        "input": "For p∧(p∨q)∧(p∨¬q)∧(q∨¬r)∧(q∨r), \nwhat are S0, S1, and S2 before the second cycle of the resolution algorithm?\nProvide the answers in the format [[];[];[]],\nwhere sets are represented using {}, \nand an empty set is denoted by ∅.",
+        "output": [
+            "[[{p,p∨q,p∨¬q,q∨¬r,q∨r}];[{p∨r,p∨¬r,q}];[∅]]"
+        ]
+    },
+    {
+        "id": "task1804-38",
+        "input": "For p∧(p∨q)∧(p∨¬q)∧(q∨¬r)∧(q∨r), \nwhat is the output of the resolution algorithm?\nHow many cycles will it iterate? \nPlease provide the answer in the format [[output];[number]].",
+        "output": [
+            "[[Plausible];[2]]"
+        ]
+    },
+    {
+        "id": "task1804-39",
+        "input": "For (p∨q)∧(p∨¬q)∧(¬p∨r), \nwhat is S2 at the end of the first cycle of the resolution algorithm? \nProvide the answer in the format [[]], \nusing {} for sets and ∅ for an empty set.",
+        "output": [
+            "[[{p,q∨r,¬q∨r}]]"
+        ]
+    },
+    {
+        "id": "task1804-40",
+        "input": "For (p∨q)∧(p∨¬q)∧(¬p∨r), \nwhat is the output of the resolution algorithm?\nHow many cycles will it iterate? \nPlease provide the answer in the format [[output];[number]].",
+        "output": [
+            "[[Plausible];[3]]"
+        ]
+    }
+]

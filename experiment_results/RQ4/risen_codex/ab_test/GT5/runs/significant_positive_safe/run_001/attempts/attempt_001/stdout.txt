@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+A/B Test Analysis: Checkout Button Positive Test
+
+- Hypothesis: Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+- Duration: 14 days.
+- Control: 10,000 users; 10.0% conversion rate.
+- Variant: 10,000 users; 12.0% conversion rate.
+- Absolute difference: +2.0 percentage points.
+- Relative lift: +20.0%.
+- 95% confidence interval for the difference: +1.13 to +2.87 percentage points.
+- P-value: 6.19e-06.
+- Statistical significance: Yes.
+- Power status: Underpowered. This is diagnostic only and must not override the statistically significant result.
+- Sample-ratio mismatch: None; traffic was split 50%/50%.
+- Guardrails: Revenue per user, page load time, and customer support contact rate were stable, with no meaningful negative effects. No guardrail concern was reported.
+- Metric availability: All requested metrics are available in the supplied data.
+
+Recommendation: ship.
+
+Reasoning: The “Buy Now” variant increased purchase conversion from 10.0% to 12.0%, with a statistically significant positive difference and no observed guardrail concerns. The observed increase was 2.0 percentage points versus a listed minimum detectable effect of 1.0 percentage point.
+
+Practical next steps: Ship the “Buy Now” button change and continue monitoring purchase conversion and the reported guardrail metrics.

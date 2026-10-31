@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 14 days.
+- **Setup:** Control used the old button; variant used the new button.
+- **Sample sizes:** Control: 20,000; variant: 20,000.
+- **Purchase conversion rate:** Control: 10.00% (2,000/20,000); variant: 10.00% (2,000/20,000).
+- **Effect:** Absolute difference: 0.00 percentage points (0.0). Relative lift: 0.00% (0.0).
+- **Statistical result:** Not statistically significant (`p = 1.0`). The 95% confidence interval for the absolute difference is -0.5880 to +0.5880 percentage points (`[-0.005879891953620162, 0.005879891953620162]`).
+- **Power status:** Adequate, based on the supplied minimum detectable effect of 0.01. Power is diagnostic and must not override the lack of statistical significance.
+- **Sample-ratio mismatch:** None detected; both groups received 50% of traffic.
+- **Guardrails:** No concern; no meaningful negative effects were observed.
+- **Outcome:** `not_significant_flat`.
+- **Recommendation:** **Stop.**
+
+**Reasoning:** The control and variant had identical observed conversion rates, zero observed lift, and no statistically significant difference. Guardrails showed no meaningful negative effects, and the allocation showed no sample-ratio mismatch.
+
+**Next steps:** Stop the test and do not treat the new button as an improvement based on these results. Record the flat, non-significant outcome.

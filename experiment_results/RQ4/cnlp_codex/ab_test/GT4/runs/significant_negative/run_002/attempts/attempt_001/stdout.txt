@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**A/B Test Analysis: Checkout Negative Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 14 days. Duration alone does not establish experiment maturity.
+- **Sample sizes:** Control: 10,000; Variant: 10,000.
+- **Conversion rates:** Control: 0.10 (10.0%); Variant: 0.08 (8.0%).
+- **Absolute difference:** -0.0200 proportion, or **-2.0 percentage points**.
+- **Relative lift:** -0.20, or **-20.0%**.
+- **P-value:** 0.0000007746.
+- **95% confidence interval:** [-0.02793, -0.01207] proportion, equivalent to [-2.793, -1.207] percentage points.
+- **Statistical significance:** Significant; the p-value is below 0.05, and the confidence interval is entirely negative.
+- **Power status:** Underpowered. This is a supporting diagnostic and does not override the statistically significant negative result.
+- **Sample ratio mismatch:** None detected.
+- **Guardrails:** No additional meaningful negative guardrail effects were observed; guardrail concern is false.
+
+**Recommendation: Don’t ship the Variant.**
+
+The new button significantly reduced purchase conversion relative to Control, with an estimated 20.0% relative decline. Keep the Control experience, investigate why the Variant underperformed, and only run a follow-up experiment after addressing the identified issues.

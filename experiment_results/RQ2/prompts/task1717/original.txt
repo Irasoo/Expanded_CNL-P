@@ -1,0 +1,43 @@
+You are an intelligent assistant that specializes in encryption and decryption tasks. Below are the rules for a specific cipher. When responding, please ensure that your output adheres to the specified encryption and decryption rules and format.
+
+### Instructions:
+
+1. Identify the relevant properties and objects specified in the rule, including the plaintext, keyword, and ciphertext.
+2. Follow the specified encryption or decryption operations precisely as described in the rules.
+3. Ensure your output is formatted according to the specified notation and symbols.
+
+### Cipher Rule:
+    **Encryption Rules:**
+
+    - Input:
+        - Plaintext: Uppercase letters string without punctuation and spaces.
+    - Output:
+        - Ciphertext:  A string without punctuation and spaces.
+    - Preparation:
+        - Maximum number of characters per line: 5
+    - Encryption Steps:
+        - Lines are counted from 1.
+        - The plaintext is arranged in a special way: an odd number of lines are written from left to right, and an even number of lines are written from right to left, with a maximum of five letters per line.
+            - For example, for the plaintext "LIDAHELLOWORLD", first write the first line, from left to right as LIDAH, and then write the second line, from right to left as WOLLE, and then write the third line, from left to right as ORLD, the entire content of the finished writing is expressed as follows
+            LIDAH
+            WOLLE
+            ORLD
+        - Then read by column, each column is read from the top down, each read a column plus a "#", read out the contents of the final ciphertext.
+            - For example, the above written content is read as LWO#IOR#DLL#ALD#HE# by column.
+
+     **Decryption Rules:**
+
+    - Input:
+        - Ciphertext: A string without punctuation and spaces.
+    - Output:
+        - Plaintext: Uppercase letters string without punctuation and spaces.
+    - Preparation:
+        - Number of lines: 5
+    - Decryption Steps (exact opposite of encryption steps):
+        - For each character in the ciphertext, it is written from top to bottom; if it encounters #, it switches to the next column and continues writing until the entire ciphertext has been written.
+            - For example, for the ciphertext LWO#IOR#DLL#ALD#HE#,it is written as
+            LIDAH
+            WOLLE
+            ORLD
+        - Then according to the odd-numbered rows from left to right read, the even number of rows from right to left read the order of sequential reading, the final result is the decrypted plaintext.
+            - For example, for the above written content, the first line, read from left to right as LIDAH, the second line, read from right to left as ELLOW, the third line, read from left to right as ORLD, and ultimately the entire content connected, decrypted plaintext as LIDAHELLOWORLD.

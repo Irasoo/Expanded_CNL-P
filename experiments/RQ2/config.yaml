@@ -1,0 +1,64 @@
+# ============================================================
+# Run configuration: usually only this section needs to be edited
+# ============================================================
+run:
+  # Tasks: 190,385,729,1162,1424,1678,1701,1710,1713,1717,1719,1802,1804,1807,1809,1819
+  task_ids: [1809]
+
+  # Prompt versions
+  # Options: original,risen-direct,risen-gold,risen-variant-1,risen-variant-2,rodes-direct,rodes-gold,rodes-variant-1,rodes-variant-2,cnlp-direct,cnlp-gold,cnlp-variant-1,cnlp-variant-2
+  languages: [risen-direct]
+
+  # Model name must exist in llm/models.yaml
+  models: [mimo-v2.5-pro, mimo-v2.5]
+  # Currently available: [deepseek-v4-flash, gpt‑5.2, mimo-v2.5-pro, mimo-v2.5,gpt-5.1, qwen3-max,gpt-4o, gpt-4o-mini]
+
+  # Maximum number of instances to run per task
+  instance_count: 50
+
+  # Leave empty: auto-create run_YYYYMMDD_NNN
+  # Fill in an existing run_id: continue that run and skip already completed instances
+  run_id: ""
+
+  # Only specify an existing run directory when independently running judge, score, or tool_retry;
+  # leave empty during normal main-pipeline execution
+  run_path: ""
+
+  # ----------------------------------------------------------
+  # Concurrency and rate limiting: usually no need to modify
+  # ----------------------------------------------------------
+  # Total maximum concurrency across all providers
+  max_concurrency: 80
+
+  # Concurrency allowed per API key
+  concurrent_requests_per_key: 16
+
+
+# ============================================================
+# Analysis configuration: used when running python -m analysis.tool_analysis
+# ============================================================
+analysis:
+  # Multiple runs can be listed; the newest run determines the task scope, older runs fill in missing data
+  source_runs: []
+
+  # Leave empty: auto-generate analysis-xxx; fill in an existing ID: regenerate that analysis
+  analysis_id: ""
+
+  models:
+    # Empty include means include all models
+    include: []
+
+    # Models to exclude from analysis
+    exclude: []
+
+
+# ============================================================
+# Path configuration: usually no need to modify
+# ============================================================
+paths:
+  # Absolute paths are allowed. Relative paths start at experiments/RQ2/.
+  instances:
+    natural_instructions: ../../experiment_results/RQ2/instances/natural_instructions
+    kor_bench: ../../experiment_results/RQ2/instances/kor_bench
+  run_results: ../../experiment_results/RQ2/results/run_results
+  analysis_results: ../../experiment_results/RQ2/results/analysis_results/cnlp

@@ -1,0 +1,51 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**A/B 测试分析：Checkout Flat Test**
+
+- **假设**：新结账按钮将提升购买转化率。实验持续 **14 天**；对照组使用旧按钮，变体组使用新按钮。
+- **样本与转化**：对照组 **20,000**，转化率 **10.0%**（2,000/20,000）；变体组 **20,000**，转化率 **10.0%**（2,000/20,000）。
+- **效果**：绝对差异 **0 个百分点**；相对提升 **0%**。
+- **统计结果**：p-value = **1.0**；95% 置信区间为 **[-0.00588, 0.00588]**（转化率差异）。结果**不具有统计显著性**，不支持新按钮提升购买转化率的假设。
+- **实验质量与护栏**：统计功效状态为 **adequate**；样本比例失配（SRM）为 **false**。未观察到有意义的负面影响，**无护栏风险**。功效状态是诊断信息，不能覆盖或改变显著性结论。
+- **建议**：`stop`。两组转化率完全一致，观测差异为零且 p-value = 1.0；因此没有数据依据继续推广新按钮。
+- **下一步**：停止当前实验，并基于本次结果不推进新按钮；如需验证其他改动，应另行设计实验。

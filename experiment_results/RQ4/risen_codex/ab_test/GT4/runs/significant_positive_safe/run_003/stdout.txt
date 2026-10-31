@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+**Duration and sample sizes:** 14 days; control **10,000** users and variant **10,000** users.
+
+**Results:** Control conversion was **10.0%**; variant conversion was **12.0%**. The absolute difference was **+2.0 percentage points**, with a **20.0% relative lift**. The p-value was **6.19 × 10⁻⁶**, and the 95% confidence interval for the absolute difference was **[1.13, 2.87] percentage points**.
+
+**Statistical significance:** The result was statistically significant.
+
+**Power:** The test was marked **underpowered**. Power status is diagnostic and does not override the statistical-significance result.
+
+**Sample-ratio mismatch:** **False**; the observed traffic shares were 50% control and 50% variant. If sample-ratio mismatch were true, the experiment would be inconclusive.
+
+**Guardrails:** No guardrail concern was identified. Revenue per user, page load time, and customer support contact rate were stable, with no meaningful negative effects observed.
+
+**Recommendation:** **ship**
+
+**Reasoning:** The variant had higher purchase conversion, the difference was statistically significant, and the reported guardrails were stable. The underpowered status should be retained as a diagnostic qualification.
+
+**Next steps:** Ship the change, consistent with the recommendation.

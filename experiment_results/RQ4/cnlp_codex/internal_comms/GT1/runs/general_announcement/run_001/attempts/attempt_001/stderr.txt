@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 253, in _main
+    _run_agent(agent_directory)
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 206, in _run_agent
+    main_function()
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_1in5\agent.cnlp\main.py", line 9, in main
+    return agent.run_dispatcher()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_1in5\agent.cnlp\internal_comms_agent.py", line 297, in run_dispatcher
+    result = self._run_general_comms_writer()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_1in5\agent.cnlp\internal_comms_agent.py", line 346, in _run_general_comms_writer
+    result = self.llm.draft_general_comms(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_1in5\agent.cnlp\internal_comms_agent.py", line 259, in draft_general_comms
+    return self.complete(
+           ^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_1in5\agent.cnlp\internal_comms_agent.py", line 109, in complete
+    raise RuntimeError(empty_result_error)
+RuntimeError: The LLM returned an empty internal communication.

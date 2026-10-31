@@ -1,0 +1,49 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Results:** Over 14 days, Control had 10,000 users and a 10.0% conversion rate (1,000 purchases); Variant had 10,000 users and an 8.0% conversion rate (800 purchases). The absolute difference was -2.0 percentage points, with a relative lift of -20.0%. The 95% confidence interval for the difference was [-2.79, -1.21] percentage points, and the p-value was 7.75 × 10⁻⁷.
+
+**Assessment:** The result is statistically significant and negative for Variant. The experiment was underpowered; this is diagnostic context only and does not override the statistically significant result. There was no sample ratio mismatch. No additional meaningful negative guardrail effects were observed, and there was no guardrail concern.
+
+**Recommendation:** dont_ship
+
+**Next steps:** Do not release the new checkout button. Investigate the significant purchase-conversion decline and consider a follow-up experiment if further validation is needed.

@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Small Positive Test evaluated the hypothesis that the new checkout button would increase purchase conversion rate.
+
+The experiment ran for 7 days with 1,000 users per group. Control conversion rate was 10.0% (100/1,000), while Variant conversion rate was 11.0% (110/1,000). The observed absolute difference was +1.0 percentage point, with a relative lift of 10.0%. The 95% confidence interval for the absolute difference was -1.69 to +3.69 percentage points.
+
+The result was not statistically significant: two-sided p-value = 0.4657, which is above 0.05. The experiment was underpowered relative to the provided 1 percentage point minimum detectable effect and 80% power criterion, so the result provides limited evidence for or against the hypothesis. This power status is diagnostic and does not independently determine the decision.
+
+There was no sample ratio mismatch, with traffic allocated as expected at 50% Control and 50% Variant. No guardrail concern was reported.
+
+**Recommendation: Extend the experiment.** The Variant showed a positive observed difference, but the confidence interval includes both a negative effect and a larger positive effect, and the result was not statistically significant. Continue collecting data using the same assignment and measurement setup, then recalculate the primary metric, confidence interval, significance, power, and SRM before making a ship or reject decision. Continue monitoring guardrails for meaningful degradation.

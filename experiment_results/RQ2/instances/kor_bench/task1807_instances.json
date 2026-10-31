@@ -1,0 +1,72 @@
+[
+    {
+        "id": "task1807-61",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\nF(f(x, y), g(x, y))\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[x+y=x*y]]"
+        ]
+    },
+    {
+        "id": "task1807-62",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\nF(f(x,a),y)→F(g(x,y),z)\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[(x+0=y)→(x*y=z)]]"
+        ]
+    },
+    {
+        "id": "task1807-63",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n∀xF(g(x,y),z)\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[∀x(x*y=z)]]"
+        ]
+    },
+    {
+        "id": "task1807-64",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n∀xF(g(x,a),x)→F(x,y)\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[∀x(x*0=x)→(x=y)]]"
+        ]
+    },
+    {
+        "id": "task1807-65",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n∀xF(g(x,a),x)\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[∀x(x*0=x)]]"
+        ]
+    },
+    {
+        "id": "task1807-66",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n∀x∀y(F(f(x,a),y)→F(f(y,a),x))\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[∀x∀y((x+0=y)→(y+0=x))]]"
+        ]
+    },
+    {
+        "id": "task1807-67",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n∀x∀y∃zF(f(x,y),z)\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[∀x∀y∃z(x+y=z)]]"
+        ]
+    },
+    {
+        "id": "task1807-68",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 0.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n∃xF(f(x,x),g(x,x))\n\nPlease provide the answer in [[]] format.",
+        "output": [
+            "[[∃x(x+x=x*x)]]"
+        ]
+    },
+    {
+        "id": "task1807-69",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 2.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n(1) ∀xF(g(x,a),x)\n(2) ∃xF(f(x,a),y)→∃yF(f(y,a),x)\n\nPlease provide the answer in [[];[]] format.",
+        "output": [
+            "[[∀x(x*2=x)];[∃x(x+2=y)→∃y(y+2=x)]]"
+        ]
+    },
+    {
+        "id": "task1807-70",
+        "input": "(a) The non-empty set of entities E = natural numbers N.\n(b) a′ = 2.\n(c) Functions fJ(x, y) = x + y, gJ(x, y) = x * y.\n(d) Predicate FJ(x, y) denotes x = y.\n\nWrite down the implementation of the following formulas under J:\n(1) ∀x∀y∃zF(f(x,y),z)\n(2) ∃xF(f(x,y),g(x,z))\n\nPlease provide the answer in [[];[]] format.",
+        "output": [
+            "[[∀x∀y∃z(x+y=z)];[∃x(x+y=x*z)]]"
+        ]
+    }
+]

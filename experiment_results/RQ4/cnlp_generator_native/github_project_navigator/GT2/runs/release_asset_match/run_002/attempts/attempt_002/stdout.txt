@@ -1,0 +1,44 @@
+==================== AGENT OUTPUT ====================
+Please provide either a complete GitHub Repository URL or an explicit owner/repository identifier, such as octocat/Hello-World. Once the repository is identified, I can summarize its public project information, analyze recently updated open Issues while stating the actual analysis scope, and provide guidance about the latest official Release and its assets. I will read GitHub information only and will not download, create, install, extract, or execute any files.
+Please provide a complete GitHub Repository URL or an explicit owner/repository identifier (for example, owner/repository).
+
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+`sharkdp/bat` is a Rust command-line utility described as “a cat(1) clone with wings.” It displays files and standard input with syntax highlighting, optional line numbers and file headers, Git modification markers, configurable themes and styles, and automatic or selectable paging. It can also show non-printable characters, concatenate files, generate shell completions, and integrate with tools such as `fzf`, `find`, `fd`, `ripgrep`, `git`, `tail`, and `man`.
+
+Typical use cases include inspecting source code and markup in a terminal, previewing search results, viewing Git-managed file changes, colorizing manual pages or command help, and serving as a more readable `cat` replacement. Its intended users are terminal-based developers, system administrators, and other command-line users. The primary technology is Rust, and the executable entry point is the `bat` command. Users can install it through system package managers, Homebrew, MacPorts, WinGet, Chocolatey, Scoop, Nix, Snap alternatives, prebuilt release binaries, or Cargo; building from source requires Rust 1.79.0 or newer and can use `cargo install --path . --locked` or `cargo install --locked bat`.
+
+The repository is public at https://github.com/sharkdp/bat, is not archived, and lists maintainers including `sharkdp`, `eth-p`, `keith-hall`, and `Enselic`. The available metadata and README indicate ongoing maintenance, although this overview does not establish a detailed release cadence or maintainer responsiveness. The repository metadata identifies the license as Apache-2.0, while the README states that the project is available under either the MIT License or Apache License 2.0; users should consult the repository’s `LICENSE-MIT` and `LICENSE-APACHE` files for the authoritative terms.
+
+Important README limitations include: syntax highlighting from stdin may require an explicit language when it cannot infer syntax from the first line; UTF-8 and UTF-16 are supported natively, while other encodings may need conversion; terminals without truecolor support may have reduced color fidelity; ANSI escape sequences and control characters can produce garbled output unless stripping or sanitization options are used; Windows users need the Visual C++ Redistributable, and Cygwin-style paths require a wrapper; older Debian or Ubuntu systems may install the executable as `batcat`; source or Cargo installation does not automatically install the man page or shell completion files; and no officially supported Snap package is currently recommended.
+Would you like an analysis of recently updated open Issues? (yes/no)
+
+
+==================== USER INPUT 2/4 ====================
+yes
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official public Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Enter the Release analysis request in one of these exact formats:
+- overview
+- asset_match;operating_system;architecture;package_preference
+For asset_match, operating_system must be windows, macos, linux, or other; architecture must be x64, arm64, or unknown; and package_preference must be installer, portable, archive, or any. Use lowercase values and semicolons, not JSON.
+
+
+==================== USER INPUT 4/4 ====================
+asset_match;windows;x64;archive
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================

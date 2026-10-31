@@ -1,0 +1,65 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Test: Checkout Flat Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate. Control used the old button; the variant used the new button. The test ran for 14 days.
+
+Results:
+- Control: 20,000 users, 2,000 successes, 10.0% conversion
+- Variant: 20,000 users, 2,000 successes, 10.0% conversion
+- Absolute difference: 0.0 percentage points
+- Relative lift: 0.0%
+- p-value: 1.0
+- 95% confidence interval for the difference: -0.00588 to 0.00588, or -0.588 to 0.588 percentage points
+
+Statistical assessment: The result was not statistically significant. Power status was adequate, which supports the diagnostic reliability of the test but does not override the non-significant result. The supplied minimum detectable effect was 0.01.
+
+Experiment quality and guardrails:
+- Sample ratio mismatch: No
+- Guardrails: No meaningful negative effects were observed.
+- Guardrail concern: No
+
+Recommendation: Stop.
+
+Reasoning: Both groups had identical conversion rates and no measured lift. The p-value and confidence interval do not support an increase in purchase conversion from the new button.
+
+Next steps: Stop the experiment as recommended. No additional next steps are specified in the supplied data.

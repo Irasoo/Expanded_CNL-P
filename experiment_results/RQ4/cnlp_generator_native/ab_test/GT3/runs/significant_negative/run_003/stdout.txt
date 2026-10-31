@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics, thresholds, degradation, breaches, or other important negative effects. Please provide aggregated binary-conversion information rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Negative Test**
+
+The hypothesis was that the new checkout button would increase purchase conversion rate. The test ran for 14 days, with Control using the old button and Variant using the new button.
+
+Control had 10,000 users and a 10.00% purchase conversion rate. Variant had 10,000 users and an 8.00% conversion rate. The absolute difference was -2.00 percentage points, with a relative lift of -20.00% for Variant versus Control.
+
+The two-sided p-value was `7.75 × 10⁻⁷`, and the confidence interval for the Variant minus Control difference was [-2.79, -1.21] percentage points. The result is statistically significant because the p-value is below 0.05, and the effect is negative rather than an improvement.
+
+The test was balanced as planned, with a 50%/50% traffic split and no sample ratio mismatch detected. No meaningful negative guardrail effects were reported. The supplied power assessment was underpowered relative to the 1 percentage point minimum detectable effect; this is a diagnostic limitation, but it does not override the statistically significant result.
+
+**Recommendation: Do not ship the new button.** Variant materially reduced purchase conversion relative to Control, providing evidence against the hypothesis. Keep the old button in place, investigate the new button’s checkout behavior and implementation, and run a follow-up test only after addressing the observed conversion decline.

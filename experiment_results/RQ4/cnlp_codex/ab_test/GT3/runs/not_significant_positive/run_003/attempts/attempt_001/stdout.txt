@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+Test: Checkout Small Positive Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Duration: 7 days
+
+Results:
+- Control: 1,000 users; 100 purchases; 10.0% conversion
+- Variant: 1,000 users; 110 purchases; 11.0% conversion
+- Absolute difference: +1.0 percentage point
+- Relative lift: +10.0%
+- 95% confidence interval: -1.69 to +3.69 percentage points
+- P-value: 0.466
+- Statistical significance: No
+
+Validation and guardrails:
+- Sample ratio mismatch: No; observed allocation is consistent with the expected 50/50 split.
+- Power status: Underpowered. This is supporting diagnostic information and does not override the non-significant statistical result.
+- Guardrail assessment: No meaningful negative effects were observed; no guardrail concern was reported.
+
+Recommendation: Extend
+
+Reasoning: The variant’s observed conversion rate is higher, but the result is not statistically significant and the confidence interval includes both a potential decline and improvement. The test is underpowered, so the current data are insufficient to determine whether the observed lift reflects a real effect.
+
+Next steps:
+- Continue the experiment to collect additional data.
+- Reassess the primary metric for statistical significance and the confidence interval after extension.
+- Continue monitoring guardrails for negative effects.

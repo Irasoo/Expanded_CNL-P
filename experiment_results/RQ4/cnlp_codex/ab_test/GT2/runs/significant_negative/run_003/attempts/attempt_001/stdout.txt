@@ -1,0 +1,60 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## A/B Test Analysis: Checkout Negative Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Variant change:** Control uses the old button; Variant uses the new button.
+- **Primary metric:** Purchase conversion rate.
+- **Duration:** 14 days.
+- **Sample sizes:** Control: 10,000; Variant: 10,000.
+- **Conversion rates:** Control: **10.0%**; Variant: **8.0%**.
+- **Difference:** Variant minus Control: **−2.0 percentage points**, or **−20.0% relative lift**.
+- **Statistical result:** Two-sided **p = 0.0000007746**. The result is statistically significant at the 0.05 level.
+- **95% confidence interval:** Variant minus Control: **[−2.79 pp, −1.21 pp]**.
+- **Power:** **Underpowered**. This is a diagnostic limitation but does not override the statistically significant negative result.
+- **Sample ratio mismatch:** **No SRM detected**; the equal samples are consistent with the reported 50/50 traffic split.
+- **Guardrails:** No additional meaningful negative guardrail effects were observed.
+
+**Recommendation: `dont_ship`**
+
+The Variant performed significantly worse than Control on purchase conversion, with the confidence interval entirely below zero. Do not ship the new checkout button. Keep the old button in place, investigate the negative result, and address any identified issues before considering a follow-up test.

@@ -1,0 +1,51 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**实验概况**：假设是“新结账按钮将提高购买转化率”。实验持续 14 天；对照组样本量 12,000，变体组 8,000。主要指标为购买转化率。
+
+**结果**：对照组转化率 10.0%，变体组 10.0%；绝对差异 0.0 个百分点，相对提升 0.0%。p-value = 1.0；95% 置信区间为 [-0.00849, 0.00849]，即约 [-0.849, 0.849] 个百分点。结果不具有统计显著性。
+
+**诊断**：统计功效状态为 `underpowered`。功效状态是诊断信息，不能覆盖或改变显著性结论。检测到样本比例失配（SRM）：两组流量份额均为 50%，但实际样本量分别为 12,000 和 8,000。护栏指标未观察到有意义的负面影响，且无护栏问题。
+
+**建议**：`undetermined`。
+
+**理由与下一步**：当前未发现转化率提升证据，同时存在 SRM，且实验被判定为功效不足，因此不能可靠地接受或否定假设。先排查流量分配、实验曝光和数据采集问题；修复后重新运行或补充实验数据，再重新评估显著性、置信区间和功效状态。

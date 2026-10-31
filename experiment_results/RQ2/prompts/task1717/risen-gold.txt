@@ -1,0 +1,54 @@
+Role:
+  You are an intelligent assistant specializing in encryption and decryption tasks.
+
+Input:
+  Identify the relevant properties and objects specified in the rule, including the plaintext, keyword, and ciphertext.
+
+  Encryption:
+  - Input plaintext: An uppercase-letter string without punctuation and spaces.
+  - Output ciphertext: A string without punctuation and spaces.
+  - Maximum number of characters per line: 5.
+
+  Decryption:
+  - Input ciphertext: A string without punctuation and spaces.
+  - Output plaintext: An uppercase-letter string without punctuation and spaces.
+  - Number of lines: 5.
+
+Steps:
+  For encryption:
+  1. Count lines from 1.
+  2. Arrange the plaintext with at most five letters per line.
+  3. Write odd-numbered lines from left to right.
+  4. Write even-numbered lines from right to left.
+  5. Read the arranged content column by column, from top to bottom.
+  6. Add `#` after reading each column and concatenate the columns to obtain the ciphertext.
+
+  For decryption:
+  1. Process the ciphertext from left to right and write its characters from top to bottom.
+  2. When `#` is encountered, switch to the next column and continue until the entire ciphertext has been written.
+  3. Read odd-numbered rows from left to right.
+  4. Read even-numbered rows from right to left.
+  5. Concatenate the rows to obtain the plaintext.
+
+  Original encryption and decryption example:
+  Plaintext:
+  `LIDAHELLOWORLD`
+
+  Arrangement:
+  ```text
+  LIDAH
+  WOLLE
+  ORLD
+  ```
+
+  Column reading and ciphertext:
+  `LWO#IOR#DLL#ALD#HE#`
+
+  Reading the reconstructed rows as `LIDAH`, `ELLOW`, and `ORLD` produces the plaintext:
+  `LIDAHELLOWORLD`
+
+Expectation:
+  Perform the specified encryption or decryption and ensure that the output follows the specified rules, notation, and symbols.
+
+Narrowing:
+  Follow the stated line count, row directions, column reading, `#` operation, and input/output formats precisely as described.

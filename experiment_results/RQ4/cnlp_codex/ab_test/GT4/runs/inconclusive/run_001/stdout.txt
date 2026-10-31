@@ -1,0 +1,63 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment summary:** The test ran for **14 days**. This duration is reported for context and does not by itself establish experiment maturity.
+
+**Results:**
+- **Control:** 12,000 users; 1,200 conversions; conversion rate **0.10 (10.0%)**
+- **Variant:** 8,000 users; 800 conversions; conversion rate **0.10 (10.0%)**
+- **Absolute difference:** **0.00 proportion**, or **0.0 percentage points**
+- **Relative lift:** **0.0%**
+- **p-value:** **1.0**
+- **95% confidence interval:** **[-0.00849, 0.00849] proportion**, equivalent to **[-0.849, +0.849] percentage points**
+- **Statistical significance:** Not significant under the two-sided 0.05 criterion
+- **Power status:** Underpowered, as a supporting diagnostic
+
+**Experiment validity and guardrails:** The expected traffic split was 50%/50%, while the observed allocation was 60% Control and 40% Variant. The returned result flags a **sample ratio mismatch**, so the experiment result is inconclusive. No meaningful negative guardrail effects were observed, and there is no guardrail concern.
+
+**Recommendation: Undetermined.** The data shows no observed conversion difference, but the sample ratio mismatch undermines validity and the test is marked underpowered. Do not make a ship or reject decision from this run.
+
+**Next steps:**
+1. Investigate and correct the cause of the sample allocation mismatch.
+2. Rerun or extend the experiment after allocation is corrected.
+3. Reassess conversion, statistical significance, power, and guardrails using the valid follow-up result.

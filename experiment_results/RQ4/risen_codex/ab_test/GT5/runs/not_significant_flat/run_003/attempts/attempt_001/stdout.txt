@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Flat Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Result: The test ran for 14 days with 20,000 control users and 20,000 variant users. Control conversion was 10.0%; variant conversion was 10.0%. The absolute difference was 0.0 percentage points, with 0.0% relative lift. The p-value was 1.0, and the 95% confidence interval for the difference was -0.00588 to +0.00588, approximately -0.588 to +0.588 percentage points.
+
+Decision: The result was not statistically significant. Power status was adequate, but power is diagnostic only and must not override the significance result. There was no sample-ratio mismatch: traffic was 50% control and 50% variant, and the SRM check was false.
+
+Guardrails: No meaningful negative effects were observed, and no guardrail concern was flagged. No additional guardrail metric was provided.
+
+Recommendation: Stop.
+
+Reasoning: The new button produced no observed conversion improvement, with zero relative lift and no statistically significant difference.
+
+Practical next steps: Stop the experiment, do not adopt the new button based on this result, and document the outcome and confidence interval for future checkout tests.

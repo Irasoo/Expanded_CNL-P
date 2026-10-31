@@ -1,0 +1,56 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Flat Test — A/B Analysis
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 14 days.
+- **Sample sizes:** Control: 20,000; Variant: 20,000.
+- **Conversion rates:** Control: 10.0%; Variant: 10.0%.
+- **Effect:** Absolute difference: 0.0 percentage points; relative lift: 0.0%.
+- **Statistical result:** p-value = 1.0. The 95% confidence interval for the absolute difference is [-0.005879891953620162, 0.005879891953620162]. The result is not statistically significant.
+- **Power:** Adequate. This is diagnostic context only and does not override the lack of statistical significance.
+- **Sample ratio mismatch:** None detected.
+- **Guardrails:** No meaningful negative effects were observed; no guardrail concern was reported.
+- **Recommendation:** stop
+
+**Reasoning:** The variant produced the same conversion rate as the control, with no observed lift and no statistically significant difference. The adequate power supports interpreting the flat result as the measured outcome, while guardrails show no meaningful negative effects.
+
+**Next steps:** Stop the experiment and do not proceed with the new checkout button based on these results.

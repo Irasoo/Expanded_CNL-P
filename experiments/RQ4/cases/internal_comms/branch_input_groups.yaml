@@ -1,0 +1,72 @@
+case_name: internal_comms
+
+# The dispatcher has four recognized communication branches plus one
+# unrecognized-type exception branch. Each ordered input group covers one.
+input_groups:
+  three_p_update:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - three_p
+      - |-
+        Progress: Internal testing of the customer portal's new login flow is complete. Session timeout and mobile redirect issues were fixed, and the first batch of 120 knowledge-base articles was migrated.
+        Plans: Open the new login flow to 20 internal pilot users next week and begin migrating the second batch of knowledge-base articles.
+        Problems: The single sign-on provider has not confirmed the production certificate update schedule, and two critical operating guides still require security-team review.
+      - Customer Platform Team
+
+  company_newsletter:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - newsletter
+      - |-
+        The company will hold its quarterly all-hands meeting on September 18. The agenda includes a review of the previous quarter's business performance, customer-experience improvements, and priorities for the next quarter.
+        The new employee learning platform is now available to all employees. Its first courses cover information security, management fundamentals, and product onboarding.
+        The Customer Support team reduced the average first-response time for high-priority tickets from four hours to 2.5 hours.
+        The Data team completed the first version of a unified metrics dictionary covering sales, product usage, and customer support.
+        The Singapore office will open a new shared meeting area in October. Detailed booking rules will be announced before it opens.
+        The Engineering team released mobile application version 2.4, adding offline drafts and fixing three frequently occurring crashes.
+        Company Volunteer Day is scheduled for September 27. Registration is available at https://intranet.example.org/volunteer-day.
+        The Finance team reminds all departments to submit next-quarter budget adjustment requests by September 25.
+        This month's employee technical session will introduce accessibility design and will take place at 3:00 p.m. on September 12.
+        The company received the industry association's annual Customer Service Improvement Award. The award announcement is public on the association's website.
+
+  internal_faq:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - faq
+      - |-
+        Create an internal FAQ from the following materials.
+
+        Employee question 1: When will the new hybrid-work arrangement begin?
+        Confirmed information: The pilot begins on October 7 and lasts eight weeks. Employees participating in the pilot must work from the office at least two days per week.
+
+        Employee question 2: Which teams will participate in the first phase?
+        Confirmed information: The first phase includes the Product, Design, and Customer Success teams.
+
+        Employee question 3: Will additional commuting support be provided?
+        The available materials contain no new decision about commuting support. The Human Resources team will provide separate guidance before the pilot begins.
+
+        Employee question 4: Will the arrangement become permanent after the pilot?
+        No decision has been made about permanent adoption. The company will evaluate employee feedback and data from the eight-week pilot.
+
+  general_announcement:
+    repeat: 1
+    timeout_seconds: 600
+    inputs:
+      - general
+      - |-
+        Draft an office network maintenance notice for all office employees. Its purpose is to explain the maintenance schedule and its possible impact.
+        Use a clear, calm, and direct tone. Format it with a short title, two body paragraphs, and three bullet points listing the actions employees need to take.
+      - |-
+        The IT team will perform office network maintenance from 10:00 p.m. on Saturday, September 21, until 2:00 a.m. the following day.
+        During maintenance, wired office networks, guest Wi-Fi, and internal printing services may experience intermittent interruptions.
+        The company VPN and cloud collaboration tools are expected to remain unaffected.
+        Employees should save their work before maintenance begins, avoid scheduling tasks that depend on the office network, and report any continuing issues to it-help@example.org after maintenance ends.
+
+  unknown_communication_type:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - press_release

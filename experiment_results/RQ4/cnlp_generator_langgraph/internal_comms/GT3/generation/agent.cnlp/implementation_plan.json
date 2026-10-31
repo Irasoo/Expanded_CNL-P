@@ -1,0 +1,568 @@
+{
+  "entry_worker": "InternalCommsDispatcher",
+  "workers": {
+    "InternalCommsDispatcher": {
+      "worker_name": "InternalCommsDispatcher",
+      "description": "Determine the internal communication type requested by the user and dispatch the task to the corresponding Worker",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_communication",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command1",
+          "command_index": 1,
+          "command_type": "request_input",
+          "description": "Ask the user to select the internal communication type to generate from three_p, newsletter, faq, or general; if the user's selection cannot be mapped to any of these four types, record the result as unknown",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": true,
+            "llm_based": false
+          },
+          "written_variable": "communication_type",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command2",
+          "command_index": 2,
+          "command_type": "call_worker",
+          "target_worker_name": "ThreePWriter",
+          "arguments": [],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "target_inputs": [],
+          "target_outputs": [
+            {
+              "variable_name": "final_communication",
+              "is_required": true
+            }
+          ],
+          "required_variables": [],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command3",
+          "command_index": 3,
+          "command_type": "call_worker",
+          "target_worker_name": "NewsletterWriter",
+          "arguments": [],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "target_inputs": [],
+          "target_outputs": [
+            {
+              "variable_name": "final_communication",
+              "is_required": true
+            }
+          ],
+          "required_variables": [],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command4",
+          "command_index": 4,
+          "command_type": "call_worker",
+          "target_worker_name": "FAQWriter",
+          "arguments": [],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "target_inputs": [],
+          "target_outputs": [
+            {
+              "variable_name": "final_communication",
+              "is_required": true
+            }
+          ],
+          "required_variables": [],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command5",
+          "command_index": 5,
+          "command_type": "call_worker",
+          "target_worker_name": "GeneralCommsWriter",
+          "arguments": [],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "target_inputs": [],
+          "target_outputs": [
+            {
+              "variable_name": "final_communication",
+              "is_required": true
+            }
+          ],
+          "required_variables": [],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command6",
+          "command_index": 6,
+          "command_type": "display_message",
+          "description": "Inform the user that the selected communication type cannot be recognized and explain that the currently supported types are three_p, newsletter, faq, and general",
+          "required_variables": [],
+          "display_content_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": [
+        {
+          "predicate_name": "predicate1",
+          "predicate_index": 1,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch1"
+          ],
+          "description": "variable: `communication_type` is three_p",
+          "required_variables": [
+            "communication_type"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate2",
+          "predicate_index": 2,
+          "owner_name": "if_branch2",
+          "condition_kind": "elseif",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch2"
+          ],
+          "description": "variable: `communication_type` is newsletter",
+          "required_variables": [
+            "communication_type"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate3",
+          "predicate_index": 3,
+          "owner_name": "if_branch3",
+          "condition_kind": "elseif",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch3"
+          ],
+          "description": "variable: `communication_type` is faq",
+          "required_variables": [
+            "communication_type"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate4",
+          "predicate_index": 4,
+          "owner_name": "exception_flow1",
+          "condition_kind": "exception_flow",
+          "condition_path": [
+            "worker",
+            "exception_flow1"
+          ],
+          "description": "variable: `communication_type` is unknown after COMMAND-1 receives the communication type",
+          "required_variables": [
+            "communication_type"
+          ],
+          "llm_based_processing": false
+        }
+      ]
+    },
+    "ThreePWriter": {
+      "worker_name": "ThreePWriter",
+      "description": "Generate a 3P team update from the team name and source materials provided by the user",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_communication",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command7",
+          "command_index": 7,
+          "command_type": "request_input",
+          "description": "Ask the user to provide the team update materials to organize into a 3P update",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "three_p_materials",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command8",
+          "command_index": 8,
+          "command_type": "request_input",
+          "description": "Ask the user to provide the name of the team covered by this 3P update",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "team_name",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command9",
+          "command_index": 9,
+          "command_type": "call_api",
+          "api_name": "draft_three_p",
+          "arguments": [
+            {
+              "parameter_name": "team_name",
+              "argument_name": "team_name",
+              "argument_description": "The name of the team covered by the 3P update.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            },
+            {
+              "parameter_name": "source_materials",
+              "argument_name": "three_p_materials",
+              "argument_description": "The raw 3P source materials provided by the user.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "description": "根据用户提供的团队名称和团队更新原始材料，生成面向该团队的 3P 更新，将有事实依据的内容清晰组织为 Progress、Plans 和 Problems 三个部分，作为最终内部沟通稿供用户查看。",
+          "reference_function_name": "draft_three_p",
+          "required_variables": [
+            "team_name",
+            "three_p_materials"
+          ],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command10",
+          "command_index": 10,
+          "command_type": "display_message",
+          "description": "Show variable: `final_communication` to the user",
+          "required_variables": [
+            "final_communication"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": []
+    },
+    "NewsletterWriter": {
+      "worker_name": "NewsletterWriter",
+      "description": "Generate a company newsletter from the company materials provided by the user",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_communication",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command11",
+          "command_index": 11,
+          "command_type": "request_input",
+          "description": "Ask the user to provide announcements, important developments, team updates, milestones, meeting summaries, public reports, or other relevant materials to organize into a company newsletter",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "newsletter_materials",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command12",
+          "command_index": 12,
+          "command_type": "call_api",
+          "api_name": "draft_company_newsletter",
+          "arguments": [
+            {
+              "parameter_name": "source_materials",
+              "argument_name": "newsletter_materials",
+              "argument_description": "The raw newsletter source materials provided by the user.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "description": "将用户提供的公告、重要进展、团队动态、里程碑、会议摘要、公开报告等材料整理为面向广泛公司内部受众的新闻通讯，优先呈现影响范围广的重要信息，并压缩过细、重复或仅与少数人相关的内容，生成最终通讯稿。",
+          "reference_function_name": "draft_company_newsletter",
+          "required_variables": [
+            "newsletter_materials"
+          ],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command13",
+          "command_index": 13,
+          "command_type": "display_message",
+          "description": "Show variable: `final_communication` to the user",
+          "required_variables": [
+            "final_communication"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": []
+    },
+    "FAQWriter": {
+      "worker_name": "FAQWriter",
+      "description": "Generate an internal FAQ from the questions and related materials provided by the user",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_communication",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command14",
+          "command_index": 14,
+          "command_type": "request_input",
+          "description": "Ask the user to provide the internal FAQ request to organize, including the questions to answer and any relevant reference materials",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "faq_request",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command15",
+          "command_index": 15,
+          "command_type": "call_api",
+          "api_name": "draft_faq",
+          "arguments": [
+            {
+              "parameter_name": "request",
+              "argument_name": "faq_request",
+              "argument_description": "The FAQ request provided by the user, which may contain questions to organize and supporting materials for the answers.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "description": "根据用户提交的内部 FAQ 问题及相关参考材料，将需要澄清的员工关切组织成问答形式，并仅依据现有材料作答；对于材料不足以回答的问题明确说明信息不足，生成最终 FAQ 沟通稿。",
+          "reference_function_name": "draft_faq",
+          "required_variables": [
+            "faq_request"
+          ],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command16",
+          "command_index": 16,
+          "command_type": "display_message",
+          "description": "Show variable: `final_communication` to the user",
+          "required_variables": [
+            "final_communication"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": []
+    },
+    "GeneralCommsWriter": {
+      "worker_name": "GeneralCommsWriter",
+      "description": "Generate a general internal communication from the target audience, communication purpose, tone, format requirement, and related materials specified by the user",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_communication",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command17",
+          "command_index": 17,
+          "command_type": "request_input",
+          "description": "Ask the user to provide the target audience, communication purpose, desired tone, and format requirement for this internal communication",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": true,
+            "llm_based": true
+          },
+          "written_variable": "general_comms_request",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command18",
+          "command_index": 18,
+          "command_type": "request_input",
+          "description": "Ask the user to provide the announcements, background information, project updates, meeting content, reference text, or other relevant materials to use when drafting this internal communication",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "general_comms_materials",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command19",
+          "command_index": 19,
+          "command_type": "call_api",
+          "api_name": "draft_general_comms",
+          "arguments": [
+            {
+              "parameter_name": "request",
+              "argument_name": "general_comms_request",
+              "argument_description": "The general internal communication requirements provided by the user, including the target audience, communication purpose, desired tone, and format requirement.",
+              "argument_type": {
+                "declared_type_name": "GeneralCommsRequest"
+              }
+            },
+            {
+              "parameter_name": "source_materials",
+              "argument_name": "general_comms_materials",
+              "argument_description": "The raw materials provided by the user for drafting a general internal communication.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "final_communication",
+            "variable_description": "The final generated internal communication.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "description": "结合用户指定的目标受众、沟通目的、期望语气和格式要求，以及用户提供的公告、背景、项目更新、会议内容或其他参考材料，起草与这些要求相匹配且事实均有材料依据的通用内部沟通，作为最终稿供用户查看。",
+          "reference_function_name": "draft_general_comms",
+          "required_variables": [
+            "general_comms_request",
+            "general_comms_materials"
+          ],
+          "written_variable": "final_communication",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command20",
+          "command_index": 20,
+          "command_type": "display_message",
+          "description": "Show variable: `final_communication` to the user",
+          "required_variables": [
+            "final_communication"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": []
+    }
+  }
+}

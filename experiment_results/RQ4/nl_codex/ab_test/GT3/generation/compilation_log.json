@@ -1,0 +1,174 @@
+{
+  "status": "success",
+  "case_name": "ab_test",
+  "compilation_method": "codex",
+  "trial_index": 2,
+  "trial_count": 4,
+  "attempt_count": 1,
+  "maximum_attempts": 20,
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_2in4\\agent.nl",
+  "method_options": {
+    "reasoning_effort": "high"
+  },
+  "source_files": {
+    "agent.nl.md": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\ab_test\\agent.nl.md",
+      "sha256": "3cc05fbcc13df3e4b7bdb9913ad1d6651d890a37f2b3fd2ed154cae525ea18ea"
+    },
+    "reference_code.py": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\ab_test\\reference_code.py",
+      "sha256": "3f12033c4e66f15b1bd232a2f6f0c042c708be6568e86307995d1a60a718dd4a"
+    },
+    "reference_code_for_codex.py": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\ab_test\\reference_code_for_codex.py",
+      "sha256": "13cc4c70cab9e3ae194d1b18178652d6e7bce3f128ee103e78dc592d58d3ed69"
+    }
+  },
+  "started_at": "2026-09-11T23:58:04.678546+00:00",
+  "finished_at": "2026-09-12T00:07:54.829447+00:00",
+  "duration_seconds": 590.156,
+  "token_usage": {
+    "source": "codex_cli_turn_completed",
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 272064,
+      "cached_input_tokens": 220570,
+      "output_tokens": 12614,
+      "reasoning_tokens": 4633,
+      "total_tokens": 284678
+    },
+    "calls": null,
+    "raw_usage": {
+      "input_tokens": 272064,
+      "cached_input_tokens": 220570,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12614,
+      "reasoning_output_tokens": 4633
+    }
+  },
+  "compilation_token_usage": {
+    "source": "codex_cli_turn_completed",
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 272064,
+      "cached_input_tokens": 220570,
+      "output_tokens": 12614,
+      "reasoning_tokens": 4633,
+      "total_tokens": 284678
+    },
+    "calls": null,
+    "raw_usage": {
+      "input_tokens": 272064,
+      "cached_input_tokens": 220570,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12614,
+      "reasoning_output_tokens": 4633
+    }
+  },
+  "retry_overhead_token_usage": null,
+  "failed_compilation_token_usage": null,
+  "observed_total_token_usage": {
+    "source": "rq4_attempt_aggregate",
+    "attempt_usage_count": 1,
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 272064,
+      "cached_input_tokens": 220570,
+      "output_tokens": 12614,
+      "reasoning_tokens": 4633,
+      "total_tokens": 284678
+    },
+    "calls": null
+  },
+  "token_accounting": {
+    "paper_compilation_burden_field": "compilation_token_usage",
+    "retry_overhead_excluded_from_compilation_burden": true,
+    "description": "Only the successful Attempt is the compiler resource burden; discarded relay/Codex retry Attempts are operational overhead."
+  },
+  "method_details": {
+    "representation_inputs": {
+      "specification_file": "agent.nl.md",
+      "specification_sha256": "3cc05fbcc13df3e4b7bdb9913ad1d6651d890a37f2b3fd2ed154cae525ea18ea",
+      "prompt_file": "compilation/codex.py::CODEX_COMPILATION_PROMPT",
+      "prompt_sha256": "3b221629e75d26206b383a2e86cad938ce9edba86ebeb77a1808692ba7a02755",
+      "reference_sha256": "13cc4c70cab9e3ae194d1b18178652d6e7bce3f128ee103e78dc592d58d3ed69"
+    },
+    "codex_thread_id": "01a092e8-2f6f-7520-bb08-dfdd0826d2f9",
+    "codex_turn_id": null,
+    "codex_turn_status": "completed",
+    "codex_turn_error": null,
+    "codex_duration_ms": 590047,
+    "codex_final_response": "已完成可运行的 Python Agent 项目：\n\n- 入口文件：[main.py](/workspace/main.py)\n- 实现单轮终端输入、LLM 语义抽取、guardrail 判断、统计计算、实验分类、推荐和最终分析。\n- 使用官方 `OpenAI` Client，并显式设置 `reasoning={\"effort\": \"high\"}`。\n- 保留参考实现中的统计逻辑和阈值。\n- `main.py` 支持导入且不会自动执行，直接运行支持 `python3 main.py`。\n- 已通过 `python3 -m py_compile main.py` 语法检查。\n- 未启动 Agent，也未调用真实外部 API。",
+    "codex_events_file": "codex_events.jsonl",
+    "codex_event_counts": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed": 22,
+      "item.started": 15,
+      "item.updated": 1,
+      "turn.completed": 1
+    },
+    "codex_completed_item_counts": {
+      "agent_message": 7,
+      "command_execution": 12,
+      "file_change": 2,
+      "todo_list": 1
+    },
+    "codex_tool_activity_count": 14,
+    "codex_successful_tool_activity_count": 10,
+    "codex_failed_tool_activity_count": 4,
+    "codex_non_json_line_count": 0,
+    "codex_container_image": "rq4-codex-runtime:0.147.0",
+    "codex_inner_sandbox": "danger-full-access",
+    "codex_isolation_boundary": "docker_single_temporary_workspace_mount",
+    "codex_model": "gpt-5.6-sol",
+    "codex_reasoning_effort": "high",
+    "codex_provider": "rq4_relay",
+    "codex_stderr": ""
+  },
+  "failure_category": null,
+  "rq4_retryable": false,
+  "exception": null,
+  "attempts": [
+    {
+      "attempt_index": 1,
+      "status": "success",
+      "failure_category": null,
+      "rq4_retryable": false,
+      "directory": "attempts\\attempt_001",
+      "compilation_log": "attempts\\attempt_001\\compilation_log.json",
+      "token_usage": {
+        "source": "codex_cli_turn_completed",
+        "request_count": null,
+        "successful_request_count": null,
+        "failed_request_count": null,
+        "requests_without_usage_count": null,
+        "total": {
+          "input_tokens": 272064,
+          "cached_input_tokens": 220570,
+          "output_tokens": 12614,
+          "reasoning_tokens": 4633,
+          "total_tokens": 284678
+        },
+        "calls": null,
+        "raw_usage": {
+          "input_tokens": 272064,
+          "cached_input_tokens": 220570,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 12614,
+          "reasoning_output_tokens": 4633
+        }
+      },
+      "exception": null
+    }
+  ]
+}

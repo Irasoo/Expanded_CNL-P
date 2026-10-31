@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics, thresholds, degradation, breaches, or other important negative effects. Please provide aggregated binary-conversion information rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Small Positive Test evaluated whether the new checkout button increases purchase conversion rate over 7 days.
+
+Control converted 100 of 1,000 users (10.0%). Variant converted 110 of 1,000 users (11.0%), an absolute increase of 1.0 percentage point and a relative lift of 10.0%.
+
+The result is not statistically significant: two-sided p-value = 0.4657, with a 95% confidence interval for the absolute difference of -1.69 to +3.69 percentage points. The observed improvement could be due to random variation. The test is also underpowered against the supplied 1 percentage point minimum detectable effect; this reinforces the need for more data but does not replace the significance result.
+
+No sample ratio mismatch was detected. Guardrails show no concern: no meaningful negative effects were reported.
+
+Recommendation: extend the experiment. Continue collecting data with the current 50/50 allocation, then reassess purchase conversion using the same primary metric. Confirm the expanded sample reaches adequate power for the 1 percentage point minimum detectable effect, while continuing to monitor for explicitly reported guardrail degradation.

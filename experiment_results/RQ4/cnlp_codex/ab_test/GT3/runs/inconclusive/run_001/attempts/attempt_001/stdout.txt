@@ -1,0 +1,66 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+Test: Checkout SRM Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Experiment summary:
+- Duration: 14 days
+- Expected traffic allocation: 50% control / 50% variant
+- Control: 1,200 conversions from 12,000 users — 10.0%
+- Variant: 800 conversions from 8,000 users — 10.0%
+- Absolute difference: 0.00 percentage points
+- Relative lift: 0.0%
+- 95% confidence interval for the difference: -0.85 to +0.85 percentage points
+- p-value: 1.0
+- Statistically significant: No
+- Power status: Underpowered. This is diagnostic/supporting information and does not override the non-significant result.
+- Sample ratio mismatch: Yes. Observed allocation was 60% control / 40% variant rather than the expected 50% / 50%.
+
+Guardrail assessment: No guardrail concern was reported, and no meaningful negative effects were observed. Specific guardrail metrics and thresholds were not provided.
+
+Recommendation: undetermined
+
+Reasoning: The variant produced no observed conversion improvement, and the result is not statistically significant. Additionally, the sample ratio mismatch raises concerns about traffic allocation or experiment instrumentation, limiting confidence in the experiment’s validity.
+
+Next steps: Investigate the sample ratio mismatch and verify randomization, assignment, exposure logging, and conversion tracking. After resolving the issue, rerun or extend the experiment with valid allocation and sufficient power to evaluate the stated minimum detectable effect of 1 percentage point.

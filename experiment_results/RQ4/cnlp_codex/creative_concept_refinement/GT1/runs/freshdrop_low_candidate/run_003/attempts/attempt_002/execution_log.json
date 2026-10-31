@@ -1,0 +1,76 @@
+{
+  "status": "failed",
+  "generation_id": "20260817_033842",
+  "testing_id": "20260817_130711",
+  "case_name": "creative_concept_refinement",
+  "compilation_method": "codex",
+  "compilation_trial_index": 1,
+  "compilation_trial_count": 5,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\creative_concept_refinement\\codex_1in5",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\creative_concept_refinement\\codex_1in5\\agent.cnlp",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\creative_concept_refinement\\codex_1in5\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\creative_concept_refinement\\branch_input_groups.yaml",
+    "sha256": "777e18d227258d762a4dd4c0a3b5d140f1be890623978015b723e3c8cda50dd7"
+  },
+  "input_group_name": "freshdrop_low_candidate",
+  "run_index": 3,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\creative_concept_refinement\\codex_1in5\\freshdrop_low_candidate\\run_003\\attempts\\attempt_002",
+  "started_at": "2026-08-18T05:10:12.000053+00:00",
+  "finished_at": "2026-08-18T05:10:13.906630+00:00",
+  "duration_seconds": 1.906,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 1,
+  "consumed_input_count": 0,
+  "unused_input_count": 1,
+  "ended_before_all_inputs_consumed": true,
+  "input_exhausted": false,
+  "input_consumption_status": "ended_with_unused_inputs",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null
+    },
+    "request_count": 0,
+    "successful_request_count": 0,
+    "failed_request_count": 0,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "total_tokens": 0
+    },
+    "calls": []
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\creative_concept_refinement\\codex_1in5\\freshdrop_low_candidate\\run_003\\attempts\\attempt_002\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "ConfigurationError",
+    "message": "Missing OPENAI_API_KEY. Set it in .env or the current process environment.",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\creative_concept_refinement\\codex_1in5\\agent.cnlp\\main.py\", line 537, in main\n    agent = CreativeDirectorAssistant()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\creative_concept_refinement\\codex_1in5\\agent.cnlp\\main.py\", line 58, in __init__\n    api_key = _required_env(\"OPENAI_API_KEY\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\creative_concept_refinement\\codex_1in5\\agent.cnlp\\main.py\", line 36, in _required_env\n    raise ConfigurationError(\nrq4_generated_agent_main.ConfigurationError: Missing OPENAI_API_KEY. Set it in .env or the current process environment.\n"
+  },
+  "rerun_validity": "invalid",
+  "rerun_invalid_reason": "environment_setup_failure",
+  "rerun_invalid_detail": "This rerun was executed before rerun_failed_tests initialized the shared RQ4 runtime environment. It cannot be used to assess the generated Agent's original failure.",
+  "rerun_invalid_marked_at": "2026-08-18T10:11:54.917700+00:00"
+}

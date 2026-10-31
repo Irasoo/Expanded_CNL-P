@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message. Include the test name, hypothesis, tested change, primary metric, Control sample size and number of successes, Variant sample size and number of successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Observed results:** The experiment ran for 7 days with 1,000 users in Control and 1,000 in Variant. Purchase conversion was 10.0% for Control and 11.0% for Variant, an absolute difference of +1.0 percentage point and a relative lift of +10.0%. The two-sided p-value was 0.466, with a supplied confidence interval for the absolute difference of -1.69 to +3.69 percentage points.
+
+**Experiment assessment:** The result is not statistically significant at the 0.05 threshold, so the observed increase could be due to random variation. The test was underpowered for the supplied 1-percentage-point minimum detectable effect at 80% power. No sample ratio mismatch was detected, so the observed 50/50 allocation does not invalidate the experiment. No meaningful negative guardrail effects were reported.
+
+**Recommendation: Ship.** This preserves the supplied recommendation, but the experiment does not provide statistically significant evidence that the new button improves conversion. Shipping should therefore not be presented as a validated conversion win.
+
+**Next steps:** Roll out with close monitoring of purchase conversion and existing guardrails. Continue collecting data or run a sufficiently powered follow-up experiment to determine whether the observed positive effect is reproducible. Reassess the decision if conversion declines or a meaningful guardrail issue appears.

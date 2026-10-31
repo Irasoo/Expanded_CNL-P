@@ -1,0 +1,68 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout Flat Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate
+- **Duration:** 14 days
+- **Sample sizes:** Control 20,000; Variant 20,000
+
+### Results
+- **Control conversion rate:** 10.00% (2,000/20,000)
+- **Variant conversion rate:** 10.00% (2,000/20,000)
+- **Absolute difference:** 0.00 percentage points
+- **Relative lift:** 0.0%
+- **95% CI (Variant minus Control):** -0.588 to +0.588 percentage points
+- **Two-sided p-value:** 1.0
+- **Statistical significance:** Not significant
+- **Power status:** Adequate
+- **Sample ratio mismatch:** None detected
+- **Guardrails:** No concern; no meaningful negative effects were observed.
+
+### Decision
+**Recommendation: stop**
+
+The Variant produced the same observed conversion rate as Control, and the confidence interval includes zero. Therefore, there is no statistically significant evidence that the new button improves purchase conversion.
+
+**Next steps:** Stop the experiment, document the flat result and confidence interval, and do not use conversion uplift from this test as justification for the change. If the team wants to continue pursuing an improvement, formulate a new variant or hypothesis and evaluate it in a separate experiment.

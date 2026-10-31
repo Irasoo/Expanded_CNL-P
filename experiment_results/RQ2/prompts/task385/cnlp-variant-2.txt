@@ -1,0 +1,46 @@
+[DEFINE_AGENT:IncorrectAnswerSelector "Select an incorrect answer option from the choices given"]
+
+[DEFINE_PERSONA:]
+	ROLE: Given a context passage, a question, and three answer options, identify the correct answer using the context passage and return one of the two incorrect answer options.
+[END_PERSONA]
+
+[DEFINE_CONCEPTS:]
+    CorrectAnswer: The one answer option that is correct for the question
+    IncorrectAnswer: An answer option that is not correct for the question
+[END_CONCEPTS]
+
+[DEFINE_CONSTRAINTS:]
+    AnswerOptionCount: There are three answer options
+    CorrectAnswerCount: Only one of the three answer options is correct
+    OutputRequirement: Pick one of the two incorrect answer options as the output
+[END_CONSTRAINTS]
+
+[DEFINE_VARIABLES:]
+    context_passage: text
+    question: text
+    answer_options: List [text]
+    correct_answer: text
+    incorrect_answer: text
+[END_VARIABLES]
+
+[DEFINE_WORKER:"Return one incorrect answer option from the three choices" SelectIncorrectAnswer]
+    [INPUTS]
+        REQUIRED <REF>context_passage</REF>
+        REQUIRED <REF>question</REF>
+        REQUIRED <REF>answer_options</REF>
+    [END_INPUTS]
+
+    [OUTPUTS]
+        REQUIRED <REF>incorrect_answer</REF>
+    [END_OUTPUTS]
+
+    [MAIN_FLOW]
+        [SEQUENTIAL_BLOCK]
+            COMMAND-1 [COMMAND Determine which one of the three <REF>answer_options</REF> is correct for <REF>question</REF> using <REF>context_passage</REF> RESULT <REF>correct_answer</REF> SET]
+            COMMAND-2 [COMMAND Pick one option from <REF>answer_options</REF> that is not <REF>correct_answer</REF> RESULT <REF>incorrect_answer</REF> SET]
+            COMMAND-3 [DISPLAY <REF>incorrect_answer</REF>]
+        [END_SEQUENTIAL_BLOCK]
+    [END_MAIN_FLOW]
+[END_WORKER]
+
+[END_AGENT]

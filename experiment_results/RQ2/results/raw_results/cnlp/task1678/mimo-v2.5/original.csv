@@ -1,0 +1,634 @@
+﻿task_id,instance_id,model,language,instance_content,model_input,standard_output,model_output,extracted_answer,score
+1678,1,mimo-v2.5,original,"Problem: points a, b, c, and d, in that order, lie on a line. if ab = 3 cm, ac = 4 cm, and bd = 8 cm, what is cd, in centimeters ?
+Options: a. 7, b. 2, c. 3, d. 4, e. 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: points a, b, c, and d, in that order, lie on a line. if ab = 3 cm, ac = 4 cm, and bd = 8 cm, what is cd, in centimeters ?\nOptions: a. 7, b. 2, c. 3, d. 4, e. 5""}]",a,"The points are in order a, b, c, d on a line. Given ab = 3 cm and ac = 4 cm, we find bc = ac - ab = 1 cm. With bd = 8 cm, we compute cd = bd - bc = 8 - 1 = 7 cm. Thus, the correct answer is a.",A,1
+1678,2,mimo-v2.5,original,"Problem: a dog is tied to a tree by a long nylon cord. if the dog runs from the due north side of the tree to the due south side of the tree with the cord extended to its full length at all items, and the dog ran approximately 30 feet, what was the approximate length of the nylon cord, in feet ?
+Options: a. 30, b. 25, c. 15, d. 10, e. 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a dog is tied to a tree by a long nylon cord. if the dog runs from the due north side of the tree to the due south side of the tree with the cord extended to its full length at all items, and the dog ran approximately 30 feet, what was the approximate length of the nylon cord, in feet ?\nOptions: a. 30, b. 25, c. 15, d. 10, e. 5""}]",d,"Looking at this problem, the dog is tied to a tree with a cord and runs from due north to due south side with the cord fully extended at all times.
+
+## Solution
+
+Since the cord is fully extended at all times, the dog traces a **semicircular arc** around the tree, where the cord length equals the radius (r).
+
+The distance the dog ran = arc length of a semicircle = **πr**
+
+Setting up the equation:
+$$\pi r \approx 30 \text{ feet}$$
+
+Solving for r:
+$$r \approx \frac{30}{\pi} \approx \frac{30}{3.14} \approx 9.55 \text{ feet}$$
+
+The closest answer is **10 feet**.
+
+The answer is **d**.",D,1
+1678,3,mimo-v2.5,original,"Problem: the ratio between x and y is 7 / 5; x is multiplied by y and y is multiplied by x, what is the ratio between the new values of x and y ?
+Options: a. 7 / 5, b. 5 / 7, c. 1, d. 49 / 25, e. it can not be determined","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the ratio between x and y is 7 / 5; x is multiplied by y and y is multiplied by x, what is the ratio between the new values of x and y ?\nOptions: a. 7 / 5, b. 5 / 7, c. 1, d. 49 / 25, e. it can not be determined""}]",c,"The original ratio is \(x : y = 7 : 5\), so let \(x = 7k\) and \(y = 5k\) for some constant \(k \neq 0\).  
+After the operations:  
+- New \(x\) becomes \(x \times y = (7k)(5k) = 35k^2\).  
+- New \(y\) becomes \(y \times x = (5k)(7k) = 35k^2\).  
+Thus, the new values are equal, and their ratio is \(35k^2 : 35k^2 = 1\).  
+
+Answer: c",C,1
+1678,4,mimo-v2.5,original,"Problem: tom opened a shop investing rs. 3000. jose joined him 2 months later, investing rs. 4500. they earned a profit of rs. 5400 after completion of one year. what will be jose ' s share of profit ?
+Options: a. 3000, b. 2200, c. 2309, d. 2400, e. 3200","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: tom opened a shop investing rs. 3000. jose joined him 2 months later, investing rs. 4500. they earned a profit of rs. 5400 after completion of one year. what will be jose ' s share of profit ?\nOptions: a. 3000, b. 2200, c. 2309, d. 2400, e. 3200""}]",a,"## Solution
+
+**Key concept:** Profit is shared in proportion to **investment × time**.
+
+**Tom:** Rs. 3,000 × 12 months = 36,000
+**Jose:** Rs. 4,500 × 10 months = 45,000
+
+**Ratio** = 36,000 : 45,000 = **4 : 5**
+
+Jose's share = (5/9) × 5,400 = **Rs. 3,000**
+
+The answer is **a. 3000**",A,1
+1678,5,mimo-v2.5,original,"Problem: the price of 3 pants and 6 t - shirts is rs. 750. with the same money one can buy 1 pant and 12 t - shirts. if one wants to buy 8 t - shirts, how much shall she have to pay ?
+Options: a. 150, b. 250, c. 400, d. 450, e. 550","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the price of 3 pants and 6 t - shirts is rs. 750. with the same money one can buy 1 pant and 12 t - shirts. if one wants to buy 8 t - shirts, how much shall she have to pay ?\nOptions: a. 150, b. 250, c. 400, d. 450, e. 550""}]",c,"## Setting Up the Equations
+
+Let **P** = price of one pant, **T** = price of one t-shirt.
+
+From the problem:
+- **3P + 6T = 750** … (1)
+- **P + 12T = 750** … (2)
+
+## Solving
+
+From equation (2): **P = 750 − 12T**
+
+Substituting into equation (1):
+
+$$3(750 - 12T) + 6T = 750$$
+$$2250 - 36T + 6T = 750$$
+$$30T = 1500$$
+$$T = 50$$
+
+So one t-shirt costs **Rs. 50**.
+
+## Finding the Cost of 8 T-Shirts
+
+$$8 \times 50 = \textbf{Rs. 400}$$
+
+The answer is **c. 400**",C,1
+1678,6,mimo-v2.5,original,"Problem: on a saturday night, each of the rooms at a certain motel was rented for either $ 40 or $ 60. if 10 of the rooms that were rented for $ 60 had instead been rented for $ 40, then the total rent the motel charged for that night would have been reduced by 40 percent. what was the total rent the motel actually charged for that night ?
+Options: a. $ 500, b. $ 800, c. $ 1,000, d. $ 1,600, e. $ 2,400","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: on a saturday night, each of the rooms at a certain motel was rented for either $ 40 or $ 60. if 10 of the rooms that were rented for $ 60 had instead been rented for $ 40, then the total rent the motel charged for that night would have been reduced by 40 percent. what was the total rent the motel actually charged for that night ?\nOptions: a. $ 500, b. $ 800, c. $ 1,000, d. $ 1,600, e. $ 2,400""}]",a,"## Solution
+
+Let me define variables:
+- Let **T** = total number of rooms
+- Let **x** = number of rooms rented at $60 (so T - x rooms at $40)
+
+**Actual total rent:**
+$$60x + 40(T - x) = 40T + 20x$$
+
+**If 10 rooms switched from $60 to $40:**
+$$\text{New total} = 40T + 20(x - 10) = 40T + 20x - 200$$
+
+**Setting up the equation:**
+
+The reduction of $200 equals 40% of the actual total:
+$$200 = 0.40 \times (40T + 20x)$$
+
+$$40T + 20x = \frac{200}{0.40} = 500$$
+
+**Total rent actually charged = $500**
+
+The answer is **a**.",A,1
+1678,7,mimo-v2.5,original,"Problem: the l. c. m of two numbers is 2310 and their h. c. f is 30. if one number is 462 the other is
+Options: a. 330, b. 300, c. 270, d. 150, e. 350","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the l. c. m of two numbers is 2310 and their h. c. f is 30. if one number is 462 the other is\nOptions: a. 330, b. 300, c. 270, d. 150, e. 350""}]",d,"The correct answer is **d. 150**.  
+
+Using the relationship between the LCM and HCF of two numbers:  
+\[
+\text{LCM} \times \text{HCF} = \text{Product of the two numbers}
+\]  
+Given LCM = 2310, HCF = 30, and one number = 462, we have:  
+\[
+462 \times \text{other number} = 2310 \times 30 = 69300
+\]  
+Thus, the other number is:  
+\[
+\frac{69300}{462} = 150
+\]  
+Among the options, only 150 satisfies this equation.",D,1
+1678,8,mimo-v2.5,original,"Problem: robert ' s salary was increased by 50 % and subsequently decreased by 10 %. how much percentage does he gain ?
+Options: a. 35 %, b. 20 %, c. 10 %, d. 25 %, e. 30 %","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: robert ' s salary was increased by 50 % and subsequently decreased by 10 %. how much percentage does he gain ?\nOptions: a. 35 %, b. 20 %, c. 10 %, d. 25 %, e. 30 %""}]",a,"## Solution
+
+Let Robert's original salary = 100
+
+**Step 1: 50% increase**
+100 × 1.50 = **150**
+
+**Step 2: 10% decrease**
+150 × 0.90 = **135**
+
+**Overall gain** = 135 - 100 = 35
+**Percentage gain** = 35/100 × 100 = **35%**
+
+The answer is **a. 35%**",A,1
+1678,9,mimo-v2.5,original,"Problem: if the average of 5 positive integers is 50 and the difference between the largest and the smallest of these 5 numbers is 10, what is the maximum value possible for the largest of these 5 integers ?
+Options: a. 50, b. 58, c. 49, d. 48, e. 44","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if the average of 5 positive integers is 50 and the difference between the largest and the smallest of these 5 numbers is 10, what is the maximum value possible for the largest of these 5 integers ?\nOptions: a. 50, b. 58, c. 49, d. 48, e. 44""}]",b,"The maximum value for the largest integer is 58, achieved when the five numbers are 48, 48, 48, 48, and 58. This satisfies the average of 50 and the difference of 10 between the largest and smallest.
+
+Answer: b",B,1
+1678,10,mimo-v2.5,original,"Problem: if two dice are thrown together, the probability of getting an even prime number on the dice is
+Options: a. 1 / 36, b. 1 / 18, c. 1 / 13, d. 1 / 9, e. 5 / 36","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if two dice are thrown together, the probability of getting an even prime number on the dice is\nOptions: a. 1 / 36, b. 1 / 18, c. 1 / 13, d. 1 / 9, e. 5 / 36""}]",a,"The only even prime number is 2. When two dice are thrown, the event ""getting an even prime number on the dice"" can be interpreted as either the sum of the numbers on the dice being 2, or both dice showing the number 2. Both interpretations yield a probability of \( \frac{1}{36} \), since there is only one outcome where both dice show 1 (sum = 2) or both dice show 2. Among the given options, this matches option a.
+
+**Answer: a**",A,1
+1678,11,mimo-v2.5,original,"Problem: water consists of hydrogen and oxygen, and the approximate ratio, by mass, of hydrogen to oxygen is 2: 16. approximately how many grams of oxygen are there in 108 grams of water ?
+Options: a. 16, b. 96, c. 112, d. 128, e. 142","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: water consists of hydrogen and oxygen, and the approximate ratio, by mass, of hydrogen to oxygen is 2: 16. approximately how many grams of oxygen are there in 108 grams of water ?\nOptions: a. 16, b. 96, c. 112, d. 128, e. 142""}]",b,"## Solution
+
+The ratio of hydrogen to oxygen by mass is **2:16**, meaning the total parts are **2 + 16 = 18**.
+
+The fraction of oxygen is **16/18**.
+
+**Oxygen in 108 g of water:**
+
+$$\frac{16}{18} \times 108 = 16 \times 6 = 96 \text{ grams}$$
+
+The answer is **b. 96**.",B,1
+1678,12,mimo-v2.5,original,"Problem: a bag contains 6 black and 7 white balls. one ball is drawn at random. what is the probability that the ball drawn is white ?
+Options: a. 4, b. 4 / 3, c. 4 / 5, d. 4 / 9, e. 7 / 13","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a bag contains 6 black and 7 white balls. one ball is drawn at random. what is the probability that the ball drawn is white ?\nOptions: a. 4, b. 4 / 3, c. 4 / 5, d. 4 / 9, e. 7 / 13""}]",e,e,E,1
+1678,13,mimo-v2.5,original,"Problem: points a, b, and, c have xy - coordinates ( 2,0 ), ( 8,12 ), and ( 14,0 ), respectively. points x, y, and z have xy - coordinates ( 6,0 ), ( 8,4 ), and ( 10,0 ), respectively. what fraction d of the area of triangle abc is the area of triangle xyz ?
+Options: a. 1 / 9, b. 1 / 8, c. 1 / 6, d. 1 / 5, e. 1 / 3","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: points a, b, and, c have xy - coordinates ( 2,0 ), ( 8,12 ), and ( 14,0 ), respectively. points x, y, and z have xy - coordinates ( 6,0 ), ( 8,4 ), and ( 10,0 ), respectively. what fraction d of the area of triangle abc is the area of triangle xyz ?\nOptions: a. 1 / 9, b. 1 / 8, c. 1 / 6, d. 1 / 5, e. 1 / 3""}]",a,"Looking at this problem, I need to find the areas of both triangles and compute their ratio.
+
+## Finding Area of Triangle ABC
+
+Vertices: A(2,0), B(8,12), C(14,0)
+
+- **Base AC** (along the x-axis): 14 - 2 = **12**
+- **Height** (y-coordinate of B): **12**
+
+$$\text{Area}_{ABC} = \frac{1}{2} \times 12 \times 12 = 72$$
+
+## Finding Area of Triangle XYZ
+
+Vertices: X(6,0), Y(8,4), Z(10,0)
+
+- **Base XZ** (along the x-axis): 10 - 6 = **4**
+- **Height** (y-coordinate of Y): **4**
+
+$$\text{Area}_{XYZ} = \frac{1}{2} \times 4 \times 4 = 8$$
+
+## Computing the Fraction
+
+$$d = \frac{\text{Area}_{XYZ}}{\text{Area}_{ABC}} = \frac{8}{72} = \frac{1}{9}$$
+
+The answer is **a. 1/9**.",A,1
+1678,14,mimo-v2.5,original,"Problem: a can do a work in 15 days and b in 20 days. if they work on it together for 7 days, then the fraction of the work that is left is
+Options: a. 8 / 17, b. 7 / 15, c. 3 / 15, d. 8 / 15, e. 11 / 60","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a can do a work in 15 days and b in 20 days. if they work on it together for 7 days, then the fraction of the work that is left is\nOptions: a. 8 / 17, b. 7 / 15, c. 3 / 15, d. 8 / 15, e. 11 / 60""}]",e,"# Finding the Fraction of Work Left
+
+## Setting Up the Rates
+- **A's rate:** 1/15 of work per day
+- **B's rate:** 1/20 of work per day
+
+## Combined Rate
+$$\frac{1}{15} + \frac{1}{20} = \frac{4 + 3}{60} = \frac{7}{60} \text{ work per day}$$
+
+## Work Done in 7 Days
+$$7 \times \frac{7}{60} = \frac{49}{60}$$
+
+## Work Left
+$$1 - \frac{49}{60} = \frac{11}{60}$$
+
+The answer is **e. 11/60**",E,1
+1678,15,mimo-v2.5,original,"Problem: a man spends 2 / 5 of his salary on house rent, 3 / 10 of his salary on food and 1 / 8 of his salary on conveyance. if he has rs. 1400 left with him, find his expenditure on food and conveyance.
+Options: a. 3400, b. 2000, c. 3000, d. 4000, e. 5000","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a man spends 2 / 5 of his salary on house rent, 3 / 10 of his salary on food and 1 / 8 of his salary on conveyance. if he has rs. 1400 left with him, find his expenditure on food and conveyance.\nOptions: a. 3400, b. 2000, c. 3000, d. 4000, e. 5000""}]",a,"## Finding Expenditure on Food and Conveyance
+
+**Let the salary = S**
+
+| Expense | Fraction |
+|---|---|
+| House Rent | 2/5 S |
+| Food | 3/10 S |
+| Conveyance | 1/8 S |
+
+**Finding total expenditure:**
+
+$$\frac{2}{5} + \frac{3}{10} + \frac{1}{8} = \frac{16+12+5}{40} = \frac{33}{40}S$$
+
+**Setting up equation (remaining = 1400):**
+
+$$S - \frac{33}{40}S = 1400$$
+
+$$\frac{7}{40}S = 1400$$
+
+$$S = \frac{1400 \times 40}{7} = 8000$$
+
+**Calculating food + conveyance:**
+
+$$\text{Food} = \frac{3}{10} \times 8000 = 2400$$
+$$\text{Conveyance} = \frac{1}{8} \times 8000 = 1000$$
+$$\text{Total} = 2400 + 1000 = \boxed{3400}$$
+
+**The answer is a.**",A,1
+1678,16,mimo-v2.5,original,"Problem: every year an amount increases by 1 / 8 th of itself. how much will it be after two years if its present value is rs. 57600 ?
+Options: a. 81000, b. 81028, c. 27772, d. 72900, e. 22312","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: every year an amount increases by 1 / 8 th of itself. how much will it be after two years if its present value is rs. 57600 ?\nOptions: a. 81000, b. 81028, c. 27772, d. 72900, e. 22312""}]",d,d,D,1
+1678,17,mimo-v2.5,original,"Problem: an empty fuel tank is filled with brand z gasoline. when the tank is 3 / 4 empty, it is filled with brand y gasoline. when the tank is half empty again, it is filled with brand z gasoline. when the tank is half empty again, it is filled with brand y gasoline. at this time, what percent of the gasoline in the tank is brand z ?
+Options: a. 40 %, b. 41 %, c. 31.25 %, d. 42 %, e. 44 %","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: an empty fuel tank is filled with brand z gasoline. when the tank is 3 / 4 empty, it is filled with brand y gasoline. when the tank is half empty again, it is filled with brand z gasoline. when the tank is half empty again, it is filled with brand y gasoline. at this time, what percent of the gasoline in the tank is brand z ?\nOptions: a. 40 %, b. 41 %, c. 31.25 %, d. 42 %, e. 44 %""}]",c,"The tank is initially filled with brand z. After a series of consumption and refilling steps, the final composition is 5/16 brand z and 11/16 brand y. Therefore, brand z constitutes 31.25% of the gasoline in the tank.
+
+**Answer: c**",C,1
+1678,18,mimo-v2.5,original,"Problem: the sale price sarees listed for rs. 375 after successive discount is 20 % and 15 % is ?
+Options: a. 227, b. 268, c. 342, d. 787, e. 255","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the sale price sarees listed for rs. 375 after successive discount is 20 % and 15 % is ?\nOptions: a. 227, b. 268, c. 342, d. 787, e. 255""}]",e,"The sale price after successive discounts of 20% and 15% on Rs. 375:
+
+**Step 1:** Apply 20% discount: 375 × 0.80 = Rs. 300
+
+**Step 2:** Apply 15% discount on Rs. 300: 300 × 0.85 = **Rs. 255**
+
+The answer is **e. 255**",E,1
+1678,19,mimo-v2.5,original,"Problem: the smallest number which when diminished by 6, is divisible 12, 14, 16, 18 and 22 is :
+Options: a. 11099, b. 11094, c. 11091, d. 10323, e. 10483","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the smallest number which when diminished by 6, is divisible 12, 14, 16, 18 and 22 is :\nOptions: a. 11099, b. 11094, c. 11091, d. 10323, e. 10483""}]",b,b,B,1
+1678,20,mimo-v2.5,original,"Problem: it is the new year and mandy has made a resolution to lose weight this year. she plans to exercise and do yoga. for exercise she plans to workout at the gym and ride her bicycle in the ratio of 2: 3 everyday. she will also do yoga in the ratio, yoga: exercise = 2: 3. if she rides her bike for 18 minutes, how much time will she spend doing yoga ? ( rounded to minutes )
+Options: a. 20 min., b. 41 min., c. 17 min., d. 23 min., e. 25 min.","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: it is the new year and mandy has made a resolution to lose weight this year. she plans to exercise and do yoga. for exercise she plans to workout at the gym and ride her bicycle in the ratio of 2: 3 everyday. she will also do yoga in the ratio, yoga: exercise = 2: 3. if she rides her bike for 18 minutes, how much time will she spend doing yoga ? ( rounded to minutes )\nOptions: a. 20 min., b. 41 min., c. 17 min., d. 23 min., e. 25 min.""}]",a,"## Solution
+
+**Step 1: Find the gym workout time**
+
+The ratio of **gym : bicycle = 2 : 3**
+
+Since bicycle = 18 minutes:
+$$\text{Gym} = \frac{2}{3} \times 18 = 12 \text{ minutes}$$
+
+**Step 2: Find total exercise time**
+
+$$\text{Total Exercise} = \text{Gym} + \text{Bicycle} = 12 + 18 = 30 \text{ minutes}$$
+
+**Step 3: Find yoga time**
+
+The ratio of **yoga : exercise = 2 : 3**
+
+$$\text{Yoga} = \frac{2}{3} \times 30 = 20 \text{ minutes}$$
+
+The answer is **a. 20 min.**",A,1
+1678,21,mimo-v2.5,original,"Problem: in a house a hall is 20 m long, 15 m wide and 5 m high. its interior has to be covered with mat. what will be the total expenditure if it costs rs. 10 per square m ?
+Options: a. s. 9500, b. s. 50000, c. s. 57000, d. s. 60000, e. s. 62000","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in a house a hall is 20 m long, 15 m wide and 5 m high. its interior has to be covered with mat. what will be the total expenditure if it costs rs. 10 per square m ?\nOptions: a. s. 9500, b. s. 50000, c. s. 57000, d. s. 60000, e. s. 62000""}]",a,"The total interior surface area of the hall includes the floor, ceiling, and walls. The floor and ceiling each have an area of \(20 \times 15 = 300\) m². The walls consist of two sides with dimensions \(20 \times 5 = 100\) m² each (total \(200\) m²) and two sides with dimensions \(15 \times 5 = 75\) m² each (total \(150\) m²). The total wall area is \(200 + 150 = 350\) m². The total interior surface area is \(300 + 300 + 350 = 950\) m². At a cost of Rs. 10 per square meter, the total expenditure is \(950 \times 10 = Rs. 9500\).
+
+Answer: a",A,1
+1678,22,mimo-v2.5,original,"Problem: sachin is older than rahul by 7 years. if the ratio of their ages is 11: 9, find the age of sachin
+Options: a. 24.5, b. 24.8, c. 38.5, d. 24.88, e. 24.19","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: sachin is older than rahul by 7 years. if the ratio of their ages is 11: 9, find the age of sachin\nOptions: a. 24.5, b. 24.8, c. 38.5, d. 24.88, e. 24.19""}]",c,"Looking at this problem, I need to find Sachin's age given that he's 7 years older than Rahul and their age ratio is 11:9.
+
+**Setting up the equations:**
+
+Let Sachin's age = 11x and Rahul's age = 9x
+
+**Using the age difference:**
+
+11x − 9x = 7
+2x = 7
+x = 3.5
+
+**Finding Sachin's age:**
+
+Sachin's age = 11 × 3.5 = **38.5 years**
+
+The answer is **c**.",C,1
+1678,23,mimo-v2.5,original,"Problem: if n is a positive integer and the product of all integers from 1 to n, inclusive, is a multiple of 630, what is the least possible value of n ?
+Options: a. 5, b. 6, c. 7, d. 8, e. 9","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if n is a positive integer and the product of all integers from 1 to n, inclusive, is a multiple of 630, what is the least possible value of n ?\nOptions: a. 5, b. 6, c. 7, d. 8, e. 9""}]",c,"The product of all integers from 1 to n is n!. For n! to be a multiple of 630, it must contain the prime factors of 630: 2 × 3² × 5 × 7.
+
+Checking the values:
+- For n = 5: 5! = 120, missing factors 3² and 7.
+- For n = 6: 6! = 720, missing factor 7.
+- For n = 7: 7! = 5040, which includes 2⁴, 3², 5, and 7, so it is divisible by 630.
+
+Thus, the smallest n is 7.
+
+Answer: c",C,1
+1678,24,mimo-v2.5,original,"Problem: the average of the marks of 30 students in a class is 45. if the marks of each student are doubled, find the new average ?
+Options: a. 85, b. 77, c. 33, d. 90, e. 75","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the average of the marks of 30 students in a class is 45. if the marks of each student are doubled, find the new average ?\nOptions: a. 85, b. 77, c. 33, d. 90, e. 75""}]",d,"**d. 90**
+
+When each student's marks are doubled, the average also doubles. So the new average = 45 × 2 = **90**.",D,1
+1678,25,mimo-v2.5,original,"Problem: what is the value of x ^ 2 yz − xyz ^ 2, if x = − 2, y = 1, and z = 1 ?
+Options: a. 6, b. 24, c. 30, d. 32, e. 48","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: what is the value of x ^ 2 yz − xyz ^ 2, if x = − 2, y = 1, and z = 1 ?\nOptions: a. 6, b. 24, c. 30, d. 32, e. 48""}]",a,"The expression is \(x^2 y z - x y z^2\). Substituting \(x = -2\), \(y = 1\), \(z = 1\):
+
+\[
+x^2 y z = (-2)^2 \times 1 \times 1 = 4
+\]
+\[
+x y z^2 = (-2) \times 1 \times 1^2 = -2
+\]
+\[
+x^2 y z - x y z^2 = 4 - (-2) = 6
+\]
+
+The correct answer is **a**.",A,1
+1678,26,mimo-v2.5,original,"Problem: at an upscale fast - food restaurant, shin can buy 3 burgers, 7 shakes, and one cola for $ 120. at the same place it would cost $ 164.50 for 4 burgers, 10 shakes, and one cola. how much would it cost for a meal of one burger, one shake, and one cola ?
+Options: a. $ 21, b. $ 27, c. $ 31, d. $ 41, e. it can not be determined","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: at an upscale fast - food restaurant, shin can buy 3 burgers, 7 shakes, and one cola for $ 120. at the same place it would cost $ 164.50 for 4 burgers, 10 shakes, and one cola. how much would it cost for a meal of one burger, one shake, and one cola ?\nOptions: a. $ 21, b. $ 27, c. $ 31, d. $ 41, e. it can not be determined""}]",c,"From the given information:
+- 3B + 7S + C = 120
+- 4B + 10S + C = 164.50
+
+Subtracting the first equation from the second gives:
+B + 3S = 44.50
+
+We want to find B + S + C. Expressing C from the first equation:
+C = 120 - 3B - 7S
+
+Then:
+B + S + C = B + S + (120 - 3B - 7S) = 120 - 2B - 6S = 120 - 2(B + 3S)
+
+Substituting B + 3S = 44.50:
+B + S + C = 120 - 2(44.50) = 120 - 89 = 31
+
+Thus, the cost is $31.
+
+Answer: c",C,1
+1678,27,mimo-v2.5,original,"Problem: two dice are rolled. what is the probability that the sum on the top face of both the dice will be greater than 9 ?
+Options: a. 3 / 8, b. 2 / 3, c. 1 / 2, d. 1 / 3, e. 1 / 6","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: two dice are rolled. what is the probability that the sum on the top face of both the dice will be greater than 9 ?\nOptions: a. 3 / 8, b. 2 / 3, c. 1 / 2, d. 1 / 3, e. 1 / 6""}]",e,"## Solution
+
+**Total outcomes** when rolling two dice: 6 × 6 = **36**
+
+**Favorable outcomes** (sum > 9, i.e., sum = 10, 11, or 12):
+
+| Sum | Combinations | Count |
+|-----|-------------|-------|
+| 10 | (4,6), (5,5), (6,4) | 3 |
+| 11 | (5,6), (6,5) | 2 |
+| 12 | (6,6) | 1 |
+
+**Total favorable outcomes = 3 + 2 + 1 = 6**
+
+$$P(\text{sum} > 9) = \frac{6}{36} = \frac{1}{6}$$
+
+## Answer: **e. 1/6**",E,1
+1678,28,mimo-v2.5,original,"Problem: what is rate of interest if principal. amount be 400, simple interest 160 and time 2 year.
+Options: a. 10, b. 12.5, c. 20, d. 12, e. 14.5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: what is rate of interest if principal. amount be 400, simple interest 160 and time 2 year.\nOptions: a. 10, b. 12.5, c. 20, d. 12, e. 14.5""}]",c,"**Answer: c**
+
+**Solution:**
+
+Using the Simple Interest formula:
+
+**SI = (P × R × T) / 100**
+
+160 = (400 × R × 2) / 100
+
+160 = 8R
+
+R = 160 / 8 = **20%**
+
+The rate of interest is **20%**, which corresponds to option **c**.",C,1
+1678,29,mimo-v2.5,original,"Problem: in a certain game, a large bag is filled with blue, green, purple and red chips worth 1, 5, x and 11 points each, respectively. the purple chips are worth more than the green chips, but less than the red chips. a certain number of chips are then selected from the bag. if the product of the point values of the selected chips is 88,000, how many purple chips were selected ?
+Options: a. 1, b. 2, c. 3, d. 4, e. 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in a certain game, a large bag is filled with blue, green, purple and red chips worth 1, 5, x and 11 points each, respectively. the purple chips are worth more than the green chips, but less than the red chips. a certain number of chips are then selected from the bag. if the product of the point values of the selected chips is 88,000, how many purple chips were selected ?\nOptions: a. 1, b. 2, c. 3, d. 4, e. 5""}]",b,"The product of the point values is 88,000, which factors as \(2^6 \cdot 5^3 \cdot 11\). The purple chips have a value \(x\) where \(5 < x < 11\), so \(x\) must be an integer between 6 and 10. Since the product contains only the primes 2, 5, and 11, \(x\) must be composed of these primes. The only valid options are \(x = 8\) or \(x = 10\).
+
+If \(x = 8 = 2^3\), then equating exponents gives \(3p = 6\), so \(p = 2\). If \(x = 10 = 2 \cdot 5\), then equating exponents leads to an impossible negative value for \(g\). Thus, \(x = 8\) and \(p = 2\).
+
+The number of purple chips selected is 2, which corresponds to option b.
+
+**Answer: b**",B,1
+1678,30,mimo-v2.5,original,"Problem: in how many no. between 10 and 30 exactly two of the digits is 2 ?
+Options: a. 25, b. 1, c. 35, d. 45, e. 50","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in how many no. between 10 and 30 exactly two of the digits is 2 ?\nOptions: a. 25, b. 1, c. 35, d. 45, e. 50""}]",b,"The problem asks for numbers between 10 and 30 that have exactly two digits equal to 2. The numbers in this range are all two-digit numbers (10 to 30 inclusive). For a two-digit number to have exactly two 2's, both digits must be 2, which corresponds to the number 22. Therefore, only one such number exists.
+
+Answer: b",B,1
+1678,31,mimo-v2.5,original,"Problem: the area of a rectangular plot is 15 times its breadth. if the difference between the length and the breadth is 10 metres, what is its breadth ?
+Options: a. 10 metres, b. 5 metres, c. 7.5 metres, d. data inadequate, e. none of these","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the area of a rectangular plot is 15 times its breadth. if the difference between the length and the breadth is 10 metres, what is its breadth ?\nOptions: a. 10 metres, b. 5 metres, c. 7.5 metres, d. data inadequate, e. none of these""}]",b,"The area of the rectangle is given as 15 times its breadth. Let the breadth be \(b\) and the length be \(l\). Then,  
+\[ l \cdot b = 15b \implies l = 15 \text{ (since } b \neq 0\text{)}. \]  
+The difference between the length and breadth is 10 meters:  
+\[ |l - b| = 10 \implies |15 - b| = 10. \]  
+This gives two possibilities:  
+\[ 15 - b = 10 \implies b = 5, \quad \text{or} \quad 15 - b = -10 \implies b = 25. \]  
+Both satisfy the area condition. However, in a rectangle, the length is typically the longer side. Assuming \(l > b\), we take \(b = 5\) meters. Among the options, 5 meters is listed, while 25 is not. Thus, the breadth is 5 meters.
+
+Answer: b",B,1
+1678,32,mimo-v2.5,original,"Problem: if 50 apprentices can finish a job in 4 hours, and 30 journeymen can finish the same job in 8 hours, how much of the job should be completed by 10 apprentices and 15 journeymen in one hour ?
+Options: a. 1 / 9, b. 29 / 180, c. 9 / 80, d. 1 / 5, e. 39 / 121","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if 50 apprentices can finish a job in 4 hours, and 30 journeymen can finish the same job in 8 hours, how much of the job should be completed by 10 apprentices and 15 journeymen in one hour ?\nOptions: a. 1 / 9, b. 29 / 180, c. 9 / 80, d. 1 / 5, e. 39 / 121""}]",c,Answer: c,C,1
+1678,33,mimo-v2.5,original,"Problem: a caterer ordered 125 ice - cream bars and 125 sundaes. if the total price was $ 225.00 and the price of each ice - cream bar was $ 0.60, what was the price of each sundae ?
+Options: a. $ 0.60, b. $ 0.80, c. $ 1.00, d. $ 1.20, e. $ 1.60","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a caterer ordered 125 ice - cream bars and 125 sundaes. if the total price was $ 225.00 and the price of each ice - cream bar was $ 0.60, what was the price of each sundae ?\nOptions: a. $ 0.60, b. $ 0.80, c. $ 1.00, d. $ 1.20, e. $ 1.60""}]",d,"The total cost for 125 ice-cream bars at $0.60 each is \(125 \times 0.60 = 75\) dollars. The remaining cost for 125 sundaes is \(225 - 75 = 150\) dollars. Therefore, the price per sundae is \(150 / 125 = 1.20\) dollars.
+
+**Answer: d. $1.20**",D,1
+1678,34,mimo-v2.5,original,"Problem: 50 men took a dip in a water tank 30 m long and 20 m broad on a religious day. if the average displacement of water by a man is 4 m 3, then the rise in the water level in the tank will be :
+Options: a. 20 cm, b. 25 cm, c. 33.3 cm, d. 50 cm, e. none of these","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: 50 men took a dip in a water tank 30 m long and 20 m broad on a religious day. if the average displacement of water by a man is 4 m 3, then the rise in the water level in the tank will be :\nOptions: a. 20 cm, b. 25 cm, c. 33.3 cm, d. 50 cm, e. none of these""}]",c,c,C,1
+1678,35,mimo-v2.5,original,"Problem: find the maximum value of the function f ( x ) = x − 5 if x is a number between - 5 and 13.
+Options: a. 6, b. 7, c. 8, d. 9, e. none","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: find the maximum value of the function f ( x ) = x − 5 if x is a number between - 5 and 13.\nOptions: a. 6, b. 7, c. 8, d. 9, e. none""}]",c,"Looking at this problem, I need to find the maximum value of **f(x) = x − 5** for x in the interval **(-5, 13)**.
+
+**Key Insight:** Since f(x) = x − 5 is a linear function with a positive slope (slope = 1), it is **always increasing**. This means the maximum value occurs at the **largest value of x**.
+
+**Calculation:**
+
+The largest x value in the interval is **x = 13**.
+
+$$f(13) = 13 - 5 = \boxed{8}$$
+
+The answer is **c. 8**",C,1
+1678,36,mimo-v2.5,original,"Problem: in cliff ’ s impressive rock collection, there are half as many igneous rocks as sedimentary rocks. of the igneous rocks, 2 / 3 are shiny and the rest are matte, while 1 / 5 of the sedimentary rocks are shiny. if there are 40 shiny igneous rocks, how many total rocks does cliff have ?
+Options: a. 180, b. 45, c. 60, d. 90, e. 135","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in cliff ’ s impressive rock collection, there are half as many igneous rocks as sedimentary rocks. of the igneous rocks, 2 / 3 are shiny and the rest are matte, while 1 / 5 of the sedimentary rocks are shiny. if there are 40 shiny igneous rocks, how many total rocks does cliff have ?\nOptions: a. 180, b. 45, c. 60, d. 90, e. 135""}]",a,a,A,1
+1678,37,mimo-v2.5,original,"Problem: if 15 % of a is the same as 40 % of b, then a: b is :
+Options: a. 5: 4, b. 8: 3, c. 7: 16, d. 2: 17, e. 3: 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if 15 % of a is the same as 40 % of b, then a: b is :\nOptions: a. 5: 4, b. 8: 3, c. 7: 16, d. 2: 17, e. 3: 5""}]",b,"Looking at this problem:
+
+**15% of a = 40% of b**
+
+This gives us: **0.15a = 0.40b**
+
+Rearranging to find a:b:
+
+**a/b = 0.40/0.15 = 40/15 = 8/3**
+
+So **a:b = 8:3**
+
+The answer is **b**.",B,1
+1678,38,mimo-v2.5,original,"Problem: a pump will fill a tank in 3 hours. because of a leak in the tank, it took 3 hours 30 min to fill the tank. in what time the leak can drain out all the water of the tank and will make tank empty ?
+Options: a. 20 hrs, b. 21 hrs, c. 22 hrs, d. 23 hrs, e. 24 hrs","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a pump will fill a tank in 3 hours. because of a leak in the tank, it took 3 hours 30 min to fill the tank. in what time the leak can drain out all the water of the tank and will make tank empty ?\nOptions: a. 20 hrs, b. 21 hrs, c. 22 hrs, d. 23 hrs, e. 24 hrs""}]",b,"# Finding the Time for the Leak to Empty the Tank
+
+## Setting Up the Rates
+
+**Pump's filling rate:** 1/3 tank per hour
+
+**Combined rate (pump + leak):** 1/3.5 = **2/7 tank per hour**
+
+## Finding the Leak's Draining Rate
+
+The leak's rate = Pump's rate − Combined rate
+
+$$\text{Leak's rate} = \frac{1}{3} - \frac{2}{7} = \frac{7}{21} - \frac{6}{21} = \frac{1}{21} \text{ tank per hour}$$
+
+## Calculating Time to Drain the Full Tank
+
+$$\text{Time} = \frac{1}{1/21} = 21 \text{ hours}$$
+
+## Answer: **b. 21 hrs**",B,1
+1678,39,mimo-v2.5,original,"Problem: tourist purchased a total of 30 travelers checks in $ 50 and $ 100 denominations. the total worth of the travelers checks is $ 1800. how many checks of $ 50 denominations can he spend so that average amount ( arithmetic mean ) of the remaining travelers checks is $ 100 ?
+Options: a. 4, b. 12, c. 15, d. 20, e. 24","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: tourist purchased a total of 30 travelers checks in $ 50 and $ 100 denominations. the total worth of the travelers checks is $ 1800. how many checks of $ 50 denominations can he spend so that average amount ( arithmetic mean ) of the remaining travelers checks is $ 100 ?\nOptions: a. 4, b. 12, c. 15, d. 20, e. 24""}]",e,"The tourist initially has 24 checks of $50 and 6 checks of $100, totaling $1800. To make the average of the remaining checks $100, let \( s \) be the number of $50 checks spent. The remaining checks consist of \( 24 - s \) $50 checks and 6 $100 checks. The total value of remaining checks is \( 50(24 - s) + 600 = 1800 - 50s \), and the number of remaining checks is \( 30 - s \). Setting the average equal to $100 gives:
+
+\[
+\frac{1800 - 50s}{30 - s} = 100
+\]
+
+Solving:
+
+\[
+1800 - 50s = 100(30 - s) = 3000 - 100s
+\]
+\[
+1800 - 50s = 3000 - 100s
+\]
+\[
+50s = 1200
+\]
+\[
+s = 24
+\]
+
+Thus, the tourist must spend all 24 checks of $50 denominations.
+
+The correct answer is **e**.",E,1
+1678,40,mimo-v2.5,original,"Problem: 3 people took gmat practice tests in which the minimum and maximum possible scores are 200 and 800, respectively. they each took a test 3 times, and no one scored below 400 or over 700. if the individual ranges of the 3 people ' s scores in those 3 practice tests were 40, 70 and 100, what is the difference between the maximum and minimum possible ranges of all their scores put together.
+Options: a. 70, b. 80, c. 100, d. 140, e. 200","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: 3 people took gmat practice tests in which the minimum and maximum possible scores are 200 and 800, respectively. they each took a test 3 times, and no one scored below 400 or over 700. if the individual ranges of the 3 people ' s scores in those 3 practice tests were 40, 70 and 100, what is the difference between the maximum and minimum possible ranges of all their scores put together.\nOptions: a. 70, b. 80, c. 100, d. 140, e. 200""}]",e,"The maximum possible range of all scores combined is 300, achieved when one person scores as low as 400 and another as high as 700. The minimum possible range is 100, achieved when all scores fall within an interval of length 100. The difference between these extremes is 300 − 100 = 200.
+
+Answer: e",E,1
+1678,41,mimo-v2.5,original,"Problem: if w / x = 1 / 3 and w / y = 3 / 4, then ( x + y ) / y =
+Options: a. 13 / 4, b. 6 / 5, c. 7 / 5, d. 8 / 5, e. 9 / 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if w / x = 1 / 3 and w / y = 3 / 4, then ( x + y ) / y =\nOptions: a. 13 / 4, b. 6 / 5, c. 7 / 5, d. 8 / 5, e. 9 / 5""}]",a,a,A,1
+1678,42,mimo-v2.5,original,"Problem: a cylindrical bucket of height 36 cm and radius 21 cm is filled with sand. the bucket is emptied on the ground and a conical heap of sand is formed, the height of the heap being 12 cm. the radius of the heap at the base is :
+Options: ['a. 63 cm', 'b. 53 cm', 'c. 56 cm', 'd. 66 cm', 'e. none of these']","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a cylindrical bucket of height 36 cm and radius 21 cm is filled with sand. the bucket is emptied on the ground and a conical heap of sand is formed, the height of the heap being 12 cm. the radius of the heap at the base is :\nOptions: ['a. 63 cm', 'b. 53 cm', 'c. 56 cm', 'd. 66 cm', 'e. none of these']""}]",a,"# Finding the Radius of the Conical Heap
+
+## Setting Up the Equation
+
+Since the sand volume is conserved when the bucket is emptied:
+
+$$V_{\text{cylinder}} = V_{\text{cone}}$$
+
+$$\pi r^2 h_1 = \frac{1}{3}\pi R^2 h_2$$
+
+## Substituting Values
+
+| Cylinder | Cone |
+|----------|------|
+| r = 21 cm | R = ? |
+| h₁ = 36 cm | h₂ = 12 cm |
+
+$$\pi \times 21^2 \times 36 = \frac{1}{3} \times \pi \times R^2 \times 12$$
+
+$$441 \times 36 = 4R^2$$
+
+$$15876 = 4R^2$$
+
+$$R^2 = 3969$$
+
+$$\boxed{R = 63 \text{ cm}}$$
+
+## Answer: **a. 63 cm**",A,1
+1678,43,mimo-v2.5,original,"Problem: the number 42 can be written as the sum of the squares of 3 different positive integers. what is the sum of these 3 integers ?
+Options: a. 17, b. 10, c. 15, d. 14, e. 13","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the number 42 can be written as the sum of the squares of 3 different positive integers. what is the sum of these 3 integers ?\nOptions: a. 17, b. 10, c. 15, d. 14, e. 13""}]",b,"# Finding Three Different Positive Integers Whose Squares Sum to 42
+
+## Setting Up the Problem
+
+I need three different positive integers a, b, c such that:
+$$a^2 + b^2 + c^2 = 42$$
+
+## Testing Combinations
+
+Since the largest perfect square less than 42 is 36 (= 6²), let me work through possibilities:
+
+**Try 1, 4, and 5:**
+$$1^2 + 4^2 + 5^2 = 1 + 16 + 25 = 42 \checkmark$$
+
+All three integers are positive and different! ✓
+
+## Calculating the Sum
+
+$$1 + 4 + 5 = \boxed{10}$$
+
+The answer is **b**.",B,1
+1678,44,mimo-v2.5,original,"Problem: a sum of money at simple interest amounts to rs. 720 after 2 years and to rs. 1020 after a further period of 5 years. the sum is :
+Options: a. 400, b. 500, c. 600, d. 700, e. 800","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a sum of money at simple interest amounts to rs. 720 after 2 years and to rs. 1020 after a further period of 5 years. the sum is :\nOptions: a. 400, b. 500, c. 600, d. 700, e. 800""}]",c,"Looking at this problem, I need to find the principal sum using simple interest principles.
+
+## Setting Up the Problem
+
+**Given information:**
+- After **2 years**: Amount = Rs. 720
+- After **7 years** (2 + 5 further years): Amount = Rs. 1020
+
+## Step-by-Step Solution
+
+**Step 1: Find the interest earned in 5 years**
+
+Since the time gap is from 2 years to 7 years (5 more years), and simple interest grows linearly:
+
+$$\text{Interest in 5 years} = 1020 - 720 = 300$$
+
+**Step 2: Find the annual interest**
+
+$$\text{Annual interest} = \frac{300}{5} = 60$$
+
+**Step 3: Find the interest for 2 years**
+
+$$\text{Interest in 2 years} = 60 \times 2 = 120$$
+
+**Step 4: Find the principal**
+
+$$\text{Principal} = \text{Amount after 2 years} - \text{Interest for 2 years}$$
+$$\text{Principal} = 720 - 120 = \textbf{600}$$
+
+**Verification:**
+- After 2 years: 600 + 120 = 720 ✓
+- After 7 years: 600 + (60 × 7) = 600 + 420 = 1020 ✓
+
+The answer is **c. 600**",C,1
+1678,45,mimo-v2.5,original,"Problem: the telephone company wants to add an area code composed of 2 letters to every phone number. in order to do so, the company chose a special sign language containing 524 different signs. if the company used 522 of the signs fully and two remained unused, how many additional area codes can be created if the company uses all 524 signs ?
+Options: a. 46, b. 248, c. 2092, d. 15,128, e. 30,256","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the telephone company wants to add an area code composed of 2 letters to every phone number. in order to do so, the company chose a special sign language containing 524 different signs. if the company used 522 of the signs fully and two remained unused, how many additional area codes can be created if the company uses all 524 signs ?\nOptions: a. 46, b. 248, c. 2092, d. 15,128, e. 30,256""}]",c,"The current area codes are formed using 522 signs, giving \(522^2 = 272,484\) possible codes. Using all 524 signs gives \(524^2 = 274,576\) possible codes. The additional codes are \(274,576 - 272,484 = 2,092\).
+
+Answer: c",C,1
+1678,46,mimo-v2.5,original,"Problem: bert and rebecca were looking at the price of a condominium. the price of the condominium was 50 % more than bert had in savings, and separately, the same price was also 25 % more than rebecca had in savings. what is the ratio of what bert has in savings to what rebecca has in savings.
+Options: a. 1: 6, b. 1: 3, c. 1: 2, d. 3: 4, e. 5: 6","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: bert and rebecca were looking at the price of a condominium. the price of the condominium was 50 % more than bert had in savings, and separately, the same price was also 25 % more than rebecca had in savings. what is the ratio of what bert has in savings to what rebecca has in savings.\nOptions: a. 1: 6, b. 1: 3, c. 1: 2, d. 3: 4, e. 5: 6""}]",e,e,E,1
+1678,47,mimo-v2.5,original,"Problem: if henry were to add 8 gallons of water to a tank that is already 3 / 4 full of water, the tank would be 7 / 8 full. how many gallons of water would the tank hold if it were full ?
+Options: a. 25, b. 40, c. 64, d. 80, e. 96","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if henry were to add 8 gallons of water to a tank that is already 3 / 4 full of water, the tank would be 7 / 8 full. how many gallons of water would the tank hold if it were full ?\nOptions: a. 25, b. 40, c. 64, d. 80, e. 96""}]",c,"## Solution
+
+Let **T** = total capacity of the tank.
+
+**Current water in tank:** (3/4)T
+
+**After adding 8 gallons:** (3/4)T + 8 = (7/8)T
+
+Solving for T:
+
+$$8 = \frac{7T}{8} - \frac{3T}{4} = \frac{7T}{8} - \frac{6T}{8} = \frac{T}{8}$$
+
+$$T = 8 \times 8 = 64$$
+
+The answer is **c. 64**",C,1
+1678,48,mimo-v2.5,original,"Problem: if two positive numbers are in the ratio 1 / 7: 1 / 4, then by what percent is the second number more than the first ?
+Options: a. 67 %., b. 70 %., c. 75 %., d. 68 %., e. 80 %.","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if two positive numbers are in the ratio 1 / 7: 1 / 4, then by what percent is the second number more than the first ?\nOptions: a. 67 %., b. 70 %., c. 75 %., d. 68 %., e. 80 %.""}]",c,"The two numbers are in the ratio \( \frac{1}{7} : \frac{1}{4} \). This can be interpreted as the numbers being proportional to \( \frac{1}{7} \) and \( \frac{1}{4} \). Let the numbers be \( a = \frac{k}{7} \) and \( b = \frac{k}{4} \) for some positive constant \( k \).
+
+The second number \( b \) is more than the first \( a \) by the percentage:
+\[
+\frac{b - a}{a} \times 100\% = \left( \frac{b}{a} - 1 \right) \times 100\%.
+\]
+Since
+\[
+\frac{b}{a} = \frac{k/4}{k/7} = \frac{7}{4} = 1.75,
+\]
+the percentage difference is
+\[
+(1.75 - 1) \times 100\% = 75\%.
+\]
+
+Alternatively, choosing \( k = 28 \) gives \( a = 4 \) and \( b = 7 \), leading to the same result: \( \frac{7-4}{4} = 75\% \).
+
+Thus, the correct answer is **c**.",C,1
+1678,49,mimo-v2.5,original,"Problem: the product of two successive numbers is 4160. which is the smaller of the two numbers ?
+Options: a. 78, b. 64, c. 88, d. 67, e. 37","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the product of two successive numbers is 4160. which is the smaller of the two numbers ?\nOptions: a. 78, b. 64, c. 88, d. 67, e. 37""}]",b,"The product of two consecutive integers is 4160. Let the smaller integer be \( n \). Then the next integer is \( n + 1 \), and their product is:
+
+\[
+n(n + 1) = 4160
+\]
+
+Solving the quadratic equation:
+
+\[
+n^2 + n - 4160 = 0
+\]
+
+The discriminant is:
+
+\[
+\Delta = 1 + 4 \times 4160 = 1 + 16640 = 16641
+\]
+
+The square root of 16641 is 129, since \( 129^2 = 16641 \). Thus:
+
+\[
+n = \frac{-1 \pm 129}{2}
+\]
+
+Taking the positive solution:
+
+\[
+n = \frac{128}{2} = 64
+\]
+
+The smaller number is 64, which corresponds to option **b**.
+
+\boxed{b}",B,1
+1678,50,mimo-v2.5,original,"Problem: convert 0.36 in to a vulgar fraction ?
+Options: a. 18 / 50, b. 16 / 50, c. 17 / 50, d. 9 / 25, e. none","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: convert 0.36 in to a vulgar fraction ?\nOptions: a. 18 / 50, b. 16 / 50, c. 17 / 50, d. 9 / 25, e. none""}]","a,d","The decimal 0.36 is equivalent to the fraction 36/100. Simplifying this fraction by dividing both the numerator and denominator by their greatest common divisor, 4, results in 9/25. While 18/50 is also equivalent to 0.36, it is not in simplest form. Typically, when converting a decimal to a vulgar fraction, the fraction is expressed in lowest terms. Therefore, the correct choice is 9/25.
+
+**Answer: d**",D,1

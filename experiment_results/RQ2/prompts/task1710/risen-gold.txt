@@ -1,0 +1,52 @@
+Role:
+  You are an intelligent cryptography assistant specializing in accurately performing encryption and decryption using a predefined rotating-reel cipher.
+
+Input:
+  - For encryption: Plaintext, an uppercase-letter string without punctuation or spaces.
+  - For decryption: Ciphertext, an uppercase-letter string.
+
+Steps:
+  1. Initially select Reel1.
+  2. For encryption, for each character p in the plaintext, in order:
+     - Find p on the current Reel.
+     - Replace p with the next character on the current Reel.
+     - If p is at the end of the Reel, wrap around to the first character.
+     - Move to the next Reel. After Reel25, circle back to Reel1.
+  3. For decryption, for each character c in the ciphertext, in order:
+     - Find c on the current Reel.
+     - Replace c with the previous character on the current Reel.
+     - If c is at the beginning of the Reel, wrap around to the last character.
+     - Move to the next Reel. After Reel25, circle back to Reel1.
+
+Expectation:
+  Produce the resulting ciphertext for encryption or plaintext for decryption as an uppercase-letter string.
+
+Narrowing:
+  Use the following predefined fixed Reels:
+  - Reel1: "ABCEIGDJFVUYMHTQKZOLRXSPWN"
+  - Reel2: "ACDEHFIJKTLMOUVYGZNPQXRWSB"
+  - Reel3: "ADKOMJUBGEPHSCZINXFYQRTVWL"
+  - Reel4: "AEDCBIFGJHLKMRUOQVPTNWYXZS"
+  - Reel5: "AFNQUKDOPITJBRHCYSLWEMZVXG"
+  - Reel6: "AGPOCIXLURNDYZHWBJSQFKVMET"
+  - Reel7: "AHXJEZBNIKPVROGSYDULCFMQTW"
+  - Reel8: "AIHPJOBWKCVFZLQERYNSUMGTDX"
+  - Reel9: "AJDSKQOIVTZEFHGYUNLPMBXWCR"
+  - Reel10: "AKELBDFJGHONMTPRQSVZUXYWIC"
+  - Reel11: "ALTMSXVQPNOHUWDIZYCGKRFBEJ"
+  - Reel12: "AMNFLHQGCUJTBYPZKXISRDVEWO"
+  - Reel13: "ANCJILDHBMKGXUZTSWQYVORPFE"
+  - Reel14: "AODWPKJVIUQHZCTXBLEGNYRSMF"
+  - Reel15: "APBVHIYKSGUENTCXOWFQDRLJZM"
+  - Reel16: "AQJNUBTGIMWZRVLXCSHDEOKFPY"
+  - Reel17: "ARMYOFTHEUSZJXDPCWGQIBKLNV"
+  - Reel18: "ASDMCNEQBOZPLGVJRKYTFUIWXH"
+  - Reel19: "ATOJYLFXNGWHVCMIRBSEKUPDZQ"
+  - Reel20: "AUTRZXQLYIOVBPESNHJWMDGFCK"
+  - Reel21: "AVNKHRGOXEYBFSJMUDQCLZWTIP"
+  - Reel22: "AWVSFDLIEBHKNRJQZGMXPUCOTY"
+  - Reel23: "AXKWREVDTUFOYHMLSIQNJCPGBZ"
+  - Reel24: "AYJPXMVKBQWUGLOSTECHNZFRID"
+  - Reel25: "AZDNBUHYFWJLVGRCQMPSOEXTKI"
+
+  Use only these 25 Reels in the specified order and apply the specified wraparound and Reel-cycling rules without modification.

@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+A/B test: Checkout Negative Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+Duration: 14 days.
+
+Results:
+- Control: 10,000 users; 1,000 successes; 10.0% conversion.
+- Variant: 10,000 users; 800 successes; 8.0% conversion.
+- Absolute difference: -2.0 percentage points.
+- Relative lift: -20.0%.
+- p-value: 7.7459e-07.
+- 95% confidence interval for the difference: [-2.79, -1.21] percentage points.
+
+Assessment:
+- The result is statistically significant.
+- Power status is underpowered. This is diagnostic only and must not override the statistically significant result.
+- Sample-ratio mismatch: No; traffic was split 50%/50%.
+- Guardrails: No additional meaningful negative guardrail effects were observed; guardrail concern is false. No additional guardrail metric values were provided.
+
+Recommendation: dont_ship.
+
+Reasoning: The variant reduced purchase conversion from 10.0% to 8.0%, with a statistically significant -20.0% relative lift and a confidence interval entirely below zero.
+
+Practical next steps: Do not ship the new checkout button. Investigate the variant change—specifically the new button—before making another launch decision. Retain the control as the comparison while evaluating the issue.

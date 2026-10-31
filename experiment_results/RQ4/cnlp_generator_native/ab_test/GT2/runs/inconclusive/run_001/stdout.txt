@@ -1,0 +1,71 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect if available, and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test Analysis**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment:** The Control used the old button and the Variant used the new button. The test ran for 14 days.
+
+**Primary metric:** Purchase conversion rate
+
+**Results:**
+- Control: 12,000 users, 1,200 conversions, conversion rate **10.00%**
+- Variant: 8,000 users, 800 conversions, conversion rate **10.00%**
+- Absolute difference: **0.00 percentage points**
+- Relative lift: **0.00%**
+- P-value: **1.00**
+- 95% confidence interval for the difference: **-0.85 to +0.85 percentage points**
+- Statistical significance: **No**; the p-value is not below 0.05.
+- Power status: **Underpowered** relative to the specified 1 percentage point minimum detectable effect and the 80% power criterion.
+
+**Experiment validity:** A sample ratio mismatch was detected. The intended allocation was 50% Control and 50% Variant, but the observed allocation was 60% Control and 40% Variant. Under the stated SRM rule, this makes the experiment inconclusive.
+
+**Guardrails:** No meaningful negative effects were reported, so there is no identified guardrail concern.
+
+**Recommendation:** **Undetermined. Do not ship the Variant based on this test.**
+
+**Reasoning:** The Variant showed no observed improvement in purchase conversion, and the result was not statistically significant. More importantly, the detected sample ratio mismatch undermines experiment validity, so the result cannot reliably support either shipping or rejecting the new button. The underpowered status is an additional limitation but is not the primary reason for the inconclusive decision.
+
+**Next steps:**
+1. Investigate and resolve the traffic allocation or assignment issue causing the sample ratio mismatch.
+2. Verify that users are assigned consistently and that exposure, eligibility, and logging pipelines are correct.
+3. Rerun the experiment with the intended allocation and sufficient sample size to evaluate the 1 percentage point minimum detectable effect.

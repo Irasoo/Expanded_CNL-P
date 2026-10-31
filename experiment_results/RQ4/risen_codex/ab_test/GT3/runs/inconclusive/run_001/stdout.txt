@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout SRM Test — A/B analysis
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate. The control used the old button; the variant used the new button.
+- **Duration and sample sizes:** 14 days; control **12,000**, variant **8,000**. Although each was assigned a 50% traffic share, the observed sample sizes indicate a **sample-ratio mismatch (SRM)**.
+- **Conversion:** Control: **1,200/12,000 = 10.00%**. Variant: **800/8,000 = 10.00%**.
+- **Difference and lift:** Absolute difference: **0.00 percentage points**; relative lift: **0.00%**.
+- **Statistical result:** *p* = **1.00**; 95% confidence interval for the absolute difference: **−0.8487 to +0.8487 percentage points**. The result is **not statistically significant**.
+- **Power:** **Underpowered.** Power status is diagnostic and must not override statistical significance; here, the result is also not statistically significant, and the SRM further limits interpretation.
+- **Guardrails:** No meaningful negative effects were observed; guardrail concern: **false**.
+- **Outcome and recommendation:** **Inconclusive; recommendation: undetermined.** The observed conversion rates are identical, but the test has an SRM and is underpowered, so it does not establish whether the new button increases conversion.
+- **Next steps:** Investigate and resolve the sample-ratio mismatch, then reassess the experiment with adequate sample size before making a decision.

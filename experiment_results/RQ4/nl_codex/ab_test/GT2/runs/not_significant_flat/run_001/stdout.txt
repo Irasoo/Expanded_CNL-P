@@ -1,0 +1,43 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{"hypothesis":"The new checkout button will increase purchase conversion rate. Control uses the old button; variant uses the new button.","duration":"14.0 days","sample_sizes":{"control":20000,"variant":20000},"conversion_rates":{"control":0.1,"variant":0.1},"absolute_difference":0.0,"relative_lift":0.0,"p_value":1.0,"confidence_interval":{"metric":"variant minus control conversion rate","lower":-0.005879891953620162,"upper":0.005879891953620162},"statistical_significance":{"statistically_significant":false,"assessment":"The result is not statistically significant."},"power_status":{"status":"adequate","interpretation":"Power is adequate, but this does not override the non-significant statistical result."},"sample_ratio_mismatch":{"detected":false,"control_traffic_share":0.5,"variant_traffic_share":0.5},"guardrail_assessment":{"concern":false,"information":"No meaningful negative effects were observed."},"recommendation":{"decision":"stop","conclusion":"Stop the experiment and do not adopt the new checkout button based on this test."},"reasoning":"Both groups had a 10% purchase conversion rate, with 2,000 successes out of 20,000 observations in each group. The observed absolute difference and relative lift were both 0.0. The p-value was 1.0, and the confidence interval for the variant-minus-control difference ranges from -0.005879891953620162 to 0.005879891953620162, so the data do not show an increase in conversion. There was no sample ratio mismatch and no guardrail concern. The minimum detectable effect was 0.01, and the reported power status was adequate, supporting the interpretation that the test did not detect the hypothesized improvement in this experiment.","next_steps":["Stop the experiment as recommended.","Retain the control experience unless additional evidence or a new experiment supports changing the checkout button.","If the hypothesis remains important, define and run a new test with a revised checkout-button change and the same primary metric."]}

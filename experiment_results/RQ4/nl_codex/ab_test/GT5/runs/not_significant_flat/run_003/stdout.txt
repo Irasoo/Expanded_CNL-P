@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Duration:** 14 days.
+
+**Sample sizes:** Control: 20,000 users, 2,000 successes. Variant: 20,000 users, 2,000 successes.
+
+**Conversion rates:** Control: 10.0%. Variant: 10.0%.
+
+**Absolute difference:** 0.0000 proportion, or 0.00 percentage points.
+
+**Relative lift:** 0.0%.
+
+**p-value:** 1.0.
+
+**95% confidence interval:** The absolute difference is estimated to be between -0.0058799 and 0.0058799 proportions, or -0.5880 to +0.5880 percentage points.
+
+**Statistical significance:** Not statistically significant.
+
+**Power status:** Adequate. Power status is diagnostic and does not override statistical significance.
+
+**Sample-ratio mismatch:** Not detected. Traffic shares were 50% control and 50% variant.
+
+**Guardrail assessment:** No meaningful negative effects were observed, and no guardrail concern was reported.
+
+**Recommendation:** Stop the experiment.
+
+**Reasoning:** The variant had the same purchase conversion rate as control, with 0.0% relative lift and no statistically significant difference.
+
+**Next steps:** Stop the test and do not proceed based on this experiment with the new checkout button.

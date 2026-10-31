@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Results:** Over 14 days, Control had 12,000 users and a 10.00% conversion rate; Variant had 8,000 users and a 10.00% conversion rate. The absolute difference was 0.00 percentage points, with 0.00% relative lift. The two-sided p-value was 1.00, and the 95% confidence interval for the absolute difference was -0.85 to +0.85 percentage points. The primary-metric result was not statistically significant. The experiment was also underpowered for the specified 1-percentage-point minimum detectable effect.
+
+**Validity:** A sample ratio mismatch was detected against the expected 50%/50% traffic allocation. This makes the experiment inconclusive, regardless of the observed equal conversion rates. No meaningful negative guardrail effects were reported.
+
+**Recommendation: Undetermined.** Do not ship or reject the new button based on this test. Investigate the traffic allocation, eligibility rules, assignment logic, exposure logging, and missing-event patterns that could explain the 12,000/8,000 sample imbalance. After resolving the mismatch, rerun the experiment with validated allocation and enough sample size for 80% power at the stated minimum detectable effect.

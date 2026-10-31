@@ -1,0 +1,56 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Button Guardrail Test**
+
+- **Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+- **Duration and sample sizes:** 14 days; control `n=10,000`, variant `n=10,000`.
+- **Primary metric:** Purchase conversion rate. Control: `10%`; variant: `12%`.
+- **Effect:** Absolute difference `0.02` (2 percentage points); relative lift `20%`.
+- **Statistical result:** `p=6.188458781738804e-06`; 95% confidence interval: `[0.011331728284555377, 0.0286682717154446]` (approximately 1.13 to 2.87 percentage points). The result is statistically significant.
+- **Diagnostic status:** Power status is **underpowered**. Sample ratio mismatch: **false**.
+- **Guardrail:** Customer support contact rate increased from `2%` to `5%`. The product team considers this a meaningful negative effect, so the guardrail is a concern.
+- **Recommendation:** **Investigate.**
+
+The variant produced a statistically significant conversion increase, but the concurrent increase in support contacts indicates a meaningful negative effect. The underpowered status is diagnostic context and does not override the statistically significant result.
+
+**Next steps:** Investigate why “Buy Now” is associated with the higher support contact rate, assess the relationship between the button change and that guardrail impact, and resolve the guardrail concern before deciding on rollout.

@@ -1,0 +1,64 @@
+case_name: github_project_navigator
+
+# Every group represents a user-observable business path. Transport failures,
+# rate limits, authentication failures, and malformed API responses are
+# execution failures and are deliberately not modeled as input groups.
+input_groups:
+  direct_repository_skip_optional:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - https://github.com/sharkdp/bat
+      - "no"
+      - "no"
+
+  unclear_repository_then_recover:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - I want to inspect a useful command-line tool
+      - the project that can replace cat
+      - sharkdp/bat
+      - "no"
+      - "no"
+
+  unclear_repository_retry_limit:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - I want to inspect a developer tool
+      - I do not remember the project name
+      - it may be a command-line program
+      - I still do not know the exact repository
+
+  repository_not_found:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - cnlp-no-such-owner-20260816/cnlp-no-such-repository-20260816
+
+  issue_analysis:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - sharkdp/bat
+      - "yes"
+      - "no"
+
+  release_overview:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - sharkdp/bat
+      - "no"
+      - "yes"
+      - overview
+
+  release_asset_match:
+    repeat: 1
+    timeout_seconds: 300
+    inputs:
+      - sharkdp/bat
+      - "yes"
+      - "yes"
+      - asset_match;windows;x64;archive

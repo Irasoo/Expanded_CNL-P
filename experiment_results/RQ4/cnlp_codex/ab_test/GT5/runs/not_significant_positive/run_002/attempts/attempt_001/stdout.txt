@@ -1,0 +1,76 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Small Positive Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change:** Control uses the old button; Variant uses the new button.
+- **Primary metric:** Purchase conversion rate, where higher is better.
+- **Duration:** 7 days  
+  - **Control:** 1,000 users, 100 successes  
+  - **Variant:** 1,000 users, 110 successes
+
+### Results
+
+- **Control conversion rate:** 10.00%
+- **Variant conversion rate:** 11.00%
+- **Absolute difference:** +1.00 percentage point
+- **Relative lift:** +10.00%
+- **Two-sided p-value:** 0.4657
+- **95% confidence interval for Variant minus Control:** −1.69 to +3.69 percentage points
+
+### Assessment
+
+- **Statistical significance:** Not statistically significant; the p-value is not below 0.05.
+- **Power:** Underpowered. This is diagnostic and does not override the non-significant result.
+- **SRM:** No sample-ratio mismatch is reported.
+- **Guardrails:** No concern; the supplied information reports no meaningful negative effects.
+
+### Recommendation
+
+**Extend the experiment.** The Variant shows a positive observed difference, but the result is not statistically significant and the confidence interval includes both a negative effect and a positive effect. The supplied **7-day duration** is reported but does not by itself establish experiment maturity.
+
+### Next steps
+
+1. Continue running the experiment as recommended.
+2. Collect additional observations before making a ship/no-ship decision.
+3. Reassess the conversion rates, confidence interval, p-value, power status, and guardrails after the extension.
+4. Do not treat the observed +10.00% relative lift as a confirmed improvement yet.

@@ -1,0 +1,86 @@
+==================== AGENT OUTPUT ====================
+This assistant requires a complete GitHub Repository URL or an explicit owner/repository identifier. It can summarize public project information, analyze recent open Issues, and provide Release guidance without downloading files.
+GitHub Repository URL or owner/repository: 
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+Confirmed repository: sharkdp/bat at https://github.com/sharkdp/bat. The project is named bat and is described as a cat(1) clone with wings: a Rust command-line utility intended to act as a user-friendly replacement for cat while adding syntax highlighting, Git modification markers, line numbers, file headers, non-printable-character highlighting, configurable themes and output styles, automatic paging, stdin support, and integrations with tools such as fzf, find/fd, ripgrep, git, man, and tail. Typical users are developers, system administrators, and terminal users who inspect source code, configuration files, logs, command output, or Git changes from a shell. Its primary technology is Rust, with syntax highlighting based on syntect and support for Sublime Text syntax definitions and themes. The main execution entry point is the bat command, for example `bat README.md`; source development uses `cargo build --bins` and `cargo test`. Installation entry points documented in the README include distribution packages such as apt, apk, pacman, dnf, emerge, FreeBSD/OpenBSD packages, nix, zypper, Homebrew, MacPorts, WinGet, Chocolatey, and Scoop; prebuilt binaries are provided through the GitHub Releases page; and source installation is available with `cargo install --locked bat` or `cargo install --path . --locked`. The supplied repository license metadata is Apache-2.0, while the README states that the project is offered under either the MIT License or Apache License 2.0 at the user's option, with separate license files. The repository is marked as not archived, and the supplied metadata reports 60,196 stars, 1,629 forks, 420 open issues, and an update timestamp of 2026-08-17T18:00:21Z. These counts are reported as metadata only and do not establish project quality or maintenance quality; the README also lists maintainers and points to CONTRIBUTING.md and SECURITY.md. Important README limitations include that non-UTF-8 files may need conversion before use, syntax detection from stdin may require an explicit language or a recognizable first line, ANSI/control-heavy input can produce garbled output unless sanitization or stripping options are used, full-color themes work best with truecolor terminals, older Debian/Ubuntu packages may install the executable as `batcat`, Windows requires the Visual C++ Redistributable and may need an external `less` pager, native bat on Windows does not support Cygwin Unix-style paths without a wrapper, custom `.sublime-color-scheme` themes are not supported, the bundled manpage syntax still needs work, and source installation does not automatically install manpage or shell-completion files. No individual Issue records were supplied, so there is no evidence-based sample from which to identify repeated, confirmed, unresolved concerns; the open-issue count alone is insufficient for that analysis. No release metadata or asset list was supplied, so a latest official public Release overview and asset-to-platform compatibility mapping cannot be confirmed. In general, maintainer-uploaded release assets should be matched by operating system, CPU architecture, and libc/runtime requirements; filenames containing `musl` indicate the README's statically linked variants. GitHub-generated source archives should be treated as source code, not installable software by default, and no release files were downloaded or executed.
+Analyze recently updated open Issues? (yes/no): 
+
+==================== USER INPUT 2/4 ====================
+yes
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Provide guidance about the latest official Release? (yes/no): 
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Release request (overview or asset_match;operating_system;architecture;package_preference): 
+
+==================== USER INPUT 4/4 ====================
+asset_match;windows;x64;archive
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================
+
+Final result
+Confirmed repository: sharkdp/bat at https://github.com/sharkdp/bat. The project is named bat and is described as a cat(1) clone with wings: a Rust command-line utility intended to act as a user-friendly replacement for cat while adding syntax highlighting, Git modification markers, line numbers, file headers, non-printable-character highlighting, configurable themes and output styles, automatic paging, stdin support, and integrations with tools such as fzf, find/fd, ripgrep, git, man, and tail. Typical users are developers, system administrators, and terminal users who inspect source code, configuration files, logs, command output, or Git changes from a shell. Its primary technology is Rust, with syntax highlighting based on syntect and support for Sublime Text syntax definitions and themes. The main execution entry point is the bat command, for example `bat README.md`; source development uses `cargo build --bins` and `cargo test`. Installation entry points documented in the README include distribution packages such as apt, apk, pacman, dnf, emerge, FreeBSD/OpenBSD packages, nix, zypper, Homebrew, MacPorts, WinGet, Chocolatey, and Scoop; prebuilt binaries are provided through the GitHub Releases page; and source installation is available with `cargo install --locked bat` or `cargo install --path . --locked`. The supplied repository license metadata is Apache-2.0, while the README states that the project is offered under either the MIT License or Apache License 2.0 at the user's option, with separate license files. The repository is marked as not archived, and the supplied metadata reports 60,196 stars, 1,629 forks, 420 open issues, and an update timestamp of 2026-08-17T18:00:21Z. These counts are reported as metadata only and do not establish project quality or maintenance quality; the README also lists maintainers and points to CONTRIBUTING.md and SECURITY.md. Important README limitations include that non-UTF-8 files may need conversion before use, syntax detection from stdin may require an explicit language or a recognizable first line, ANSI/control-heavy input can produce garbled output unless sanitization or stripping options are used, full-color themes work best with truecolor terminals, older Debian/Ubuntu packages may install the executable as `batcat`, Windows requires the Visual C++ Redistributable and may need an external `less` pager, native bat on Windows does not support Cygwin Unix-style paths without a wrapper, custom `.sublime-color-scheme` themes are not supported, the bundled manpage syntax still needs work, and source installation does not automatically install manpage or shell-completion files. No individual Issue records were supplied, so there is no evidence-based sample from which to identify repeated, confirmed, unresolved concerns; the open-issue count alone is insufficient for that analysis. No release metadata or asset list was supplied, so a latest official public Release overview and asset-to-platform compatibility mapping cannot be confirmed. In general, maintainer-uploaded release assets should be matched by operating system, CPU architecture, and libc/runtime requirements; filenames containing `musl` indicate the README's statically linked variants. GitHub-generated source archives should be treated as source code, not installable software by default, and no release files were downloaded or executed.
+{
+  "analyzed_issue_count": 37,
+  "common_problems": [
+    "Documentation and translated README consistency or link correctness recur in #1948, #2455, #3730, and #3839. These are documentation concerns and do not establish a runtime defect.",
+    "Pager, output-formatting, and context-sensitive style behavior recur in #1618, #2497, #3425, #3710, and #3738. The reports involve different interactions and do not establish one shared root cause.",
+    "Resource-safety or crash-on-edge-input concerns recur in #3844, #3845, and #3878: two capacity-overflow reports and one recursive-syntax out-of-memory report. They are related by impact, not necessarily by implementation cause."
+  ],
+  "confirmed_problems": [],
+  "unresolved_problems": [
+    "Open issue #3878 reports unbounded memory allocation and macOS system instability when a self-referential custom syntax definition is compiled and used.",
+    "Open issues #3844 and #3845 report process-aborting capacity-overflow failures under narrow-terminal wide-character wrapping and extremely large offset-from-end line ranges, respectively.",
+    "Open issue #3831 reports slow pager seeking to the end of a large file, with the reporter measuring more than 25 seconds for approximately 94,000 lines.",
+    "Open issue #3826 reports Swift protocol method declarations losing syntax highlighting after the first declaration.",
+    "Open issue #3710 reports decorations being emitted for piped output when using --decorations=auto with --color=always.",
+    "Open issues #1948, #3730, and #3839 report incomplete, inconsistent, or broken documentation and translated README links."
+  ],
+  "representative_issues": [
+    "#3878: Recursive custom syntax definition can crash MacOS due to OOM — https://github.com/sharkdp/bat/issues/3878",
+    "#3845: bat panics on a huge --line-range offset-from-end — https://github.com/sharkdp/bat/issues/3845",
+    "#3844: bat panics when wrapping a wide character at terminal width 1 with a background — https://github.com/sharkdp/bat/issues/3844",
+    "#3831: Seeking to the end of a large file is unreasonably slow — https://github.com/sharkdp/bat/issues/3831",
+    "#3826: Swift protocol method declarations lose highlighting after the first func — https://github.com/sharkdp/bat/issues/3826",
+    "#3710: decorations=auto shows decorations when output is piped with color=always — https://github.com/sharkdp/bat/issues/3710",
+    "#3839: Several relative links are broken in translated READMEs — https://github.com/sharkdp/bat/issues/3839",
+    "#1948: Custom theme format documentation is unclear — https://github.com/sharkdp/bat/issues/1948"
+  ],
+  "limitations": [
+    "This analysis covers exactly the 37 supplied recently updated open Issues and no other repository data.",
+    "Issue bodies and comment counts were supplied, but comment contents and maintainer responses were not. Therefore no problem is classified as maintainer-confirmed.",
+    "An open state in the supplied snapshot indicates that the report was unresolved there, but does not establish its current status, priority, reproducibility, or whether a fix exists elsewhere.",
+    "Several reports concern older bat versions, including #1618, #1726, #2497, and #3029, so their applicability to current releases is uncertain.",
+    "Related reports were grouped cautiously by visible subject matter or impact; the sample does not prove that grouped reports share a root cause or represent project-wide prevalence.",
+    "Feature requests and isolated reports are included in the sample but are not treated as common problems unless a repeated concern is visible within the supplied Issues."
+  ]
+}
+{
+  "status": "recommended",
+  "version": "v0.26.1",
+  "asset": {
+    "name": "bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+    "download_url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+    "size": 3613318,
+    "digest": "sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b"
+  },
+  "summary": "Recommended asset: bat-v0.26.1-x86_64-pc-windows-msvc.zip (3613318 bytes). This maintainer-uploaded ZIP archive matches Windows x64: `pc-windows-msvc` identifies Windows MSVC and `x86_64` matches x64 architecture. Download URL: https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip.",
+  "acquisition_url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+  "integrity_guidance": "Verify the downloaded file against the Release digest before use: sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b Follow the project maintainer's verification instructions.",
+  "limitations": [
+    "Compatibility was inferred from the Release asset metadata and filename signals only; verify the project's requirements.",
+    "No file was downloaded, created, installed, extracted, or executed."
+  ]
+}

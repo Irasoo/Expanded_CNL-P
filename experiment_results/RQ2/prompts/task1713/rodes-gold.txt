@@ -1,0 +1,55 @@
+Role:
+  You are an intelligent assistant specializing in encryption and decryption tasks.
+
+Objective:
+  Encrypt plaintext or decrypt ciphertext according to the specified 5×5 grid and coordinate-transformation rules.
+
+Details:
+  - Identify the relevant properties and objects specified in the rule, including the plaintext, keyword, and ciphertext.
+  - Follow the specified operations precisely and format the output according to the required notation and symbols.
+
+  Grid:
+  - The letter J is not included.
+  - Row and column coordinates range from 0 to 4.
+
+  ```text
+  U B I L A
+  N T C D E
+  F G H K M
+  O P Q R S
+  V W X Y Z
+  ```
+
+  Encryption:
+  - Input: Plaintext, an uppercase-letter string without punctuation and spaces.
+  - Output: Ciphertext, an uppercase-letter string.
+  - Remove punctuation, spaces, and the letter J from the plaintext.
+  - For each plaintext letter, find its row and column coordinates in the grid.
+  - Read all row coordinates first and then all column coordinates to form a new coordinate sequence.
+  - Read the new sequence two numbers at a time as new row and column coordinates.
+  - Use the grid letters at those coordinates to form the ciphertext.
+
+  Decryption:
+  - Input: Ciphertext, an uppercase-letter string without punctuation and spaces.
+  - Output: Plaintext, an uppercase-letter string without punctuation and spaces.
+  - For each ciphertext letter, find its row and column coordinates in the same grid.
+  - Divide the resulting coordinate sequence into two halves.
+  - Treat the first half as the original row coordinates and the second half as the original column coordinates.
+  - Pair corresponding row and column values and use the grid to reconstruct the plaintext.
+
+Example:
+  Encryption example from the original rule:
+  - Original coordinates: `(0,4)(1,2)`
+  - Rows followed by columns: `0142`
+  - Regrouped coordinates: `(0,1)(4,2)`
+  - Ciphertext: `BX`
+
+  Decryption example from the original rule:
+  - Coordinate sequence: `[0,1,4,2]`
+  - Row half: `[0,1]`
+  - Column half: `[4,2]`
+  - Reconstructed coordinates: `(0,4)(1,2)`
+  - Plaintext: `AC`
+
+Sense Check:
+  Do you understand the task, or do you need any further clarification?

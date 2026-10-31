@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+Over 7 days, Control recorded a 10.0% conversion rate from 1,000 users, while Variant recorded 11.0% from 1,000 users. The observed absolute difference was +1.0 percentage point, equivalent to a +10.0% relative lift.
+
+The result was not statistically significant (two-sided p-value 0.466). The 95% confidence interval for the absolute difference was -1.69 to +3.69 percentage points, so the data remain compatible with both a decline and an improvement. The experiment was underpowered for the specified 1 percentage point minimum detectable effect.
+
+No sample ratio mismatch was detected, so the observed allocation does not invalidate the experiment. No guardrail concern was reported; the supplied guardrail assessment states that no meaningful negative effects were observed.
+
+**Recommendation: Extend the test.** The directional improvement supports collecting more data, but the current evidence is insufficient to conclude that the new button increases conversion. Continue the existing allocation, determine the sample size needed to achieve 80% power for the specified effect, and reassess statistical significance, the confidence interval, sample ratio mismatch, and guardrails after reaching that sample. Do not ship based on the current primary-metric result alone.

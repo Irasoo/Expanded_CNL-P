@@ -1,0 +1,67 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**实验概览**
+- **假设**：新结账按钮将提升购买转化率。
+- **实验时长**：7天。
+- **样本量**：对照组 1,000；变体组 1,000。
+
+**结果**
+- **购买转化率**：对照组 10.0%；变体组 11.0%。
+- **绝对差异**：+1.0个百分点。
+- **相对提升**：+10.0%。
+- **p-value**：0.4657。
+- **95%置信区间**：绝对差异为 -1.69至+3.69个百分点。
+- **统计显著性**：不显著，当前数据不足以支持新按钮带来确定的提升。
+
+**实验质量与护栏**
+- **统计功效状态**：underpowered（功效不足）。该状态仅用于诊断，不能推翻当前“不显著”的统计结论。
+- **样本比例偏差（SRM）**：未发现（false）。
+- **护栏指标**：未观察到有意义的负面影响，当前无护栏担忧。
+
+**建议**
+- **Recommendation**：`extend`
+- **理由**：变体方向上提升了1.0个百分点，但p-value较高且置信区间跨越0，结果不确定；同时实验被判定为功效不足。建议延长实验并收集更多数据后重新评估统计显著性及护栏表现。
+
+**下一步**
+- 继续按当前实验设计运行，获取更多样本。
+- 重新计算转化率差异、p-value和95%置信区间，并再次检查样本比例偏差与护栏指标。

@@ -1,0 +1,165 @@
+{
+  "status": "success",
+  "case_name": "internal_comms",
+  "compilation_method": "codex",
+  "trial_index": 1,
+  "trial_count": 5,
+  "attempt_count": 1,
+  "maximum_attempts": 20,
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp",
+  "method_options": {
+    "reasoning_effort": "high"
+  },
+  "source_files": {
+    "agent.cnlp": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\internal_comms\\agent.cnlp",
+      "sha256": "441fbc9dc8113364a54a151e312aa50208f7effe70bb0735b8b1e6d7958be566"
+    },
+    "reference_code.py": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\internal_comms\\reference_code.py",
+      "sha256": "391e298e375dbe608243ca418a105376b8e8f3f89ed8fca64270b6b3f219b4bb"
+    },
+    "reference_code_for_codex.py": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\internal_comms\\reference_code_for_codex.py",
+      "sha256": "2b8b02433139027a4412937220abec8013408a88ac914488ba152f748051fa5b"
+    }
+  },
+  "started_at": "2026-08-17T04:46:53.893284+00:00",
+  "finished_at": "2026-08-17T04:50:15.912501+00:00",
+  "duration_seconds": 202.031,
+  "token_usage": {
+    "source": "codex_cli_turn_completed",
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 151616,
+      "cached_input_tokens": 109568,
+      "output_tokens": 6428,
+      "reasoning_tokens": 1480,
+      "total_tokens": 158044
+    },
+    "calls": null,
+    "raw_usage": {
+      "input_tokens": 151616,
+      "cached_input_tokens": 109568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6428,
+      "reasoning_output_tokens": 1480
+    }
+  },
+  "compilation_token_usage": {
+    "source": "codex_cli_turn_completed",
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 151616,
+      "cached_input_tokens": 109568,
+      "output_tokens": 6428,
+      "reasoning_tokens": 1480,
+      "total_tokens": 158044
+    },
+    "calls": null,
+    "raw_usage": {
+      "input_tokens": 151616,
+      "cached_input_tokens": 109568,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6428,
+      "reasoning_output_tokens": 1480
+    }
+  },
+  "retry_overhead_token_usage": null,
+  "failed_compilation_token_usage": null,
+  "observed_total_token_usage": {
+    "source": "rq4_attempt_aggregate",
+    "attempt_usage_count": 1,
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 151616,
+      "cached_input_tokens": 109568,
+      "output_tokens": 6428,
+      "reasoning_tokens": 1480,
+      "total_tokens": 158044
+    },
+    "calls": null
+  },
+  "token_accounting": {
+    "paper_compilation_burden_field": "compilation_token_usage",
+    "retry_overhead_excluded_from_compilation_burden": true,
+    "description": "Only the successful Attempt is the compiler resource burden; discarded relay/Codex retry Attempts are operational overhead."
+  },
+  "method_details": {
+    "codex_thread_id": "01a00e0b-577f-7b50-9cf4-324dbddb87b8",
+    "codex_turn_id": null,
+    "codex_turn_status": "completed",
+    "codex_turn_error": null,
+    "codex_duration_ms": 201843,
+    "codex_final_response": "已在当前目录生成可运行的 Python Agent：\n\n- [main.py](/workspace/main.py)\n- [internal_comms_agent.py](/workspace/internal_comms_agent.py)\n- [requirements.txt](/workspace/requirements.txt)\n- [.env.example](/workspace/.env.example)\n- [README.md](/workspace/README.md)\n\n实现了 CNL-P 中的类型识别、四类 Worker、终端 INPUT/DISPLAY、异常流程、结构化字段提取和所有正文生成 API。所有模型调用均使用官方 OpenAI Client，并显式设置 `reasoning={\"effort\": \"high\"}`。\n\n已通过：\n\n```text\npython3 -m py_compile main.py internal_comms_agent.py\n```\n\n未启动 Agent，也未调用外部 API。",
+    "codex_events_file": "codex_events.jsonl",
+    "codex_event_counts": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed": 13,
+      "item.started": 7,
+      "turn.completed": 1
+    },
+    "codex_completed_item_counts": {
+      "agent_message": 6,
+      "command_execution": 6,
+      "file_change": 1
+    },
+    "codex_tool_activity_count": 7,
+    "codex_successful_tool_activity_count": 6,
+    "codex_failed_tool_activity_count": 1,
+    "codex_non_json_line_count": 0,
+    "codex_container_image": "rq4-codex-runtime:0.147.0",
+    "codex_inner_sandbox": "danger-full-access",
+    "codex_isolation_boundary": "docker_single_temporary_workspace_mount",
+    "codex_model": "gpt-5.6-sol",
+    "codex_reasoning_effort": "high",
+    "codex_provider": "rq4_relay",
+    "codex_stderr": ""
+  },
+  "failure_category": null,
+  "rq4_retryable": false,
+  "exception": null,
+  "attempts": [
+    {
+      "attempt_index": 1,
+      "status": "success",
+      "failure_category": null,
+      "rq4_retryable": false,
+      "directory": "attempts\\attempt_001",
+      "compilation_log": "attempts\\attempt_001\\compilation_log.json",
+      "token_usage": {
+        "source": "codex_cli_turn_completed",
+        "request_count": null,
+        "successful_request_count": null,
+        "failed_request_count": null,
+        "requests_without_usage_count": null,
+        "total": {
+          "input_tokens": 151616,
+          "cached_input_tokens": 109568,
+          "output_tokens": 6428,
+          "reasoning_tokens": 1480,
+          "total_tokens": 158044
+        },
+        "calls": null,
+        "raw_usage": {
+          "input_tokens": 151616,
+          "cached_input_tokens": 109568,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6428,
+          "reasoning_output_tokens": 1480
+        }
+      },
+      "exception": null
+    }
+  ]
+}

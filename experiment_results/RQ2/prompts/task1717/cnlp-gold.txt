@@ -1,0 +1,81 @@
+[DEFINE_AGENT: CipherAgent "Perform encryption and decryption according to the specified row arrangement and column reading cipher rules"]
+
+    [DEFINE_CONCEPTS:]
+        LineNumbering: Lines are counted from 1
+        OddLine: An odd numbered line is written and read from left to right
+        EvenLine: An even numbered line is written and read from right to left
+        FiveColumnGrid: The arranged text is represented as rows of exactly five text cells and the text value EMPTY represents an unoccupied cell
+CompleteRowExample: The plaintext LIDAHELLOWORLD forms the rows [L,I,D,A,H] [W,O,L,L,E] [O,R,L,D,EMPTY]
+        ColumnDelimiter: The symbol # is appended after the content read from each column
+    [END_CONCEPTS]
+
+    [DEFINE_CONSTRAINTS:]
+        PlaintextFormat: Plaintext is an uppercase letters string without punctuation and spaces
+        CiphertextFormat: Ciphertext is a string without punctuation and spaces except for the # symbols introduced by the encryption process
+        EncryptionMaximumCharactersPerLine: The maximum number of characters per line is 5
+        EncryptionLineDirection: Odd numbered lines are written from left to right and even numbered lines are written from right to left
+        EncryptionColumnDirection: Each column is read from top to bottom
+        EncryptionColumnSeparator: Add a # after reading each column
+        IncompleteEvenRowExample: The plaintext ICYWTOAF forms the rows [I,C,Y,W,T] [EMPTY,EMPTY,F,A,O] because an incomplete even numbered row is right aligned
+        DecryptionColumnWriting: Ciphertext characters are written from top to bottom and encountering # switches writing to the next column
+        DecryptionLineReading: Odd numbered rows are read from left to right and even numbered rows are read from right to left
+        OutputCompliance: All encryption and decryption outputs must adhere to the specified cipher rules and required output format
+    [END_CONSTRAINTS]
+
+    [DEFINE_VARIABLES:]
+        "Plaintext input or decrypted result" plaintext: text
+        "Ciphertext input or encrypted result" ciphertext: text
+        "Plaintext chunks preserved in original order" row_chunks: List[text]
+        "Rows of five text cells using EMPTY for an unoccupied cell" grid: List[List[text]]
+        "Ciphertext content separated by column" column_segments: List[text]
+        "Plaintext content read from each row" row_segments: List[text]
+    [END_VARIABLES]
+
+    [DEFINE_WORKER: "Encrypt plaintext or decrypt ciphertext according to the specified cipher rules" CipherWorker]
+
+        [INPUTS]
+            OPTIONAL <REF>plaintext</REF>
+            OPTIONAL <REF>ciphertext</REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            OPTIONAL <REF>ciphertext</REF>
+            OPTIONAL <REF>plaintext</REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+           [IF <REF>plaintext</REF> is provided]
+                COMMAND-1 [COMMAND Split <REF>plaintext</REF> in its original order into consecutive chunks of at most five characters RESULT <REF>row_chunks</REF> SET]
+                COMMAND-2 [COMMAND Create rows of exactly five text cells and place each chunk in one row counting rows from 1 placing odd numbered rows from column 1 toward column 5 and even numbered rows from column 5 toward column 1 using EMPTY for every unoccupied cell RESULT <REF>grid</REF> SET]
+                COMMAND-3 [COMMAND Read columns 1 through 5 of <REF>grid</REF> from left to right reading non EMPTY cells from top to bottom and append exactly one # after every column RESULT <REF>column_segments</REF> SET]
+                COMMAND-4 [COMMAND Concatenate <REF>column_segments</REF> in column order RESULT <REF>ciphertext</REF> SET]
+                COMMAND-5 [DISPLAY <REF>ciphertext</REF>]
+            [ELSEIF <REF>ciphertext</REF> is provided]
+                COMMAND-6 [COMMAND Treat # only as a column delimiter and split <REF>ciphertext</REF> into five column strings without placing any # in a column string RESULT <REF>column_segments</REF> SET]
+                COMMAND-7 [COMMAND Determine the number and positions of occupied cells in rows of exactly five cells from the number of non # characters using full rows of five and using a left aligned incomplete odd final row or a right aligned incomplete even final row RESULT <REF>grid</REF> SET]
+                COMMAND-8 [COMMAND Fill the non EMPTY cells of each column in <REF>grid</REF> from top to bottom using the corresponding text in <REF>column_segments</REF> RESULT <REF>grid</REF> SET]
+                COMMAND-9 [COMMAND Read <REF>grid</REF> in row order reading odd numbered rows from left to right and even numbered rows from right to left while skipping EMPTY cells RESULT <REF>row_segments</REF> SET]
+                COMMAND-10 [COMMAND Concatenate <REF>row_segments</REF> in row order RESULT <REF>plaintext</REF> SET]
+                COMMAND-11 [DISPLAY <REF>plaintext</REF>]
+            [END_IF]
+        [END_MAIN_FLOW]
+
+        [EXAMPLES]
+
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ plaintext: LIDAHELLOWORLD },
+                expected-outputs:{ ciphertext: LWO#IOR#DLL#ALD#HE# },
+                execution-path: COMMAND-1, COMMAND-2, COMMAND-3, COMMAND-4
+            }</EXPECTED-WORKER-BEHAVIOR>
+
+            <EXPECTED-WORKER-BEHAVIOR>{
+                inputs:{ ciphertext: LWO#IOR#DLL#ALD#HE# },
+                expected-outputs:{ plaintext: LIDAHELLOWORLD },
+                execution-path: COMMAND-5, COMMAND-6, COMMAND-7
+            }</EXPECTED-WORKER-BEHAVIOR>
+
+        [END_EXAMPLES]
+
+    [END_WORKER]
+
+[END_AGENT]

@@ -1,0 +1,76 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout SRM Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate, where higher is better.
+- **Duration:** 14 days
+
+### Results
+
+| Group | Sample size | Successes | Conversion rate |
+|---|---:|---:|---:|
+| Control | 12,000 | 1,200 | 10.00% |
+| Variant | 8,000 | 800 | 10.00% |
+
+- **Absolute difference:** 0.00 percentage points
+- **Relative lift:** 0.00%
+- **Two-sided p-value:** 1.00
+- **95% confidence interval:** **−0.849 to +0.849 percentage points for Variant minus Control**
+
+### Decision status
+
+- **Statistical significance:** Not statistically significant; p = 1.00 is not below 0.05.
+- **Power:** Underpowered. This is diagnostic and does not independently determine the decision.
+- **SRM:** Sample ratio mismatch detected. The intended allocation was 50%/50%, while the observed allocation was 60% Control / 40% Variant. Because SRM is present, the experiment result is **inconclusive**.
+- **Guardrails:** No meaningful negative effects were observed; no guardrail concern is reported.
+
+### Recommendation
+
+**Undetermined.** The observed conversion rates are identical, but the allocation mismatch invalidates a confident comparison. The non-significant result and underpowered status provide additional uncertainty, while the confidence interval still spans both a possible decrease and increase for the Variant.
+
+### Next steps
+
+1. Investigate and correct the sample-ratio mismatch, including assignment logic, traffic eligibility, exposure logging, and exclusions.
+2. Confirm that Control and Variant receive the intended 50%/50% allocation.
+3. Re-run the experiment after the allocation issue is resolved and reassess conversion, SRM, power, and guardrails before making a ship decision.

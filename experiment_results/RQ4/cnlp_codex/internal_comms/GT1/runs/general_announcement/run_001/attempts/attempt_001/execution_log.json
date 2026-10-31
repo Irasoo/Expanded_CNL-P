@@ -1,0 +1,112 @@
+{
+  "status": "failed",
+  "generation_id": "20260817_033842",
+  "testing_id": "20260817_130711",
+  "case_name": "internal_comms",
+  "compilation_method": "codex",
+  "compilation_trial_index": 1,
+  "compilation_trial_count": 5,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\internal_comms\\branch_input_groups.yaml",
+    "sha256": "2a5046c489baf04f66bd1e545e4b997936331c1048701ff1788093ef45f39253"
+  },
+  "input_group_name": "general_announcement",
+  "run_index": 1,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\internal_comms\\codex_1in5\\general_announcement\\run_001\\attempts\\attempt_001",
+  "started_at": "2026-08-17T19:47:37.352788+00:00",
+  "finished_at": "2026-08-17T19:48:13.737468+00:00",
+  "duration_seconds": 36.375,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 3,
+  "consumed_input_count": 3,
+  "unused_input_count": 0,
+  "ended_before_all_inputs_consumed": false,
+  "input_exhausted": false,
+  "input_consumption_status": "matched",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null
+    },
+    "request_count": 3,
+    "successful_request_count": 3,
+    "failed_request_count": 0,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 14482,
+      "cached_input_tokens": 3840,
+      "output_tokens": 273,
+      "reasoning_tokens": 68,
+      "total_tokens": 14755
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 4821,
+          "cached_input_tokens": 0,
+          "output_tokens": 10,
+          "reasoning_tokens": 0,
+          "total_tokens": 4831
+        }
+      },
+      {
+        "request_index": 2,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 4682,
+          "cached_input_tokens": 3840,
+          "output_tokens": 101,
+          "reasoning_tokens": 29,
+          "total_tokens": 4783
+        }
+      },
+      {
+        "request_index": 3,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 4979,
+          "cached_input_tokens": 0,
+          "output_tokens": 162,
+          "reasoning_tokens": 39,
+          "total_tokens": 5141
+        }
+      }
+    ]
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\internal_comms\\codex_1in5\\general_announcement\\run_001\\attempts\\attempt_001\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "RuntimeError",
+    "message": "The LLM returned an empty internal communication.",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp\\main.py\", line 9, in main\n    return agent.run_dispatcher()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp\\internal_comms_agent.py\", line 297, in run_dispatcher\n    result = self._run_general_comms_writer()\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp\\internal_comms_agent.py\", line 346, in _run_general_comms_writer\n    result = self.llm.draft_general_comms(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp\\internal_comms_agent.py\", line 259, in draft_general_comms\n    return self.complete(\n           ^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\internal_comms\\codex_1in5\\agent.cnlp\\internal_comms_agent.py\", line 109, in complete\n    raise RuntimeError(empty_result_error)\nRuntimeError: The LLM returned an empty internal communication.\n"
+  }
+}

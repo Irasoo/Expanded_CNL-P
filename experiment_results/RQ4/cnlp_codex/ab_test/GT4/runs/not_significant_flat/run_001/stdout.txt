@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 14 days. Duration alone does not establish experiment maturity.
+- **Control:** 2,000 conversions from 20,000 users; conversion proportion `0.100` (**10.0%**).
+- **Variant:** 2,000 conversions from 20,000 users; conversion proportion `0.100` (**10.0%**).
+- **Absolute difference:** `0.000` proportion points (**0.00 percentage points**).
+- **Relative lift:** **0.0%**.
+- **Two-sided p-value:** `1.0`.
+- **95% confidence interval for the difference:** `[-0.00588, 0.00588]` in proportions, or approximately **[-0.588, +0.588] percentage points**.
+- **Statistical significance:** Not significant at the `0.05` threshold.
+- **Power status:** Adequate. This is supporting diagnostic information and does not change the nonsignificant result.
+- **Sample ratio mismatch:** None detected.
+- **Guardrails:** No concern; no meaningful negative effects were observed.
+
+**Recommendation: Stop.**
+
+The Variant produced exactly the same observed purchase conversion rate as Control, with no statistically significant difference. Stop the test and do not ship the new button on the basis of conversion improvement. Document the null result and decide separately whether the new button has another supported product benefit; otherwise retain the Control.

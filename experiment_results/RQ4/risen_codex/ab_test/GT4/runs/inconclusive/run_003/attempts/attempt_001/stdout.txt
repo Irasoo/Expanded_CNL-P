@@ -1,0 +1,55 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息（测试名称、假设、改动、主指标、Control/Variant 样本量与成功数、持续天数、流量分配、可选 MDE 和 guardrail 信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment:** 14 days. Control sample: 12,000; variant sample: 8,000. Control conversion rate: 10.0%; variant conversion rate: 10.0%.
+
+**Result:** Absolute difference: 0.0 percentage points. Relative lift: 0.0%. p-value: 1.0. The 95% confidence interval for the difference is [-0.00849, 0.00849] (approximately -0.849 to +0.849 percentage points). The result is not statistically significant.
+
+**Validity and diagnostics:** Power status is **underpowered**. Power status is diagnostic and does not override statistical significance. A sample-ratio mismatch is present: both traffic shares are recorded as 50%, but the sample sizes are 12,000 versus 8,000. If the sample-ratio mismatch is true, the experiment is inconclusive. No meaningful negative guardrail effects were observed, and the guardrail concern is false.
+
+**Recommendation:** undetermined
+
+**Reasoning:** Conversion rates were identical, with no observed lift, the result was not statistically significant, the test was underpowered, and the sample-ratio mismatch makes the experiment inconclusive if true.
+
+**Next steps:** Resolve the sample-ratio mismatch and reassess the experiment; interpret the result alongside its underpowered status and confidence interval.

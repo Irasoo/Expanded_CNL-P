@@ -1,0 +1,71 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：测试名称、假设、测试变更、primary metric、Control/Variant 样本量与成功数、实验时长、流量分配、可选的 minimum detectable effect，以及 guardrail 信息。
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+{
+  "hypothesis": "The new checkout button will increase purchase conversion rate.",
+  "duration": "14.0 days",
+  "sample_sizes": {
+    "control": 12000,
+    "variant": 8000,
+    "observed_traffic_split": "60% control / 40% variant",
+    "planned_traffic_split": "50% control / 50% variant"
+  },
+  "conversion_rates": {
+    "control": "10.0%",
+    "variant": "10.0%"
+  },
+  "absolute_difference": "0.0 percentage points",
+  "relative_lift": "0.0%",
+  "p_value": 1.0,
+  "confidence_interval": "[-0.008486893005571289, 0.008486893005571289] for the absolute difference",
+  "statistical_significance": "Not statistically significant",
+  "power_status": "Underpowered; the supplied minimum detectable effect is 0.01",
+  "sample_ratio_mismatch": "Detected. The planned allocation was 50%/50%, while the observed allocation was 60% control / 40% variant.",
+  "guardrail_assessment": "No guardrail concern was identified, and no meaningful negative effects were observed.",
+  "recommendation": "Undetermined. Do not conclude that the new checkout button increases purchase conversion based on this experiment.",
+  "reasoning": "Both groups had a 10.0% purchase conversion rate, with 0.0% relative lift and a p-value of 1.0. The confidence interval includes zero, so the result is not statistically significant. The experiment is also underpowered and has a sample ratio mismatch, which makes the result inconclusive despite the absence of observed guardrail concerns.",
+  "next_steps": [
+    "Investigate and resolve the sample ratio mismatch between the planned and observed traffic allocation.",
+    "Run or continue the experiment with a valid allocation and sufficient power to evaluate the supplied minimum detectable effect of 0.01.",
+    "Reassess purchase conversion rate, statistical significance, confidence interval, power status, sample ratio mismatch, and guardrails after valid data is collected."
+  ]
+}

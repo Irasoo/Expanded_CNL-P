@@ -1,0 +1,57 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+### A/B 测试分析：Checkout Button Positive Test
+
+- **假设**：将结账按钮文案从“Continue”改为“Buy Now”会提升购买转化率。
+- **实验时长与样本**：14 天；Control：10,000，Variant：10,000。
+- **转化结果**：Control 为 **10.0%**（1,000/10,000），Variant 为 **12.0%**（1,200/10,000）。
+- **效果**：绝对提升 **2.0 个百分点**，相对提升 **20.0%**。
+- **统计结果**：p-value = **6.19×10⁻⁶**；绝对差异的 95% 置信区间为 **[1.133，2.867] 个百分点**。结果具有统计显著性。
+- **实验质量**：Power 状态为 **underpowered**。这是一项诊断信息，不能推翻当前的统计显著性结论；样本比例失配（SRM）为 **false**。
+- **护栏指标**：无护栏担忧。每用户收入、页面加载时间、客服联系率均稳定，未观察到有意义的负面影响。
+- **建议**：**ship**。
+- **理由**：Variant 在购买转化率上实现了显著且为正的提升，置信区间完全高于 0，且未发现护栏指标负面影响。
+- **下一步**：按 **ship** 执行，并继续关注购买转化率及已评估的护栏指标表现。

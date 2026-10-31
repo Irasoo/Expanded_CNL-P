@@ -1,0 +1,66 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please use aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test: Undetermined**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The experiment ran for **14 days**, with **12,000 users in Control** and **8,000 in Variant**.
+
+- Control conversion rate: **10.0%** (1,200 conversions)
+- Variant conversion rate: **10.0%** (800 conversions)
+- Absolute difference: **0.00 percentage points**
+- Relative lift: **0.0%**
+- Two-sided p-value: **1.00**
+- 95% confidence interval for the absolute difference: **-0.85 to +0.85 percentage points**
+- Statistical significance: **Not significant**
+- Power status: **Underpowered** for the specified 1-percentage-point minimum detectable effect
+- Sample ratio mismatch: **Detected**
+- Guardrails: **No concern reported**; no meaningful negative effects were observed
+
+**Recommendation:** **Undetermined. Do not make a shipping decision from this experiment.**
+
+The observed conversion rates are identical and provide no evidence that the new button improves purchase conversion. More importantly, the observed 60%/40% allocation differs materially from the intended 50%/50% split, and the statistical result identifies a sample ratio mismatch. This makes the experiment inconclusive because assignment, exposure, or measurement problems may have biased the comparison. The underpowered status further limits sensitivity, although it does not change the conclusion from the non-significant result. Guardrails do not create a separate reason to reject the variant.
+
+**Next steps:**
+
+1. Investigate the sample ratio mismatch, including randomization, eligibility rules, exposure logging, exclusions, and conversion attribution by group.
+2. Do not interpret the current result as evidence of equivalence or improvement.
+3. After resolving the allocation issue, rerun the experiment with a valid 50%/50% split and sufficient sample size for 80% power at the specified 1-percentage-point minimum detectable effect.
+4. Reassess the primary metric, confidence interval, SRM, and guardrails before deciding whether to ship.

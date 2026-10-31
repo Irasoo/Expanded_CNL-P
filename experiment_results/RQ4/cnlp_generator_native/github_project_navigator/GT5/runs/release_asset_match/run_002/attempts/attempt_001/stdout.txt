@@ -1,0 +1,149 @@
+==================== AGENT OUTPUT ====================
+I require either a complete GitHub Repository URL or an explicit owner/repository identifier. Once the Repository is confirmed, I can summarize public project information, analyze a limited sample of recently updated open Issues, and provide guidance about the latest official Release and asset compatibility. I use read-only GitHub information and do not download files.
+Please provide a complete GitHub Repository URL or an explicit owner/repository identifier.
+
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+`bat` (`sharkdp/bat`) is a Rust-based command-line file viewer described as “a cat(1) clone with wings.” It is intended for developers, system administrators, and terminal users who want a more readable replacement for `cat`, while retaining plain concatenation behavior in pipelines and redirected output.
+
+Its core capabilities include syntax highlighting for many programming and markup languages, Git-aware change markers, line numbers and file headers, display of non-printable characters, automatic paging, configurable output styles, themes, custom syntax definitions, and file-type mappings. Typical uses include inspecting one or more files, reading standard input, concatenating files, previewing search results with tools such as `fzf`, `find`, `fd`, and `ripgrep`, viewing Git content, following logs, colorizing manual pages or help output, and acting as a mostly drop-in `cat` replacement.
+
+The primary executable is `bat`, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Installation is available through package managers on major Linux distributions, macOS, Windows, and BSD systems, as well as through official release binaries. Windows requires the Visual C++ Redistributable. Source installation uses Cargo, either from a local checkout with `cargo install --path . --locked` or from crates.io with `cargo install --locked bat`; building from source requires Rust 1.79.0 or newer. Cargo installation does not automatically install every ancillary file, such as manual pages and shell completions.
+
+The project can also be consumed as a Rust library, subject to the README’s requirement that dependents enable either the `regex-onig` or `regex-fancy` feature. Its repository topics identify it as a CLI, terminal, Git, and syntax-highlighting tool. Licensing is dual MIT or Apache License 2.0 at the user’s option; the repository metadata reports Apache-2.0.
+
+The repository is not archived, lists four maintainers, provides contribution and security documentation, and has recent metadata activity, all of which indicate ongoing maintenance. This conclusion is based on those maintenance signals, not on Star or open-Issue counts.
+
+Important documented limitations include incomplete support for some environments and input types. Standard-input syntax detection may require a recognizable first line, such as a shebang, unless the language is specified explicitly. ANSI escape sequences and control characters can cause garbled highlighting or wrapping unless stripping or sanitization options are used. Native encoding support is limited to UTF-8 and UTF-16, so other encodings may require conversion. Best color results generally require a correctly detected truecolor terminal, while restricted terminals may need an 8-bit theme. Windows paging can require a separate `less` installation, native Windows builds do not directly accept Cygwin-style absolute paths, and older Windows or `less` versions have additional color and paging constraints. Custom themes must use the older `.tmTheme` format because `.sublime-color-scheme` files are not supported. The README also states that no Snap package is currently recommended or officially supported, and that the bundled man-page syntax still needs improvement.
+Would you like an analysis of recently updated open Issues? Please answer yes or no.
+
+
+==================== USER INPUT 2/4 ====================
+yes
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Enter a Release analysis request in one of these exact formats:
+overview
+asset_match;operating_system;architecture;package_preference
+For asset_match, operating_system must be windows, macos, linux, or other; architecture must be x64, arm64, or unknown; and package_preference must be installer, portable, archive, or any. Do not use JSON syntax.
+
+
+==================== USER INPUT 4/4 ====================
+asset_match;windows;x64;archive
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================
+Project Summary
+
+`bat` (`sharkdp/bat`) is a Rust-based command-line file viewer described as “a cat(1) clone with wings.” It is intended for developers, system administrators, and terminal users who want a more readable replacement for `cat`, while retaining plain concatenation behavior in pipelines and redirected output.
+
+Its core capabilities include syntax highlighting for many programming and markup languages, Git-aware change markers, line numbers and file headers, display of non-printable characters, automatic paging, configurable output styles, themes, custom syntax definitions, and file-type mappings. Typical uses include inspecting one or more files, reading standard input, concatenating files, previewing search results with tools such as `fzf`, `find`, `fd`, and `ripgrep`, viewing Git content, following logs, colorizing manual pages or help output, and acting as a mostly drop-in `cat` replacement.
+
+The primary executable is `bat`, although some older Debian and Ubuntu packages install it as `batcat` because of a package-name conflict. Installation is available through package managers on major Linux distributions, macOS, Windows, and BSD systems, as well as through official release binaries. Windows requires the Visual C++ Redistributable. Source installation uses Cargo, either from a local checkout with `cargo install --path . --locked` or from crates.io with `cargo install --locked bat`; building from source requires Rust 1.79.0 or newer. Cargo installation does not automatically install every ancillary file, such as manual pages and shell completions.
+
+The project can also be consumed as a Rust library, subject to the README’s requirement that dependents enable either the `regex-onig` or `regex-fancy` feature. Its repository topics identify it as a CLI, terminal, Git, and syntax-highlighting tool. Licensing is dual MIT or Apache License 2.0 at the user’s option; the repository metadata reports Apache-2.0.
+
+The repository is not archived, lists four maintainers, provides contribution and security documentation, and has recent metadata activity, all of which indicate ongoing maintenance. This conclusion is based on those maintenance signals, not on Star or open-Issue counts.
+
+Important documented limitations include incomplete support for some environments and input types. Standard-input syntax detection may require a recognizable first line, such as a shebang, unless the language is specified explicitly. ANSI escape sequences and control characters can cause garbled highlighting or wrapping unless stripping or sanitization options are used. Native encoding support is limited to UTF-8 and UTF-16, so other encodings may require conversion. Best color results generally require a correctly detected truecolor terminal, while restricted terminals may need an 8-bit theme. Windows paging can require a separate `less` installation, native Windows builds do not directly accept Cygwin-style absolute paths, and older Windows or `less` versions have additional color and paging constraints. Custom themes must use the older `.tmTheme` format because `.sublime-color-scheme` files are not supported. The README also states that no Snap package is currently recommended or officially supported, and that the bundled man-page syntax still needs improvement.
+
+Issue Analysis
+
+Issues analyzed: 37
+
+Common problems:
+
+- Pager and terminal integration has repeated reports involving colors, wrapping, paging decisions, and environment options (#1618, #3833, #3724, #3738, #2497).
+
+- Documentation has repeated reports of stale, unclear, inconsistent, or broken content across the main and translated READMEs (#1948, #2455, #3839, #3730).
+
+- Multiple reports describe crashes or uncontrolled allocation from extreme dimensions, numeric ranges, or recursive custom syntax definitions (#3878, #3845, #3844).
+
+- Syntax coverage and highlighting limitations recur across requests or reports for Swift, Astro, Djot, JSON5, Device Tree Source, CSV, and zsh history (#3826, #2966, #3810, #3797, #3805, #3740, #2666).
+
+- Output style and decoration behavior generates repeated requests or reports concerning context-sensitive styles, component negation, and piped output (#3425, #1032, #3752, #3710).
+
+Confirmed problems:
+
+Unresolved problems:
+
+- The supplied data contains no explicit maintainer confirmation or resolution for the reported unbounded-memory behavior from a recursive custom syntax (#3878).
+
+- Two reproducible but unconfirmed reports describe capacity-overflow panics from an extreme end-relative line range and a width-one terminal with a double-width character (#3845, #3844).
+
+- Large-file seeking is reported to take over 25 seconds for about 94,000 lines, but the sample does not establish broader prevalence or a confirmed cause (#3831).
+
+- PowerShell paging is reported to lose colors with both an external and built-in pager, but this is an isolated report with no comments in the supplied data (#3833).
+
+- The open reports concerning man-page escape rendering, piped decorations, and `less` behavior remain unresolved in the supplied snapshots (#3724, #3710, #3738, #2497).
+
+Representative issues:
+
+- #3878: High-impact isolated report of recursive custom syntax causing unbounded memory consumption and macOS failure; detailed reproduction is provided, but no maintainer confirmation is present.
+
+- #3844: One detailed report identifies a width-underflow path that can panic when wrapping a double-width character in a one-column terminal.
+
+- #3831: Isolated performance report that seeking to the end of a large file is much slower through `bat` than through `less`.
+
+- #3724: Pager-related report where man-page bold reset codes become visible, while documented workarounds also remove links or introduce other display issues.
+
+- #3839: Documentation report listing broken relative links across several translated READMEs, representing the repeated documentation-maintenance concern.
+
+- #3826: Isolated Swift highlighting report with a proposed syntax-context root cause and a compact reproduction.
+
+- #3710: Output-semantics report that automatic decorations remain enabled in a pipeline when color is forced.
+
+Limitations:
+
+- The analysis covers all 37 supplied open Issues, selected by recent update time; it is not an analysis of every open or historical Issue in the repository.
+
+- Only the supplied Issue titles, bodies, labels, comment counts, states, and update timestamps were available; comment text and author or maintainer identities were not provided.
+
+- No problem is classified as maintainer-confirmed because the supplied data contains no explicit maintainer confirmation or maintainer-authored evidence.
+
+- Repeated themes show recurrence within this limited sample, but they do not establish prevalence across all users, supported platforms, or releases.
+
+- Open status does not prove that a report is valid, reproducible on the latest code, or still unfixed, and Issue count is not used as a measure of project quality.
+
+Release Advice
+
+Status: recommended
+
+Version: v0.26.1
+
+Summary: Release v0.26.1 (v0.26.1), published 2025-12-02T20:48:10Z, has a recommended asset: bat-v0.26.1-x86_64-pc-windows-msvc.zip, size 3613318 bytes, URL https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip. Compatibility rationale: Latest official release v0.26.1 includes this maintainer-uploaded ZIP archive for 64-bit Windows (x86_64, MSVC). It matches the requested Windows, x64, archive preferences. No file was downloaded or executed.
+
+Acquisition URL: https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip
+
+Integrity guidance: Before use, verify the asset at https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip against the published digest sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b. No file was downloaded, created, installed, extracted, or executed.
+
+Recommended release asset:
+
+- Name: bat-v0.26.1-x86_64-pc-windows-msvc.zip
+
+- Download URL: https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip
+
+- Size: 3613318
+
+- Digest: sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b
+
+Limitations:
+
+- Compatibility guidance is based on the supplied asset selection and release metadata.
+
+- Verify the asset digest on the user side before use.
+
+- No file was downloaded, created, installed, extracted, or executed.

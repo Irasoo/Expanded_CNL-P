@@ -1,0 +1,53 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Small Positive Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate. Control uses the old button; Variant uses the new button.
+- **Duration:** 7 days.
+- **Sample sizes:** Control: 1,000; Variant: 1,000.
+- **Conversion rates:** Control: 10.0%; Variant: 11.0%.
+- **Observed effect:** Absolute difference of 1.0 percentage point; relative lift of 10.0%.
+- **Statistical result:** p-value = 0.4657. The 95% confidence interval for the absolute difference is [-1.69, 3.69] percentage points. The result is **not statistically significant**.
+- **Power:** The test is underpowered. This is diagnostic context only and does not override the non-significant result.
+- **Sample ratio mismatch:** None detected.
+- **Guardrails:** No meaningful negative effects were observed; there is no guardrail concern.
+
+**Recommendation: extend.** The variant shows a positive observed lift, but the confidence interval includes both a decrease and an increase, and the p-value does not support statistical significance. Continue the experiment, monitor the primary metric and guardrails, and reassess statistical significance with additional data while confirming that no sample ratio mismatch emerges.

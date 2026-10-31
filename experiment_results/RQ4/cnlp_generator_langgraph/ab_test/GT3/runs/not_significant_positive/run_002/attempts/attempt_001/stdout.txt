@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The test ran for 7 days with 1,000 users in Control and 1,000 in Variant.
+
+**Statistical findings:** Control converted at 10.0% and Variant at 11.0%, an absolute increase of 1.0 percentage point and a relative lift of 10.0%. However, the result was not statistically significant: two-sided p-value = 0.466, with a 95% confidence interval for the absolute difference of -1.69 to +3.69 percentage points. The interval includes zero, so the observed improvement may be due to random variation.
+
+**Validity and risk:** The experiment was underpowered for the specified 1 percentage point minimum detectable effect. There was no sample ratio mismatch, so the observed 50/50 allocation does not indicate a traffic-allocation validity issue. No meaningful negative guardrail effects were reported.
+
+**Recommendation: Extend the experiment.** The directional result is positive, but the current evidence is insufficient to conclude that the new button improves conversion. Continue collecting data under the same allocation, then re-evaluate statistical significance, confidence interval, power status, sample ratio mismatch, and guardrails. Do not ship based on this result alone.

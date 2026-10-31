@@ -1,0 +1,54 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Results:** Over 14 days, Control recorded a 10.0% conversion rate (2,000 conversions from 20,000 users), and Variant also recorded 10.0% (2,000 from 20,000). The absolute difference was 0.00 percentage points, with a relative lift of 0.0%. The 95% confidence interval for the absolute difference was -0.588 to +0.588 percentage points. The two-sided p-value was 1.0, so the result is not statistically significant.
+
+**Validity:** Sample-size adequacy for the specified 1 percentage point minimum detectable effect was adequate at 80% power. No sample ratio mismatch was detected, so traffic allocation does not invalidate the result.
+
+**Guardrails:** No meaningful negative effects were observed, and no guardrail concern was identified.
+
+**Recommendation: Stop.** The experiment provides no evidence that the new button improves purchase conversion. Both groups had identical observed conversion rates, and the confidence interval excludes the specified 1 percentage point improvement.
+
+**Next steps:** End the test and do not ship the new button on the basis of conversion improvement. Document the flat result. If the new design has another product rationale, define that objective and its decision criteria before running a new experiment; otherwise, develop a materially different checkout change and a new hypothesis.

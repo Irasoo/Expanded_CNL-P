@@ -1,0 +1,53 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Button Guardrail Test**
+
+The hypothesis was that changing the checkout button from “Continue” to “Buy Now” would increase purchase conversion. The experiment ran for 14 days with 10,000 users in Control and 10,000 in Variant.
+
+Purchase conversion increased from 10.0% in Control to 12.0% in Variant: a 2.0 percentage-point absolute increase and 20.0% relative lift. The result is statistically significant (two-sided p-value: 6.19×10⁻⁶), with a 95% confidence interval for the absolute difference of 1.13 to 2.87 percentage points. No sample ratio mismatch was detected, so the observed allocation is consistent with the intended 50/50 split.
+
+The test is marked underpowered against the 1 percentage-point minimum detectable effect at 80% power. This is a diagnostic limitation, but it does not override the statistically significant conversion result.
+
+The guardrail raises a material concern: customer support contact rate increased from 2% to 5%, and the product team explicitly considers this a meaningful negative effect.
+
+**Recommendation: Investigate before shipping.** The Variant produced a statistically reliable conversion improvement, but the reported guardrail degradation prevents an unqualified rollout. Investigate why “Buy Now” increases support contacts, review the nature and impact of those contacts, and test a revised button treatment or supporting checkout copy. Continue monitoring purchase conversion and support contact rate in the follow-up test before making a shipping decision.

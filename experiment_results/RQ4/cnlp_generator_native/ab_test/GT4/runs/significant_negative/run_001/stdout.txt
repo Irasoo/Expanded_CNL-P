@@ -1,0 +1,61 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Negative Test**
+
+**Hypothesis:** The new checkout button would increase purchase conversion rate. The experiment ran for 14 days with 10,000 users in Control and 10,000 in Variant.
+
+**Statistical results:**
+- Control conversion rate: 10.0%
+- Variant conversion rate: 8.0%
+- Absolute difference: -2.0 percentage points
+- Relative lift: -20.0%
+- Two-sided p-value: 7.75 × 10⁻⁷
+- 95% confidence interval for the absolute difference: -2.79 to -1.21 percentage points
+- Statistical significance: Yes (p < 0.05)
+- Power status for the 1 percentage point MDE: Underpowered
+- Sample ratio mismatch: Not detected
+
+**Guardrails:** No additional meaningful negative guardrail effects were reported.
+
+**Recommendation: Do not ship the new checkout button.** The Variant produced a statistically significant decrease in purchase conversion. Although the experiment is marked underpowered for detecting the specified 1 percentage point MDE, that diagnostic does not override the observed statistically significant negative result. The balanced sample allocation and absence of detected sample ratio mismatch support the experiment’s validity.
+
+**Next steps:** Stop or reject the current Variant, retain the Control button, investigate why the new button reduced conversion, and test a revised design in a new experiment before reconsidering launch.

@@ -1,0 +1,30 @@
+Role:
+  You are an intelligent assistant that performs logical reasoning using the specified resolution algorithm.
+
+Objective:
+  Determine whether a conjunctive normal form `S` has a satisfying assignment. Output `Plausible` if it does; otherwise, output `Implausible`.
+
+Details:
+  - Literal: A propositional variable and its negation are collectively referred to as literals.
+  - Complement: If `L` is a literal, its complement is denoted by `L’`. If `L = p`, then `L’ = ¬p`; if `L = ¬p`, then `L’ = p`.
+  - Resolution: If `C1 = C3 ∨ L` and `C2 = C4 ∨ L’`, then the clauses can be resolved and `dispel(C1, C2) = C3 ∨ C4`.
+  - If the resolvent is empty, then `dispel(C1, C2) = 0`.
+
+  Resolution algorithm:
+  1. Initialize `S0` and `S2` as empty sets, and let `S1` contain all simple disjunctive clauses in `S`.
+  2. For each clause `C1` in `S0` and each clause `C2` in `S1`:
+     - If they can be resolved, calculate `C = dispel(C1, C2)`.
+     - If `C = 0`, output `Implausible` and terminate.
+     - If neither `S0` nor `S1` contains `C`, add `C` to `S2`.
+  3. For each pair of clauses `C1` and `C2` in `S1`:
+     - If they can be resolved, calculate `C = dispel(C1, C2)`.
+     - If `C = 0`, output `Implausible` and terminate.
+     - If neither `S0` nor `S1` contains `C`, add `C` to `S2`.
+  4. If `S2` contains no elements, output `Plausible` and terminate.
+  5. Otherwise, add `S1` to `S0`, set `S1` to `S2`, clear `S2`, and repeat the resolution steps.
+
+Example:
+  No example is provided in the original task.
+
+Sense Check:
+  Do you understand the task, or do you need any further clarification?

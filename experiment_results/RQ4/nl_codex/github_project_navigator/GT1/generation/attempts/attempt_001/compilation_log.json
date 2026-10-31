@@ -1,0 +1,83 @@
+{
+  "status": "failed",
+  "case_name": "github_project_navigator",
+  "compilation_method": "codex",
+  "trial_index": 1,
+  "trial_count": 1,
+  "attempt_index": 1,
+  "maximum_attempts": 20,
+  "agent_directory": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260910_000226\\github_project_navigator\\codex_1in1\\attempts\\attempt_001\\agent.nl",
+  "method_options": {
+    "reasoning_effort": "high"
+  },
+  "source_files": {
+    "agent.nl.md": {
+      "path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\github_project_navigator\\agent.nl.md",
+      "sha256": "61fe4e5f81af08f72c9e5413ac7e3624ab0b2d65cb835427269f779704635e18"
+    },
+    "reference_code.py": {
+      "path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\github_project_navigator\\reference_code.py",
+      "sha256": "0c23ec8d44b1a04bfb2a1bdb230af185850ca08de2b804bb8f5e4392024a175b"
+    },
+    "reference_code_for_codex.py": {
+      "path": "I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\github_project_navigator\\reference_code_for_codex.py",
+      "sha256": "f784f8871c2326fe29ab0081461149c05b05e7cf6573b0cad0fc4572342af920"
+    }
+  },
+  "started_at": "2026-09-09T16:17:35.023611+00:00",
+  "finished_at": "2026-09-09T16:20:07.936071+00:00",
+  "duration_seconds": 152.907,
+  "token_usage": null,
+  "method_details": {
+    "representation_inputs": {
+      "specification_file": "agent.nl.md",
+      "specification_sha256": "61fe4e5f81af08f72c9e5413ac7e3624ab0b2d65cb835427269f779704635e18",
+      "prompt_file": "compilation/codex.py::CODEX_COMPILATION_PROMPT",
+      "prompt_sha256": "3b221629e75d26206b383a2e86cad938ce9edba86ebeb77a1808692ba7a02755",
+      "reference_sha256": "f784f8871c2326fe29ab0081461149c05b05e7cf6573b0cad0fc4572342af920"
+    },
+    "codex_thread_id": "01a086f5-f8c6-76f3-873d-fb4e9882a04e",
+    "codex_turn_id": null,
+    "codex_turn_status": "failed",
+    "codex_turn_error": {
+      "type": "turn.failed",
+      "error": {
+        "message": "stream disconnected before completion: stream closed before response.completed"
+      }
+    },
+    "codex_duration_ms": 152844,
+    "codex_final_response": null,
+    "codex_events_file": "codex_events.jsonl",
+    "codex_event_counts": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "error": 6,
+      "turn.failed": 1
+    },
+    "codex_completed_item_counts": {},
+    "codex_tool_activity_count": 0,
+    "codex_successful_tool_activity_count": 0,
+    "codex_failed_tool_activity_count": 0,
+    "codex_non_json_line_count": 0,
+    "codex_container_image": "rq4-codex-runtime:0.147.0",
+    "codex_inner_sandbox": "danger-full-access",
+    "codex_isolation_boundary": "docker_single_temporary_workspace_mount",
+    "codex_model": "gpt-5.6-sol",
+    "codex_reasoning_effort": "high",
+    "codex_provider": "rq4_relay",
+    "codex_stderr": ""
+  },
+  "failure_category": "codex_attempt_failure",
+  "rq4_retryable": true,
+  "exception": {
+    "type": "RuntimeError",
+    "message": "Containerized Codex compilation failed.\nexit code: 1\nreported error:\n{\"type\": \"turn.failed\", \"error\": {\"message\": \"stream disconnected before completion: stream closed before response.completed\"}}\nstderr:\n",
+    "traceback": "Traceback (most recent call last):\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\compilation\\trial_runner.py\", line 187, in _execute_trial\n    compiler_function(\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\compilation\\codex.py\", line 1549, in compile_agent\n    _run_codex_in_container(\n  File \"I:\\CNL-P TOSEM Major Revision\\RQ4_NL\\compilation\\codex.py\", line 1179, in _run_codex_in_container\n    raise RuntimeError(\nRuntimeError: Containerized Codex compilation failed.\nexit code: 1\nreported error:\n{\"type\": \"turn.failed\", \"error\": {\"message\": \"stream disconnected before completion: stream closed before response.completed\"}}\nstderr:\n\n"
+  },
+  "subprocess": {
+    "exit_code": 1,
+    "termination_reason": "process_exit",
+    "stdout": "\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 0 | elapsed 00:08\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 0 | elapsed 00:08\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 1 | elapsed 00:27\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 2 | elapsed 00:44\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 3 | elapsed 01:01\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 4 | elapsed 01:37\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 5 | elapsed 02:09\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 6 | elapsed 02:29\r[Codex] failed | tools 0 done (0 failed) | file changes 0 | errors 6 | elapsed 02:29 \r\n",
+    "stderr": ""
+  }
+}

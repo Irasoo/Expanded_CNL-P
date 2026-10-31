@@ -1,0 +1,72 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics or concerns. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test Analysis**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.  
+**Variant:** Control used the old button; Variant used the new button.  
+**Duration:** 14 days  
+**Traffic allocation:** 50% Control / 50% Variant  
+**Primary metric:** Purchase conversion rate
+
+**Results**
+
+- Control: 2,000 conversions / 20,000 users = **10.0%**
+- Variant: 2,000 conversions / 20,000 users = **10.0%**
+- Absolute difference: **0 percentage points**
+- Relative lift: **0.0%**
+- Two-sided p-value: **1.00**
+- 95% confidence interval for the difference: **-0.588 to +0.588 percentage points**
+- Statistical significance: **No**; the p-value is not below 0.05
+- Power status: **Adequate** for the provided 1 percentage-point minimum detectable effect
+- Sample-ratio mismatch: **Not detected**; the observed sample sizes match the expected 50/50 allocation
+
+**Validity and Guardrails**
+
+The experiment has balanced sample sizes and no detected sample-ratio mismatch. The supplied guardrail information reports **no meaningful negative effects**, so there is no guardrail concern based on the available information.
+
+**Recommendation: Stop**
+
+Stop the experiment and do not ship the new button based on this test. The Variant produced exactly the same purchase conversion rate as Control, with no observed lift and no statistically significant evidence that it improves conversion. Adequate power supports the interpretation that the test was appropriately sized for the stated detectable effect, although it does not prove that the Variant has no smaller effect.
+
+**Next steps**
+
+Document the result as a flat outcome, retain the existing button decision, and review the test implementation and product rationale if further improvement is required. Any follow-up experiment should use a clearly defined alternative change or hypothesis and the same pre-specified primary and guardrail metrics.

@@ -1,0 +1,61 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+A/B Test Analysis: Checkout SRM Test
+
+- Hypothesis: The new checkout button will increase purchase conversion rate.
+- Duration: 14 days.
+- Sample sizes: Control 12,000; Variant 8,000.
+- Conversion rates: Control 10.0% (1,200/12,000); Variant 10.0% (800/8,000).
+- Absolute difference: 0.0 percentage points.
+- Relative lift: 0.0%.
+- P-value: 1.0.
+- 95% confidence interval for the difference: -0.00849 to 0.00849, or approximately -0.85 to +0.85 percentage points.
+- Statistical significance: Not significant.
+- Power status: Underpowered. This is diagnostic only and must not override the significance result.
+- Sample-ratio mismatch: Present. The intended allocation was 50%/50%, while observed traffic was 60% Control and 40% Variant.
+- Guardrails: No meaningful negative effects were observed; guardrail concern is false.
+- Metric availability: Purchase conversion rate is available.
+
+Recommendation: undetermined
+
+Reasoning: The variants had identical observed conversion rates, with no statistically significant difference. However, the sample-ratio mismatch and underpowered status make the result inconclusive.
+
+Practical next steps: Investigate and resolve the sample-ratio mismatch and verify assignment and measurement before relying on the result. Do not make a directional decision based on this test alone.

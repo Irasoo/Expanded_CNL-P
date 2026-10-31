@@ -1,0 +1,2474 @@
+﻿task_id,instance_id,model,language,instance_content,model_input,standard_output,model_output,extracted_answer,score
+1678,1,qwen3-max,original,"Problem: points a, b, c, and d, in that order, lie on a line. if ab = 3 cm, ac = 4 cm, and bd = 8 cm, what is cd, in centimeters ?
+Options: a. 7, b. 2, c. 3, d. 4, e. 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: points a, b, c, and d, in that order, lie on a line. if ab = 3 cm, ac = 4 cm, and bd = 8 cm, what is cd, in centimeters ?\nOptions: a. 7, b. 2, c. 3, d. 4, e. 5""}]",a,"We are given that points **a, b, c, d** lie **on a line in that order**, and:
+
+- **ab = 3 cm**
+- **ac = 4 cm**
+- **bd = 8 cm**
+
+We are to find **cd**.
+
+---
+
+### Step 1: Use positions on a number line
+Let’s place point **a** at position 0 (without loss of generality).
+
+So:
+- a = 0
+- Since ab = 3, point **b** is at 0 + 3 = **3**
+- ac = 4 → point **c** is at a + 4 = **4**
+
+So far:  
+a = 0  
+b = 3  
+c = 4  
+
+This makes sense with the order a, b, c — since 0 < 3 < 4.
+
+Now, we are told **bd = 8**, and since b = 3, then:
+
+- d = b + 8 = 3 + 8 = **11**
+
+(We assume the order a-b-c-d, so d must be to the right of b; so we add.)
+
+Now, **cd = d - c = 11 - 4 = 7**
+
+### Final Answer: **7**
+
+✅ Correct option: **a. 7**",A,1
+1678,2,qwen3-max,original,"Problem: a dog is tied to a tree by a long nylon cord. if the dog runs from the due north side of the tree to the due south side of the tree with the cord extended to its full length at all items, and the dog ran approximately 30 feet, what was the approximate length of the nylon cord, in feet ?
+Options: a. 30, b. 25, c. 15, d. 10, e. 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a dog is tied to a tree by a long nylon cord. if the dog runs from the due north side of the tree to the due south side of the tree with the cord extended to its full length at all items, and the dog ran approximately 30 feet, what was the approximate length of the nylon cord, in feet ?\nOptions: a. 30, b. 25, c. 15, d. 10, e. 5""}]",d,c,C,0
+1678,3,qwen3-max,original,"Problem: the ratio between x and y is 7 / 5; x is multiplied by y and y is multiplied by x, what is the ratio between the new values of x and y ?
+Options: a. 7 / 5, b. 5 / 7, c. 1, d. 49 / 25, e. it can not be determined","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the ratio between x and y is 7 / 5; x is multiplied by y and y is multiplied by x, what is the ratio between the new values of x and y ?\nOptions: a. 7 / 5, b. 5 / 7, c. 1, d. 49 / 25, e. it can not be determined""}]",c,"We are given:
+
+- The ratio between $ x $ and $ y $ is $ \frac{7}{5} $, so:
+  $$
+  \frac{x}{y} = \frac{7}{5} \Rightarrow x = \frac{7}{5}y
+  $$
+
+Then, the problem says:
+
+> ""$ x $ is multiplied by $ y $ and $ y $ is multiplied by $ x $""
+
+This means:
+- New value of $ x $ is $ x \cdot y $
+- New value of $ y $ is $ y \cdot x $
+
+So both new values are **the same**: $ xy $
+
+Therefore, the new ratio between the new $ x $ and new $ y $ is:
+$$
+\frac{xy}{yx} = \frac{xy}{xy} = 1
+$$
+
+✅ So the correct answer is:
+
+**c. 1**",C,1
+1678,4,qwen3-max,original,"Problem: tom opened a shop investing rs. 3000. jose joined him 2 months later, investing rs. 4500. they earned a profit of rs. 5400 after completion of one year. what will be jose ' s share of profit ?
+Options: a. 3000, b. 2200, c. 2309, d. 2400, e. 3200","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: tom opened a shop investing rs. 3000. jose joined him 2 months later, investing rs. 4500. they earned a profit of rs. 5400 after completion of one year. what will be jose ' s share of profit ?\nOptions: a. 3000, b. 2200, c. 2309, d. 2400, e. 3200""}]",a,"To find Jose's share of the profit, we need to consider **both the amount invested and the time period** for which each person invested.
+
+### Step 1: Determine investment × time for each partner
+
+- **Tom** invested Rs. 3000 for **12 months**  
+  ⇒ Tom's investment-time = 3000 × 12 = **36,000**
+
+- **Jose** joined 2 months later, so he invested for **10 months**  
+  ⇒ Jose's investment-time = 4500 × 10 = **45,000**
+
+### Step 2: Find the ratio of their investments
+
+- Tom : Jose = 36,000 : 45,000  
+  Simplify by dividing both by 9,000:  
+  ⇒ 4 : 5
+
+### Step 3: Total profit = Rs. 5400  
+Divide in the ratio 4 : 5
+
+- Total parts = 4 + 5 = 9  
+- Jose's share = (5/9) × 5400 = **3000**
+
+### Final Answer: **a. 3000**",A,1
+1678,5,qwen3-max,original,"Problem: the price of 3 pants and 6 t - shirts is rs. 750. with the same money one can buy 1 pant and 12 t - shirts. if one wants to buy 8 t - shirts, how much shall she have to pay ?
+Options: a. 150, b. 250, c. 400, d. 450, e. 550","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the price of 3 pants and 6 t - shirts is rs. 750. with the same money one can buy 1 pant and 12 t - shirts. if one wants to buy 8 t - shirts, how much shall she have to pay ?\nOptions: a. 150, b. 250, c. 400, d. 450, e. 550""}]",c,"Let the price of one pant be **P** and one t-shirt be **T**.
+
+From the problem:
+
+1. **3P + 6T = 750**  
+2. **1P + 12T = 750**
+
+We can solve these two equations.
+
+### Step 1: Use equation (2) to express P in terms of T
+From equation (2):  
+**P = 750 - 12T**
+
+### Step 2: Substitute into equation (1)
+3(750 - 12T) + 6T = 750  
+→ 2250 - 36T + 6T = 750  
+→ 2250 - 30T = 750  
+→ 30T = 2250 - 750 = 1500  
+→ **T = 50**
+
+Now plug back to find P:  
+P = 750 - 12×50 = 750 - 600 = **150**
+
+### Step 3: Find cost of 8 t-shirts  
+8 × T = 8 × 50 = **400**
+
+✅ Answer: **c. 400**",C,1
+1678,6,qwen3-max,original,"Problem: on a saturday night, each of the rooms at a certain motel was rented for either $ 40 or $ 60. if 10 of the rooms that were rented for $ 60 had instead been rented for $ 40, then the total rent the motel charged for that night would have been reduced by 40 percent. what was the total rent the motel actually charged for that night ?
+Options: a. $ 500, b. $ 800, c. $ 1,000, d. $ 1,600, e. $ 2,400","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: on a saturday night, each of the rooms at a certain motel was rented for either $ 40 or $ 60. if 10 of the rooms that were rented for $ 60 had instead been rented for $ 40, then the total rent the motel charged for that night would have been reduced by 40 percent. what was the total rent the motel actually charged for that night ?\nOptions: a. $ 500, b. $ 800, c. $ 1,000, d. $ 1,600, e. $ 2,400""}]",a,"Let the number of rooms rented for $60 be $ x $, and the number rented for $40 be $ y $.
+
+Then the **actual total rent** is:
+
+$$
+60x + 40y
+$$
+
+Now, suppose **10 of the $60 rooms** had instead been rented for $40. That means:
+
+- $ x - 10 $ rooms at $60
+- $ y + 10 $ rooms at $40
+
+New total rent would be:
+
+$$
+60(x - 10) + 40(y + 10) = 60x - 600 + 40y + 400 = 60x + 40y - 200
+$$
+
+We're told this new total is **40% less** than the original total. So:
+
+$$
+\text{New total} = (1 - 0.4)(\text{Original total}) = 0.6(60x + 40y)
+$$
+
+Set up the equation:
+
+$$
+60x + 40y - 200 = 0.6(60x + 40y)
+$$
+
+Let $ T = 60x + 40y $. Then:
+
+$$
+T - 200 = 0.6T
+$$
+
+Subtract $ 0.6T $ from both sides:
+
+$$
+0.4T = 200
+$$
+
+$$
+T = \frac{200}{0.4} = 500
+$$
+
+So the **actual total rent** is **$500**.
+
+Answer: **a. $500**",A,1
+1678,7,qwen3-max,original,"Problem: the l. c. m of two numbers is 2310 and their h. c. f is 30. if one number is 462 the other is
+Options: a. 330, b. 300, c. 270, d. 150, e. 350","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the l. c. m of two numbers is 2310 and their h. c. f is 30. if one number is 462 the other is\nOptions: a. 330, b. 300, c. 270, d. 150, e. 350""}]",d,"We are given:
+
+- LCM of two numbers = 2310  
+- HCF (GCD) of two numbers = 30  
+- One number = 462  
+- Find the other number.
+
+---
+
+### Key Concept:
+For any two numbers **a** and **b**:
+
+$$
+\text{LCM}(a, b) \times \text{HCF}(a, b) = a \times b
+$$
+
+Let the other number be **x**.
+
+So,
+
+$$
+2310 \times 30 = 462 \times x
+$$
+
+Calculate left-hand side:
+
+$$
+2310 \times 30 = 69300
+$$
+
+Now solve for **x**:
+
+$$
+x = \frac{69300}{462}
+$$
+
+Simplify:
+
+Divide numerator and denominator by 6:
+
+- 69300 ÷ 6 = 11550  
+- 462 ÷ 6 = 77
+
+So:
+
+$$
+x = \frac{11550}{77}
+$$
+
+Now divide:
+
+77 × 150 = 11550
+
+So:
+
+$$
+x = 150
+$$
+
+✅ Answer: **d. 150**",D,1
+1678,8,qwen3-max,original,"Problem: robert ' s salary was increased by 50 % and subsequently decreased by 10 %. how much percentage does he gain ?
+Options: a. 35 %, b. 20 %, c. 10 %, d. 25 %, e. 30 %","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: robert ' s salary was increased by 50 % and subsequently decreased by 10 %. how much percentage does he gain ?\nOptions: a. 35 %, b. 20 %, c. 10 %, d. 25 %, e. 30 %""}]",a,"Let Robert's original salary be **100** (for easy calculation).
+
+1. **Increased by 50%**:  
+   New salary = 100 + (50% of 100) = 100 + 50 = **150**
+
+2. **Decreased by 10%**:  
+   New salary = 150 − (10% of 150) = 150 − 15 = **135**
+
+So, final salary is **135**, compared to original **100**.
+
+**Net gain = 135 − 100 = 35**
+
+So, percentage gain = **35%**
+
+✅ Answer: **a. 35 %**",A,1
+1678,9,qwen3-max,original,"Problem: if the average of 5 positive integers is 50 and the difference between the largest and the smallest of these 5 numbers is 10, what is the maximum value possible for the largest of these 5 integers ?
+Options: a. 50, b. 58, c. 49, d. 48, e. 44","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if the average of 5 positive integers is 50 and the difference between the largest and the smallest of these 5 numbers is 10, what is the maximum value possible for the largest of these 5 integers ?\nOptions: a. 50, b. 58, c. 49, d. 48, e. 44""}]",b,"We are given:
+
+- The average of 5 **positive integers** is 50 → so their total sum is:  
+  $ 5 \times 50 = 250 $
+- The **difference** between the largest and smallest is **10**.
+- We are to find the **maximum possible value** for the **largest** integer.
+
+Let the smallest number be $ x $.  
+Then the largest number is $ x + 10 $.
+
+We want to **maximize** the largest number → that means we want to **maximize** $ x + 10 $, which implies we want to **maximize** $ x $.
+
+But we also have to keep the **sum** of all 5 numbers equal to 250, and all numbers must be **positive integers** between $ x $ and $ x+10 $, inclusive.
+
+To **maximize** the largest number $ x + 10 $, we should **minimize** the other three numbers (the ones that are neither the smallest nor the largest), because that leaves more ""room"" for the largest number.
+
+But note: the smallest number is $ x $, so **all numbers ≥ x**, and ≤ $ x + 10 $.
+
+So, to maximize $ x + 10 $, we should set **as many numbers as possible to the minimum value $ x $** (except the largest one), so that the largest can be as big as possible.
+
+So let's assume:
+- Smallest = $ x $
+- Three middle numbers = also $ x $ (minimum possible)
+- Largest = $ x + 10 $
+
+Then the total sum is:
+$$
+x + x + x + x + (x + 10) = 5x + 10
+$$
+
+Set this equal to 250:
+$$
+5x + 10 = 250 \\
+5x = 240 \\
+x = 48
+$$
+
+Then the largest number is:
+$$
+x + 10 = 48 + 10 = 58
+$$
+
+Now check: are all numbers positive integers? Yes: 48, 48, 48, 48, 58.  
+Average = $ (48*4 + 58)/5 = (192 + 58)/5 = 250/5 = 50 $. ✅  
+Difference = 58 - 48 = 10. ✅
+
+Can we get a larger maximum? Suppose we try to make the largest number **more than 58**, say 59. Then the smallest would be at least 49 (since difference is 10). Then **all numbers ≥ 49**, so the **minimum possible sum** would be: four 49s and one 59:  
+$ 49*4 + 59 = 196 + 59 = 255 > 250 $. Too big.
+
+So 58 is indeed the **maximum possible**.
+
+✅ Answer: **b. 58**
+
+**Answer: b**",B,1
+1678,10,qwen3-max,original,"Problem: if two dice are thrown together, the probability of getting an even prime number on the dice is
+Options: a. 1 / 36, b. 1 / 18, c. 1 / 13, d. 1 / 9, e. 5 / 36","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if two dice are thrown together, the probability of getting an even prime number on the dice is\nOptions: a. 1 / 36, b. 1 / 18, c. 1 / 13, d. 1 / 9, e. 5 / 36""}]",a,"We are given a problem involving two standard six-sided dice.
+
+**Step 1: Understand what is being asked.**  
+We are to find the **probability that the sum of the two dice is an even prime number**.
+
+**Step 2: Recall properties of prime numbers.**  
+- The only **even prime number** is **2**.
+- All other even numbers are not prime (since they are divisible by 2).
+- So, we are looking for the probability that the **sum of the two dice is 2**.
+
+**Step 3: Determine how many outcomes give a sum of 2.**  
+- The minimum value on each die is 1.
+- So, the only way to get a sum of 2 is: (1,1).
+
+That’s **1 favorable outcome**.
+
+**Step 4: Total possible outcomes when two dice are thrown.**  
+- Each die has 6 faces.
+- So total outcomes = 6 × 6 = **36**.
+
+**Step 5: Compute the probability.**  
+$$
+\text{Probability} = \frac{\text{Favorable outcomes}}{\text{Total outcomes}} = \frac{1}{36}
+$$
+
+**Answer: a. 1 / 36**
+
+✅ Final Answer: **a**",A,1
+1678,11,qwen3-max,original,"Problem: water consists of hydrogen and oxygen, and the approximate ratio, by mass, of hydrogen to oxygen is 2: 16. approximately how many grams of oxygen are there in 108 grams of water ?
+Options: a. 16, b. 96, c. 112, d. 128, e. 142","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: water consists of hydrogen and oxygen, and the approximate ratio, by mass, of hydrogen to oxygen is 2: 16. approximately how many grams of oxygen are there in 108 grams of water ?\nOptions: a. 16, b. 96, c. 112, d. 128, e. 142""}]",b,"We are given:
+
+- The mass ratio of hydrogen to oxygen in water is **2:16**.
+- Total mass of water = **108 grams**.
+- We are to find how many **grams of oxygen** are in this 108 grams of water.
+
+---
+
+### Step 1: Understand the ratio
+The ratio **hydrogen : oxygen = 2 : 16**  
+This means that for every **2 + 16 = 18 grams** of water, **16 grams are oxygen**.
+
+So, in 18 grams of water:
+- Hydrogen = 2 g
+- Oxygen = 16 g
+
+---
+
+### Step 2: Use proportion to find oxygen in 108 g of water
+
+Set up a proportion:
+
+$$
+\frac{16 \text{ g oxygen}}{18 \text{ g water}} = \frac{x}{108}
+$$
+
+Solve for $ x $:
+
+$$
+x = \frac{16}{18} \times 108
+$$
+
+$$
+x = \frac{8}{9} \times 108 = 96
+$$
+
+---
+
+### ✅ Answer: **96 grams of oxygen**
+
+Correct choice: **b. 96**",B,1
+1678,12,qwen3-max,original,"Problem: a bag contains 6 black and 7 white balls. one ball is drawn at random. what is the probability that the ball drawn is white ?
+Options: a. 4, b. 4 / 3, c. 4 / 5, d. 4 / 9, e. 7 / 13","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a bag contains 6 black and 7 white balls. one ball is drawn at random. what is the probability that the ball drawn is white ?\nOptions: a. 4, b. 4 / 3, c. 4 / 5, d. 4 / 9, e. 7 / 13""}]",e,"Total number of balls = 6 black + 7 white = **13 balls**
+
+Number of favorable outcomes (white ball) = **7**
+
+So, probability of drawing a white ball =  
+**7 / 13**
+
+Correct answer: **e. 7 / 13**",E,1
+1678,13,qwen3-max,original,"Problem: points a, b, and, c have xy - coordinates ( 2,0 ), ( 8,12 ), and ( 14,0 ), respectively. points x, y, and z have xy - coordinates ( 6,0 ), ( 8,4 ), and ( 10,0 ), respectively. what fraction d of the area of triangle abc is the area of triangle xyz ?
+Options: a. 1 / 9, b. 1 / 8, c. 1 / 6, d. 1 / 5, e. 1 / 3","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: points a, b, and, c have xy - coordinates ( 2,0 ), ( 8,12 ), and ( 14,0 ), respectively. points x, y, and z have xy - coordinates ( 6,0 ), ( 8,4 ), and ( 10,0 ), respectively. what fraction d of the area of triangle abc is the area of triangle xyz ?\nOptions: a. 1 / 9, b. 1 / 8, c. 1 / 6, d. 1 / 5, e. 1 / 3""}]",a,"We are given two triangles:
+
+- Triangle **ABC** with points:  
+  A = (2, 0),  
+  B = (8, 12),  
+  C = (14, 0)
+
+- Triangle **XYZ** with points:  
+  X = (6, 0),  
+  Y = (8, 4),  
+  Z = (10, 0)
+
+We are to find what **fraction d** of the area of triangle ABC is the area of triangle XYZ, i.e.,
+
+$$
+d = \frac{\text{Area of } \triangle XYZ}{\text{Area of } \triangle ABC}
+$$
+
+---
+
+### Step 1: Use the coordinate formula for area of a triangle
+
+For three points $(x_1, y_1), (x_2, y_2), (x_3, y_3)$, the area is:
+
+$$
+\text{Area} = \frac{1}{2} \left| x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) \right|
+$$
+
+---
+
+### Step 2: Compute area of triangle ABC
+
+Points:  
+A = (2, 0),  
+B = (8, 12),  
+C = (14, 0)
+
+Plug into formula:
+
+$$
+\text{Area}_{ABC} = \frac{1}{2} | 2(12 - 0) + 8(0 - 0) + 14(0 - 12) |
+$$
+$$
+= \frac{1}{2} | 2(12) + 8(0) + 14(-12) |
+= \frac{1}{2} | 24 + 0 - 168 |
+= \frac{1}{2} | -144 | = \frac{1}{2} (144) = 72
+$$
+
+✅ Area of triangle ABC = **72**
+
+---
+
+### Step 3: Compute area of triangle XYZ
+
+Points:  
+X = (6, 0),  
+Y = (8, 4),  
+Z = (10, 0)
+
+$$
+\text{Area}_{XYZ} = \frac{1}{2} | 6(4 - 0) + 8(0 - 0) + 10(0 - 4) |
+$$
+$$
+= \frac{1}{2} | 6(4) + 8(0) + 10(-4) |
+= \frac{1}{2} | 24 + 0 - 40 | = \frac{1}{2} | -16 | = \frac{1}{2}(16) = 8
+$$
+
+✅ Area of triangle XYZ = **8**
+
+---
+
+### Step 4: Find the fraction
+
+$$
+d = \frac{8}{72} = \frac{1}{9}
+$$
+
+---
+
+### ✅ Final Answer:
+
+**a. 1/9**",A,1
+1678,14,qwen3-max,original,"Problem: a can do a work in 15 days and b in 20 days. if they work on it together for 7 days, then the fraction of the work that is left is
+Options: a. 8 / 17, b. 7 / 15, c. 3 / 15, d. 8 / 15, e. 11 / 60","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a can do a work in 15 days and b in 20 days. if they work on it together for 7 days, then the fraction of the work that is left is\nOptions: a. 8 / 17, b. 7 / 15, c. 3 / 15, d. 8 / 15, e. 11 / 60""}]",e,"We are given:
+
+- **A can do a work in 15 days**, so A’s work rate is:  
+  $$
+  \frac{1}{15} \text{ of the work per day}
+  $$
+
+- **B can do the same work in 20 days**, so B’s work rate is:  
+  $$
+  \frac{1}{20} \text{ of the work per day}
+  $$
+
+### Step 1: Combined work rate
+Add their rates:
+$$
+\frac{1}{15} + \frac{1}{20}
+$$
+
+Find the least common denominator (LCM of 15 and 20 is 60):
+
+$$
+\frac{1}{15} = \frac{4}{60}, \quad \frac{1}{20} = \frac{3}{60}
+$$
+
+So together, they do:
+$$
+\frac{4}{60} + \frac{3}{60} = \frac{7}{60} \text{ of the work per day}
+$$
+
+### Step 2: Work done in 7 days
+In 7 days, they complete:
+$$
+7 \times \frac{7}{60} = \frac{49}{60}
+$$
+
+### Step 3: Fraction of work left
+Total work is 1, so remaining work is:
+$$
+1 - \frac{49}{60} = \frac{11}{60}
+$$
+
+### Final Answer:
+**e. 11 / 60** ✅",E,1
+1678,15,qwen3-max,original,"Problem: a man spends 2 / 5 of his salary on house rent, 3 / 10 of his salary on food and 1 / 8 of his salary on conveyance. if he has rs. 1400 left with him, find his expenditure on food and conveyance.
+Options: a. 3400, b. 2000, c. 3000, d. 4000, e. 5000","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a man spends 2 / 5 of his salary on house rent, 3 / 10 of his salary on food and 1 / 8 of his salary on conveyance. if he has rs. 1400 left with him, find his expenditure on food and conveyance.\nOptions: a. 3400, b. 2000, c. 3000, d. 4000, e. 5000""}]",a,"We are given:
+
+- A man spends:
+  - $ \frac{2}{5} $ of his salary on **house rent**,
+  - $ \frac{3}{10} $ on **food**,
+  - $ \frac{1}{8} $ on **conveyance**.
+- He has **Rs. 1400 left** after all these expenses.
+- We are to find his **total expenditure on food and conveyance**.
+
+---
+
+### Step 1: Let total salary be $ x $
+
+Total expenditure =  
+$$
+\frac{2}{5}x + \frac{3}{10}x + \frac{1}{8}x
+$$
+
+To add, find LCM of denominators 5, 10, 8 → LCM = **40**
+
+Convert each fraction:
+- $ \frac{2}{5} = \frac{16}{40} $
+- $ \frac{3}{10} = \frac{12}{40} $
+- $ \frac{1}{8} = \frac{5}{40} $
+
+So total spent =  
+$$
+\frac{16 + 12 + 5}{40}x = \frac{33}{40}x
+$$
+
+Money left =  
+$$
+x - \frac{33}{40}x = \frac{7}{40}x
+$$
+
+We are told this equals Rs. 1400:
+$$
+\frac{7}{40}x = 1400
+$$
+
+### Step 2: Solve for $ x $
+
+Multiply both sides by 40:
+$$
+7x = 56000 \Rightarrow x = \frac{56000}{7} = 8000
+$$
+
+So, total salary = **Rs. 8000**
+
+---
+
+### Step 3: Find expenditure on food and conveyance
+
+- Food = $ \frac{3}{10} \times 8000 = 2400 $
+- Conveyance = $ \frac{1}{8} \times 8000 = 1000 $
+
+Total = $ 2400 + 1000 = 3400 $
+
+---
+
+### ✅ Final Answer: **a. 3400**",A,1
+1678,16,qwen3-max,original,"Problem: every year an amount increases by 1 / 8 th of itself. how much will it be after two years if its present value is rs. 57600 ?
+Options: a. 81000, b. 81028, c. 27772, d. 72900, e. 22312","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: every year an amount increases by 1 / 8 th of itself. how much will it be after two years if its present value is rs. 57600 ?\nOptions: a. 81000, b. 81028, c. 27772, d. 72900, e. 22312""}]",d,"We are given that:
+
+- An amount increases **each year by 1/8th of itself**.
+- Present value = Rs. 57,600
+- We need to find the amount **after 2 years**.
+
+---
+
+### Step 1: Understand the growth pattern
+
+If an amount increases by $ \frac{1}{8} $ of itself each year, that means:
+
+$$
+\text{New amount} = \text{Old amount} + \frac{1}{8} \times \text{Old amount} = \left(1 + \frac{1}{8}\right) \times \text{Old amount} = \frac{9}{8} \times \text{Old amount}
+$$
+
+So, every year it gets multiplied by $ \frac{9}{8} $.
+
+After 2 years, the amount becomes:
+
+$$
+57600 \times \left(\frac{9}{8}\right)^2
+$$
+
+---
+
+### Step 2: Compute the value
+
+First compute $ \left(\frac{9}{8}\right)^2 = \frac{81}{64} $
+
+Now compute:
+
+$$
+57600 \times \frac{81}{64}
+$$
+
+Break it down:
+
+- $ \frac{57600}{64} = 900 $ (since 57600 ÷ 64 = 900)
+- Then $ 900 \times 81 = 72900 $
+
+---
+
+### Final Answer: **Rs. 72,900**
+
+Correct option: **d. 72900**
+
+✅ **Answer: d**",D,1
+1678,17,qwen3-max,original,"Problem: an empty fuel tank is filled with brand z gasoline. when the tank is 3 / 4 empty, it is filled with brand y gasoline. when the tank is half empty again, it is filled with brand z gasoline. when the tank is half empty again, it is filled with brand y gasoline. at this time, what percent of the gasoline in the tank is brand z ?
+Options: a. 40 %, b. 41 %, c. 31.25 %, d. 42 %, e. 44 %","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: an empty fuel tank is filled with brand z gasoline. when the tank is 3 / 4 empty, it is filled with brand y gasoline. when the tank is half empty again, it is filled with brand z gasoline. when the tank is half empty again, it is filled with brand y gasoline. at this time, what percent of the gasoline in the tank is brand z ?\nOptions: a. 40 %, b. 41 %, c. 31.25 %, d. 42 %, e. 44 %""}]",c,"We are given a sequence of fill-ups with different gasoline brands and need to track how much **brand Z** remains in the tank after each step.
+
+Assume the **total capacity of the tank is 1 unit** (e.g., 1 gallon or 1 liter). This simplifies calculations.
+
+---
+
+### Step 1: Fill empty tank with **Brand Z**
+- Tank now has **1 unit of Brand Z**.
+
+---
+
+### Step 2: When the tank is **3/4 empty**, it is filled with **Brand Y**.
+
+- ""3/4 empty"" means only **1/4 of the original fuel remains**.
+- So, **3/4 of the tank has been used**, leaving **1/4 unit of Brand Z**.
+- Now, we **fill the tank back to full** with Brand Y → add **3/4 unit of Brand Y**.
+- Tank now contains:
+  - **1/4 unit Brand Z**
+  - **3/4 unit Brand Y**
+
+---
+
+### Step 3: When the tank is **half empty again**, it is filled with **Brand Z**.
+
+- ""Half empty"" means we use **half of current total = 1/2 unit**.
+- The fuel being used is a **proportional mix** of what's in the tank:
+  - Brand Z: 1/4 of tank → fraction = (1/4) / 1 = **25%**
+  - Brand Y: 3/4 of tank → **75%**
+- So, when we use 1/2 unit, we remove:
+  - Brand Z: 25% of 1/2 = **1/8 unit**
+  - Brand Y: 75% of 1/2 = **3/8 unit**
+- Remaining fuel before refill:
+  - Brand Z: 1/4 − 1/8 = **1/8 unit**
+  - Brand Y: 3/4 − 3/8 = **3/8 unit**
+- Now, refill tank (which is half empty → 1/2 unit space) with **Brand Z**:
+  - Add **1/2 unit of Brand Z**
+- New contents:
+  - Brand Z: 1/8 + 1/2 = **5/8 unit**
+  - Brand Y: **3/8 unit**
+
+---
+
+### Step 4: When the tank is **half empty again**, it is filled with **Brand Y**.
+
+- Again, we use **half the tank = 1/2 unit**, which is a mix:
+  - Total = 1 unit
+  - Brand Z: 5/8 → fraction = (5/8) / 1 = **5/8**
+  - Brand Y: 3/8 → fraction = **3/8**
+- Fuel removed:
+  - Brand Z: 5/8 × 1/2 = **5/16**
+  - Brand Y: 3/8 × 1/2 = **3/16**
+- Remaining before refill:
+  - Brand Z: 5/8 − 5/16 = **5/16**
+  - Brand Y: 3/8 − 3/16 = **3/16**
+- Refill 1/2 unit with **Brand Y**:
+  - Add **1/2 = 8/16 unit Brand Y**
+- Final contents:
+  - Brand Z: **5/16**
+  - Brand Y: 3/16 + 8/16 = **11/16**
+
+---
+
+### Final Step: What percent is Brand Z?
+
+- Brand Z = 5/16
+- Convert to percent:  
+  $$
+  \frac{5}{16} = 0.3125 = 31.25\%
+  $$
+
+✅ Correct answer: **c. 31.25 %**",C,1
+1678,18,qwen3-max,original,"Problem: the sale price sarees listed for rs. 375 after successive discount is 20 % and 15 % is ?
+Options: a. 227, b. 268, c. 342, d. 787, e. 255","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the sale price sarees listed for rs. 375 after successive discount is 20 % and 15 % is ?\nOptions: a. 227, b. 268, c. 342, d. 787, e. 255""}]",e,"We are given:
+
+- **Marked price (List price)** of the saree = Rs. 375  
+- Two **successive discounts**: 20% and 15%  
+- We are to find the **final sale price** after applying both discounts.
+
+---
+
+### Step-by-step Calculation:
+
+**First discount = 20%**
+
+So, price after first discount =  
+= 375 − (20% of 375)  
+= 375 − (0.20 × 375)  
+= 375 − 75  
+= **300**
+
+**Second discount = 15%**
+
+Now apply 15% discount on the new price (Rs. 300):  
+= 300 − (15% of 300)  
+= 300 − (0.15 × 300)  
+= 300 − 45  
+= **255**
+
+---
+
+### Final Answer: **Rs. 255**
+
+So, the correct option is: **e. 255** ✅
+
+**Answer: e**",E,1
+1678,19,qwen3-max,original,"Problem: the smallest number which when diminished by 6, is divisible 12, 14, 16, 18 and 22 is :
+Options: a. 11099, b. 11094, c. 11091, d. 10323, e. 10483","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the smallest number which when diminished by 6, is divisible 12, 14, 16, 18 and 22 is :\nOptions: a. 11099, b. 11094, c. 11091, d. 10323, e. 10483""}]",b,"We are given a problem:
+
+> Find the smallest number which, when **diminished by 6**, is divisible by **12, 14, 16, 18, and 22**.
+
+---
+
+### Step 1: Let the number be $ N $
+
+We are told:
+> $ N - 6 $ is divisible by 12, 14, 16, 18, and 22.
+
+That means:
+$$
+N - 6 = \text{LCM}(12, 14, 16, 18, 22) \times k \quad \text{for some integer } k
+$$
+
+Since we want the **smallest** such $ N $, take $ k = 1 $. So:
+
+$$
+N = \text{LCM}(12, 14, 16, 18, 22) + 6
+$$
+
+---
+
+### Step 2: Compute LCM of 12, 14, 16, 18, 22
+
+We find prime factorizations:
+
+- $ 12 = 2^2 \cdot 3 $
+- $ 14 = 2 \cdot 7 $
+- $ 16 = 2^4 $
+- $ 18 = 2 \cdot 3^2 $
+- $ 22 = 2 \cdot 11 $
+
+Take the **highest powers** of all primes appearing:
+
+- $ 2^4 $ (from 16)
+- $ 3^2 $ (from 18)
+- $ 7 $ (from 14)
+- $ 11 $ (from 22)
+
+So:
+
+$$
+\text{LCM} = 2^4 \cdot 3^2 \cdot 7 \cdot 11
+$$
+
+Compute step-by-step:
+
+- $ 2^4 = 16 $
+- $ 3^2 = 9 $
+- $ 16 \cdot 9 = 144 $
+- $ 144 \cdot 7 = 1008 $
+- $ 1008 \cdot 11 = 11088 $
+
+So:
+$$
+N = 11088 + 6 = 11094
+$$
+
+---
+
+### Step 3: Match with options
+
+Options:
+- a. 11099  
+- **b. 11094** ✅  
+- c. 11091  
+- d. 10323  
+- e. 10483
+
+Correct answer: **b. 11094**
+
+✅ **Answer: b**",B,1
+1678,20,qwen3-max,original,"Problem: it is the new year and mandy has made a resolution to lose weight this year. she plans to exercise and do yoga. for exercise she plans to workout at the gym and ride her bicycle in the ratio of 2: 3 everyday. she will also do yoga in the ratio, yoga: exercise = 2: 3. if she rides her bike for 18 minutes, how much time will she spend doing yoga ? ( rounded to minutes )
+Options: a. 20 min., b. 41 min., c. 17 min., d. 23 min., e. 25 min.","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: it is the new year and mandy has made a resolution to lose weight this year. she plans to exercise and do yoga. for exercise she plans to workout at the gym and ride her bicycle in the ratio of 2: 3 everyday. she will also do yoga in the ratio, yoga: exercise = 2: 3. if she rides her bike for 18 minutes, how much time will she spend doing yoga ? ( rounded to minutes )\nOptions: a. 20 min., b. 41 min., c. 17 min., d. 23 min., e. 25 min.""}]",a,"We are given the following ratios:
+
+1. **Gym : Bicycle = 2 : 3**  
+2. **Yoga : Exercise = 2 : 3**, where ""Exercise"" = Gym + Bicycle
+
+We're told Mandy **rides her bicycle for 18 minutes**.
+
+---
+
+### Step 1: Use the gym:bike ratio to find time spent in gym.
+
+Let the common unit for the gym:bike ratio be **x**.
+
+- Gym = 2x  
+- Bicycle = 3x  
+
+But we’re told **Bicycle = 18 minutes**, so:
+
+$$
+3x = 18 \Rightarrow x = 6
+$$
+
+Then:
+
+- Gym = 2x = 12 minutes  
+- Bicycle = 18 minutes  
+- **Total exercise = 12 + 18 = 30 minutes**
+
+---
+
+### Step 2: Use yoga:exercise = 2:3
+
+Let the common unit for this ratio be **y**.
+
+- Yoga = 2y  
+- Exercise = 3y  
+
+But we already know **Exercise = 30 minutes**, so:
+
+$$
+3y = 30 \Rightarrow y = 10
+$$
+
+Then:
+
+- Yoga = 2y = **20 minutes**
+
+---
+
+### Final Answer: **a. 20 min.** ✅",A,1
+1678,21,qwen3-max,original,"Problem: in a house a hall is 20 m long, 15 m wide and 5 m high. its interior has to be covered with mat. what will be the total expenditure if it costs rs. 10 per square m ?
+Options: a. s. 9500, b. s. 50000, c. s. 57000, d. s. 60000, e. s. 62000","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in a house a hall is 20 m long, 15 m wide and 5 m high. its interior has to be covered with mat. what will be the total expenditure if it costs rs. 10 per square m ?\nOptions: a. s. 9500, b. s. 50000, c. s. 57000, d. s. 60000, e. s. 62000""}]",a,"We are given:
+
+- Dimensions of the hall:  
+  Length = 20 m  
+  Width = 15 m  
+  Height = 5 m  
+
+- Cost of matting = Rs. 10 per square meter
+
+We need to find the **total interior surface area** to be covered with mat.
+
+### Step 1: Understand what's being covered
+Since it's a **hall**, and we're covering the **interior**, this typically includes:
+- The **four walls** (lateral surface area)
+- The **ceiling**  
+(Usually, the floor is not ""covered with mat"" in such contexts unless specified. But let's check both possibilities.)
+
+However, in many similar problems, **matting** refers to covering **walls and ceiling**, **not the floor** — especially when talking about interior wall mats or acoustic mats.
+
+But let’s read carefully: “its interior has to be covered with mat.” That could imply **all interior surfaces**, which would include **walls, ceiling, and floor**.
+
+But in real-life context, **mat on the floor** is different from wall/ceiling matting. Also, since it's a **hall**, likely used for gatherings, it probably **does not include the floor**, as floor covering would be carpet, not ""mat"" in this sense.
+
+However, to be sure, let's compute **both** and see which matches an option.
+
+---
+
+### Option 1: Covering **walls and ceiling only**
+
+**Area of four walls** = 2 × height × (length + width)  
+= 2 × 5 × (20 + 15)  
+= 10 × 35 = **350 m²**
+
+**Ceiling area** = length × width = 20 × 15 = **300 m²**
+
+Total area = 350 + 300 = **650 m²**
+
+Cost = 650 × 10 = **Rs. 6500** → Not in options.
+
+Wait! That’s way too low. Options are in **thousands**: 9500, 50000, etc.
+
+Hmm. Maybe I misunderstood.
+
+Wait a second — maybe the question is referring to **total surface area of all interior faces**, including **floor, ceiling, and walls**?
+
+Let’s try that.
+
+### Option 2: Total interior surface area (floor + ceiling + 4 walls)
+
+- Floor = 20 × 15 = 300 m²  
+- Ceiling = 300 m²  
+- Walls = 2 × 5 × (20 + 15) = 350 m² (as before)
+
+Total = 300 + 300 + 350 = **950 m²**
+
+Cost = 950 × 10 = **Rs. 9500**
+
+That matches **option a: Rs. 9500**
+
+But wait — earlier I thought 650 m² gives 6500, which is not an option. But 950 m² gives **9500**, which **is** option **a**.
+
+So likely, the problem assumes **entire interior surface area**, including **floor**.
+
+But is that logical? Let's double-check the math.
+
+### Recalculate carefully:
+
+Given:
+- Length (L) = 20 m
+- Width (W) = 15 m
+- Height (H) = 5 m
+
+Surface areas:
+
+- Floor: L × W = 20 × 15 = 300
+- Ceiling: same = 300
+- Two longer walls: 2 × (L × H) = 2 × (20 × 5) = 200
+- Two shorter walls: 2 × (W × H) = 2 × (15 × 5) = 150
+
+Total = 300 + 300 + 200 + 150 = **950 m²**
+
+Yes.
+
+Total cost = 950 × 10 = **Rs. 9500**
+
+✅ Matches option **a**
+
+But wait — look at other options: they are like 50,000+, which would require areas of 5000+ m². That would be if someone mistakenly used volume or something.
+
+Alternatively, maybe the question meant **only walls**, but then why is 9500 an option?
+
+Hold on — maybe I made a mistake in unit interpretation?
+
+Let me read the problem again:
+
+> In a house a hall is 20 m long, 15 m wide and 5 m high. Its interior has to be covered with mat. What will be the total expenditure if it costs Rs. 10 per square m?
+
+“Covered with mat” — if it's a **mat**, maybe it's only the **floor**? Because we usually put **mats on the floor**, not on walls and ceiling!
+
+Ah! Now that’s a new angle.
+
+If it's **floor mat**, then area = 20 × 15 = 300 m²  
+Cost = 300 × 10 = Rs. 3000 → Not in options.
+
+So that doesn’t help.
+
+Alternatively, maybe it's a **mosquito net mat** or **acoustic panel** covering **walls and ceiling**, but again that gave 650 × 10 = 6500 — not an option.
+
+Only **total interior surface area** gives an answer **in the options**: **9500**
+
+Thus, the problem assumes **all interior surfaces** (floor, ceiling, and walls) are to be covered.
+
+Therefore, the correct answer is:
+
+**a. Rs. 9500**
+
+✅ Final Answer: **a**",A,1
+1678,22,qwen3-max,original,"Problem: sachin is older than rahul by 7 years. if the ratio of their ages is 11: 9, find the age of sachin
+Options: a. 24.5, b. 24.8, c. 38.5, d. 24.88, e. 24.19","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: sachin is older than rahul by 7 years. if the ratio of their ages is 11: 9, find the age of sachin\nOptions: a. 24.5, b. 24.8, c. 38.5, d. 24.88, e. 24.19""}]",c,"We are given:
+
+- Sachin is older than Rahul by 7 years.
+- The ratio of their ages is 11 : 9.
+
+Let Sachin's age be **11x** and Rahul's age be **9x**.
+
+Since Sachin is older by 7 years:
+
+$$
+11x - 9x = 7 \\
+2x = 7 \\
+x = \frac{7}{2} = 3.5
+$$
+
+Now, Sachin's age = $11x = 11 \times 3.5 = 38.5$
+
+✅ So, the correct answer is:
+
+**c. 38.5**",C,1
+1678,23,qwen3-max,original,"Problem: if n is a positive integer and the product of all integers from 1 to n, inclusive, is a multiple of 630, what is the least possible value of n ?
+Options: a. 5, b. 6, c. 7, d. 8, e. 9","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if n is a positive integer and the product of all integers from 1 to n, inclusive, is a multiple of 630, what is the least possible value of n ?\nOptions: a. 5, b. 6, c. 7, d. 8, e. 9""}]",c,"We are given that the product of all integers from 1 to $ n $, inclusive, is a multiple of **630**, and we are to find the **least possible value of $ n $**.
+
+The product of integers from 1 to $ n $ is $ n! $ (n factorial).
+
+So, we are looking for the **smallest $ n $** such that:
+$$
+630 \mid n!
+$$
+
+---
+
+### Step 1: Prime factorization of 630
+
+Let's factor 630:
+
+$$
+630 = 63 \times 10 = (7 \times 9) \times (2 \times 5) = 7 \times 3^2 \times 2 \times 5
+$$
+
+So the prime factorization is:
+$$
+630 = 2 \times 3^2 \times 5 \times 7
+$$
+
+Thus, $ n! $ must contain **at least**:
+- one factor of 2,
+- two factors of 3,
+- one factor of 5,
+- one factor of 7.
+
+We now look for the **smallest $ n $** such that $ n! $ contains all these prime factors with required multiplicities.
+
+---
+
+### Step 2: Check smallest $ n $ where $ n! $ has all needed primes
+
+- **Factor of 7**: First appears at $ n = 7 $. So $ n \geq 7 $
+- **Two factors of 3**: Need to check when we get at least $ 3^2 = 9 $ in $ n! $
+
+  - Number of factors of 3 in $ n! $ is:
+    $$
+    \left\lfloor \frac{n}{3} \right\rfloor + \left\lfloor \frac{n}{9} \right\rfloor + \cdots
+    $$
+
+    For $ n = 6 $: $ \lfloor 6/3 \rfloor + \lfloor 6/9 \rfloor = 2 + 0 = 2 $ → OK  
+    For $ n = 5 $: $ \lfloor 5/3 \rfloor = 1 $ → Not enough  
+    So need $ n \geq 6 $ for two 3s.
+
+- **Factor of 5**: Appears starting at $ n = 5 $
+- **Factor of 2**: Appears early, $ n \geq 2 $
+
+Now combine all conditions:
+
+- To have **7**, need $ n \geq 7 $
+- At $ n = 7 $, check if all required prime powers are present:
+
+  - 2: yes (multiple 2s in 7!)
+  - 3s: $ \lfloor 7/3 \rfloor + \lfloor 7/9 \rfloor = 2 + 0 = 2 $ → OK
+  - 5: $ \lfloor 7/5 \rfloor = 1 $ → OK
+  - 7: $ \lfloor 7/7 \rfloor = 1 $ → OK
+
+So **$ 7! $** contains all prime factors needed for 630.
+
+Now verify that **630 divides 7!**:
+
+- $ 7! = 5040 $
+- $ 5040 \div 630 = 8 $ → integer!
+
+So yes, 630 divides 7!
+
+Check if smaller $ n $ could work:
+
+- $ n = 6 $: $ 6! = 720 $. Does 630 divide 720?
+
+  - $ 720 / 630 = 1.142... $ → Not integer.
+  - Also, 6! does **not** include factor 7 → can't be divisible by 7 → so not divisible by 630.
+
+Thus, **least possible $ n $ is 7**.
+
+### Final Answer:
+c",C,1
+1678,24,qwen3-max,original,"Problem: the average of the marks of 30 students in a class is 45. if the marks of each student are doubled, find the new average ?
+Options: a. 85, b. 77, c. 33, d. 90, e. 75","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the average of the marks of 30 students in a class is 45. if the marks of each student are doubled, find the new average ?\nOptions: a. 85, b. 77, c. 33, d. 90, e. 75""}]",d,"We are given:
+
+- The original average of marks of 30 students = **45**.
+- Each student's marks are **doubled**.
+
+### Step 1: Understand what happens when all values are doubled
+If every value in a data set is multiplied by a constant (here, 2), then the **average is also multiplied by that constant**.
+
+So:
+
+$$
+\text{New average} = 45 \times 2 = 90
+$$
+
+### Final Answer:
+**d. 90**",D,1
+1678,25,qwen3-max,original,"Problem: what is the value of x ^ 2 yz − xyz ^ 2, if x = − 2, y = 1, and z = 1 ?
+Options: a. 6, b. 24, c. 30, d. 32, e. 48","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: what is the value of x ^ 2 yz − xyz ^ 2, if x = − 2, y = 1, and z = 1 ?\nOptions: a. 6, b. 24, c. 30, d. 32, e. 48""}]",a,"We are given the expression:
+
+$$
+x^2 y z - x y z^2
+$$
+
+and the values:
+
+- $ x = -2 $
+- $ y = 1 $
+- $ z = 1 $
+
+### Step 1: Plug in the values
+
+First, compute each part of the expression.
+
+**First term:**  
+$ x^2 y z = (-2)^2 \cdot 1 \cdot 1 = 4 \cdot 1 \cdot 1 = 4 $
+
+**Second term:**  
+$ x y z^2 = (-2) \cdot 1 \cdot (1)^2 = -2 \cdot 1 \cdot 1 = -2 $
+
+### Step 2: Subtract
+
+$$
+x^2 y z - x y z^2 = 4 - (-2) = 4 + 2 = 6
+$$
+
+### Final Answer:
+
+**a. 6**
+
+✅ Answer: **a**",A,1
+1678,26,qwen3-max,original,"Problem: at an upscale fast - food restaurant, shin can buy 3 burgers, 7 shakes, and one cola for $ 120. at the same place it would cost $ 164.50 for 4 burgers, 10 shakes, and one cola. how much would it cost for a meal of one burger, one shake, and one cola ?
+Options: a. $ 21, b. $ 27, c. $ 31, d. $ 41, e. it can not be determined","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: at an upscale fast - food restaurant, shin can buy 3 burgers, 7 shakes, and one cola for $ 120. at the same place it would cost $ 164.50 for 4 burgers, 10 shakes, and one cola. how much would it cost for a meal of one burger, one shake, and one cola ?\nOptions: a. $ 21, b. $ 27, c. $ 31, d. $ 41, e. it can not be determined""}]",c,"We are given two equations based on the problem:
+
+Let:  
+- $ b $ = price of one **burger**  
+- $ s $ = price of one **shake**  
+- $ c $ = price of one **cola**
+
+From the problem:
+
+1. $ 3b + 7s + c = 120 $  
+2. $ 4b + 10s + c = 164.50 $
+
+We are to find:  
+$ b + s + c = ? $
+
+---
+
+### Step 1: Subtract the first equation from the second
+Equation (2) − Equation (1):
+
+$$
+(4b - 3b) + (10s - 7s) + (c - c) = 164.50 - 120
+$$
+$$
+b + 3s = 44.50 \quad \text{(Equation 3)}
+$$
+
+---
+
+### Step 2: Express $ b $ in terms of $ s $
+From Equation 3:
+$$
+b = 44.50 - 3s
+$$
+
+---
+
+### Step 3: Plug into Equation 1
+Substitute $ b = 44.50 - 3s $ into Equation 1:
+
+$$
+3(44.50 - 3s) + 7s + c = 120
+$$
+$$
+133.5 - 9s + 7s + c = 120
+$$
+$$
+133.5 - 2s + c = 120
+$$
+$$
+c = 120 - 133.5 + 2s = -13.5 + 2s
+$$
+
+---
+
+### Step 4: Now compute $ b + s + c $
+
+We have:
+- $ b = 44.50 - 3s $
+- $ c = -13.5 + 2s $
+
+So:
+$$
+b + s + c = (44.50 - 3s) + s + (-13.5 + 2s)
+$$
+$$
+= 44.50 - 3s + s -13.5 + 2s
+$$
+$$
+= (44.50 - 13.5) + (-3s + s + 2s)
+$$
+$$
+= 31 + 0s = 31
+$$
+
+✅ So the total cost of **1 burger, 1 shake, and 1 cola** is **$31**.
+
+### Final Answer: **c. $31**",C,1
+1678,27,qwen3-max,original,"Problem: two dice are rolled. what is the probability that the sum on the top face of both the dice will be greater than 9 ?
+Options: a. 3 / 8, b. 2 / 3, c. 1 / 2, d. 1 / 3, e. 1 / 6","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: two dice are rolled. what is the probability that the sum on the top face of both the dice will be greater than 9 ?\nOptions: a. 3 / 8, b. 2 / 3, c. 1 / 2, d. 1 / 3, e. 1 / 6""}]",e,"To solve the problem, we consider all possible outcomes when **two standard six-sided dice** are rolled.
+
+### Step 1: Total number of outcomes
+Each die has 6 faces, so total outcomes =  
+$6 \times 6 = 36$
+
+### Step 2: Favorable outcomes (sum > 9)
+
+We want the number of outcomes where the sum is **greater than 9**, i.e., sums of **10, 11, or 12**.
+
+Let's list them:
+
+- **Sum = 10**:  
+  (4,6), (5,5), (6,4) → 3 outcomes
+
+- **Sum = 11**:  
+  (5,6), (6,5) → 2 outcomes
+
+- **Sum = 12**:  
+  (6,6) → 1 outcome
+
+Total favorable outcomes = $3 + 2 + 1 = 6$
+
+### Step 3: Compute probability
+
+$$
+\text{Probability} = \frac{\text{Favorable outcomes}}{\text{Total outcomes}} = \frac{6}{36} = \frac{1}{6}
+$$
+
+### Final Answer:
+**e. 1 / 6**",E,1
+1678,28,qwen3-max,original,"Problem: what is rate of interest if principal. amount be 400, simple interest 160 and time 2 year.
+Options: a. 10, b. 12.5, c. 20, d. 12, e. 14.5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: what is rate of interest if principal. amount be 400, simple interest 160 and time 2 year.\nOptions: a. 10, b. 12.5, c. 20, d. 12, e. 14.5""}]",c,"We are given:
+
+- Principal (P) = 400  
+- Simple Interest (SI) = 160  
+- Time (T) = 2 years  
+
+We need to find the **rate of interest (R)**.
+
+### Formula for Simple Interest:
+$$
+SI = \frac{P \times R \times T}{100}
+$$
+
+Substitute the known values:
+$$
+160 = \frac{400 \times R \times 2}{100}
+$$
+
+Simplify:
+$$
+160 = \frac{800R}{100}
+$$
+$$
+160 = 8R
+$$
+
+Now solve for R:
+$$
+R = \frac{160}{8} = 20
+$$
+
+### Correct answer: **c. 20**",C,1
+1678,29,qwen3-max,original,"Problem: in a certain game, a large bag is filled with blue, green, purple and red chips worth 1, 5, x and 11 points each, respectively. the purple chips are worth more than the green chips, but less than the red chips. a certain number of chips are then selected from the bag. if the product of the point values of the selected chips is 88,000, how many purple chips were selected ?
+Options: a. 1, b. 2, c. 3, d. 4, e. 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in a certain game, a large bag is filled with blue, green, purple and red chips worth 1, 5, x and 11 points each, respectively. the purple chips are worth more than the green chips, but less than the red chips. a certain number of chips are then selected from the bag. if the product of the point values of the selected chips is 88,000, how many purple chips were selected ?\nOptions: a. 1, b. 2, c. 3, d. 4, e. 5""}]",b,"We are told:
+
+- Blue chips = 1 point  
+- Green chips = 5 points  
+- Purple chips = **x** points, where **5 < x < 11**  
+- Red chips = 11 points  
+
+A selection of chips is made, and the **product** of their point values is **88,000**.
+
+We are to find **how many purple chips were selected**, given that their value is an integer **x** such that **5 < x < 11**, i.e., possible values: **6, 7, 8, 9, or 10**.
+
+---
+
+### Step 1: Prime factorization of 88,000
+
+Let’s factor 88,000:
+
+88,000 = 88 × 1000  
+= (8 × 11) × (10³)  
+= (2³ × 11) × (2×5)³  
+= (2³ × 11) × (2³ × 5³)  
+= 2^(3+3) × 5³ × 11  
+= **2⁶ × 5³ × 11¹**
+
+So:
+> **88,000 = 2⁶ × 5³ × 11**
+
+Now, recall chip values:
+
+- Blue = 1 → doesn't affect product (can be ignored)
+- Green = 5 → contributes factor of **5**
+- Red = 11 → contributes factor of **11**
+- Purple = x, where x ∈ {6,7,8,9,10}
+
+We need to express the product **88,000** as a product of these chip values. So the prime factors must come from multiplying some number of 5s (green), 11s (red), and x's (purple), possibly with 1s (blue, irrelevant).
+
+We already see **5³** and **11¹** in the factorization. That suggests:
+
+- **3 green chips** (each worth 5) → gives 5³  
+- **1 red chip** (worth 11) → gives 11¹
+
+Then the remaining factor is **2⁶**, but wait — do any of the chip values contribute **2s**?
+
+Yes! The purple chip value **x** (which is between 6 and 10) may include factors of 2.
+
+But note: **green = 5**, **red = 11**, **blue = 1** → none of these give factors of 2. So **all factors of 2 must come from purple chips**.
+
+So the **entire 2⁶** must come from the purple chip value(s).
+
+Therefore, the purple chip value **x** must be made up only of primes 2, 5, and/or 11? Wait — actually, **no**: if x had a prime factor other than 2, 5, or 11, then that prime would appear in the total product, which it doesn't. Since 88,000 = 2⁶ × 5³ × 11, **no other prime factors allowed**.
+
+So **x must be composed only of primes 2, 5, and/or 11**, and also satisfy **5 < x < 11**.
+
+Let’s check possible x values:
+
+- **6 = 2 × 3** → has prime factor **3** → Not allowed (3 not in factorization of 88,000) ❌  
+- **7 = prime** → 7 not in factorization → ❌  
+- **8 = 2³** → OK! Only prime factor is 2 → ✅  
+- **9 = 3²** → has 3 → ❌  
+- **10 = 2 × 5** → primes 2 and 5 → both are in factorization → ✅
+
+So possible x values: **8 or 10**
+
+Now test each possibility.
+
+---
+
+### Case 1: Purple chip = 8 = 2³
+
+Then each purple chip contributes **2³**
+
+We need total **2⁶**, so number of purple chips = **6 / 3 = 2**
+
+So **2 purple chips**
+
+Now check total product:
+
+- Purple: 8² = 2⁶  
+- Green: 5³ → 3 green chips  
+- Red: 11¹ → 1 red chip  
+- Blue: ignore
+
+Total product = 2⁶ × 5³ × 11 = 88,000 → ✅
+
+So this works. Answer would be **2**
+
+---
+
+### Case 2: Purple chip = 10 = 2 × 5
+
+Each purple chip contributes **2¹ × 5¹**
+
+Suppose we pick **k** purple chips → contributes **2ᵏ × 5ᵏ**
+
+We already have from green chips: 5³  
+But now total power of 5 would be **k + (number of green chips)**
+
+But total power of 5 in 88,000 is **3**
+
+Similarly, total power of 2 is **6**, so **k ≤ 6**
+
+Let’s denote:
+
+- g = number of green chips → contributes 5^g  
+- k = number of purple chips (value 10) → contributes 2^k × 5^k  
+- r = number of red chips → contributes 11^r
+
+We know total product = 2⁶ × 5³ × 11¹
+
+So:
+
+- 2: k = 6  
+- 5: g + k = 3 → but if k = 6, then g = -3 → impossible
+
+Alternatively, maybe **no green chips**, and all 5s come from purple chips?
+
+But then k = 3 (to get 5³), which gives 2³ only → need 2⁶ → missing 2³
+
+So try to solve:
+
+From red: r = 1 (since only one 11)
+
+From 2s: k = 6  
+From 5s: g + k = 3 → g = 3 - k = 3 - 6 = -3 → invalid
+
+So no solution with x = 10.
+
+Thus, **x cannot be 10**
+
+Only valid purple chip value is **8**, and that implies **2 purple chips**
+
+✅ Answer: **b. 2**",B,1
+1678,30,qwen3-max,original,"Problem: in how many no. between 10 and 30 exactly two of the digits is 2 ?
+Options: a. 25, b. 1, c. 35, d. 45, e. 50","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in how many no. between 10 and 30 exactly two of the digits is 2 ?\nOptions: a. 25, b. 1, c. 35, d. 45, e. 50""}]",b,"We are asked to find **how many numbers between 10 and 30 have exactly two of the digits equal to 2**.
+
+---
+
+### Step 1: Understand the range
+- Numbers **between 10 and 30** means: **11 to 29 inclusive**.
+- All these numbers are **two-digit numbers**.
+
+So, each number has **two digits**: tens and units.
+
+We are to count how many of these numbers have **exactly two digits that are 2**.
+
+But wait: a two-digit number has only **two digits**. So ""exactly two of the digits is 2"" means **both digits must be 2**.
+
+That would be the number **22**.
+
+Now check: Is 22 between 10 and 30?  
+Yes, 22 is in the range (10 < 22 < 30).
+
+So there's **only one** such number: **22**.
+
+Thus, the answer is **1**.
+
+✅ Correct option: **b. 1**",B,1
+1678,31,qwen3-max,original,"Problem: the area of a rectangular plot is 15 times its breadth. if the difference between the length and the breadth is 10 metres, what is its breadth ?
+Options: a. 10 metres, b. 5 metres, c. 7.5 metres, d. data inadequate, e. none of these","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the area of a rectangular plot is 15 times its breadth. if the difference between the length and the breadth is 10 metres, what is its breadth ?\nOptions: a. 10 metres, b. 5 metres, c. 7.5 metres, d. data inadequate, e. none of these""}]",b,"We are given:
+
+- Area of a rectangular plot = 15 × (its breadth)
+- Difference between length and breadth = 10 metres
+- Need to find the **breadth**
+
+---
+
+Let the **breadth** be $ b $ metres.  
+Then, the **length** $ l = b + 10 $ (since length – breadth = 10)
+
+Area of rectangle = $ l \times b = (b + 10) \cdot b $
+
+But we're also told:  
+> Area = 15 × breadth = $ 15b $
+
+So,
+
+$$
+(b + 10)b = 15b
+$$
+
+Simplify:
+
+$$
+b^2 + 10b = 15b
+$$
+
+Bring all terms to one side:
+
+$$
+b^2 + 10b - 15b = 0 \Rightarrow b^2 - 5b = 0
+$$
+
+Factor:
+
+$$
+b(b - 5) = 0
+$$
+
+So, $ b = 0 $ or $ b = 5 $
+
+Breadth can't be 0, so **$ b = 5 $ metres**
+
+✅ Answer: **b. 5 metres**
+
+**Answer: b**",B,1
+1678,32,qwen3-max,original,"Problem: if 50 apprentices can finish a job in 4 hours, and 30 journeymen can finish the same job in 8 hours, how much of the job should be completed by 10 apprentices and 15 journeymen in one hour ?
+Options: a. 1 / 9, b. 29 / 180, c. 9 / 80, d. 1 / 5, e. 39 / 121","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if 50 apprentices can finish a job in 4 hours, and 30 journeymen can finish the same job in 8 hours, how much of the job should be completed by 10 apprentices and 15 journeymen in one hour ?\nOptions: a. 1 / 9, b. 29 / 180, c. 9 / 80, d. 1 / 5, e. 39 / 121""}]",c,"We are given:
+
+- **50 apprentices** can finish the job in **4 hours**.  
+- **30 journeymen** can finish the job in **8 hours**.
+
+We are to find how much of the job is completed by **10 apprentices and 15 journeymen in 1 hour**.
+
+---
+
+### Step 1: Find work rates
+
+Let the total job = 1 unit.
+
+#### Apprentice rate:
+50 apprentices × 4 hours = 200 apprentice-hours to complete 1 job.  
+So, **1 apprentice** works at a rate of:
+
+$$
+\frac{1}{200} \text{ of the job per hour}
+$$
+
+#### Journeyman rate:
+30 journeymen × 8 hours = 240 journeyman-hours for 1 job.  
+So, **1 journeyman** works at a rate of:
+
+$$
+\frac{1}{240} \text{ of the job per hour}
+$$
+
+---
+
+### Step 2: Compute combined work in 1 hour by 10 apprentices and 15 journeymen
+
+- 10 apprentices → $10 \times \frac{1}{200} = \frac{10}{200} = \frac{1}{20}$
+- 15 journeymen → $15 \times \frac{1}{240} = \frac{15}{240} = \frac{1}{16}$
+
+Add them:
+
+$$
+\frac{1}{20} + \frac{1}{16}
+= \frac{4}{80} + \frac{5}{80}
+= \frac{9}{80}
+$$
+
+---
+
+### Final Answer:
+
+**$\frac{9}{80}$**
+
+That matches option **c**.
+
+✅ **Answer: c. 9 / 80**",C,1
+1678,33,qwen3-max,original,"Problem: a caterer ordered 125 ice - cream bars and 125 sundaes. if the total price was $ 225.00 and the price of each ice - cream bar was $ 0.60, what was the price of each sundae ?
+Options: a. $ 0.60, b. $ 0.80, c. $ 1.00, d. $ 1.20, e. $ 1.60","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a caterer ordered 125 ice - cream bars and 125 sundaes. if the total price was $ 225.00 and the price of each ice - cream bar was $ 0.60, what was the price of each sundae ?\nOptions: a. $ 0.60, b. $ 0.80, c. $ 1.00, d. $ 1.20, e. $ 1.60""}]",d,"We are given:
+
+- 125 ice-cream bars at $0.60 each  
+- 125 sundaes at an unknown price  
+- Total cost = $225.00  
+
+### Step 1: Calculate the total cost of ice-cream bars
+$$
+125 \times 0.60 = 75
+$$
+So, $75 was spent on ice-cream bars.
+
+### Step 2: Subtract to find total cost of sundaes
+$$
+225 - 75 = 150
+$$
+So, $150 was spent on sundaes.
+
+### Step 3: Divide by number of sundaes
+$$
+150 \div 125 = 1.20
+$$
+
+### Final Answer:
+**d. $1.20**",D,1
+1678,34,qwen3-max,original,"Problem: 50 men took a dip in a water tank 30 m long and 20 m broad on a religious day. if the average displacement of water by a man is 4 m 3, then the rise in the water level in the tank will be :
+Options: a. 20 cm, b. 25 cm, c. 33.3 cm, d. 50 cm, e. none of these","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: 50 men took a dip in a water tank 30 m long and 20 m broad on a religious day. if the average displacement of water by a man is 4 m 3, then the rise in the water level in the tank will be :\nOptions: a. 20 cm, b. 25 cm, c. 33.3 cm, d. 50 cm, e. none of these""}]",c,"We are given:
+
+- Number of men = 50  
+- Average water displacement per man = 4 m³  
+- Length of tank = 30 m  
+- Breadth of tank = 20 m  
+
+We are to find the **rise in water level** in the tank due to the displacement caused by the 50 men.
+
+---
+
+### Step 1: Total volume displaced
+
+Total displaced volume = number of men × displacement per man  
+= 50 × 4 m³  
+= **200 m³**
+
+---
+
+### Step 2: Relate volume to rise in water level
+
+The tank is a rectangular prism, so the volume of water added (or displaced) is:
+
+$$
+\text{Volume} = \text{length} \times \text{breadth} \times \text{rise in height}
+$$
+
+Let the rise in height be **h** meters.
+
+$$
+200 = 30 \times 20 \times h = 600h
+$$
+
+$$
+h = \frac{200}{600} = \frac{1}{3} \text{ m} = 0.333... \text{ m} = 33.33... \text{ cm}
+$$
+
+---
+
+### Final Answer:
+
+**33.3 cm**
+
+✅ Correct option: **c**
+
+Answer: **c**",C,1
+1678,35,qwen3-max,original,"Problem: find the maximum value of the function f ( x ) = x − 5 if x is a number between - 5 and 13.
+Options: a. 6, b. 7, c. 8, d. 9, e. none","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: find the maximum value of the function f ( x ) = x − 5 if x is a number between - 5 and 13.\nOptions: a. 6, b. 7, c. 8, d. 9, e. none""}]",c,"We are given the function:  
+**f(x) = x − 5**  
+and the domain: **x is between −5 and 13**.
+
+Assuming this is an **inclusive** interval (i.e., −5 ≤ x ≤ 13), we want to find the **maximum value** of f(x) on this interval.
+
+Since f(x) = x − 5 is a **linear function** with a positive slope (slope = 1), it is **increasing**.  
+So, its maximum occurs at the **maximum x**, which is **x = 13**.
+
+Compute:  
+f(13) = 13 − 5 = **8**
+
+Now check the options:  
+a. 6  
+b. 7  
+c. 8  
+d. 9  
+e. none
+
+The correct answer is **8**, which is option **c**.
+
+**Answer: c**",C,1
+1678,36,qwen3-max,original,"Problem: in cliff ’ s impressive rock collection, there are half as many igneous rocks as sedimentary rocks. of the igneous rocks, 2 / 3 are shiny and the rest are matte, while 1 / 5 of the sedimentary rocks are shiny. if there are 40 shiny igneous rocks, how many total rocks does cliff have ?
+Options: a. 180, b. 45, c. 60, d. 90, e. 135","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: in cliff ’ s impressive rock collection, there are half as many igneous rocks as sedimentary rocks. of the igneous rocks, 2 / 3 are shiny and the rest are matte, while 1 / 5 of the sedimentary rocks are shiny. if there are 40 shiny igneous rocks, how many total rocks does cliff have ?\nOptions: a. 180, b. 45, c. 60, d. 90, e. 135""}]",a,"We are given:
+
+- There are **half as many igneous rocks as sedimentary rocks**.  
+  So:  
+  $$
+  I = \frac{1}{2}S
+  $$
+
+- Of the **igneous rocks**, **2/3 are shiny**.  
+  So shiny igneous rocks = $ \frac{2}{3}I $
+
+- We're told there are **40 shiny igneous rocks**:  
+  $$
+  \frac{2}{3}I = 40
+  $$
+
+Let’s solve for $ I $:
+
+$$
+I = \frac{40 \times 3}{2} = 60
+$$
+
+Now, since $ I = \frac{1}{2}S $, then:
+
+$$
+S = 2I = 2 \times 60 = 120
+$$
+
+Total rocks = igneous + sedimentary = $ I + S = 60 + 120 = 180 $
+
+✅ Answer: **a. 180**
+
+**Answer: a**",A,1
+1678,37,qwen3-max,original,"Problem: if 15 % of a is the same as 40 % of b, then a: b is :
+Options: a. 5: 4, b. 8: 3, c. 7: 16, d. 2: 17, e. 3: 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if 15 % of a is the same as 40 % of b, then a: b is :\nOptions: a. 5: 4, b. 8: 3, c. 7: 16, d. 2: 17, e. 3: 5""}]",b,"We are given:
+
+> 15% of a = 40% of b
+
+### Step 1: Write as an equation
+$$
+0.15a = 0.40b
+$$
+
+### Step 2: Eliminate decimals by multiplying both sides by 100:
+$$
+15a = 40b
+$$
+
+### Step 3: Solve for the ratio $ a : b $
+
+Divide both sides by $ b $, and also by 15:
+$$
+\frac{a}{b} = \frac{40}{15} = \frac{8}{3}
+$$
+
+So,
+$$
+a : b = 8 : 3
+$$
+
+### Final Answer:
+**b**",B,1
+1678,38,qwen3-max,original,"Problem: a pump will fill a tank in 3 hours. because of a leak in the tank, it took 3 hours 30 min to fill the tank. in what time the leak can drain out all the water of the tank and will make tank empty ?
+Options: a. 20 hrs, b. 21 hrs, c. 22 hrs, d. 23 hrs, e. 24 hrs","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a pump will fill a tank in 3 hours. because of a leak in the tank, it took 3 hours 30 min to fill the tank. in what time the leak can drain out all the water of the tank and will make tank empty ?\nOptions: a. 20 hrs, b. 21 hrs, c. 22 hrs, d. 23 hrs, e. 24 hrs""}]",b,"We are given:
+
+- A pump fills the tank in **3 hours**.
+- Due to a leak, it takes **3 hours 30 minutes** (i.e., **3.5 hours**) to fill the tank.
+- We are to find how long it would take for the **leak alone** to **empty** a full tank.
+
+---
+
+### Step 1: Define rates
+
+Let’s work with **rates** (tank per hour).
+
+- Pump's filling rate = $ \frac{1}{3} $ tank/hour.
+- Let the leak’s emptying rate be $ \frac{1}{x} $ tank/hour (we want to find $ x $).
+- Net filling rate with leak = $ \frac{1}{3} - \frac{1}{x} $.
+
+But we know that with the leak, the tank fills in **3.5 hours**, so the **net rate** is:
+
+$$
+\text{Net rate} = \frac{1}{3.5} = \frac{2}{7} \text{ tank/hour}
+$$
+
+So,
+
+$$
+\frac{1}{3} - \frac{1}{x} = \frac{2}{7}
+$$
+
+---
+
+### Step 2: Solve for $ x $
+
+$$
+\frac{1}{3} - \frac{2}{7} = \frac{1}{x}
+$$
+
+Find common denominator:
+
+$$
+\frac{7 - 6}{21} = \frac{1}{21}
+$$
+
+So,
+
+$$
+\frac{1}{x} = \frac{1}{21} \Rightarrow x = 21
+$$
+
+---
+
+### Final Answer:
+
+**b. 21 hrs** ✅",B,1
+1678,39,qwen3-max,original,"Problem: tourist purchased a total of 30 travelers checks in $ 50 and $ 100 denominations. the total worth of the travelers checks is $ 1800. how many checks of $ 50 denominations can he spend so that average amount ( arithmetic mean ) of the remaining travelers checks is $ 100 ?
+Options: a. 4, b. 12, c. 15, d. 20, e. 24","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: tourist purchased a total of 30 travelers checks in $ 50 and $ 100 denominations. the total worth of the travelers checks is $ 1800. how many checks of $ 50 denominations can he spend so that average amount ( arithmetic mean ) of the remaining travelers checks is $ 100 ?\nOptions: a. 4, b. 12, c. 15, d. 20, e. 24""}]",e,"We are given:
+
+- Total number of traveler’s checks = 30  
+- Denominations: $50 and $100  
+- Total value = $1800  
+- Goal: Determine how many **$50 checks** the tourist can **spend** so that the **average value of the remaining checks is $100**.
+
+Let’s define variables:
+
+Let:
+- $ x $ = number of **$50** checks originally  
+- $ y $ = number of **$100** checks originally  
+
+From the problem:
+1. $ x + y = 30 $  (total number of checks)  
+2. $ 50x + 100y = 1800 $  (total value)
+
+---
+
+### Step 1: Solve for x and y
+
+From equation (1):  
+$ y = 30 - x $
+
+Substitute into equation (2):
+$$
+50x + 100(30 - x) = 1800 \\
+50x + 3000 - 100x = 1800 \\
+-50x + 3000 = 1800 \\
+-50x = -1200 \\
+x = 24
+$$
+
+So, originally:
+- $ x = 24 $ checks of $50  
+- $ y = 6 $ checks of $100  
+
+Check total value:  
+$ 24 \cdot 50 + 6 \cdot 100 = 1200 + 600 = 1800 $ ✅
+
+---
+
+### Step 2: Let the tourist **spend** $ s $ of the $50 checks.
+
+Then:
+- Remaining number of checks = $ 30 - s $
+- Remaining total value = $ 1800 - 50s $
+
+We are told the **average value of the remaining checks is $100**:
+
+$$
+\frac{1800 - 50s}{30 - s} = 100
+$$
+
+Multiply both sides by $ 30 - s $:
+
+$$
+1800 - 50s = 100(30 - s) \\
+1800 - 50s = 3000 - 100s \\
+\text{Bring all terms to one side:} \\
+-50s + 100s = 3000 - 1800 \\
+50s = 1200 \\
+s = 24
+$$
+
+So, he must spend **24 of the $50 checks**.
+
+Now double-check:
+
+- Spends 24 × $50 = $1200  
+- Remaining amount = $1800 - $1200 = $600  
+- Remaining checks = 30 - 24 = 6  
+- Average = $600 / 6 = $100 ✅
+
+Also, note: originally there were 6 $100 checks, so after spending all 24 $50 checks, only the six $100 checks remain — makes sense.
+
+### Final Answer:
+**e. 24**
+
+✅ Answer: **e**",E,1
+1678,40,qwen3-max,original,"Problem: 3 people took gmat practice tests in which the minimum and maximum possible scores are 200 and 800, respectively. they each took a test 3 times, and no one scored below 400 or over 700. if the individual ranges of the 3 people ' s scores in those 3 practice tests were 40, 70 and 100, what is the difference between the maximum and minimum possible ranges of all their scores put together.
+Options: a. 70, b. 80, c. 100, d. 140, e. 200","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: 3 people took gmat practice tests in which the minimum and maximum possible scores are 200 and 800, respectively. they each took a test 3 times, and no one scored below 400 or over 700. if the individual ranges of the 3 people ' s scores in those 3 practice tests were 40, 70 and 100, what is the difference between the maximum and minimum possible ranges of all their scores put together.\nOptions: a. 70, b. 80, c. 100, d. 140, e. 200""}]",e,"We are given:
+
+- 3 people took the GMAT 3 times each → total of 9 scores.
+- GMAT score bounds: **200 to 800**, but **no one scored below 400 or above 700**, so all scores are in **[400, 700]**.
+- Each person has their own **score range** (i.e., max – min over their 3 tests): **40, 70, and 100**.
+- We are to find the **difference between the maximum and minimum possible ranges of all their scores combined** (i.e., range = overall max score among all 9 scores – overall min score among all 9 scores).
+- Then compute: **(maximum possible overall range) – (minimum possible overall range)**.
+
+---
+
+### Step 1: Understand what's being asked
+
+Let’s denote:
+- Person A: range = 40
+- Person B: range = 70
+- Person C: range = 100
+
+(Which person has which range doesn't matter; we can assign as needed to maximize/minimize the total range.)
+
+We need to find:
+- **Maximum possible overall range**: make the **highest score as high as possible (≤700)** and **lowest as low as possible (≥400)**, consistent with individual ranges.
+- **Minimum possible overall range**: make all scores fall within the **narrowest possible interval**, while still respecting that each person has their own range (40, 70, 100).
+
+Then subtract: **Max overall range – Min overall range**.
+
+---
+
+### Step 2: Find **maximum possible overall range**
+
+To **maximize** the overall range, we want:
+- Someone to have a score at **700** (the highest allowed),
+- Someone (maybe same or different person) to have a score at **400** (the lowest allowed),
+- But must respect individual ranges.
+
+Let’s see if it's possible to have a person with a score of **700** and their range is, say, 100 → then their lowest score would be **600**. That doesn’t help get down to 400.
+
+But if we want a score of **400**, then for that person:
+- If their range is 100 → max score = 500.
+- If their range is 70 → max = 470.
+- If range is 40 → max = 440.
+
+Similarly, to get a score of **700**, the person must have:
+- If range = 100 → min = 600.
+- If range = 70 → min = 630.
+- If range = 40 → min = 660.
+
+So to reach **both 400 and 700**, we need **at least two different people**: one whose scores go down to 400, another whose scores go up to 700.
+
+Now, can we assign the **largest individual range (100)** to one person to cover from 400 to 500, and another person (with range 100) to cover 600–700? Wait, but only **one person** has range 100. The others have smaller ranges.
+
+But we don't need a single person to span from 400 to 700. The overall range is across **all** scores.
+
+So best case:
+- Assign the person with **range 100** to span from **400 to 500** (min = 400, max = 500).
+- Assign another person (say, with range 70) to span from **630 to 700** (min = 630, max = 700).
+- Third person (range 40) can be anywhere in between, doesn't affect extremes.
+
+Is that allowed? Yes, because all scores are within [400,700], and individual ranges are respected.
+
+Alternatively, even better: assign range 100 to go from **600 to 700**, and range 70 to go from **400 to 470**. Either way, we can get **overall min = 400**, **overall max = 700**.
+
+But wait: can someone with range 70 start at 400? Yes: scores could be 400, 430, 470 → range = 70. OK.
+
+Can someone with range 100 reach 700? Yes: 600, 650, 700 → range = 100. OK.
+
+So **overall max range = 700 – 400 = 300**.
+
+But hold on! Is 300 actually achievable? Let's double-check constraints:
+
+- All scores must be between 400 and 700 → yes.
+- Each person’s own range must be exactly 40, 70, 100 (or **at most**? The problem says: “the individual ranges ... were 40, 70 and 100” → so **exactly** those values).
+- So yes, we can set:
+  - Person A (range 70): scores = 400, 400, 470 → range = 70.
+  - Person B (range 40): scores = anything between, say 500–540.
+  - Person C (range 100): scores = 600, 700, 650 → range = 100.
+
+Then overall min = 400, overall max = 700 → overall range = **300**.
+
+So **maximum possible overall range = 300**.
+
+---
+
+### Step 3: Find **minimum possible overall range**
+
+Now we want to **minimize** the overall range, i.e., make the **highest score among all 9** as close as possible to the **lowest score among all 9**, while still having individual ranges of 40, 70, 100.
+
+This means we want to **overlap** the individuals’ scores as much as possible.
+
+The key idea: the overall range must be **at least as large as the largest individual range**, which is **100**, but maybe more, because the person with range 100 might not be able to fully contain the others' ranges unless positioned correctly.
+
+But perhaps we can arrange all three people’s scores within a **100-point window**, since the largest individual range is 100.
+
+Let’s test that.
+
+Suppose we choose an interval of length **100**, say from **x to x+100**. Can we fit all three people’s scores inside this interval, while giving them ranges 40, 70, and 100?
+
+Yes:
+- Person with range 100: must use full interval, e.g., scores at x and x+100.
+- Person with range 70: can have scores between x and x+70 (or x+30 to x+100, etc.), still within interval.
+- Person with range 40: similarly.
+
+So **overall range could be 100**.
+
+But can we do **better** (i.e., less than 100)? Suppose overall range = R < 100.
+
+Then **all scores** lie within some interval of length R < 100.
+
+But one person has range **100**, meaning their own max – min = 100, which would **not fit** in an interval of length < 100.
+
+Therefore, **minimum possible overall range = 100**.
+
+So overall range ∈ [100, 300].
+
+Thus, **difference between maximum and minimum possible overall ranges = 300 – 100 = 200**.
+
+Wait! But hold on. Are we sure the **maximum overall range is 300**?
+
+Remember: **individual scores cannot exceed 700 or go below 400**, so the absolute maximum possible overall range is **700 – 400 = 300**. And we showed it's achievable.
+
+And minimum is **100**, due to the person with range 100.
+
+So answer = **200**.
+
+Look at options:
+
+a. 70  
+b. 80  
+c. 100  
+d. 140  
+e. 200  
+
+✅ Answer: **e. 200**
+
+But wait—let me double-check if there's any hidden constraint I missed.
+
+> ""they each took a test 3 times, and no one scored below 400 or over 700.""
+
+So per-person scores ∈ [400,700]. OK.
+
+> ""the individual ranges of the 3 people's scores in those 3 practice tests were 40, 70 and 100""
+
+So each person’s own max – min = given value. OK.
+
+> ""what is the difference between the maximum and minimum possible ranges of all their scores put together.""
+
+“All their scores put together” = combine all 9 scores, take max – min.
+
+Yes.
+
+So max overall range = 300 (400 to 700). Achievable? Let's explicitly construct:
+
+- Person A (range 100): 400, 450, 500 → range = 100. (min = 400)
+- Person B (range 70): 630, 665, 700 → range = 70. (max = 700)
+- Person C (range 40): say 550, 570, 590 → range = 40.
+
+All scores ∈ [400,700]. Overall min = 400, max = 700 → range = 300.
+
+Alternatively, assign range 100 to top, 70 to bottom:
+
+- Person A (range 70): 400, 435, 470 → min = 400
+- Person B (range 100): 600, 650, 700 → max = 700
+- Person C: middle.
+
+Still works.
+
+Minimum overall range = 100:
+
+- Person A (range 100): 500, 550, 600 → min=500, max=600
+- Person B (range 70): 530, 565, 600 → range=70 (600–530=70)
+- Person C (range 40): 560, 580, 600 → range=40
+
+All scores ∈ [500,600] → overall range = 100.
+
+Can’t go lower because of the 100-range person.
+
+So yes, answer = **200**.
+
+✅ Final answer: **e**",E,1
+1678,41,qwen3-max,original,"Problem: if w / x = 1 / 3 and w / y = 3 / 4, then ( x + y ) / y =
+Options: a. 13 / 4, b. 6 / 5, c. 7 / 5, d. 8 / 5, e. 9 / 5","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if w / x = 1 / 3 and w / y = 3 / 4, then ( x + y ) / y =\nOptions: a. 13 / 4, b. 6 / 5, c. 7 / 5, d. 8 / 5, e. 9 / 5""}]",a,"We are given:
+
+- $ \frac{w}{x} = \frac{1}{3} $ → so $ x = 3w $
+- $ \frac{w}{y} = \frac{3}{4} $ → so $ y = \frac{4w}{3} $
+
+We are asked to find:
+
+$$
+\frac{x + y}{y}
+$$
+
+Substitute the expressions for $ x $ and $ y $ in terms of $ w $:
+
+$$
+\frac{3w + \frac{4w}{3}}{\frac{4w}{3}}
+$$
+
+Simplify numerator:
+
+$$
+3w + \frac{4w}{3} = \frac{9w}{3} + \frac{4w}{3} = \frac{13w}{3}
+$$
+
+So the expression becomes:
+
+$$
+\frac{\frac{13w}{3}}{\frac{4w}{3}} = \frac{13w}{3} \cdot \frac{3}{4w} = \frac{13}{4}
+$$
+
+Answer: **a. 13/4** ✅",A,1
+1678,42,qwen3-max,original,"Problem: a cylindrical bucket of height 36 cm and radius 21 cm is filled with sand. the bucket is emptied on the ground and a conical heap of sand is formed, the height of the heap being 12 cm. the radius of the heap at the base is :
+Options: ['a. 63 cm', 'b. 53 cm', 'c. 56 cm', 'd. 66 cm', 'e. none of these']","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a cylindrical bucket of height 36 cm and radius 21 cm is filled with sand. the bucket is emptied on the ground and a conical heap of sand is formed, the height of the heap being 12 cm. the radius of the heap at the base is :\nOptions: ['a. 63 cm', 'b. 53 cm', 'c. 56 cm', 'd. 66 cm', 'e. none of these']""}]",a,"We are given:
+
+- A **cylindrical bucket** filled with sand:
+  - Height $ h_{\text{cyl}} = 36 $ cm  
+  - Radius $ r_{\text{cyl}} = 21 $ cm
+
+- The sand is emptied and forms a **conical heap**:
+  - Height $ h_{\text{cone}} = 12 $ cm  
+  - Radius $ r_{\text{cone}} = ? $
+
+Since the sand is just reshaped, **volume remains the same**.
+
+---
+
+### Step 1: Volume of cylinder
+$$
+V_{\text{cyl}} = \pi r^2 h = \pi (21)^2 (36)
+$$
+
+### Step 2: Volume of cone
+$$
+V_{\text{cone}} = \frac{1}{3} \pi R^2 H = \frac{1}{3} \pi r_{\text{cone}}^2 (12)
+$$
+
+Set volumes equal:
+$$
+\pi (21)^2 (36) = \frac{1}{3} \pi r_{\text{cone}}^2 (12)
+$$
+
+Cancel $ \pi $ from both sides:
+
+$$
+(21)^2 \cdot 36 = \frac{1}{3} \cdot r_{\text{cone}}^2 \cdot 12
+$$
+
+Simplify RHS:
+$$
+\frac{1}{3} \cdot 12 = 4 \Rightarrow (21)^2 \cdot 36 = 4 r_{\text{cone}}^2
+$$
+
+Compute LHS:
+- $ 21^2 = 441 $
+- $ 441 \cdot 36 = ? $
+
+Let’s compute:
+$$
+441 \cdot 36 = (400 + 40 + 1) \cdot 36 = 400 \cdot 36 + 40 \cdot 36 + 1 \cdot 36 = 14400 + 1440 + 36 = 15876
+$$
+
+So:
+$$
+15876 = 4 r_{\text{cone}}^2 \Rightarrow r_{\text{cone}}^2 = \frac{15876}{4} = 3969
+$$
+
+Now take square root:
+$$
+r_{\text{cone}} = \sqrt{3969} = 63
+$$
+
+✅ So the radius of the conical heap is **63 cm**.
+
+### Final Answer:
+a. 63 cm",A,1
+1678,43,qwen3-max,original,"Problem: the number 42 can be written as the sum of the squares of 3 different positive integers. what is the sum of these 3 integers ?
+Options: a. 17, b. 10, c. 15, d. 14, e. 13","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the number 42 can be written as the sum of the squares of 3 different positive integers. what is the sum of these 3 integers ?\nOptions: a. 17, b. 10, c. 15, d. 14, e. 13""}]",b,"We are told that **42** can be written as the **sum of the squares of 3 different positive integers**, and we are to find the **sum of those three integers**.
+
+We are given answer choices:
+- a. 17  
+- b. 10  
+- c. 15  
+- d. 14  
+- e. 13  
+
+---
+
+### Step 1: Try combinations of squares
+
+We need to find **distinct positive integers** $ a, b, c $ such that:
+
+$$
+a^2 + b^2 + c^2 = 42
+$$
+with $ a < b < c $, all positive integers.
+
+Note: The square numbers less than 42 are:
+- $1^2 = 1$
+- $2^2 = 4$
+- $3^2 = 9$
+- $4^2 = 16$
+- $5^2 = 25$
+- $6^2 = 36$
+
+Since $6^2 = 36$, and we need **three different** squares adding to 42, the largest possible integer is probably **5 or 6**.
+
+Try including $6^2 = 36$:
+
+Then remaining sum = $42 - 36 = 6$, which must be sum of two **different** positive squares.
+
+Possible pairs for sum = 6:
+- $1 + 4 = 5$ → no
+- $1 + 9 = 10$ → too big
+- So only squares ≤6: 1 and 4 → sum = 5 → not enough.
+So **6 is too big**.
+
+Try largest number = **5**, so $5^2 = 25$
+
+Remaining sum = $42 - 25 = 17$
+
+Now find two **different** positive integers (less than 5) whose squares sum to 17.
+
+Check pairs:
+- $1^2 + 2^2 = 1 + 4 = 5$
+- $1^2 + 3^2 = 1 + 9 = 10$
+- $1^2 + 4^2 = 1 + 16 = 17$ → YES!
+
+So we have:  
+$1^2 + 4^2 + 5^2 = 1 + 16 + 25 = 42$
+
+The integers are: **1, 4, 5**
+
+Sum = $1 + 4 + 5 = 10$
+
+Check if they are all different positive integers: yes.
+
+### Final Answer: **b. 10**
+
+✅",B,1
+1678,44,qwen3-max,original,"Problem: a sum of money at simple interest amounts to rs. 720 after 2 years and to rs. 1020 after a further period of 5 years. the sum is :
+Options: a. 400, b. 500, c. 600, d. 700, e. 800","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: a sum of money at simple interest amounts to rs. 720 after 2 years and to rs. 1020 after a further period of 5 years. the sum is :\nOptions: a. 400, b. 500, c. 600, d. 700, e. 800""}]",c,"We are given:
+
+- Amount after 2 years = ₹720  
+- Amount after **further** 5 years (i.e., total 7 years) = ₹1020  
+- Simple Interest (SI) is used.
+
+Let the **principal** be **P**, and the **rate of interest per annum** be **r**.
+
+### Step 1: Use simple interest formula
+Simple Interest for t years = $ \text{SI} = P \cdot r \cdot t $
+
+Amount after t years = $ A = P + SI = P + P r t = P(1 + rt) $
+
+But since it's simple interest, the **interest increases linearly** with time.
+
+### Step 2: Find interest earned between year 2 and year 7
+
+Amount at 2 years = ₹720  
+Amount at 7 years = ₹1020  
+So, interest for 5 years = ₹1020 – ₹720 = ₹300
+
+Since it's simple interest:
+- Interest for 5 years = ₹300  
+- So, interest per year = ₹300 / 5 = ₹60  
+- Therefore, interest for 2 years = ₹60 × 2 = ₹120
+
+Now, amount after 2 years = Principal + Interest for 2 years  
+=> ₹720 = P + ₹120  
+=> P = ₹720 – ₹120 = **₹600**
+
+### Final Answer: **c. 600**
+
+✅ Correct answer: **c**",C,1
+1678,45,qwen3-max,original,"Problem: the telephone company wants to add an area code composed of 2 letters to every phone number. in order to do so, the company chose a special sign language containing 524 different signs. if the company used 522 of the signs fully and two remained unused, how many additional area codes can be created if the company uses all 524 signs ?
+Options: a. 46, b. 248, c. 2092, d. 15,128, e. 30,256","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the telephone company wants to add an area code composed of 2 letters to every phone number. in order to do so, the company chose a special sign language containing 524 different signs. if the company used 522 of the signs fully and two remained unused, how many additional area codes can be created if the company uses all 524 signs ?\nOptions: a. 46, b. 248, c. 2092, d. 15,128, e. 30,256""}]",c,"We are told:
+
+- The telephone company uses **2-letter area codes**.
+- They have a special sign language with **524 different signs** (so, 524 possible ""letters"").
+- Originally, they used only **522** of the signs (2 were unused).
+- We are to find **how many additional area codes** can be created if they start using **all 524 signs** instead of just 522.
+
+---
+
+### Step 1: Understand how area codes are formed
+
+Area codes are composed of **2 letters**, and since it's a sign language with 524 distinct signs, each position in the 2-letter code can be any of the signs.
+
+Assuming **repetition is allowed** (which is typical unless stated otherwise), the number of possible area codes using $ n $ signs is:
+
+$$
+n \times n = n^2
+$$
+
+So:
+
+- Original number of area codes (with 522 signs):  
+  $ 522^2 $
+
+- New number of area codes (with 524 signs):  
+  $ 524^2 $
+
+- Additional area codes = $ 524^2 - 522^2 $
+
+---
+
+### Step 2: Compute the difference
+
+Use the identity:
+
+$$
+a^2 - b^2 = (a - b)(a + b)
+$$
+
+Here,  
+$ a = 524 $,  
+$ b = 522 $,  
+So:
+
+$$
+524^2 - 522^2 = (524 - 522)(524 + 522) = (2)(1046) = 2092
+$$
+
+---
+
+### Step 3: Match with answer choices
+
+Answer: **2092**
+
+That corresponds to option **c**.
+
+✅ Final Answer: **c**",C,1
+1678,46,qwen3-max,original,"Problem: bert and rebecca were looking at the price of a condominium. the price of the condominium was 50 % more than bert had in savings, and separately, the same price was also 25 % more than rebecca had in savings. what is the ratio of what bert has in savings to what rebecca has in savings.
+Options: a. 1: 6, b. 1: 3, c. 1: 2, d. 3: 4, e. 5: 6","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: bert and rebecca were looking at the price of a condominium. the price of the condominium was 50 % more than bert had in savings, and separately, the same price was also 25 % more than rebecca had in savings. what is the ratio of what bert has in savings to what rebecca has in savings.\nOptions: a. 1: 6, b. 1: 3, c. 1: 2, d. 3: 4, e. 5: 6""}]",e,"Let:
+
+- $ B $ = Bert's savings  
+- $ R $ = Rebecca's savings  
+- $ P $ = Price of the condominium
+
+We are told:
+
+- The price is **50% more than Bert's savings**:  
+  $$
+  P = B + 0.5B = 1.5B
+  $$
+
+- The price is **25% more than Rebecca's savings**:  
+  $$
+  P = R + 0.25R = 1.25R
+  $$
+
+So:
+$$
+1.5B = 1.25R
+$$
+
+We want the ratio $ \frac{B}{R} $. Solve for it:
+
+$$
+\frac{B}{R} = \frac{1.25}{1.5}
+$$
+
+Simplify:
+
+$$
+\frac{1.25}{1.5} = \frac{125}{150} = \frac{5}{6}
+$$
+
+So $ B : R = 5 : 6 $
+
+**Answer: e. 5:6**",E,1
+1678,47,qwen3-max,original,"Problem: if henry were to add 8 gallons of water to a tank that is already 3 / 4 full of water, the tank would be 7 / 8 full. how many gallons of water would the tank hold if it were full ?
+Options: a. 25, b. 40, c. 64, d. 80, e. 96","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if henry were to add 8 gallons of water to a tank that is already 3 / 4 full of water, the tank would be 7 / 8 full. how many gallons of water would the tank hold if it were full ?\nOptions: a. 25, b. 40, c. 64, d. 80, e. 96""}]",c,"Let the total capacity of the tank be $ x $ gallons.
+
+The tank is initially $ \frac{3}{4} $ full, so it contains:
+$$
+\frac{3}{4}x
+$$
+gallons of water.
+
+Henry adds 8 gallons, and then the tank becomes $ \frac{7}{8} $ full. So:
+$$
+\frac{3}{4}x + 8 = \frac{7}{8}x
+$$
+
+Now solve for $ x $:
+
+Subtract $ \frac{3}{4}x $ from both sides:
+$$
+8 = \frac{7}{8}x - \frac{3}{4}x
+$$
+
+Convert $ \frac{3}{4} $ to eighths:
+$$
+\frac{3}{4} = \frac{6}{8}
+$$
+
+So:
+$$
+8 = \left( \frac{7}{8} - \frac{6}{8} \right)x = \frac{1}{8}x
+$$
+
+Multiply both sides by 8:
+$$
+x = 64
+$$
+
+So the tank holds **64 gallons** when full.
+
+✅ Answer: **c. 64**",C,1
+1678,48,qwen3-max,original,"Problem: if two positive numbers are in the ratio 1 / 7: 1 / 4, then by what percent is the second number more than the first ?
+Options: a. 67 %., b. 70 %., c. 75 %., d. 68 %., e. 80 %.","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: if two positive numbers are in the ratio 1 / 7: 1 / 4, then by what percent is the second number more than the first ?\nOptions: a. 67 %., b. 70 %., c. 75 %., d. 68 %., e. 80 %.""}]",c,"We are given that two positive numbers are in the ratio:
+
+$$
+\frac{1}{7} : \frac{1}{4}
+$$
+
+### Step 1: Simplify the ratio
+
+To compare the numbers, let’s find a common denominator or invert and simplify.
+
+The ratio of two numbers is:
+
+$$
+\frac{1/7}{1/4} = \frac{1}{7} \cdot \frac{4}{1} = \frac{4}{7}
+$$
+
+So, the first number : second number = **4 : 7**
+
+> Wait! Actually, hold on. That's **not** correct reasoning. Let's be precise.
+
+If two numbers are in the ratio $ \frac{1}{7} : \frac{1}{4} $, that means:
+
+$$
+\text{First number} = \frac{1}{7}k, \quad \text{Second number} = \frac{1}{4}k
+$$
+
+for some positive constant $ k $. So the actual values are proportional to $ \frac{1}{7} $ and $ \frac{1}{4} $.
+
+But to find **by what percent the second number is more than the first**, we can just take actual values proportional to those fractions.
+
+Let’s assume:
+
+- First number = $ \frac{1}{7} $
+- Second number = $ \frac{1}{4} $
+
+Now compute how much **percent more** the second is than the first.
+
+### Step 2: Use percent increase formula
+
+Percent increase from first to second is:
+
+$$
+\frac{\text{Second} - \text{First}}{\text{First}} \times 100
+= \frac{\frac{1}{4} - \frac{1}{7}}{\frac{1}{7}} \times 100
+$$
+
+Compute numerator:
+
+$$
+\frac{1}{4} - \frac{1}{7} = \frac{7 - 4}{28} = \frac{3}{28}
+$$
+
+Now divide by $ \frac{1}{7} $:
+
+$$
+\frac{3}{28} \div \frac{1}{7} = \frac{3}{28} \cdot \frac{7}{1} = \frac{21}{28} = \frac{3}{4}
+$$
+
+Now multiply by 100:
+
+$$
+\frac{3}{4} \times 100 = 75\%
+$$
+
+### ✅ Final Answer: **c. 75%**",C,1
+1678,49,qwen3-max,original,"Problem: the product of two successive numbers is 4160. which is the smaller of the two numbers ?
+Options: a. 78, b. 64, c. 88, d. 67, e. 37","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: the product of two successive numbers is 4160. which is the smaller of the two numbers ?\nOptions: a. 78, b. 64, c. 88, d. 67, e. 37""}]",b,"We are given that the **product of two successive numbers is 4160**, and we are to find the **smaller** of the two numbers.
+
+Let the smaller number be $ x $.  
+Then the next successive number is $ x + 1 $.  
+So their product is:
+
+$$
+x(x + 1) = 4160
+$$
+
+We solve this equation:
+
+$$
+x^2 + x = 4160
+$$
+$$
+x^2 + x - 4160 = 0
+$$
+
+We can solve this quadratic equation using the quadratic formula:
+
+$$
+x = \frac{-1 \pm \sqrt{1^2 + 4 \cdot 4160}}{2}
+= \frac{-1 \pm \sqrt{1 + 16640}}{2}
+= \frac{-1 \pm \sqrt{16641}}{2}
+$$
+
+Now, check if 16641 is a perfect square.
+
+Try $ \sqrt{16641} $. Let's test:
+
+- $ 129^2 = 16641 $?  
+  $ 130^2 = 16900 $  
+  $ 128^2 = 16384 $  
+  $ 129^2 = 128^2 + 128 + 129 = 16384 + 257 = 16641 $
+
+Yes! So:
+
+$$
+x = \frac{-1 \pm 129}{2}
+$$
+
+Take the positive root:
+
+$$
+x = \frac{-1 + 129}{2} = \frac{128}{2} = 64
+$$
+
+So the smaller number is **64**.
+
+✅ Check: $ 64 \times 65 = 4160 $?  
+$ 64 \times 65 = (60 + 4)(65) = 60*65 + 4*65 = 3900 + 260 = 4160 $ — correct!
+
+### Answer: **b. 64**",B,1
+1678,50,qwen3-max,original,"Problem: convert 0.36 in to a vulgar fraction ?
+Options: a. 18 / 50, b. 16 / 50, c. 17 / 50, d. 9 / 25, e. none","[{""role"": ""system"", ""content"": ""Given a math problem with context and a question and 5 answer choices, the task is to provide the correct answer choice based on the problem. You must choose one of the given answer choices by letter: a, b, c, d, or e; anything else is invalid.""}, {""role"": ""user"", ""content"": ""Problem: convert 0.36 in to a vulgar fraction ?\nOptions: a. 18 / 50, b. 16 / 50, c. 17 / 50, d. 9 / 25, e. none""}]","a,d","To convert **0.36** into a vulgar (common) fraction:
+
+1. Write it as a fraction:  
+   $$
+   0.36 = \frac{36}{100}
+   $$
+
+2. Simplify the fraction by dividing numerator and denominator by their **greatest common divisor (GCD)**, which is **4**:
+   $$
+   \frac{36 \div 4}{100 \div 4} = \frac{9}{25}
+   $$
+
+Now check the options:
+
+- a. 18 / 50 → simplifies to 9/25, but not in simplest form  
+- b. 16 / 50 → = 8/25  
+- c. 17 / 50 → already simplified, not equal to 0.36  
+- d. **9 / 25** → correct and simplified  
+- e. none
+
+✅ The best answer is **d. 9 / 25**
+
+**Answer: d**",D,1

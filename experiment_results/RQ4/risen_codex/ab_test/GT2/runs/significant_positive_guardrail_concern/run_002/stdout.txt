@@ -1,0 +1,69 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+### A/B 测试结论
+
+- **假设：** 将结账按钮文案从“Continue”改为“Buy Now”会提高购买转化率。
+- **实验时长：** 14 天
+- **主要指标：** 购买转化率
+- **样本量：** 对照组 10,000；实验组 10,000
+- **转化率：** 对照组 10%；实验组 12%
+- **绝对差异：** +2.00 个百分点
+- **相对提升：** +20.0%
+- **p 值：** 6.188×10⁻⁶
+- **95% 置信区间：** [+1.13，+2.87] 个百分点
+- **统计显著性：** 显著
+- **功效状态：** underpowered。功效状态是诊断信息，不能推翻本次结果已达到统计显著的结论。
+- **样本比例失配（SRM）：** 否；两组样本量与各 50% 的流量分配一致。
+
+### 护栏评估
+
+存在明确的护栏问题：客服联系率从 2% 上升至 5%。产品团队已将其认定为有意义的负面影响和护栏 concern。
+
+### 建议
+
+**`investigate`**
+
+**理由：** 实验组购买转化率显著提高，但同时出现明确且有意义的客服联系率恶化，因此不能仅依据主要指标的改善作出决定。
+
+**下一步：** 调查客服联系率上升的原因及其与“Buy Now”文案的关系，并评估转化收益与护栏负面影响之间的权衡。

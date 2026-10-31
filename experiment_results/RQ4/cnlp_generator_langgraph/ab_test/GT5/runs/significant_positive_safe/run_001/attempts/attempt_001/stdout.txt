@@ -1,0 +1,80 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please use aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+SET final_analysis = """
+## Checkout Button Positive Test
+
+**Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+
+**Experiment:** The test ran for 14 days with 10,000 users in Control and 10,000 in Variant. Control used “Continue,” while Variant used “Buy Now.”
+
+### Statistical findings
+
+- **Control conversion rate:** 10.0%
+- **Variant conversion rate:** 12.0%
+- **Absolute difference:** +2.0 percentage points
+- **Relative lift:** +20.0%
+- **Two-sided p-value:** 0.00000619
+- **95% confidence interval for the absolute difference:** +1.13 to +2.87 percentage points
+- **Statistical significance:** Significant at the 0.05 threshold
+
+The confidence interval is entirely above zero, providing evidence that “Buy Now” increased purchase conversion in this experiment.
+
+### Experiment validity
+
+- **Power status:** Underpowered for the specified 1 percentage point minimum detectable effect at 80% power. This is a diagnostic limitation, but it does not override the observed statistically significant result.
+- **Sample ratio mismatch:** Not detected. The observed sample sizes are consistent with the planned 50/50 allocation.
+- **Guardrails:** No concern reported. Revenue per user, page load time, and customer support contact rate were stable, with no meaningful negative effects observed.
+
+### Recommendation
+
+**Ship the “Buy Now” variant.** It produced a statistically significant 2.0 percentage point increase in purchase conversion, equivalent to a 20.0% relative lift. The confidence interval indicates a positive effect, no sample ratio mismatch was detected, and the reported guardrails remained stable.
+
+### Next steps
+
+1. Roll out “Buy Now” using the team’s standard release process.
+2. Monitor purchase conversion and the reported guardrails during rollout, particularly revenue per user, page load time, and customer support contact rate.
+3. Confirm that the conversion improvement persists after broader exposure.
+4. Document the underpowered status as a limitation of the test design and use the observed variance and effect size to inform sample-size planning for future experiments.
+"""

@@ -1,0 +1,63 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout Negative Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate
+- **Duration:** 14 days
+- **Sample sizes:** Control: 10,000; Variant: 10,000
+- **Conversion rates:** Control: **10.00%** (1,000/10,000); Variant: **8.00%** (800/10,000)
+- **Difference:** **-2.00 percentage points** absolute; **-20.00%** relative lift
+- **95% CI (Variant minus Control):** **-2.79 to -1.21 percentage points**
+- **Two-sided p-value:** **7.75 × 10⁻⁷**
+- **Statistical significance:** Significant at p < 0.05
+- **Power status:** Underpowered; this is a limitation but does not override the statistically significant result.
+- **Sample ratio mismatch:** None
+- **Guardrails:** No concern; no additional meaningful negative guardrail effects were observed.
+
+**Recommendation:** `dont_ship`
+
+The Variant had a statistically significant lower purchase conversion rate than Control, and the entire confidence interval indicates a negative difference. The hypothesis is therefore not supported.
+
+**Next steps:** Retain the old checkout button, investigate the new button’s implementation or design for potential contributors to the observed decline, and test a revised version in a new experiment while continuing to monitor conversion, guardrails, and SRM.

@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+Over 14 days, Control recorded 1,200 purchases from 12,000 users, a **10.0% conversion rate**. Variant recorded 800 purchases from 8,000 users, also a **10.0% conversion rate**. The absolute difference was **0.00 percentage points**, with **0.0% relative lift**. The two-sided **p-value was 1.00**, and the 95% confidence interval for the absolute difference was **-0.85 to +0.85 percentage points**. The primary-metric result is **not statistically significant**.
+
+The experiment was **underpowered** for the specified 1-percentage-point minimum detectable effect at 80% power. This is a limitation, but the larger validity issue is the detected **sample ratio mismatch**: observed allocation was 60% Control and 40% Variant despite the expected 50/50 split. Because SRM was detected, the experiment is **inconclusive**.
+
+No guardrail concern was reported; the provided assessment states that no meaningful negative effects were observed.
+
+**Recommendation: Undetermined.** Do not use this experiment to decide whether to ship or reject the new button. Investigate the SRM by checking assignment, eligibility, exposure logging, filtering, and conversion attribution for differences between groups. After resolving the allocation issue, rerun the experiment with a valid 50/50 allocation and enough sample size to assess the 1-percentage-point minimum detectable effect.

@@ -1,0 +1,54 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**实验概览：** 假设是将结账按钮文案从“Continue”改为“Buy Now”会提升购买转化率。实验持续 **14天**；对照组 **10,000**，变体组 **10,000**。
+
+**结果：** 对照组转化率为 **10.0%**，变体组为 **12.0%**；绝对差异 **+2.0个百分点**，相对提升 **+20.0%**。p-value = **6.188×10⁻⁶**；差异的95%置信区间为 **[1.133%, 2.867%]**。结果具有统计显著性。
+
+**诊断：** Power 状态为 **underpowered**，这是诊断信息，不能推翻上述统计显著性结论。样本比例偏差（SRM）为 **false**，未发现样本比例异常。
+
+**护栏指标：** 客服联系率从 **2%升至5%**。产品团队认为这是有意义的负面影响，因此存在护栏风险。
+
+**建议：** **investigate**。虽然购买转化率显著提升，但客服联系率的明显上升构成重要负面信号，不能仅依据主指标上线。
+
+**下一步：** 调查客服联系率上升的原因，重点核查新按钮文案是否造成用户误解或购买流程问题；在确认并缓解护栏风险后，再评估是否继续推进，并结合后续实验重新检查主指标与护栏指标。

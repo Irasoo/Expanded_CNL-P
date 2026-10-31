@@ -1,0 +1,65 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout Button Positive Test
+
+- **Hypothesis:** Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+- **Variant change:** Control used “Continue”; Variant used “Buy Now”.
+- **Primary metric:** Purchase conversion rate.
+- **Duration:** 14 days.
+- **Sample sizes:** Control: 10,000; Variant: 10,000.
+- **Conversion rates:** Control: **10.00%** (1,000/10,000); Variant: **12.00%** (1,200/10,000).
+- **Difference:** **+2.00 percentage points** absolute; **+20.00%** relative lift.
+- **Statistical result:** Two-sided **p = 0.00000619**. The result is statistically significant under the 0.05 criterion.
+- **95% confidence interval:** **Variant minus Control: +1.13 to +2.87 percentage points**.
+- **Power:** Reported as **underpowered**. This is a limitation of the analysis, but it does not override the statistically significant result.
+- **Sample ratio mismatch:** **None detected**; the observed allocation was 50% Control / 50% Variant.
+- **Guardrails:** No concern. Revenue per user, page load time, and customer support contact rate were stable, with no meaningful negative effects observed.
+
+**Recommendation: ship.**
+
+The Variant produced a statistically significant increase in purchase conversion, with the confidence interval entirely above zero and no reported guardrail degradation or sample ratio mismatch.
+
+**Next steps:** Ship the “Buy Now” button text change and continue monitoring purchase conversion and the reported guardrail metrics.

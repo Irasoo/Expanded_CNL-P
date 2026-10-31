@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect if available, and any guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.  
+**Duration:** 7 days. Traffic was allocated 50% Control / 50% Variant.
+
+**Primary metric results**
+- Control: 100 conversions / 1,000 users = **10.0%**
+- Variant: 110 conversions / 1,000 users = **11.0%**
+- Absolute difference: **+1.0 percentage point**
+- Relative lift: **+10.0%**
+- 95% confidence interval for the difference: **-1.69 to +3.69 percentage points**
+- Two-sided p-value: **0.466**
+
+**Statistical validity**
+The observed Variant conversion rate is higher, but the result is **not statistically significant** at the 0.05 threshold. The confidence interval includes no effect and possible negative impact, so the data does not yet establish that the new button improves purchase conversion.
+
+The test is reported as **underpowered** against the stated 1 percentage point minimum detectable effect at the 80% power criterion. This supports collecting more data; it does not by itself determine the decision.
+
+No sample ratio mismatch was detected. The observed 1,000/1,000 samples are consistent with the expected 50/50 allocation, so there is no SRM-based validity concern.
+
+**Guardrails**
+No meaningful negative effects were reported. There is no stated guardrail concern.
+
+**Recommendation: Extend**
+
+The Variant shows a promising +1.0 percentage point observed improvement, but the evidence is inconclusive: p = 0.466 is above 0.05, the confidence interval crosses zero, and the experiment is underpowered for the stated minimum detectable effect.
+
+**Next steps**
+Continue the experiment to collect sufficient sample size for the 1 percentage point minimum detectable effect, while continuing to monitor the reported guardrails. Reassess after additional data is available; ship only if a statistically significant positive result is observed without a meaningful guardrail degradation.

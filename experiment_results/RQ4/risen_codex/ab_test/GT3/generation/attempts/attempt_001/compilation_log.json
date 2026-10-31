@@ -1,0 +1,100 @@
+{
+  "status": "success",
+  "case_name": "ab_test",
+  "compilation_method": "codex",
+  "trial_index": 1,
+  "trial_count": 3,
+  "attempt_index": 1,
+  "maximum_attempts": 20,
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4_RISEN\\generated\\20260912_204122\\ab_test\\codex_1in3\\attempts\\attempt_001\\agent.risen",
+  "method_options": {
+    "reasoning_effort": "high"
+  },
+  "source_files": {
+    "agent.risen.md": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_RISEN\\cases\\ab_test\\agent.risen.md",
+      "sha256": "cfff2e3beca6907a7ea88819fda10920064ea1da4c493fc91b64d0c9e47630b2"
+    },
+    "reference_code.py": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_RISEN\\cases\\ab_test\\reference_code.py",
+      "sha256": "3f12033c4e66f15b1bd232a2f6f0c042c708be6568e86307995d1a60a718dd4a"
+    },
+    "reference_code_for_codex.py": {
+      "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_RISEN\\cases\\ab_test\\reference_code_for_codex.py",
+      "sha256": "13cc4c70cab9e3ae194d1b18178652d6e7bce3f128ee103e78dc592d58d3ed69"
+    }
+  },
+  "started_at": "2026-09-12T12:41:22.915979+00:00",
+  "finished_at": "2026-09-12T12:45:45.052897+00:00",
+  "duration_seconds": 262.14,
+  "token_usage": {
+    "source": "codex_cli_turn_completed",
+    "request_count": null,
+    "successful_request_count": null,
+    "failed_request_count": null,
+    "requests_without_usage_count": null,
+    "total": {
+      "input_tokens": 70654,
+      "cached_input_tokens": 56320,
+      "output_tokens": 6193,
+      "reasoning_tokens": 78,
+      "total_tokens": 76847
+    },
+    "calls": null,
+    "raw_usage": {
+      "input_tokens": 70654,
+      "cached_input_tokens": 56320,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6193,
+      "reasoning_output_tokens": 78
+    }
+  },
+  "method_details": {
+    "representation_inputs": {
+      "specification_file": "agent.risen.md",
+      "specification_sha256": "cfff2e3beca6907a7ea88819fda10920064ea1da4c493fc91b64d0c9e47630b2",
+      "prompt_file": "prompts/codex_risen.md",
+      "prompt_sha256": "11ffe00cc98a5ad3d28249311b0d8200a119b8d2ccc12990c90fc9bf249cee1e",
+      "reference_sha256": "13cc4c70cab9e3ae194d1b18178652d6e7bce3f128ee103e78dc592d58d3ed69"
+    },
+    "codex_thread_id": "01a095a3-1ac7-7a93-ad5c-92b70fe84611",
+    "codex_turn_id": null,
+    "codex_turn_status": "completed",
+    "codex_turn_error": null,
+    "codex_duration_ms": 261922,
+    "codex_final_response": "已完成可运行的 Python Agent 项目：\n\n- 项目入口：[main.py](/workspace/main.py)\n- 支持 `main()` 和直接运行入口\n- 仅进行一次终端输入\n- 使用 OpenAI 官方 Python Client\n- 支持 `.env` / 环境变量配置\n- 实现参考代码中的统计计算、SRM 检验、显著性、置信区间和统计功效判断\n- 实现 guardrail 语义判断、实验分类、产品推荐和最终分析生成\n- 未修改 `_codex_inputs` 文件\n- 已通过 `python3 -m py_compile main.py` 语法检查\n- 未调用真实外部 API",
+    "codex_events_file": "codex_events.jsonl",
+    "codex_event_counts": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed": 11,
+      "item.started": 6,
+      "turn.completed": 1
+    },
+    "codex_completed_item_counts": {
+      "agent_message": 5,
+      "command_execution": 4,
+      "file_change": 2
+    },
+    "codex_tool_activity_count": 6,
+    "codex_successful_tool_activity_count": 5,
+    "codex_failed_tool_activity_count": 1,
+    "codex_non_json_line_count": 0,
+    "codex_container_image": "rq4-codex-runtime:0.147.0",
+    "codex_inner_sandbox": "danger-full-access",
+    "codex_isolation_boundary": "docker_single_temporary_workspace_mount",
+    "codex_model": "gpt-5.6-sol",
+    "codex_reasoning_effort": "high",
+    "codex_provider": "rq4_relay",
+    "codex_stderr": ""
+  },
+  "failure_category": null,
+  "rq4_retryable": false,
+  "exception": null,
+  "subprocess": {
+    "exit_code": 0,
+    "termination_reason": "process_exit",
+    "stdout": "\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 0 | elapsed 00:06\r[Codex] working | tools 0 done (0 failed) | file changes 0 | errors 0 | elapsed 00:06\r[Codex] working | tools 1 done (0 failed) | file changes 0 | errors 0 | elapsed 00:17\r[Codex] working | tools 2 done (0 failed) | file changes 1 | errors 0 | elapsed 03:07\r[Codex] working | tools 3 done (1 failed) | file changes 1 | errors 0 | elapsed 03:20\r[Codex] working | tools 4 done (1 failed) | file changes 1 | errors 0 | elapsed 03:30\r[Codex] working | tools 5 done (1 failed) | file changes 2 | errors 0 | elapsed 04:01\r[Codex] working | tools 6 done (1 failed) | file changes 2 | errors 0 | elapsed 04:08\r[Codex] completed | tools 6 done (1 failed) | file changes 2 | errors 0 | elapsed 04:21\r\n",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,61 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**A/B Test Analysis: Checkout SRM Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate. Control used the old button; Variant used the new button.
+- **Duration:** 14 days. Duration alone does not establish experiment maturity.
+- **Sample sizes:** Control: 12,000 users; Variant: 8,000 users.
+- **Conversion rates:** Control: `0.10` proportion, or **10%**. Variant: `0.10` proportion, or **10%**.
+- **Absolute difference:** `0.00` proportion, or **0 percentage points**.
+- **Relative lift:** `0.0%`.
+- **p-value:** `1.0`.
+- **95% confidence interval for the difference:** `[-0.00849, 0.00849]` proportion, equivalent to approximately **[-0.849, +0.849] percentage points**.
+- **Statistical significance:** Not statistically significant.
+- **Power status:** Underpowered. This is a diagnostic and does not override the non-significant result.
+- **Sample ratio mismatch:** Detected. The observed allocation was 60% Control and 40% Variant, compared with the expected 50%/50%. No SRM p-value was supplied.
+- **Guardrails:** No meaningful negative effects were observed; no guardrail concern was reported.
+
+**Recommendation: Undetermined**
+
+The result provides no evidence that the new button improves purchase conversion, and the confidence interval includes zero. The sample ratio mismatch makes the experiment inconclusive, while the underpowered status further limits the strength of the conclusion.
+
+**Next steps:** Investigate and correct the allocation or exposure issue, validate the experiment instrumentation and assignment data, then rerun or extend the test after the mismatch is resolved. Do not ship the Variant based on this result.

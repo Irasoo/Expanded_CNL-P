@@ -1,0 +1,65 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## A/B Test Analysis: Checkout Small Positive Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Variant change:** Control uses the old button; Variant uses the new button.
+- **Primary metric:** Purchase conversion rate.
+- **Duration:** 7 days.
+- **Sample sizes:** Control: 1,000; Variant: 1,000.
+- **Conversion rates:** Control: **10.00%** (100/1,000); Variant: **11.00%** (110/1,000).
+- **Observed difference:** **+1.00 percentage point** Variant minus Control, or **+10.00% relative lift**.
+- **Two-sided p-value:** **0.4657**.
+- **95% confidence interval:** **−1.69 to +3.69 percentage points** for Variant minus Control.
+
+### Statistical assessment
+
+The result is **not statistically significant** because the two-sided p-value is above 0.05, and the confidence interval includes zero. The test is reported as **underpowered**, which limits the strength of the evidence but does not override the non-significant result. **No sample ratio mismatch** was detected.
+
+### Guardrails
+
+No meaningful negative effects were observed; there is **no guardrail concern**.
+
+### Recommendation: **extend**
+
+Extend the test and continue measuring purchase conversion rate and the reported guardrails. Reassess the result after collecting additional data; the current observation shows a positive difference, but it does not establish that the variant improves conversion.

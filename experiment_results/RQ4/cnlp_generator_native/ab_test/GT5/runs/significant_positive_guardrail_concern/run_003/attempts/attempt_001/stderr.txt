@@ -1,0 +1,95 @@
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http_proxy.py", line 344, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http11.py", line 143, in handle_request
+    raise exc
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http11.py", line 113, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http11.py", line 186, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_sync\http11.py", line 224, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_backends\sync.py", line 124, in read
+    with map_exceptions(exc_map):
+  File "D:\Anaconda3\envs\CNLP\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\Anaconda3\envs\CNLP\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 253, in _main
+    _run_agent(agent_directory)
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 206, in _run_agent
+    main_function()
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\ab_test\native_5in5\agent.cnlp\main.py", line 116, in main
+    return run_abtestanalyzer(state=state, llm_client=llm_client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\ab_test\native_5in5\agent.cnlp\main.py", line 87, in run_abtestanalyzer
+    abtestanalyzer__command4(state, llm_client)
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\ab_test\native_5in5\agent.cnlp\commands.py", line 385, in abtestanalyzer__command4
+    result = llm_client.complete(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\ab_test\native_5in5\agent.cnlp\utils.py", line 352, in complete
+    return self._complete_bool(messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\ab_test\native_5in5\agent.cnlp\utils.py", line 428, in _complete_bool
+    response = self._create_response(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\ab_test\native_5in5\agent.cnlp\utils.py", line 492, in _create_response
+    return self._get_client().responses.create(**request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\runtime_token_tracker.py", line 266, in wrapped
+    response = original(resource, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\resources\responses\responses.py", line 866, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\CNLP\Lib\site-packages\openai\_base_client.py", line 1000, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.

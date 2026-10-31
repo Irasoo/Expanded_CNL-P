@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+**实验假设**  
+新结账按钮将提高购买转化率。对照组使用旧按钮，实验组使用新按钮。
+
+**实验概况**  
+- 时长：14 天  
+- 对照组：10,000 个样本，转化率 10.00%（1,000 次转化）  
+- 实验组：10,000 个样本，转化率 8.00%（800 次转化）  
+- 样本比例失配（SRM）：否
+
+**统计结果**  
+- 绝对差异：-2.00 个百分点  
+- 相对提升：-20.00%  
+- p 值：7.7459×10⁻⁷  
+- 95% 置信区间：[-2.793，-1.207] 个百分点  
+- 统计显著：是，实验组转化率显著低于对照组  
+- 功效状态：underpowered。功效状态是诊断信息，不能推翻或覆盖本次统计显著性结论。
+
+**护栏指标**  
+无护栏担忧；未观察到其他有意义的负面护栏影响。
+
+**建议**  
+`dont_ship`
+
+**理由**  
+新按钮未支持“提升购买转化率”的假设，反而带来统计显著的 2.00 个百分点下降，且置信区间整体低于 0。
+
+**下一步**  
+暂不发布新按钮；排查转化下降原因，调整方案后再开展实验，并在后续实验中重新评估样本量与功效。

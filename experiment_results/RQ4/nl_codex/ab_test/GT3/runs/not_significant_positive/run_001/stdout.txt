@@ -1,0 +1,58 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 7 days.
+- **Sample sizes:** Control `n=1,000` with 100 successes; variant `n=1,000` with 110 successes.
+- **Conversion rates:** Control 10%; variant 11%.
+- **Observed effect:** Absolute difference of 1 percentage point (`0.01`), corresponding to a 10% relative lift.
+- **Statistical result:** `p=0.4657435879336353`; 95% confidence interval for the difference: `-0.01686652401053077` to `0.03686652401053076`.
+- **Significance:** Not statistically significant.
+- **Power status:** `underpowered`.
+- **SRM:** `false`; no sample ratio mismatch.
+- **Guardrails:** No meaningful negative effects were observed.
+- **Recommendation:** Extend the experiment.
+
+The variant showed a positive observed lift, but the result is not statistically significant and the confidence interval includes zero. The test is also underpowered, so additional data is needed before making a decision.
+
+**Next steps:** Extend the test, continue monitoring purchase conversion rate and guardrails, and reassess the statistical result with the additional observations.

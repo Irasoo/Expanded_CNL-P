@@ -1,0 +1,266 @@
+{
+  "entry_worker": "CreativeConceptDeveloper",
+  "workers": {
+    "CreativeConceptDeveloper": {
+      "worker_name": "CreativeConceptDeveloper",
+      "description": "Generate an initial marketing concept, evaluate it, and refine it at most twice when its quality is below the required threshold",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_result",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command1",
+          "command_index": 1,
+          "command_type": "request_input",
+          "description": "Ask the user to provide a complete creative brief containing the brand, product, target audience, marketing objective, key product benefit, intended channels, budget, and other constraints",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": true,
+            "llm_based": true
+          },
+          "written_variable": "creative_brief",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command2",
+          "command_index": 2,
+          "command_type": "general_command",
+          "description": "Generate a complete and specific initial marketing creative concept from variable: `creative_brief`. Clearly describe the core idea, principal execution, brand or product role, and how the idea serves the target audience and marketing objective",
+          "required_variables": [
+            "creative_brief"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "current_concept",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command3",
+          "command_index": 3,
+          "command_type": "call_api",
+          "api_name": "evaluate_creative_concept",
+          "arguments": [
+            {
+              "parameter_name": "creative_brief",
+              "argument_name": "creative_brief",
+              "argument_description": "The brand, product, target audience, marketing objective, key product benefit, channels, budget, and constraints supplied by the user.",
+              "argument_type": {
+                "declared_type_name": "CreativeBrief"
+              }
+            },
+            {
+              "parameter_name": "creative_concept",
+              "argument_name": "current_concept",
+              "argument_description": "The marketing creative concept currently being evaluated or refined.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "evaluation_result",
+            "variable_description": "The current structured evaluation returned by the standardized creative evaluation API.",
+            "variable_type": {
+              "declared_type_name": "CreativeEvaluation"
+            }
+          },
+          "description": "对依据用户创意简报生成的初始营销创意进行首次标准化评估，按原创性、战略契合度、受众影响力和可执行性四项固定加权标准产出完整评分、薄弱维度、评价理由及优化建议。评估结果用于判断初始创意是否达到 8.0 的质量门槛，并在未达标时为后续定向优化提供依据。",
+          "reference_function_name": "evaluate_creative_concept",
+          "required_variables": [
+            "creative_brief",
+            "current_concept"
+          ],
+          "written_variable": "evaluation_result",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command4",
+          "command_index": 4,
+          "command_type": "call_api",
+          "api_name": "refine_creative_concept",
+          "arguments": [
+            {
+              "parameter_name": "creative_brief",
+              "argument_name": "creative_brief",
+              "argument_description": "The brand, product, target audience, marketing objective, key product benefit, channels, budget, and constraints supplied by the user.",
+              "argument_type": {
+                "declared_type_name": "CreativeBrief"
+              }
+            },
+            {
+              "parameter_name": "current_concept",
+              "argument_name": "current_concept",
+              "argument_description": "The marketing creative concept currently being evaluated or refined.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            },
+            {
+              "parameter_name": "evaluation",
+              "argument_name": "evaluation_result",
+              "argument_description": "The current structured evaluation returned by the standardized creative evaluation API.",
+              "argument_type": {
+                "declared_type_name": "CreativeEvaluation"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "current_concept",
+            "variable_description": "The marketing creative concept currently being evaluated or refined.",
+            "variable_type": {
+              "simple_type": "text"
+            }
+          },
+          "description": "在当前创意评分低于 8.0 且已优化次数少于两次时，结合原始创意简报和当前评估结果，对低分薄弱维度进行有针对性的修改，同时保留已有高分特性并确保修改不偏离简报，生成下一版待重新评估的当前创意。",
+          "reference_function_name": "refine_creative_concept",
+          "required_variables": [
+            "creative_brief",
+            "current_concept",
+            "evaluation_result"
+          ],
+          "written_variable": "current_concept",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command5",
+          "command_index": 5,
+          "command_type": "general_command",
+          "description": "Increase variable: `refinement_count` by 1 and write the updated count to variable: `refinement_count`",
+          "required_variables": [
+            "refinement_count"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "refinement_count",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command6",
+          "command_index": 6,
+          "command_type": "call_api",
+          "api_name": "evaluate_creative_concept",
+          "arguments": [
+            {
+              "parameter_name": "creative_brief",
+              "argument_name": "creative_brief",
+              "argument_description": "The brand, product, target audience, marketing objective, key product benefit, channels, budget, and constraints supplied by the user.",
+              "argument_type": {
+                "declared_type_name": "CreativeBrief"
+              }
+            },
+            {
+              "parameter_name": "creative_concept",
+              "argument_name": "current_concept",
+              "argument_description": "The marketing creative concept currently being evaluated or refined.",
+              "argument_type": {
+                "simple_type": "text"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "evaluation_result",
+            "variable_description": "The current structured evaluation returned by the standardized creative evaluation API.",
+            "variable_type": {
+              "declared_type_name": "CreativeEvaluation"
+            }
+          },
+          "description": "使用与首次评估相同的固定评分框架，对刚完成定向优化的创意重新进行标准化评估，更新四项标准的评分、加权总分、薄弱维度、评价理由和后续优化建议。结果用于判断优化后的创意是否已达到 8.0 的质量门槛，以及在仍未达标且尚有优化次数时指导下一轮定向优化；否则作为最终结果的评估依据。",
+          "reference_function_name": "evaluate_creative_concept",
+          "required_variables": [
+            "creative_brief",
+            "current_concept"
+          ],
+          "written_variable": "evaluation_result",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command7",
+          "command_index": 7,
+          "command_type": "general_command",
+          "description": "Construct variable: `final_result` from variable: `current_concept`, variable: `evaluation_result`, and variable: `refinement_count`. Preserve the complete concept and evaluation, record the actual refinement count, and set quality_threshold_met to true",
+          "required_variables": [
+            "final_result",
+            "current_concept",
+            "evaluation_result",
+            "refinement_count"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "final_result",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command8",
+          "command_index": 8,
+          "command_type": "general_command",
+          "description": "Construct variable: `final_result` from variable: `current_concept`, variable: `evaluation_result`, and variable: `refinement_count`. Preserve the best available concept and complete evaluation, state that the two-refinement limit was reached without satisfying the quality threshold, record the actual refinement count, and set quality_threshold_met to false",
+          "required_variables": [
+            "final_result",
+            "current_concept",
+            "evaluation_result",
+            "refinement_count"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "final_result",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command9",
+          "command_index": 9,
+          "command_type": "display_message",
+          "description": "Present variable: `final_result` to the user, clearly separating the final creative concept, evaluation, number of refinements, and quality-threshold status",
+          "required_variables": [
+            "final_result"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": [
+        {
+          "predicate_name": "predicate1",
+          "predicate_index": 1,
+          "owner_name": "while_block1",
+          "condition_kind": "while",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "while_block1"
+          ],
+          "description": "variable: `evaluation_result.overall_score` is below 8.0 and variable: `refinement_count` is less than 2",
+          "required_variables": [
+            "evaluation_result",
+            "refinement_count"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate2",
+          "predicate_index": 2,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch1"
+          ],
+          "description": "variable: `evaluation_result.overall_score` is greater than or equal to 8.0",
+          "required_variables": [
+            "evaluation_result"
+          ],
+          "llm_based_processing": false
+        }
+      ]
+    }
+  }
+}

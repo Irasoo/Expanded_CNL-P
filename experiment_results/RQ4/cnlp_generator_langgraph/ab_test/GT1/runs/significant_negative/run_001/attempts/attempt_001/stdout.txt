@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please provide aggregated binary-conversion results rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Negative Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+Over 14 days, Control recorded 1,000 purchases from 10,000 users, a 10.0% conversion rate. Variant recorded 800 purchases from 10,000 users, an 8.0% conversion rate.
+
+The Variant’s absolute difference was -2.0 percentage points, equivalent to a -20.0% relative lift. The two-sided p-value was 7.75 × 10⁻⁷, and the 95% confidence interval for the absolute difference was -2.79 to -1.21 percentage points. This is statistically significant at the 0.05 threshold and indicates that the new button reduced purchase conversion.
+
+The test was classified as underpowered for the specified 1-percentage-point minimum detectable effect. This is a diagnostic limitation, but it does not override the statistically significant negative result. No sample ratio mismatch was detected. No additional meaningful negative guardrail effects were reported.
+
+**Recommendation: Do not ship the new checkout button.** The Variant produced a statistically significant and practically adverse decline in the primary metric, contradicting the hypothesis. Stop or reject this version, investigate why the new button reduced conversion, and use those findings to design a revised Variant before running a new experiment.

@@ -1,0 +1,91 @@
+[DEFINE_AGENT: ReelCipherAgent """Perform encryption and decryption using the specified reel cipher rules"""]
+
+    [DEFINE_PERSONA:]
+        ROLE: Intelligent assistant specializing in encryption and decryption tasks
+    [END_PERSONA]
+
+    [DEFINE_CONCEPTS:]
+        Reel1: ABCEIGDJFVUYMHTQKZOLRXSPWN
+        Reel2: ACDEHFIJKTLMOUVYGZNPQXRWSB
+        Reel3: ADKOMJUBGEPHSCZINXFYQRTVWL
+        Reel4: AEDCBIFGJHLKMRUOQVPTNWYXZS
+        Reel5: AFNQUKDOPITJBRHCYSLWEMZVXG
+        Reel6: AGPOCIXLURNDYZHWBJSQFKVMET
+        Reel7: AHXJEZBNIKPVROGSYDULCFMQTW
+        Reel8: AIHPJOBWKCVFZLQERYNSUMGTDX
+        Reel9: AJDSKQOIVTZEFHGYUNLPMBXWCR
+        Reel10: AKELBDFJGHONMTPRQSVZUXYWIC
+        Reel11: ALTMSXVQPNOHUWDIZYCGKRFBEJ
+        Reel12: AMNFLHQGCUJTBYPZKXISRDVEWO
+        Reel13: ANCJILDHBMKGXUZTSWQYVORPFE
+        Reel14: AODWPKJVIUQHZCTXBLEGNYRSMF
+        Reel15: APBVHIYKSGUENTCXOWFQDRLJZM
+        Reel16: AQJNUBTGIMWZRVLXCSHDEOKFPY
+        Reel17: ARMYOFTHEUSZJXDPCWGQIBKLNV
+        Reel18: ASDMCNEQBOZPLGVJRKYTFUIWXH
+        Reel19: ATOJYLFXNGWHVCMIRBSEKUPDZQ
+        Reel20: AUTRZXQLYIOVBPESNHJWMDGFCK
+        Reel21: AVNKHRGOXEYBFSJMUDQCLZWTIP
+        Reel22: AWVSFDLIEBHKNRJQZGMXPUCOTY
+        Reel23: AXKWREVDTUFOYHMLSIQNJCPGBZ
+        Reel24: AYJPXMVKBQWUGLOSTECHNZFRID
+        Reel25: AZDNBUHYFWJLVGRCQMPSOEXTKI
+    [END_CONCEPTS]
+
+    [DEFINE_CONSTRAINTS:]
+        PlaintextFormat: Plaintext is an uppercase letters string without punctuation and spaces
+        CiphertextFormat: Ciphertext is an uppercase letters string
+        OutputFormat: Output must use the notation and symbols specified by the cipher rules
+    [END_CONSTRAINTS]
+
+    [DEFINE_VARIABLES:]
+        plaintext: text
+        ciphertext: text
+    [END_VARIABLES]
+
+    [DEFINE_WORKER: """Encrypt plaintext or alternatively decrypt ciphertext using the specified reels""" ProcessReelCipher]
+
+        [INPUTS]
+            OPTIONAL <REF>plaintext</REF>
+            OPTIONAL <REF>ciphertext</REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            OPTIONAL <REF>ciphertext</REF>
+            OPTIONAL <REF>plaintext</REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [COMMAND Set <REF>ciphertext</REF> to empty text and initially select Reel1]
+            [END_SEQUENTIAL_BLOCK]
+
+            [FOR each character p in <REF>plaintext</REF> in order]
+                COMMAND-2 [COMMAND Find p on the current Reel and set <REF>ciphertext</REF> to <REF>ciphertext</REF> followed by the next character on the current Reel or the first character on the current Reel if p is at the end]
+                COMMAND-3 [COMMAND Move to the next Reel or circle back to Reel1 if the current Reel is Reel25]
+            [END_FOR]
+
+            [SEQUENTIAL_BLOCK]
+                COMMAND-4 [DISPLAY <REF>ciphertext</REF>]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+
+
+        [ALTERNATIVE_FLOW: """Decrypt ciphertext instead of encrypting plaintext""" DecryptCiphertext]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-5 [COMMAND Set <REF>plaintext</REF> to empty text and initially select Reel1]
+            [END_SEQUENTIAL_BLOCK]
+
+            [FOR each character c in <REF>ciphertext</REF> in order]
+                COMMAND-6 [COMMAND Find c on the current Reel and set <REF>plaintext</REF> to <REF>plaintext</REF> followed by the previous character on the current Reel or the last character on the current Reel if c is at the beginning]
+                COMMAND-7 [COMMAND Move to the next Reel or circle back to Reel1 if the current Reel is Reel25]
+            [END_FOR]
+
+            [SEQUENTIAL_BLOCK]
+                COMMAND-8 [DISPLAY <REF>plaintext</REF>]
+            [END_SEQUENTIAL_BLOCK]
+        [END_ALTERNATIVE_FLOW]
+
+    [END_WORKER]
+
+[END_AGENT]

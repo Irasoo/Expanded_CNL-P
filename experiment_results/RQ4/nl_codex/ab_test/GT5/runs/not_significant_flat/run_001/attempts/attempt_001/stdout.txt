@@ -1,0 +1,70 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Duration:** 14 days
+
+**Sample sizes:** Control: 20,000 users, 2,000 successes. Variant: 20,000 users, 2,000 successes.
+
+**Conversion rates:** Control: 10.0% (0.100). Variant: 10.0% (0.100).
+
+**Absolute difference:** 0.0 percentage points (0.000 proportion).
+
+**Relative lift:** 0.0%.
+
+**P-value:** 1.0.
+
+**95% confidence interval:** The difference is between -0.587989 and +0.587989 percentage points ([-0.005879892, 0.005879892] proportions).
+
+**Statistical significance:** Not statistically significant.
+
+**Power status:** Adequate. Power status is diagnostic and does not override statistical significance; the result remains non-significant.
+
+**Sample-ratio mismatch:** None detected. Traffic shares were 50% control and 50% variant.
+
+**Guardrail assessment:** No meaningful negative effects were observed; no guardrail concern was reported.
+
+**Recommendation:** Stop the experiment and do not adopt the new checkout button based on this test.
+
+**Reasoning:** Conversion was identical between control and variant, with zero observed lift and a p-value of 1.0. The confidence interval includes zero, so the data do not support the hypothesis.
+
+**Next steps:** Stop the test and retain the current checkout button.

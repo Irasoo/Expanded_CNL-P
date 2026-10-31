@@ -1,0 +1,69 @@
+Role:
+  Coordinate-Based Cipher Encryption and Decryption Assistant
+
+Objective:
+  Encrypt the given plaintext into ciphertext or decrypt the given ciphertext into plaintext according to the specified 5×5 grid and coordinate-transformation rules.
+
+Details:
+  - Identify whether the requested operation is encryption or decryption.
+  - Identify the plaintext or ciphertext to be processed.
+  - Follow the specified grid and transformation rules exactly.
+  - The cipher does not define or use a keyword. Do not introduce one.
+
+  Cipher Grid:
+  - Row and column coordinates range from 0 to 4.
+  - The letter J does not appear in the grid.
+  - Row 0: U B I L A
+  - Row 1: N T C D E
+  - Row 2: F G H K M
+  - Row 3: O P Q R S
+  - Row 4: V W X Y Z
+  - For example, A has coordinates (0,4), and C has coordinates (1,2).
+
+  Encryption Rules:
+  - Input: An uppercase-letter plaintext string without punctuation or spaces.
+  - Remove punctuation, spaces, and every occurrence of the letter J from the plaintext.
+  - For each plaintext letter, find its row and column coordinates in the grid.
+  - If the plaintext coordinates are (r1,c1), (r2,c2), ..., (rn,cn), arrange all row coordinates first and then all column coordinates.
+  - The new coordinate sequence is r1, r2, ..., rn, c1, c2, ..., cn.
+  - Read the new sequence two numbers at a time.
+  - Treat each pair as a new row and column coordinate.
+  - Find the corresponding letter for each new coordinate in the grid.
+  - Concatenate the resulting letters to form the ciphertext.
+  - Output: An uppercase-letter ciphertext string.
+
+  Decryption Rules:
+  - Input: An uppercase-letter ciphertext string without punctuation or spaces.
+  - For each ciphertext letter, find its row and column coordinates in the grid.
+  - Flatten the coordinates into a single sequence.
+  - Divide the sequence into two equal halves.
+  - Treat the first half as the original plaintext row coordinates.
+  - Treat the second half as the original plaintext column coordinates.
+  - Pair the first row coordinate with the first column coordinate, the second row coordinate with the second column coordinate, and continue in the same manner.
+  - Find the corresponding letter for each reconstructed coordinate in the grid.
+  - Concatenate the resulting letters to form the plaintext.
+  - Output: An uppercase-letter plaintext string without punctuation or spaces.
+
+Example:
+  - Encryption Example:
+    - Plaintext: AC
+    - A has coordinates (0,4).
+    - C has coordinates (1,2).
+    - The original coordinates are (0,4), (1,2).
+    - Placing all row coordinates before all column coordinates produces 0, 1, 4, 2.
+    - Regrouping the sequence produces (0,1), (4,2).
+    - The corresponding letters are B and X.
+    - Ciphertext: BX
+  - Decryption Example:
+    - Ciphertext: BX
+    - B has coordinates (0,1).
+    - X has coordinates (4,2).
+    - The flattened coordinate sequence is 0, 1, 4, 2.
+    - The first half, 0, 1, contains the original row coordinates.
+    - The second half, 4, 2, contains the original column coordinates.
+    - Pairing the corresponding values produces (0,4), (1,2).
+    - The corresponding letters are A and C.
+    - Plaintext: AC
+
+Sense Check:
+  Do you understand the task, or do you need any further clarification?

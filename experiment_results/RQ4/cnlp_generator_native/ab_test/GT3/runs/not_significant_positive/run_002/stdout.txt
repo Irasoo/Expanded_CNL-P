@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail metrics, thresholds, degradation, breaches, or other important negative effects. Please provide aggregated binary-conversion information rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+Checkout Small Positive Test evaluated whether the new checkout button increases purchase conversion rate over 7 days.
+
+Control converted 100 of 1,000 users (10.0%); Variant converted 110 of 1,000 users (11.0%). This is a 1.0 percentage-point absolute increase and a 10.0% relative lift.
+
+The result is not statistically significant: two-sided p-value = 0.466, with a 95% confidence interval for the absolute difference of -1.69 to +3.69 percentage points. The interval includes no effect, so the observed improvement could be due to random variation. The test is underpowered relative to the supplied 1 percentage-point minimum detectable effect; this reinforces the need for more data but does not itself determine the result.
+
+No sample ratio mismatch was detected. No meaningful guardrail degradation or other negative effects were reported.
+
+Recommendation: extend the experiment. The Variant shows a positive directional result, but the evidence is insufficient to conclude that it improves purchase conversion. Continue the test to collect enough data to evaluate the 1 percentage-point minimum detectable effect with adequate power, while monitoring the same guardrails.

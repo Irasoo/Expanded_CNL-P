@@ -1,0 +1,60 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete aggregated A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout SRM Test — A/B test analysis
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Duration:** 14 days.
+- **Test setup:** Control used the old button; variant used the new button. Control had **12,000** observations and variant had **8,000**.
+- **Conversion:** Control: **1,200/12,000 = 10.0%**. Variant: **800/8,000 = 10.0%**.
+- **Effect:** Absolute difference: **0.0 percentage points**; relative lift: **0.0%**.
+- **Statistics:** *p* = **1.0**; 95% confidence interval for the difference: **−0.008486893 to +0.008486893** (approximately **−0.849 to +0.849 percentage points**). The result is **not statistically significant**.
+- **Power:** **Underpowered.** This is diagnostic and must not override statistical significance; here, the result is not statistically significant regardless of the power status.
+- **Sample-ratio mismatch:** **Detected**. Traffic shares were both reported as 50%, but the observed sample sizes were 12,000 versus 8,000.
+- **Guardrails:** No meaningful negative effects were observed; guardrail concern: **false**.
+
+### Recommendation
+**Undetermined**; the analysis outcome is **inconclusive**. Observed conversion was identical between groups, while the test was underpowered and had a sample-ratio mismatch, so the experiment does not establish whether the new button improves conversion.
+
+### Next steps
+1. Investigate and resolve the sample-ratio mismatch before relying on the comparison.
+2. Collect additional valid data or rerun the experiment to address the underpowered status.
+3. Reassess the conversion result and statistical significance after those issues are addressed.

@@ -1,0 +1,536 @@
+﻿task_id,instance_id,model,language,instance_content,model_input,standard_output,model_output,extracted_answer,score
+1424,1,gpt-5.1,rodes-variant-1,"Problem: if a certain coin is flipped , the probability that the coin will land heads is 1 / 2 . if the coin is flipped 5 times , what is the probability that it will land heads up on the first 3 flips and not on the last 2 flips ? 
+Options: a ) 3 / 5 , b ) 1 / 2 , c ) 1 / 5 , d ) 1 / 8 , e ) 1 / 32","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: if a certain coin is flipped , the probability that the coin will land heads is 1 / 2 . if the coin is flipped 5 times , what is the probability that it will land heads up on the first 3 flips and not on the last 2 flips ? \nOptions: a ) 3 / 5 , b ) 1 / 2 , c ) 1 / 5 , d ) 1 / 8 , e ) 1 / 32""}]",e,"Correct option: **e) 1 / 32**
+
+Explanation:  
+Each flip is independent with probability 1/2 for heads and 1/2 for tails.  
+Required sequence: H, H, H, T, T  
+
+Probability = (1/2) × (1/2) × (1/2) × (1/2) × (1/2) = (1/2)^5 = 1/32.",E,1
+1424,2,gpt-5.1,rodes-variant-1,"Problem: there are 25 balls in a jar . you take out 5 blue balls without putting them back inside , and now the probability of pulling out a blue ball is 1 / 5 . how many blue balls were there in the beginning ? 
+Options: a ) 12 . , b ) 9 . , c ) 8 . , d ) 7 . , e ) 6 .","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: there are 25 balls in a jar . you take out 5 blue balls without putting them back inside , and now the probability of pulling out a blue ball is 1 / 5 . how many blue balls were there in the beginning ? \nOptions: a ) 12 . , b ) 9 . , c ) 8 . , d ) 7 . , e ) 6 .""}]",b,"The number of blue balls originally is found by:
+
+- Let \(B\) be the initial number of blue balls.
+- After removing 5 blue balls, there are \(B - 5\) blue balls left.
+- Total balls left: \(25 - 5 = 20\).
+- Given probability of drawing a blue ball now is \(\frac{1}{5}\):
+
+\[
+\frac{B - 5}{20} = \frac{1}{5}
+\]
+
+\[
+5(B - 5) = 20 \Rightarrow 5B - 25 = 20 \Rightarrow 5B = 45 \Rightarrow B = 9
+\]
+
+Correct option: **b) 9**.",B,1
+1424,3,gpt-5.1,rodes-variant-1,"Problem: how many different ways can 2 students be seated in a row of 5 desks , so that there is always at least one empty desk between the students ? 
+Options: a ) 2 , b ) 3 , c ) 4 , d ) 6 , e ) 12","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: how many different ways can 2 students be seated in a row of 5 desks , so that there is always at least one empty desk between the students ? \nOptions: a ) 2 , b ) 3 , c ) 4 , d ) 6 , e ) 12""}]",e,"List the 5 desks as positions 1–5. The two students must be at least one desk apart, so the pair of occupied desks (i, j) must satisfy j − i ≥ 2.
+
+Valid unordered pairs of desks:
+(1,3), (1,4), (1,5), (2,4), (2,5), (3,5) → 6 pairs.
+
+Since the two students are distinct, each pair can be filled in 2! = 2 ways (which student in which seat).
+
+Total ways = 6 × 2 = 12.
+
+Correct option: **e) 12**.",E,1
+1424,4,gpt-5.1,rodes-variant-1,"Problem: what is the probability of getting a sum 9 from two throw of a dice ? 
+Options: a ) 1 / 6 , b ) 1 / 8 , c ) 1 / 9 , d ) 1 / 12 , e ) 1 / 13","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: what is the probability of getting a sum 9 from two throw of a dice ? \nOptions: a ) 1 / 6 , b ) 1 / 8 , c ) 1 / 9 , d ) 1 / 12 , e ) 1 / 13""}]",c,Answer: **c) 1/9**,C,1
+1424,5,gpt-5.1,rodes-variant-1,"Problem: a bag consists of 20 marbles , of which 5 are blue , 9 are red , and the remainder are white . if lisa is to select a marble from the bag at random , what is the probability that the marble will be red or white ? 
+Options: a ) 3 / 4 , b ) 2 / 4 , c ) 1 / 4 , d ) 1 / 8 , e ) 1 / 16","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a bag consists of 20 marbles , of which 5 are blue , 9 are red , and the remainder are white . if lisa is to select a marble from the bag at random , what is the probability that the marble will be red or white ? \nOptions: a ) 3 / 4 , b ) 2 / 4 , c ) 1 / 4 , d ) 1 / 8 , e ) 1 / 16""}]",a,"The number of red or white marbles is \(9 + 6 = 15\) out of 20 total marbles.
+
+\[
+P(\text{red or white}) = \frac{15}{20} = \frac{3}{4}
+\]
+
+Correct option: **a) 3/4**",A,1
+1424,6,gpt-5.1,rodes-variant-1,"Problem: in a garden , there are yellow and green flowers which are straight and curved . if the probability of picking a green flower is 3 / 4 and picking a straight flower is 1 / 2 , then what is the probability of picking a flower which is yellow and curved 
+Options: a ) 1 / 8 , b ) 1 / 6 , c ) 1 / 4 , d ) 3 / 4 , e ) 7 / 8","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a garden , there are yellow and green flowers which are straight and curved . if the probability of picking a green flower is 3 / 4 and picking a straight flower is 1 / 2 , then what is the probability of picking a flower which is yellow and curved \nOptions: a ) 1 / 8 , b ) 1 / 6 , c ) 1 / 4 , d ) 3 / 4 , e ) 7 / 8""}]",a,"Answer: **a) 1/8**
+
+Explanation:  
+- P(green) = 3/4 ⇒ P(yellow) = 1 − 3/4 = 1/4  
+- P(straight) = 1/2 ⇒ P(curved) = 1 − 1/2 = 1/2  
+
+Assuming color and shape are independent,  
+P(yellow and curved) = P(yellow) × P(curved) = (1/4) × (1/2) = **1/8**.",A,1
+1424,7,gpt-5.1,rodes-variant-1,"Problem: a box contains 3 red balls and 3 black balls . one by one , every ball is selected at random without replacement . what is the probability that the fourth ball selected is black ? 
+Options: a ) 1 / 4 , b ) 1 / 2 , c ) 1 / 2 , d ) 2 , e ) 2 / 3","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 3 red balls and 3 black balls . one by one , every ball is selected at random without replacement . what is the probability that the fourth ball selected is black ? \nOptions: a ) 1 / 4 , b ) 1 / 2 , c ) 1 / 2 , d ) 2 , e ) 2 / 3""}]","b,c","Answer: **1/2** (option b or c)
+
+Reason: All 6 balls (3 red, 3 black) are equally likely to appear in any position in the sequence of draws. So the 4th position is equally likely to be any one of the 6 balls.
+
+Since 3 of the 6 balls are black, the probability that the 4th ball is black is:
+
+\[
+P(\text{4th is black}) = \frac{3}{6} = \frac{1}{2}
+\]",B,1
+1424,8,gpt-5.1,rodes-variant-1,"Problem: find the probability that a non leap year selected at random will have 53 sundays 
+Options: a ) 6 / 7 , b ) 5 / 7 , c ) 4 / 7 , d ) 3 / 7 , e ) 1 / 7","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: find the probability that a non leap year selected at random will have 53 sundays \nOptions: a ) 6 / 7 , b ) 5 / 7 , c ) 4 / 7 , d ) 3 / 7 , e ) 1 / 7""}]",e,"For a non-leap year:
+
+- Total days = 365 = 52 weeks + 1 day  
+- Each day of the week occurs at least 52 times. The extra 1 day determines which day occurs 53 times.
+- There are 7 equally likely possibilities for the first day of the year.
+- The year will have 53 Sundays only if that extra day is Sunday, which happens in 1 out of 7 cases.
+
+Probability = \( \frac{1}{7} \)
+
+**Correct option: e) 1 / 7**",E,1
+1424,9,gpt-5.1,rodes-variant-1,"Problem: in a certain animal population , for each of the first 3 months of life , the probability that an animal will die during that month is 1 / 10 . for a group of 500 newborn members of the population , approximately how many would be expected to survive the first 3 months of life ? 
+Options: a ) 340 , b ) 346 , c ) 352 , d ) 365 , e ) 370","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a certain animal population , for each of the first 3 months of life , the probability that an animal will die during that month is 1 / 10 . for a group of 500 newborn members of the population , approximately how many would be expected to survive the first 3 months of life ? \nOptions: a ) 340 , b ) 346 , c ) 352 , d ) 365 , e ) 370""}]",d,"Option d) 365
+
+Explanation:  
+Probability an animal survives each month = \(1 - \frac{1}{10} = \frac{9}{10}\).  
+Assuming independence across the 3 months, probability of surviving all 3 months:  
+\[
+\left(\frac{9}{10}\right)^3 = \frac{729}{1000} = 0.729
+\]  
+Expected survivors out of 500:
+\[
+500 \times 0.729 = 364.5 \approx 365
+\]",D,1
+1424,10,gpt-5.1,rodes-variant-1,"Problem: a bag contains 6 black and 5 white balls . one ball is drawn at random . what is the probability that the ball drawn is white ? 
+Options: a ) 3 / 4 , b ) 5 / 11 , c ) 1 / 7 , d ) 1 / 8 , e ) 4 / 3","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a bag contains 6 black and 5 white balls . one ball is drawn at random . what is the probability that the ball drawn is white ? \nOptions: a ) 3 / 4 , b ) 5 / 11 , c ) 1 / 7 , d ) 1 / 8 , e ) 4 / 3""}]",b,Answer: **b) 5 / 11**,B,1
+1424,11,gpt-5.1,rodes-variant-1,"Problem: a meeting has to be conducted with 4 managers . find the number of ways in which the managers may be selected from among 8 managers , if there are 2 managers who refuse to attend the meeting together . 
+Options: a ) 48 , b ) 55 , c ) 58 , d ) 62 , e ) 70","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a meeting has to be conducted with 4 managers . find the number of ways in which the managers may be selected from among 8 managers , if there are 2 managers who refuse to attend the meeting together . \nOptions: a ) 48 , b ) 55 , c ) 58 , d ) 62 , e ) 70""}]",b,"Total ways to choose 4 managers from 8:
+
+\[
+\binom{8}{4} = 70
+\]
+
+Invalid selections are those where both of the two particular managers (say A and B) are included. Then we must choose the remaining 2 from the other 6:
+
+\[
+\binom{6}{2} = 15
+\]
+
+Valid selections:
+
+\[
+70 - 15 = 55
+\]
+
+Correct option: **b) 55**",B,1
+1424,12,gpt-5.1,rodes-variant-1,"Problem: 4 dices are thrown at the same time . what is the probability of getting only 2 dices showing the same face ? 
+Options: a ) 4 / 9 , b ) 5 / 9 , c ) 11 / 18 , d ) 7 / 9 , e ) none of the above","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: 4 dices are thrown at the same time . what is the probability of getting only 2 dices showing the same face ? \nOptions: a ) 4 / 9 , b ) 5 / 9 , c ) 11 / 18 , d ) 7 / 9 , e ) none of the above""}]",b,"Answer: **b) 5 / 9**
+
+Explanation (brief):
+
+We want the probability that **exactly one pair** appears: two dice show the same face, and the other two show different faces from that pair and from each other.
+
+Total outcomes:  
+- \(6^4 = 1296\)
+
+Favorable outcomes:  
+1. Choose the value for the pair: \(6\) ways  
+2. Choose which 2 dice show that value: \(\binom{4}{2} = 6\) ways  
+3. Choose 2 distinct values for the remaining dice (from the remaining 5 faces): \(\binom{5}{2} = 10\) ways  
+4. Arrange these 2 values on the 2 dice: \(2! = 2\) ways  
+
+So favorable outcomes = \(6 \times 6 \times 10 \times 2 = 720\).
+
+Probability = \(\dfrac{720}{1296} = \dfrac{5}{9}\).",B,1
+1424,13,gpt-5.1,rodes-variant-1,"Problem: the set s consists of 5 numbers : { 1 , 2,3 , 4,5 } . if all possible subsets including the null set are created and one subset is chosen at random , what is the probability that the subset has 4 or 5 as its largest number ? 
+Options: a ) 1 / 2 , b ) 2 / 3 , c ) 3 / 4 , d ) 5 / 8 , e ) 11 / 16","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: the set s consists of 5 numbers : { 1 , 2,3 , 4,5 } . if all possible subsets including the null set are created and one subset is chosen at random , what is the probability that the subset has 4 or 5 as its largest number ? \nOptions: a ) 1 / 2 , b ) 2 / 3 , c ) 3 / 4 , d ) 5 / 8 , e ) 11 / 16""}]",c,"Total subsets of {1,2,3,4,5} = \(2^5 = 32\).
+
+- Largest element 4: must include 4, exclude 5; any subset of {1,2,3} can be added → \(2^3 = 8\) subsets.
+- Largest element 5: must include 5; any subset of {1,2,3,4} can be added → \(2^4 = 16\) subsets.
+
+Total favorable subsets = \(8 + 16 = 24\).
+
+Probability = \( \frac{24}{32} = \frac{3}{4} \).
+
+Correct option: **c) 3/4**.",C,1
+1424,14,gpt-5.1,rodes-variant-1,"Problem: in a certain animal population , for each of the first 3 months of life , the probability that an animal will die during that month is 1 / 10 . for a group of 200 newborn members of the population , approximately how many would be expected to survive the first 3 months of life ? 
+Options: a ) 140 , b ) 146 , c ) 152 , d ) 162 , e ) 170","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a certain animal population , for each of the first 3 months of life , the probability that an animal will die during that month is 1 / 10 . for a group of 200 newborn members of the population , approximately how many would be expected to survive the first 3 months of life ? \nOptions: a ) 140 , b ) 146 , c ) 152 , d ) 162 , e ) 170""}]",b,"To survive each month, probability = \(1 - \frac{1}{10} = \frac{9}{10} = 0.9\).
+
+Survive all 3 months:
+\[
+P(\text{survive 3 months}) = 0.9^3 = 0.729
+\]
+
+Expected survivors out of 200:
+\[
+200 \times 0.729 = 145.8 \approx 146
+\]
+
+Correct option: **b) 146**.",B,1
+1424,15,gpt-5.1,rodes-variant-1,"Problem: what is the probability of drawing a queen from a deck of 52 cards ? 
+Options: a ) 4 / 13 , b ) 1 / 13 , c ) 4 , d ) 1 , e ) 2 / 13","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: what is the probability of drawing a queen from a deck of 52 cards ? \nOptions: a ) 4 / 13 , b ) 1 / 13 , c ) 4 , d ) 1 , e ) 2 / 13""}]",b,Correct option: **b) 1 / 13**,B,1
+1424,16,gpt-5.1,rodes-variant-1,"Problem: a box contains 25 electric bulbs , out of which 4 are defective . two bulbs are chosen at random from this box . the probability that at least one of these is defective is 
+Options: a ) 3 / 10 , b ) 7 / 19 , c ) 12 / 19 , d ) 21 / 95 , e ) none","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 25 electric bulbs , out of which 4 are defective . two bulbs are chosen at random from this box . the probability that at least one of these is defective is \nOptions: a ) 3 / 10 , b ) 7 / 19 , c ) 12 / 19 , d ) 21 / 95 , e ) none""}]",a,"Correct option: **a) 3 / 10**
+
+Explanation (brief):
+
+Total bulbs = 25  
+Defective bulbs = 4  
+Good bulbs = 21  
+
+We want the probability that *at least one* of two chosen bulbs is defective.
+
+Use the complement rule:
+
+\[
+P(\text{at least one defective}) = 1 - P(\text{both good})
+\]
+
+\[
+P(\text{both good}) = \frac{\binom{21}{2}}{\binom{25}{2}}
+= \frac{21 \times 20 / 2}{25 \times 24 / 2}
+= \frac{210}{300}
+= \frac{7}{10}
+\]
+
+So,
+
+\[
+P(\text{at least one defective}) = 1 - \frac{7}{10} = \frac{3}{10}
+\]
+
+Therefore, the correct answer is **a) 3/10**.",A,1
+1424,17,gpt-5.1,rodes-variant-1,"Problem: a card is drawn from a pack of 52 cards . the probability of not getting a face card ? 
+Options: a ) 10 / 13 , b ) 5 / 12 , c ) 3 / 13 , d ) 6 / 17 , e ) 1 / 13","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a card is drawn from a pack of 52 cards . the probability of not getting a face card ? \nOptions: a ) 10 / 13 , b ) 5 / 12 , c ) 3 / 13 , d ) 6 / 17 , e ) 1 / 13""}]",a,"Answer: **a) 10 / 13**
+
+Explanation:  
+Number of face cards (J, Q, K) = 3 × 4 = 12  
+Total cards = 52  
+
+Non-face cards = 52 − 12 = 40  
+
+Probability = 40 / 52 = 10 / 13.",A,1
+1424,18,gpt-5.1,rodes-variant-1,"Problem: there are 13 boys and 10 girls in a class . if three students are selected at random , in how many ways that 1 girl & 2 boys are selected ? 
+Options: a ) 120 , b ) 480 , c ) 780 , d ) 720 , e ) 800","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: there are 13 boys and 10 girls in a class . if three students are selected at random , in how many ways that 1 girl & 2 boys are selected ? \nOptions: a ) 120 , b ) 480 , c ) 780 , d ) 720 , e ) 800""}]",c,"Number of ways = choose 1 girl from 10 and 2 boys from 13:
+
+\[
+\binom{10}{1} \times \binom{13}{2} = 10 \times \frac{13 \times 12}{2} = 10 \times 78 = 780
+\]
+
+Correct option: **c) 780**",C,1
+1424,19,gpt-5.1,rodes-variant-1,"Problem: a box contains 20 electric bulbs , out of which 4 are defective . two bulbs are chosen at random from this box . the probability that at least one of these is defective is 
+Options: a ) 7 / 19 , b ) 6 / 19 , c ) 5 / 19 , d ) 4 / 19 , e ) none of these","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 20 electric bulbs , out of which 4 are defective . two bulbs are chosen at random from this box . the probability that at least one of these is defective is \nOptions: a ) 7 / 19 , b ) 6 / 19 , c ) 5 / 19 , d ) 4 / 19 , e ) none of these""}]",a,Answer: a) 7/19,A,1
+1424,20,gpt-5.1,rodes-variant-1,"Problem: a box contains 100 balls , numbered from 1 to 100 . if 3 balls are selected at random and with replacement from the box . if the 3 numbers on the balls selected contain two odd and one even . what is the probability z that the first ball picked up is odd numbered ? 
+Options: a ) 0 , b ) 1 / 3 , c ) 1 / 2 , d ) 2 / 3 , e ) 1","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 100 balls , numbered from 1 to 100 . if 3 balls are selected at random and with replacement from the box . if the 3 numbers on the balls selected contain two odd and one even . what is the probability z that the first ball picked up is odd numbered ? \nOptions: a ) 0 , b ) 1 / 3 , c ) 1 / 2 , d ) 2 / 3 , e ) 1""}]",d,d) 2 / 3,D,1
+1424,21,gpt-5.1,rodes-variant-1,"Problem: a bag contains 3 red , 5 yellow and 7 green balls . 3 balls are drawn randomly . what is the probability that the balls drawn contain balls of different colours ? 
+Options: a ) 2 / 7 , b ) 3 / 5 , c ) 3 / 13 , d ) 1 / 4 , e ) 7 / 16","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a bag contains 3 red , 5 yellow and 7 green balls . 3 balls are drawn randomly . what is the probability that the balls drawn contain balls of different colours ? \nOptions: a ) 2 / 7 , b ) 3 / 5 , c ) 3 / 13 , d ) 1 / 4 , e ) 7 / 16""}]",c,"Compute the probability that the 3 balls are all of different colors (1 red, 1 yellow, 1 green).
+
+Total balls = 3 + 5 + 7 = 15  
+Total ways to choose 3 balls:  
+\[
+\binom{15}{3} = 455
+\]
+
+Favorable ways (1 red, 1 yellow, 1 green):  
+\[
+\binom{3}{1} \cdot \binom{5}{1} \cdot \binom{7}{1} = 3 \cdot 5 \cdot 7 = 105
+\]
+
+Probability:
+\[
+\frac{105}{455} = \frac{21}{91} = \frac{3}{13}
+\]
+
+Correct option: **c) 3 / 13**",C,1
+1424,22,gpt-5.1,rodes-variant-1,"Problem: when 3 fair coins are tossed together , what is the probability of getting 2 tails ? 
+Options: a ) 3 / 8 , b ) 1 / 3 , c ) 1 / 4 , d ) 3 / 4 , e ) 2 / 3","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: when 3 fair coins are tossed together , what is the probability of getting 2 tails ? \nOptions: a ) 3 / 8 , b ) 1 / 3 , c ) 1 / 4 , d ) 3 / 4 , e ) 2 / 3""}]",a,Correct option: **a) 3/8**,A,1
+1424,23,gpt-5.1,rodes-variant-1,"Problem: there are 9 pairs of socks and 2 socks are worn from that such that the pair of socks worn are not of the same pair . what is the number of pair that can be formed . 
+Options: a ) 62 , b ) 70 , c ) 72 , d ) 71 , e ) 76","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: there are 9 pairs of socks and 2 socks are worn from that such that the pair of socks worn are not of the same pair . what is the number of pair that can be formed . \nOptions: a ) 62 , b ) 70 , c ) 72 , d ) 71 , e ) 76""}]",c,"Choose the first sock: 9 possible pairs.  
+Choose the second sock: it must be from a different pair, so 8 choices.
+
+Number of ways = \(9 \times 8 = 72\).
+
+Correct option: **c) 72**.",C,1
+1424,24,gpt-5.1,rodes-variant-1,"Problem: what is the probability of getting only 1 head in a single throw of four fair coins ? 
+Options: a ) 1 / 2 , b ) 3 / 8 , c ) 1 / 4 , d ) 1 / 5 , e ) 5 / 8","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: what is the probability of getting only 1 head in a single throw of four fair coins ? \nOptions: a ) 1 / 2 , b ) 3 / 8 , c ) 1 / 4 , d ) 1 / 5 , e ) 5 / 8""}]",c,The correct option is: **c) 1/4**,C,1
+1424,25,gpt-5.1,rodes-variant-1,"Problem: a box contains 100 balls , numbered from 1 to 100 . if 3 balls are selected at random and with replacement from the box . if the 3 numbers on the balls selected contain two odd and one even . what is the probability l that the first ball picked up is odd numbered ? 
+Options: a ) 0 , b ) 1 / 3 , c ) 1 / 2 , d ) 2 / 3 , e ) 1","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 100 balls , numbered from 1 to 100 . if 3 balls are selected at random and with replacement from the box . if the 3 numbers on the balls selected contain two odd and one even . what is the probability l that the first ball picked up is odd numbered ? \nOptions: a ) 0 , b ) 1 / 3 , c ) 1 / 2 , d ) 2 / 3 , e ) 1""}]",d,"Answer: **d) 2/3**
+
+Let O = odd, E = even. Each draw is independent with P(O) = P(E) = 1/2.
+
+We are told that among the 3 draws there are exactly two odds and one even. The possible sequences are:
+
+- OOE  
+- OEO  
+- EOO  
+
+Each has probability \((1/2)^3 = 1/8\), so they are equally likely.
+
+In 2 of these 3 sequences (OOE, OEO), the first ball is odd. So
+
+\[
+P(\text{first is odd} \mid \text{2 odd, 1 even}) = \frac{2}{3}.
+\]
+
+So the correct option is **d) 2/3**.",D,1
+1424,26,gpt-5.1,rodes-variant-1,"Problem: six 6 faced dice are thrown together . the probability that all the three show the same number on them is ? 
+Options: a ) 1 / 32 , b ) 1 / 7776 , c ) 1 / 33 , d ) 1 / 38 , e ) 1 / 34","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: six 6 faced dice are thrown together . the probability that all the three show the same number on them is ? \nOptions: a ) 1 / 32 , b ) 1 / 7776 , c ) 1 / 33 , d ) 1 / 38 , e ) 1 / 34""}]",b,"Answer: **b) 1 / 7776**
+
+Reasoning:  
+With six fair 6-faced dice, the total number of possible outcomes is \(6^6 = 46{,}656\).
+
+For all dice to show the same number, the outcomes are:
+- all 1s,  
+- all 2s,  
+- ...,  
+- all 6s  
+
+So there are 6 favorable outcomes.
+
+\[
+P(\text{all six dice show the same number}) = \frac{6}{6^6} = \frac{6}{46{,}656} = \frac{1}{7{,}776}
+\]
+
+So the correct option is **b) 1 / 7776**.",B,1
+1424,27,gpt-5.1,rodes-variant-1,"Problem: find the probability that a leap year selected at random will have 53 sundays 
+Options: a ) 6 / 7 , b ) 5 / 7 , c ) 4 / 7 , d ) 3 / 7 , e ) 2 / 7","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: find the probability that a leap year selected at random will have 53 sundays \nOptions: a ) 6 / 7 , b ) 5 / 7 , c ) 4 / 7 , d ) 3 / 7 , e ) 2 / 7""}]",e,"Answer: **e) 2 / 7**
+
+Reasoning (brief):
+- A leap year has 366 days = 52 weeks + 2 extra days.
+- So each day of the week occurs at least 52 times; exactly **2 days** occur 53 times.
+- Those two days are the weekday on which January 1 falls and the next weekday.
+- For Sunday to occur 53 times, Sunday must be one of these two extra days:
+  - Year starts on **Sunday** → extra days: Sunday, Monday.
+  - Year starts on **Saturday** → extra days: Saturday, Sunday.
+- Out of 7 possible starting weekdays, 2 give 53 Sundays.
+
+So the probability = \( \frac{2}{7} \).",E,1
+1424,28,gpt-5.1,rodes-variant-1,"Problem: there is a 20 % chance sandy will visit china this year , while there is a 70 % chance that she will visit malaysia this year . what is the probability that sandy will visit either china or malaysia this year , but not both ? 
+Options: a ) 44 % , b ) 48 % , c ) 54 % , d ) 62 % , e ) 70 %","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: there is a 20 % chance sandy will visit china this year , while there is a 70 % chance that she will visit malaysia this year . what is the probability that sandy will visit either china or malaysia this year , but not both ? \nOptions: a ) 44 % , b ) 48 % , c ) 54 % , d ) 62 % , e ) 70 %""}]",d,"The probability that Sandy will visit either China or Malaysia this year, but not both, assuming independence, is:
+
+P(exactly one) = P(China) + P(Malaysia) − 2 × P(China ∩ Malaysia)  
+= 0.2 + 0.7 − 2 × (0.2 × 0.7)  
+= 0.9 − 0.28  
+= 0.62 = 62%
+
+Correct option: **d) 62%**",D,1
+1424,29,gpt-5.1,rodes-variant-1,"Problem: what is the probability that carol and bernie will get selected for a job they both applied for in a company , given that their chances of getting selected is 4 / 5 and 3 / 5 respectively ? 
+Options: a ) 8 / 25 , b ) 11 / 24 , c ) 12 / 25 , d ) 12 / 25 , e ) 12 / 23","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: what is the probability that carol and bernie will get selected for a job they both applied for in a company , given that their chances of getting selected is 4 / 5 and 3 / 5 respectively ? \nOptions: a ) 8 / 25 , b ) 11 / 24 , c ) 12 / 25 , d ) 12 / 25 , e ) 12 / 23""}]",c、d,"The probability that both Carol and Bernie are selected is:
+
+\[
+P(\text{Carol selected}) \times P(\text{Bernie selected}) = \frac{4}{5} \times \frac{3}{5} = \frac{12}{25}
+\]
+
+Correct option: **c) 12 / 25**",C,1
+1424,30,gpt-5.1,rodes-variant-1,"Problem: if you throw two dice at a same time . can you find the probability of getting sum as 10 of the two numbers shown ? 
+Options: a ) 1 / 16 , b ) 2 / 14 , c ) 1 / 12 , d ) 1 / 19 , e ) 1 / 17","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: if you throw two dice at a same time . can you find the probability of getting sum as 10 of the two numbers shown ? \nOptions: a ) 1 / 16 , b ) 2 / 14 , c ) 1 / 12 , d ) 1 / 19 , e ) 1 / 17""}]",c,"Correct option: **c) 1 / 12**
+
+Explanation:  
+Total outcomes when throwing two dice = 6 × 6 = 36  
+Sum = 10 can occur with: (4,6), (5,5), (6,4) → 3 outcomes  
+
+Probability = 3/36 = **1/12**.",C,1
+1424,31,gpt-5.1,rodes-variant-1,"Problem: if a coin has an equal probability of landing heads up or tails up each time it is flipped , what is the probability that the coin will land heads up exactly once in 3 consecutive flips ? 
+Options: a ) 0.125 , b ) 0.25 , c ) 0.75 , d ) 0.375 , e ) 0.666","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: if a coin has an equal probability of landing heads up or tails up each time it is flipped , what is the probability that the coin will land heads up exactly once in 3 consecutive flips ? \nOptions: a ) 0.125 , b ) 0.25 , c ) 0.75 , d ) 0.375 , e ) 0.666""}]",d,d) 0.375,D,1
+1424,32,gpt-5.1,rodes-variant-1,"Problem: a box contains 2 red balls and 5 black balls . one by one , every ball is selected at random without replacement . what is the probability that the fourth ball selected is black ? 
+Options: a ) 1 / 4 , b ) 5 / 7 , c ) 1 / 2 , d ) 5 / 8 , e ) 2 / 3","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 2 red balls and 5 black balls . one by one , every ball is selected at random without replacement . what is the probability that the fourth ball selected is black ? \nOptions: a ) 1 / 4 , b ) 5 / 7 , c ) 1 / 2 , d ) 5 / 8 , e ) 2 / 3""}]",b,"The probability that the fourth ball selected is black is:
+
+\[
+\frac{5}{7}
+\]
+
+So the correct option is **b) 5/7**.",B,1
+1424,33,gpt-5.1,rodes-variant-1,"Problem: a box contains 24 electric bulbs , out of which 4 are defective . two bulbs are chosen at random from this box . the probability that at least one of these is defective is 
+Options: a ) 4 / 19 , b ) 7 / 19 , c ) 12 / 19 , d ) 24 / 77 , e ) none","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a box contains 24 electric bulbs , out of which 4 are defective . two bulbs are chosen at random from this box . the probability that at least one of these is defective is \nOptions: a ) 4 / 19 , b ) 7 / 19 , c ) 12 / 19 , d ) 24 / 77 , e ) none""}]",e,"The probability that at least one bulb is defective is:
+
+P(at least one defective) = 1 − P(both good)  
+
+Total bulbs = 24  
+Good bulbs = 20  
+
+P(both good) = (20/24) × (19/23) = (5/6) × (19/23) = 95/138  
+
+So,
+P(at least one defective) = 1 − 95/138 = 43/138  
+
+Since 43/138 does not match any of the given fractions, the correct choice is:
+
+**e) none**",E,1
+1424,34,gpt-5.1,rodes-variant-1,"Problem: in a throw of dice what is the probability of ge æ « ing number greater than 2 
+Options: a ) 2 / 3 , b ) 1 / 3 , c ) 1 / 5 , d ) 1 / 6 , e ) none of these","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a throw of dice what is the probability of ge æ « ing number greater than 2 \nOptions: a ) 2 / 3 , b ) 1 / 3 , c ) 1 / 5 , d ) 1 / 6 , e ) none of these""}]",a,Correct option: **a) 2/3**,A,1
+1424,35,gpt-5.1,rodes-variant-1,"Problem: how many positive integers less than 600 can be formed using the numbers 1 , 2 , 3 , 5 and 6 for the digits ? 
+Options: a ) 48 , b ) 130 , c ) 66 , d ) 68 , e ) 84","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: how many positive integers less than 600 can be formed using the numbers 1 , 2 , 3 , 5 and 6 for the digits ? \nOptions: a ) 48 , b ) 130 , c ) 66 , d ) 68 , e ) 84""}]",b,Answer: **b) 130**,B,1
+1424,36,gpt-5.1,rodes-variant-1,"Problem: x , y , and z are all unique numbers . if x is chosen randomly from the set { 6 , 7 , 8 , 9 , 10 , 11 } and y and z are chosen randomly from the set { 20 , 21 , 22 , 23 } , what is the probability that x and y are prime and z is not ? 
+Options: a ) 1 / 5 , b ) 3 / 20 , c ) 2 / 15 , d ) 1 / 12 , e ) 1 / 10","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: x , y , and z are all unique numbers . if x is chosen randomly from the set { 6 , 7 , 8 , 9 , 10 , 11 } and y and z are chosen randomly from the set { 20 , 21 , 22 , 23 } , what is the probability that x and y are prime and z is not ? \nOptions: a ) 1 / 5 , b ) 3 / 20 , c ) 2 / 15 , d ) 1 / 12 , e ) 1 / 10""}]",d,"x is chosen from {6, 7, 8, 9, 10, 11}.  
+Primes in this set: 7, 11 → 2 primes out of 6 →  
+P(x is prime) = 2/6 = 1/3.
+
+y and z are chosen (distinctly) from {20, 21, 22, 23}.  
+Only prime here is 23.
+
+To have y prime and z not prime:
+- y must be 23.
+- z must be one of {20, 21, 22} (all composite and distinct from y).
+
+Number of ordered (y, z) pairs with y prime and z not prime:
+(23, 20), (23, 21), (23, 22) → 3 favorable pairs.
+
+Total ordered distinct (y, z) pairs from the 4 numbers:
+4 × 3 = 12.
+
+So P(y prime and z not prime) = 3/12 = 1/4.
+
+Overall probability:
+P(x prime, y prime, z not prime) = (1/3) × (1/4) = 1/12.
+
+Correct option: **d) 1/12**.",D,1
+1424,37,gpt-5.1,rodes-variant-1,"Problem: there are 18 balls in a jar . you take out 3 blue balls without putting them back inside , and now the probability of pulling out a blue ball is 1 / 5 . how many blue balls were there in the beginning ? 
+Options: a ) 12 , b ) 9 , c ) 8 , d ) 7 , e ) 6","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: there are 18 balls in a jar . you take out 3 blue balls without putting them back inside , and now the probability of pulling out a blue ball is 1 / 5 . how many blue balls were there in the beginning ? \nOptions: a ) 12 , b ) 9 , c ) 8 , d ) 7 , e ) 6""}]",e,"Answer: **e) 6**
+
+Let the initial number of blue balls be \( B \).
+
+- Total balls initially: 18  
+- You remove 3 blue balls:  
+  - Blue balls left: \( B - 3 \)  
+  - Total balls left: \( 18 - 3 = 15 \)
+
+Given that the probability of drawing a blue ball now is \( \frac{1}{5} \):
+
+\[
+\frac{B - 3}{15} = \frac{1}{5}
+\]
+
+Solve:
+
+\[
+B - 3 = 15 \cdot \frac{1}{5} = 3
+\]
+\[
+B = 3 + 3 = 6
+\]
+
+So there were **6 blue balls** in the beginning.",E,1
+1424,38,gpt-5.1,rodes-variant-1,"Problem: the set s consists of 5 numbers : { 1 , 2,3 , 4,5 } . if all possible subsets including the null set are created and one subset is chosen at random , what is the probability that the subset has 3 or 4 as its largest number ? 
+Options: a ) 3 / 4 , b ) 3 / 8 , c ) 3 / 16 , d ) 5 / 16 , e ) 3 / 32","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: the set s consists of 5 numbers : { 1 , 2,3 , 4,5 } . if all possible subsets including the null set are created and one subset is chosen at random , what is the probability that the subset has 3 or 4 as its largest number ? \nOptions: a ) 3 / 4 , b ) 3 / 8 , c ) 3 / 16 , d ) 5 / 16 , e ) 3 / 32""}]",b,"Answer: **b) 3/8**
+
+Explanation (brief):
+
+- Total subsets of {1, 2, 3, 4, 5} = \(2^5 = 32\).
+- Largest element 3: subset must include 3, exclude 4 and 5, and can freely include/exclude 1 and 2.
+  - Number of such subsets = \(2^2 = 4\).
+- Largest element 4: subset must include 4, exclude 5, and can freely include/exclude 1, 2, and 3.
+  - Number of such subsets = \(2^3 = 8\).
+
+Favorable subsets = \(4 + 8 = 12\).
+
+Probability = \(\frac{12}{32} = \frac{3}{8}\).",B,1
+1424,39,gpt-5.1,rodes-variant-1,"Problem: tomeka is playing a dice game . if she rolls the same number on her second roll as she rolls on her first , she wins . each roll is with two , fair , 6 - sided dice . if tomeka rolled a 7 on her first roll , what is the probability that she will win on her second roll ? 
+Options: a ) 1 / 4 , b ) 1 / 5 , c ) 1 / 6 , d ) 1 / 9 , e ) 1 / 12","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: tomeka is playing a dice game . if she rolls the same number on her second roll as she rolls on her first , she wins . each roll is with two , fair , 6 - sided dice . if tomeka rolled a 7 on her first roll , what is the probability that she will win on her second roll ? \nOptions: a ) 1 / 4 , b ) 1 / 5 , c ) 1 / 6 , d ) 1 / 9 , e ) 1 / 12""}]",c,"The probability that the sum of two fair 6-sided dice is 7 on any roll is:
+
+- Number of outcomes that give sum 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) = 6 outcomes  
+- Total possible outcomes: 6 × 6 = 36  
+
+So, \( P(\text{sum} = 7) = \frac{6}{36} = \frac{1}{6} \).
+
+The second roll is independent of the first, so the probability she rolls a 7 again is \( \frac{1}{6} \).
+
+Correct option: **c) 1/6**.",C,1
+1424,40,gpt-5.1,rodes-variant-1,"Problem: the membership of a committee consists of 3 english teachers , 4 mathematics teachers , and 3 social studies teachers . if 2 committee members are to be selected at random to write the committee ’ s report , what is the probability that the two members selected will both be english teachers ? 
+Options: a ) 2 / 3 , b ) 1 / 3 , c ) 2 / 9 , d ) 1 / 15 , e ) 1 / 24","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: the membership of a committee consists of 3 english teachers , 4 mathematics teachers , and 3 social studies teachers . if 2 committee members are to be selected at random to write the committee ’ s report , what is the probability that the two members selected will both be english teachers ? \nOptions: a ) 2 / 3 , b ) 1 / 3 , c ) 2 / 9 , d ) 1 / 15 , e ) 1 / 24""}]",d,"The probability that both selected members are English teachers is:
+
+\[
+\frac{\binom{3}{2}}{\binom{10}{2}} = \frac{3}{45} = \frac{1}{15}
+\]
+
+Correct option: **d) 1/15**.",D,1
+1424,41,gpt-5.1,rodes-variant-1,"Problem: in a garden , there are yellow and green flowers which are straight and curved . if the probability of picking a green flower is 1 / 5 and picking a straight flower is 1 / 2 , then what is the probability of picking a flower which is yellow and straight 
+Options: a ) 1 / 7 , b ) 1 / 8 , c ) 2 / 5 , d ) 3 / 4 , e ) 7 / 8","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a garden , there are yellow and green flowers which are straight and curved . if the probability of picking a green flower is 1 / 5 and picking a straight flower is 1 / 2 , then what is the probability of picking a flower which is yellow and straight \nOptions: a ) 1 / 7 , b ) 1 / 8 , c ) 2 / 5 , d ) 3 / 4 , e ) 7 / 8""}]",c,"Correct option: **c) 2 / 5**
+
+Explanation (brief):  
+If color (yellow/green) and shape (straight/curved) are assumed independent:
+
+- P(green) = 1/5 ⇒ P(yellow) = 1 − 1/5 = 4/5  
+- P(straight) = 1/2  
+
+So,  
+P(yellow and straight) = P(yellow) × P(straight) = (4/5) × (1/2) = 4/10 = **2/5**.",C,1
+1424,42,gpt-5.1,rodes-variant-1,"Problem: in lottery , there are 10 prizes and 25 blanks . a lottery is drawn at random . what is the probability of getting a prize ? 
+Options: a ) 1 / 7 , b ) 2 / 7 , c ) 3 / 7 , d ) 4 / 7 , e ) 1","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in lottery , there are 10 prizes and 25 blanks . a lottery is drawn at random . what is the probability of getting a prize ? \nOptions: a ) 1 / 7 , b ) 2 / 7 , c ) 3 / 7 , d ) 4 / 7 , e ) 1""}]",b,"Total tickets = 10 prizes + 25 blanks = 35.
+
+Probability of getting a prize = 10/35 = 2/7.
+
+Correct option: **b) 2/7**.",B,1
+1424,43,gpt-5.1,rodes-variant-1,"Problem: in a lottery there are 20 prizes and 35 blanks . a lottery is drawn at random . what is the probability of getting a prize 
+Options: a ) 2 / 13 , b ) 4 / 11 , c ) 5 / 11 , d ) 6 / 11 , e ) 3 / 13","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a lottery there are 20 prizes and 35 blanks . a lottery is drawn at random . what is the probability of getting a prize \nOptions: a ) 2 / 13 , b ) 4 / 11 , c ) 5 / 11 , d ) 6 / 11 , e ) 3 / 13""}]",b,Correct option: **b) 4 / 11**,B,1
+1424,44,gpt-5.1,rodes-variant-1,"Problem: a meeting has to be conducted with 5 managers . find the number of ways in which the managers may be selected from among 7 managers , if there are 2 managers who refuse to attend the meeting together . 
+Options: a ) 6 , b ) 8 , c ) 10 , d ) 11 , e ) 15","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a meeting has to be conducted with 5 managers . find the number of ways in which the managers may be selected from among 7 managers , if there are 2 managers who refuse to attend the meeting together . \nOptions: a ) 6 , b ) 8 , c ) 10 , d ) 11 , e ) 15""}]",d,"Correct option: **d) 11**
+
+Explanation (brief):
+
+- Total ways to choose 5 managers out of 7: \(\binom{7}{5} = 21\).
+- Let the two incompatible managers be A and B. Count selections that include both A and B:
+  - Choose A and B, then choose 3 more from the remaining 5: \(\binom{5}{3} = 10\).
+- Valid selections = total selections − invalid selections  
+  \(= 21 - 10 = 11\).
+
+So, the number of acceptable ways is **11**.",D,1
+1424,45,gpt-5.1,rodes-variant-1,"Problem: from a pack of cards , two cards are drawn one after the other , with replacement . what is the probability that the first card is a club and the second card is a king ? 
+Options: a ) 2 / 13 , b ) 1 / 26 , c ) 5 / 26 , d ) 1 / 52 , e ) 17 / 52","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: from a pack of cards , two cards are drawn one after the other , with replacement . what is the probability that the first card is a club and the second card is a king ? \nOptions: a ) 2 / 13 , b ) 1 / 26 , c ) 5 / 26 , d ) 1 / 52 , e ) 17 / 52""}]",d,"The correct option is **d) 1 / 52**.
+
+Explanation (brief):  
+- Probability first card is a club = 13/52 = 1/4  
+- With replacement, second draw is independent. Probability second card is a king = 4/52 = 1/13  
+- Combined probability = (1/4) × (1/13) = 1/52.",D,1
+1424,46,gpt-5.1,rodes-variant-1,"Problem: there are two bags a and b . a contains 6 red flowers and 3 pink flowers . where as bag b contains 2 red flowers and 7 pink flowers . one flower is chosen from a bag randomly . what is the probability that the flower chosen is pink ? 
+Options: a ) 5 / 8 , b ) 5 / 6 , c ) 5 / 1 , d ) 5 / 9 , e ) 5 / 2","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: there are two bags a and b . a contains 6 red flowers and 3 pink flowers . where as bag b contains 2 red flowers and 7 pink flowers . one flower is chosen from a bag randomly . what is the probability that the flower chosen is pink ? \nOptions: a ) 5 / 8 , b ) 5 / 6 , c ) 5 / 1 , d ) 5 / 9 , e ) 5 / 2""}]",d,"Answer: d) \( \frac{5}{9} \)
+
+Explanation (brief):  
+- Bag A: 6 red, 3 pink → \(P(\text{pink} \mid A) = \frac{3}{9} = \frac{1}{3}\)  
+- Bag B: 2 red, 7 pink → \(P(\text{pink} \mid B) = \frac{7}{9}\)
+
+Assuming each bag is chosen with probability \( \frac{1}{2} \):
+
+\[
+P(\text{pink}) = \frac{1}{2} \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{7}{9}
+= \frac{1}{6} + \frac{7}{18}
+= \frac{3}{18} + \frac{7}{18}
+= \frac{10}{18} = \frac{5}{9}
+\]
+
+So the correct option is \( \boxed{d) \ \frac{5}{9}} \).",D,1
+1424,47,gpt-5.1,rodes-variant-1,"Problem: x , y , and z are all unique numbers . if x is chosen randomly from the set { 9 , 10 , 11 } and y and z are chosen randomly from the set { 20 , 21 , 22 , 23 } , what is the probability that x and y are prime and z is not ? 
+Options: a ) 1 / 20 , b ) 1 / 12 , c ) 2 / 15 , d ) 3 / 10 , e ) 1 / 7","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: x , y , and z are all unique numbers . if x is chosen randomly from the set { 9 , 10 , 11 } and y and z are chosen randomly from the set { 20 , 21 , 22 , 23 } , what is the probability that x and y are prime and z is not ? \nOptions: a ) 1 / 20 , b ) 1 / 12 , c ) 2 / 15 , d ) 3 / 10 , e ) 1 / 7""}]",b,"Only 11 is prime in {9,10,11}, and only 23 is prime in {20,21,22,23}.
+
+- For x to be prime: x = 11 (1 choice out of 3).
+- For y to be prime: y = 23 (1 choice out of 4).
+- For z to be not prime: z ∈ {20,21,22} (3 choices out of remaining 3, since y = 23).
+
+Total ordered triples with y ≠ z: 3 × 4 × 3 = 36.  
+Favorable triples: x=11, y=23, z any of {20,21,22} → 3 outcomes.
+
+Probability = 3/36 = 1/12.
+
+Correct option: **b) 1/12**.",B,1
+1424,48,gpt-5.1,rodes-variant-1,"Problem: a meeting has to be conducted with 4 managers . find the number of ways in which the managers be selected from among 7 managers , if 2 managers will not attend the meeting together ? 
+Options: a ) 25 , b ) 20 , c ) 35 , d ) 36 , e ) 38","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: a meeting has to be conducted with 4 managers . find the number of ways in which the managers be selected from among 7 managers , if 2 managers will not attend the meeting together ? \nOptions: a ) 25 , b ) 20 , c ) 35 , d ) 36 , e ) 38""}]",a,"Total ways to select any 4 managers from 7:
+
+\[
+\binom{7}{4} = 35
+\]
+
+Assume the two managers who won’t attend together are A and B. Count the selections that include **both** A and B:
+
+We must choose the remaining 2 managers from the other 5:
+
+\[
+\binom{5}{2} = 10
+\]
+
+These 10 selections are not allowed. So valid selections:
+
+\[
+35 - 10 = 25
+\]
+
+**Correct option: a) 25**",A,1
+1424,49,gpt-5.1,rodes-variant-1,"Problem: in a certain animal population , for each of the first 3 months of life , the probability that an animal will die during that month is 1 / 10 . for a group of 300 newborn members of the population , approximately how many would be expected to survive the first 3 months of life ? 
+Options: a ) 219 , b ) 246 , c ) 252 , d ) 262 , e ) 270","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: in a certain animal population , for each of the first 3 months of life , the probability that an animal will die during that month is 1 / 10 . for a group of 300 newborn members of the population , approximately how many would be expected to survive the first 3 months of life ? \nOptions: a ) 219 , b ) 246 , c ) 252 , d ) 262 , e ) 270""}]",a,a) 219,A,1
+1424,50,gpt-5.1,rodes-variant-1,"Problem: what is the probability of drawn an ace or a space or both from a dew of cards . 
+Options: a ) 14 / 52 , b ) 15 / 52 , c ) 16 / 52 , d ) 17 / 52 , e ) 18 / 52","[{""role"": ""system"", ""content"": ""Role:\n  Probability Expert\n\nObjective:\n  Provide the correct option for a given problem on probability from the provided options.\n\nDetails:\n  Use your knowledge to analyze the problem and select the most accurate option based on probability principles.\n\nExample:\n  \""None provided\""\n\nSense Check:\n  Do you understand the task, or do you need any further clarification?\n""}, {""role"": ""user"", ""content"": ""Problem: what is the probability of drawn an ace or a space or both from a dew of cards . \nOptions: a ) 14 / 52 , b ) 15 / 52 , c ) 16 / 52 , d ) 17 / 52 , e ) 18 / 52""}]",c,"The probability of drawing an ace or a spade or both from a standard 52-card deck is:
+
+Number of aces = 4  
+Number of spades = 13  
+Overlap (ace of spades) = 1  
+
+So, favorable outcomes = 4 + 13 − 1 = 16  
+
+Probability = 16 / 52  
+
+Correct option: **c) 16 / 52**",C,1

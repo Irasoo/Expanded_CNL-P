@@ -1,0 +1,81 @@
+{
+  "status": "failed",
+  "generation_id": "20260912_075326",
+  "testing_id": "20260912_100355",
+  "case_name": "ab_test",
+  "compilation_method": "codex",
+  "compilation_trial_index": 3,
+  "compilation_trial_count": 4,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4\\agent.nl",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\cases\\ab_test\\branch_input_groups.yaml",
+    "sha256": "e446f6ae592bfa1bdacf0aca9a198815ae79348eaf53d2cb9989dd3a4686441f"
+  },
+  "input_group_name": "significant_positive_safe",
+  "run_index": 3,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\results\\20260912_075326\\20260912_100355\\ab_test\\codex_3in4\\significant_positive_safe\\run_003\\attempts\\attempt_004",
+  "started_at": "2026-09-14T03:23:05.133197+00:00",
+  "finished_at": "2026-09-14T03:23:08.649363+00:00",
+  "duration_seconds": 3.515,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 1,
+  "consumed_input_count": 1,
+  "unused_input_count": 0,
+  "ended_before_all_inputs_consumed": false,
+  "input_exhausted": false,
+  "input_consumption_status": "matched",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null,
+      "initialization_error": null
+    },
+    "request_count": 1,
+    "successful_request_count": 0,
+    "failed_request_count": 1,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "total_tokens": 0
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "failed",
+        "usage": null
+      }
+    ]
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\results\\20260912_075326\\20260912_100355\\ab_test\\codex_3in4\\significant_positive_safe\\run_003\\attempts\\attempt_004\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "BadRequestError",
+    "message": "Error code: 400 - {'error': {'message': \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\", 'type': 'invalid_request_error', 'param': 'input', 'code': None}}",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4\\agent.nl\\main.py\", line 433, in main\n    return ABTestAnalyzer().run()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4\\agent.nl\\main.py\", line 406, in run\n    experiment_data = _extract_experiment_data(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4\\agent.nl\\main.py\", line 131, in _extract_experiment_data\n    data = _call_json_model(client, model, instructions, raw_information)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\generated\\20260912_075326\\ab_test\\codex_3in4\\agent.nl\\main.py\", line 95, in _call_json_model\n    response = client.responses.create(\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4_NL\\testing\\runtime_token_tracker.py\", line 275, in wrapped\n    response = original(resource, *args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\resources\\responses\\responses.py\", line 866, in create\n    return self._post(\n           ^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 1259, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\site-packages\\openai\\_base_client.py\", line 1047, in request\n    raise self._make_status_error_from_response(err.response) from None\nopenai.BadRequestError: Error code: 400 - {'error': {'message': \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\", 'type': 'invalid_request_error', 'param': 'input', 'code': None}}\n"
+  }
+}

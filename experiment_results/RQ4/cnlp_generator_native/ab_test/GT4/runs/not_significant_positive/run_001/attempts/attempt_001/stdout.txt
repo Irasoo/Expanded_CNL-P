@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Please provide aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Observed results:** Over 7 days, Control recorded 100 conversions from 1,000 users, for a 10.0% conversion rate. Variant recorded 110 conversions from 1,000 users, for an 11.0% conversion rate. The observed absolute difference was +1.0 percentage point, equivalent to a +10.0% relative lift.
+
+**Statistical assessment:** The result is not statistically significant (two-sided p-value: 0.466). The 95% confidence interval for the absolute difference is -1.69 to +3.69 percentage points, so the data remains compatible with either a decline or an improvement. The experiment was underpowered for the specified 1 percentage point minimum detectable effect at 80% power.
+
+**Validity and guardrails:** No sample ratio mismatch was detected; the observed 1,000/1,000 allocation is consistent with the planned 50%/50% split. No guardrail concern was reported because no meaningful negative effects were observed.
+
+**Recommendation: Extend the experiment.** The observed direction is positive, but the current evidence is too uncertain to support shipping the new button. Continue collecting data until the sample is adequate for the specified minimum detectable effect, then repeat the significance, confidence interval, power, SRM, and guardrail checks. If the extended test remains inconclusive, reassess the expected effect and decide whether further testing is worth the additional exposure.

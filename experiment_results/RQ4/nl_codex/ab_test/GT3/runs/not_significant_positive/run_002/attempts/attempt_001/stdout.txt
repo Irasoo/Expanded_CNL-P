@@ -1,0 +1,57 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+The hypothesis was that the new checkout button would increase purchase conversion rate. The test ran for 7 days with 1,000 control users and 1,000 variant users, split 50%/50%.
+
+- Control conversion: 100/1,000 = 10.0%
+- Variant conversion: 110/1,000 = 11.0%
+- Absolute difference: 1.0 percentage point
+- Relative lift: 10.0%
+- p-value: 0.4657
+- 95% confidence interval: -1.69 to 3.69 percentage points
+- Statistical significance: Not significant
+- Power status: underpowered
+- Sample ratio mismatch: false; no SRM detected
+- Guardrails: No meaningful negative effects were observed.
+
+**Recommendation: Extend.** The variant shows a positive observed lift, but the result is not statistically significant and the test is underpowered. Continue the experiment and reassess the conversion result and guardrails with the additional data.

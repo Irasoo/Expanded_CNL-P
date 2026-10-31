@@ -1,0 +1,279 @@
+{
+  "entry_worker": "ABTestAnalyzer",
+  "workers": {
+    "ABTestAnalyzer": {
+      "worker_name": "ABTestAnalyzer",
+      "description": "Analyze an A/B test from user-provided aggregated experiment information and generate a product recommendation",
+      "inputs": [],
+      "outputs": [
+        {
+          "variable_name": "final_analysis",
+          "is_required": true
+        }
+      ],
+      "commands": [
+        {
+          "command_name": "command1",
+          "command_index": 1,
+          "command_type": "request_input",
+          "description": "Ask the user to provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect if available, and guardrail information",
+          "required_variables": [],
+          "request_generation": {
+            "dynamic": false,
+            "llm_based": false
+          },
+          "raw_input_processing": {
+            "needed": false,
+            "llm_based": false
+          },
+          "written_variable": "raw_ab_test_information",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command2",
+          "command_index": 2,
+          "command_type": "general_command",
+          "description": "Extract and normalize the experiment information from variable: `raw_ab_test_information` into the required structured experiment data. Normalize percentage-based traffic allocation and minimum detectable effect into numerical proportions, so 50 percent becomes 0.5 and 1 percentage point becomes 0.01. Preserve only information explicitly provided by the user",
+          "required_variables": [
+            "raw_ab_test_information"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "experiment_data",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command3",
+          "command_index": 3,
+          "command_type": "call_api",
+          "api_name": "calculate_ab_test_statistics",
+          "arguments": [
+            {
+              "parameter_name": "experiment_data",
+              "argument_name": "experiment_data",
+              "argument_description": "The structured experiment data extracted from the user-provided A/B test information.",
+              "argument_type": {
+                "declared_type_name": "ABTestExperimentData"
+              }
+            }
+          ],
+          "response": {
+            "variable_name": "statistical_result",
+            "variable_description": "The deterministic statistical results calculated from the experiment data.",
+            "variable_type": {
+              "declared_type_name": "ABTestStatistics"
+            }
+          },
+          "description": "基于从用户提供的聚合二元转化 A/B 测试信息中提取并规范化的实验数据，确定性计算 Control 与 Variant 的转化率、绝对差异和可用时的相对提升、双侧 p 值与置信区间、统计显著性、在提供最小可检测效应时按 80% 统计功效评估的样本量充足状态，以及根据预期流量分配判断的样本比例失配。计算结果将用于结合用户明确提供的护栏信息判定实验结果类型、生成产品建议，并支撑最终分析中的统计结论；其中样本比例失配会使实验结论不确定，功效状态仅作为诊断信息，不能单独推翻已显著的结果。",
+          "reference_function_name": "calculate_ab_test_statistics",
+          "required_variables": [
+            "experiment_data"
+          ],
+          "written_variable": "statistical_result",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command4",
+          "command_index": 4,
+          "command_type": "general_command",
+          "description": "Inspect the guardrail information in variable: `experiment_data`. Set guardrail_concern to true only when the user explicitly reports meaningful degradation, a breached guardrail threshold, or another important negative effect. Otherwise set it to false. Do not invent thresholds or negative effects",
+          "required_variables": [
+            "experiment_data"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "guardrail_concern",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command5",
+          "command_index": 5,
+          "command_type": "general_command",
+          "description": "Classify the experiment using the following rules in exactly this order: (1) If variable: `statistical_result`.sample_ratio_mismatch is true, set analysis_outcome to inconclusive. (2) Otherwise, if variable: `statistical_result`.statistically_significant is true and variable: `statistical_result`.absolute_difference is less than 0, set analysis_outcome to significant_negative. (3) Otherwise, if variable: `statistical_result`.statistically_significant is true and variable: `statistical_result`.absolute_difference is greater than 0 and variable: `guardrail_concern` is true, set analysis_outcome to significant_positive_guardrail_concern. (4) Otherwise, if variable: `statistical_result`.statistically_significant is true and variable: `statistical_result`.absolute_difference is greater than 0, set analysis_outcome to significant_positive_safe. (5) Otherwise, if variable: `statistical_result`.statistically_significant is false and variable: `statistical_result`.absolute_difference is greater than 0, set analysis_outcome to not_significant_positive. (6) Otherwise, set analysis_outcome to not_significant_flat. Power status must not independently change the analysis outcome",
+          "required_variables": [
+            "statistical_result",
+            "guardrail_concern"
+          ],
+          "llm_based_processing": false,
+          "written_variable": "analysis_outcome",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command6",
+          "command_index": 6,
+          "command_type": "general_command",
+          "description": "Set the product recommendation to ship",
+          "required_variables": [],
+          "llm_based_processing": false,
+          "written_variable": "recommendation",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command7",
+          "command_index": 7,
+          "command_type": "general_command",
+          "description": "Set the product recommendation to investigate",
+          "required_variables": [],
+          "llm_based_processing": false,
+          "written_variable": "recommendation",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command8",
+          "command_index": 8,
+          "command_type": "general_command",
+          "description": "Set the product recommendation to extend",
+          "required_variables": [],
+          "llm_based_processing": false,
+          "written_variable": "recommendation",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command9",
+          "command_index": 9,
+          "command_type": "general_command",
+          "description": "Set the product recommendation to stop",
+          "required_variables": [],
+          "llm_based_processing": false,
+          "written_variable": "recommendation",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command10",
+          "command_index": 10,
+          "command_type": "general_command",
+          "description": "Set the product recommendation to dont_ship",
+          "required_variables": [],
+          "llm_based_processing": false,
+          "written_variable": "recommendation",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command11",
+          "command_index": 11,
+          "command_type": "general_command",
+          "description": "Set the product recommendation to undetermined",
+          "required_variables": [],
+          "llm_based_processing": false,
+          "written_variable": "recommendation",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command12",
+          "command_index": 12,
+          "command_type": "general_command",
+          "description": "Generate the final A/B test analysis using variable: `experiment_data`, variable: `statistical_result`, variable: `guardrail_concern`, and variable: `recommendation`. Include the hypothesis, duration, sample sizes, conversion rates, absolute difference, relative lift when available, p-value, confidence interval, statistical significance, power status, sample ratio mismatch, guardrail assessment, recommendation, reasoning, and next steps. Treat power status as a limitation or supporting detail rather than an override of statistical significance",
+          "required_variables": [
+            "experiment_data",
+            "statistical_result",
+            "guardrail_concern",
+            "recommendation"
+          ],
+          "llm_based_processing": true,
+          "written_variable": "final_analysis",
+          "write_operation": "SET"
+        },
+        {
+          "command_name": "command13",
+          "command_index": 13,
+          "command_type": "display_message",
+          "description": "Show variable: `final_analysis` to the user",
+          "required_variables": [
+            "final_analysis"
+          ],
+          "display_content_generation": {
+            "dynamic": true,
+            "llm_based": false
+          },
+          "written_variable": null,
+          "write_operation": null
+        }
+      ],
+      "predicates": [
+        {
+          "predicate_name": "predicate1",
+          "predicate_index": 1,
+          "owner_name": "if_branch1",
+          "condition_kind": "if",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch1"
+          ],
+          "description": "variable: `analysis_outcome` is significant_positive_safe",
+          "required_variables": [
+            "analysis_outcome"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate2",
+          "predicate_index": 2,
+          "owner_name": "if_branch2",
+          "condition_kind": "elseif",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch2"
+          ],
+          "description": "variable: `analysis_outcome` is significant_positive_guardrail_concern",
+          "required_variables": [
+            "analysis_outcome"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate3",
+          "predicate_index": 3,
+          "owner_name": "if_branch3",
+          "condition_kind": "elseif",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch3"
+          ],
+          "description": "variable: `analysis_outcome` is not_significant_positive",
+          "required_variables": [
+            "analysis_outcome"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate4",
+          "predicate_index": 4,
+          "owner_name": "if_branch4",
+          "condition_kind": "elseif",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch4"
+          ],
+          "description": "variable: `analysis_outcome` is not_significant_flat",
+          "required_variables": [
+            "analysis_outcome"
+          ],
+          "llm_based_processing": false
+        },
+        {
+          "predicate_name": "predicate5",
+          "predicate_index": 5,
+          "owner_name": "if_branch5",
+          "condition_kind": "elseif",
+          "condition_path": [
+            "worker",
+            "main_flow",
+            "if_block1",
+            "if_branch5"
+          ],
+          "description": "variable: `analysis_outcome` is significant_negative",
+          "required_variables": [
+            "analysis_outcome"
+          ],
+          "llm_based_processing": false
+        }
+      ]
+    }
+  }
+}

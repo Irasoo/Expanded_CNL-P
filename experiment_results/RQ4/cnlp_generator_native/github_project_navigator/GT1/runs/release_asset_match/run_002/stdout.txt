@@ -1,0 +1,114 @@
+==================== AGENT OUTPUT ====================
+Please provide either a complete GitHub Repository URL (for example, https://github.com/owner/repository) or an explicit owner/repository identifier. I cannot guess the Repository from a vague description.
+
+For a public Repository, I can summarize project information from its metadata and README, analyze a limited sample of recently updated open Issues while stating the scope reviewed, and provide guidance about the latest official Release or the compatibility of its Assets. I will only read GitHub information and will not download, create, modify, install, extract, or execute files.
+Please provide a complete GitHub Repository URL or an explicit owner/repository identifier, such as https://github.com/owner/repository or owner/repository.
+
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+`project_summary` = "## sharkdp/bat
+
+`bat` is a Rust-based command-line utility that aims to be a user-friendly, visually enhanced replacement for the POSIX `cat` command. Its primary purpose is displaying file contents in terminals while making source code and other structured text easier to read.
+
+Core capabilities include syntax highlighting for many programming and markup languages, Git integration that marks changes relative to the index, line numbers and other configurable decorations, display of non-printable characters, automatic paging for interactive output, stdin support, file concatenation, customizable themes and styles, syntax and file-type mappings, shell completions, and integration with tools such as `fzf`, `find`, `fd`, `ripgrep`, `git`, `man`, and `tail -f`. It can also sanitize certain terminal-control and Unicode formatting characters when configured for untrusted input.
+
+Typical uses include interactively inspecting source files, previewing search results, viewing Git content and diffs, colorizing man pages or command help, monitoring logs, and using `bat` in scripts or pipelines as a plain-content `cat` replacement. It is intended primarily for developers, system administrators, terminal users, and people who want enhanced file previews in command-line workflows.
+
+The primary technology is Rust. Normal execution is through the installed `bat` command, for example `bat README.md`, `bat src/*.rs`, or a pipeline such as `some-command | bat`. Installation entry points documented by the README include operating-system package managers such as `apt`, `apk`, `pacman`, `dnf`, `emerge`, `pkg`, `pkg_add`, `zypper`, Homebrew, MacPorts, Nix, WinGet, Chocolatey, and Scoop; prebuilt binaries from the GitHub Releases page; and source installation with Cargo using `cargo install --locked bat` or `cargo install --path . --locked`. Building from source requires Rust 1.79.0 or newer according to the supplied README.
+
+The repository is public, hosted at https://github.com/sharkdp/bat, uses Rust as its primary language, and is tagged with topics including CLI, command-line tools, Git, terminal tooling, Rust, and syntax highlighting. It is not archived, and the supplied metadata reports a repository update timestamp of 2026-08-17T15:05:03Z. That supports treating it as maintained in the supplied snapshot, although no stronger maintenance conclusion is inferred from Stars or the open Issue count.
+
+The README states that the project is available under either the MIT License or Apache License 2.0, at the user's option. The repository metadata identifies the license as Apache-2.0; consult the repository's `LICENSE-MIT` and `LICENSE-APACHE` files for the authoritative license text.
+
+Important limitations and prerequisites documented in the README include: automatic syntax detection for stdin may only work when the language can be inferred from the first line, non-UTF-8 input may need conversion before display, some terminals do not render truecolor reliably, restricted terminals may need one of the 8-bit themes, paging requires suitable pager configuration, older Debian or Ubuntu packages may install the executable as `batcat`, Windows users need the Visual C++ Redistributable and may need an external `less` pager, Cygwin Unix-style paths are not natively supported, and custom themes currently require `.tmTheme` files rather than newer `.sublime-color-scheme` files. The README also notes that source or Cargo installation does not automatically install auxiliary files such as man pages and shell-completion files, and that the documented snap packages are not officially recommended or supported."
+Would you like an analysis of recently updated open Issues? Please answer yes or no.
+
+
+==================== USER INPUT 2/4 ====================
+yes
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Would you like guidance about the latest official Release? Please answer yes or no.
+
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Enter the Release analysis request in one of these exact formats:
+- overview
+- asset_match;operating_system;architecture;package_preference
+For asset_match, operating_system must be windows, macos, linux, or other; architecture must be x64, arm64, or unknown; and package_preference must be installer, portable, archive, or any. Do not use JSON syntax.
+
+
+==================== USER INPUT 4/4 ====================
+asset_match;windows;x64;archive
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================
+Project Overview
+`project_summary` = "## sharkdp/bat
+
+`bat` is a Rust-based command-line utility that aims to be a user-friendly, visually enhanced replacement for the POSIX `cat` command. Its primary purpose is displaying file contents in terminals while making source code and other structured text easier to read.
+
+Core capabilities include syntax highlighting for many programming and markup languages, Git integration that marks changes relative to the index, line numbers and other configurable decorations, display of non-printable characters, automatic paging for interactive output, stdin support, file concatenation, customizable themes and styles, syntax and file-type mappings, shell completions, and integration with tools such as `fzf`, `find`, `fd`, `ripgrep`, `git`, `man`, and `tail -f`. It can also sanitize certain terminal-control and Unicode formatting characters when configured for untrusted input.
+
+Typical uses include interactively inspecting source files, previewing search results, viewing Git content and diffs, colorizing man pages or command help, monitoring logs, and using `bat` in scripts or pipelines as a plain-content `cat` replacement. It is intended primarily for developers, system administrators, terminal users, and people who want enhanced file previews in command-line workflows.
+
+The primary technology is Rust. Normal execution is through the installed `bat` command, for example `bat README.md`, `bat src/*.rs`, or a pipeline such as `some-command | bat`. Installation entry points documented by the README include operating-system package managers such as `apt`, `apk`, `pacman`, `dnf`, `emerge`, `pkg`, `pkg_add`, `zypper`, Homebrew, MacPorts, Nix, WinGet, Chocolatey, and Scoop; prebuilt binaries from the GitHub Releases page; and source installation with Cargo using `cargo install --locked bat` or `cargo install --path . --locked`. Building from source requires Rust 1.79.0 or newer according to the supplied README.
+
+The repository is public, hosted at https://github.com/sharkdp/bat, uses Rust as its primary language, and is tagged with topics including CLI, command-line tools, Git, terminal tooling, Rust, and syntax highlighting. It is not archived, and the supplied metadata reports a repository update timestamp of 2026-08-17T15:05:03Z. That supports treating it as maintained in the supplied snapshot, although no stronger maintenance conclusion is inferred from Stars or the open Issue count.
+
+The README states that the project is available under either the MIT License or Apache License 2.0, at the user's option. The repository metadata identifies the license as Apache-2.0; consult the repository's `LICENSE-MIT` and `LICENSE-APACHE` files for the authoritative license text.
+
+Important limitations and prerequisites documented in the README include: automatic syntax detection for stdin may only work when the language can be inferred from the first line, non-UTF-8 input may need conversion before display, some terminals do not render truecolor reliably, restricted terminals may need one of the 8-bit themes, paging requires suitable pager configuration, older Debian or Ubuntu packages may install the executable as `batcat`, Windows users need the Visual C++ Redistributable and may need an external `less` pager, Cygwin Unix-style paths are not natively supported, and custom themes currently require `.tmTheme` files rather than newer `.sublime-color-scheme` files. The README also notes that source or Cargo installation does not automatically install auxiliary files such as man pages and shell-completion files, and that the documented snap packages are not officially recommended or supported."
+
+Recent Open Issue Analysis
+Issues analyzed: 37
+Common problems:
+- Output, paging, and decoration behavior has multiple reports: #1618, #3710, #3738, #3833, # =2497, and #3724 describe problems involving pager interaction, piped output, decorations, colors, or terminal control sequences.
+- There are repeated reports of robustness problems that can terminate the process or consume excessive resources under unusual inputs: #3878 reports unbounded memory consumption from a recursive custom syntax, while #3844 and #3845 report capacity-overflow panics from extreme terminal-width or line-range values.
+- Documentation and platform-specific guidance have recurring inconsistencies: #1948 concerns unclear custom-theme formats, #2455 concerns Debian and Ubuntu naming guidance, and #3730 and #3839 report inconsistencies or broken links in translated READMEs.
+Confirmed problems:
+None listed.
+Unresolved problems:
+- The three resource-safety and panic reports (#3878, #3844, and #3845) remain open in the supplied data; they are concrete but condition-specific reports, with #3844 and #3845 sharing a capacity/overflow defect class.
+- The pager and output-behavior reports (#1618, #3710, #3738, #3833, #2497, and #3724) remain open. They concern distinct interactions with configuration, terminal width, pager implementations, color handling, and ANSI control sequences, so they should not be assumed to have one common root cause.
+- Documentation concerns remain open in #1948, #2455, #3730, and #3839, including custom-theme format clarity, Debian naming guidance, translated README consistency, and broken relative links.
+- Syntax and highlighting requests or defects remain open across several Issues, including #3826 for Swift protocol declarations, #2966 for Astro, #3797 for JSON5, #3810 for Djot, #3805 for Device Tree Source, and #2666 for zsh history syntax; these are separate language-support concerns rather than one confirmed defect.
+- The remaining sampled Issues are primarily isolated feature requests or user reports, including #3887, #3425, #3371, #1341, #3811, #1032, #2661, #975, #2705, #3752, and #3740. The supplied data does not show them as repeated or maintainer-confirmed problems.
+Representative issues:
+- #3878: A recursive custom syntax definition can cause unbounded memory allocation and macOS OOM conditions; the reporter requests validation or a runtime guard.
+- #3845: An extremely large offset-from-end line range can trigger a capacity-overflow panic instead of being rejected or clamped.
+- #3844: A terminal width of 1 combined with a wide character and background styling can trigger a capacity-overflow panic.
+- #3710: Decorations are reportedly emitted for piped output when using --decorations=auto with --color=always.
+- #3839: Several translated README links reportedly resolve to incorrect paths and return 404 errors.
+- #3887: An open feature request seeks cat-compatible -v, -e, and -t options; this is a compatibility request, not evidence of a general runtime defect.
+Limitations:
+- The sample contains 37 recently updated open Issues, but it is not a complete history of all Issues, pull requests, discussions, commits, or released fixes.
+- All supplied Issues are open, so the data does not establish whether maintainers have fixed, rejected, or prioritized the reported concerns elsewhere.
+- No supplied Issue explicitly contains a maintainer confirmation; therefore no problem is classified as maintainer-confirmed.
+- Repeated reports indicate recurring topics in this sample, not prevalence among all users or a definitive assessment of project quality.
+- Many reports are version-, operating-system-, terminal-, pager-, or configuration-specific, so their applicability to other environments is uncertain.
+- Feature requests, documentation reports, syntax requests, and reproducible bugs are different types of evidence and should not be treated as equivalent failure rates.
+
+Latest Official Release Guidance
+Status: recommended
+Version: v0.26.1
+Summary: Recommended asset for release v0.26.1: name=bat-v0.26.1-x86_64-pc-windows-msvc.zip; size=3613318 bytes; URL=https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip; digest=sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b. Compatibility rationale: This maintainer-uploaded ZIP archive matches Windows x64: `x86_64` denotes the requested 64-bit x86 architecture, `pc-windows-msvc` identifies the Windows target, and `.zip` matches the archive preference.
+Acquisition URL: https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip
+Integrity guidance: If you choose to download this asset yourself, compute its digest locally using the algorithm identified by the published digest and confirm that the result exactly matches sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b before installing, extracting, or executing it. Obtain the file only from the listed GitHub Release asset URL.
+Limitations:
+- No file was downloaded, created, installed, extracted, or executed.
+- This recommendation is based only on the supplied latest official Release metadata and compatibility selection.
+Release asset:
+- Name: bat-v0.26.1-x86_64-pc-windows-msvc.zip
+- Download URL: https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip
+- Size: 3613318
+- Digest: sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b

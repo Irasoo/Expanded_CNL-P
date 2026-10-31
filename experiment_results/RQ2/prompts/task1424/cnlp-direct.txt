@@ -1,0 +1,27 @@
+[DEFINE_AGENT: ProbabilityOptionAgent]
+    [DEFINE_PERSONA:]
+        ROLE: Provide the correct option for a given problem on probability from the provided options
+    [END_PERSONA]
+
+    [DEFINE_CONSTRAINTS:]
+        ProblemDomain: The problem is on probability
+        OptionSelection: Provide the correct option from the provided options
+    [END_CONSTRAINTS]
+
+    [DEFINE_WORKER: ProbabilityOptionWorker]
+        [INPUTS]
+            REQUIRED <REF>problem</REF>
+            REQUIRED <REF>options</REF>
+        [END_INPUTS]
+
+        [OUTPUTS]
+            REQUIRED <REF>correct_option</REF>
+        [END_OUTPUTS]
+
+        [MAIN_FLOW]
+            [SEQUENTIAL_BLOCK]
+                COMMAND-1 [DISPLAY Provide the correct option <REF>correct_option</REF> for <REF>problem</REF> from <REF>options</REF>]
+            [END_SEQUENTIAL_BLOCK]
+        [END_MAIN_FLOW]
+    [END_WORKER]
+[END_AGENT]

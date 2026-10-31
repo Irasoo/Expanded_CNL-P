@@ -1,0 +1,74 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+A/B Test Analysis: Checkout Negative Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate. Control used the old button; variant used the new button.
+
+Duration: 14 days. Duration is reported as provided and does not by itself establish experiment maturity.
+
+Sample sizes:
+- Control: 10,000 users; 1,000 successes
+- Variant: 10,000 users; 800 successes
+- Traffic allocation: 50% control / 50% variant
+- Sample ratio mismatch: No
+
+Primary metric: Purchase conversion rate, where higher is better.
+- Control conversion rate: 10.0%
+- Variant conversion rate: 8.0%
+- Absolute difference: -2.0 percentage points
+- Relative lift: -20.0%
+
+Statistical results:
+- p-value: 7.745937202529477e-07
+- 95% confidence interval for the absolute difference: [-2.7928, -1.2072] percentage points
+- Statistically significant: Yes
+- Power status: Underpowered
+- Minimum detectable effect: 1 percentage point
+
+Guardrail assessment: No additional meaningful negative guardrail effects were observed, and no guardrail concern was reported.
+
+Recommendation: dont_ship
+
+Reasoning: The variant reduced purchase conversion by 2.0 percentage points, or 20.0% relative to control. The result is statistically significant, and the confidence interval remains below zero. Although the experiment is marked underpowered, power status is diagnostic/supporting detail and must not override the statistically significant result.
+
+Next steps: Do not ship the new button. Investigate the implementation and checkout funnel for causes of the conversion decline, then run a follow-up experiment after addressing the issue.

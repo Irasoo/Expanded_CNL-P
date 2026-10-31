@@ -1,0 +1,50 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Flat Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate; Control used the old button and Variant used the new button.
+- **Duration and sample sizes:** 14 days; Control **n = 20,000**, Variant **n = 20,000**.
+- **Results:** Control conversion rate was **10.0%** (2,000/20,000), and Variant conversion rate was **10.0%** (2,000/20,000). The absolute difference was **0.0 percentage points**, with **0.0% relative lift**.
+- **Statistical analysis:** **p = 1.0**; 95% confidence interval for the difference: **[-0.005879891953620162, 0.005879891953620162]**. The result was **not statistically significant**.
+- **Power and allocation diagnostics:** Power was reported as **adequate**; this is diagnostic context only and does not override the non-significant result. No sample ratio mismatch was detected.
+- **Guardrails:** No meaningful negative effects were observed, and there was no guardrail concern.
+
+**Recommendation: stop.** The new checkout button produced no observed conversion improvement, with zero relative lift and a non-significant result. Stop the experiment and document the flat outcome; any follow-up should test a different checkout hypothesis or change.

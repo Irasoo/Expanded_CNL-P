@@ -1,0 +1,99 @@
+{
+  "status": "failed",
+  "generation_id": "20260817_033842",
+  "testing_id": "20260817_130711",
+  "case_name": "github_project_navigator",
+  "compilation_method": "native",
+  "compilation_trial_index": 4,
+  "compilation_trial_count": 5,
+  "compilation_trial_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5",
+  "agent_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp",
+  "compilation_log_path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\compilation_log.json",
+  "input_file": {
+    "path": "E:\\CNL-P TOSEM Major Revision\\RQ4\\cases\\github_project_navigator\\branch_input_groups.yaml",
+    "sha256": "9f03dc746f1c9d4d4eb8f52ffc35da53d01aa8c36bbf05bd139ec07770e6131b"
+  },
+  "input_group_name": "release_asset_match",
+  "run_index": 2,
+  "run_count": 3,
+  "result_directory": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\github_project_navigator\\native_4in5\\release_asset_match\\run_002\\attempts\\attempt_001",
+  "started_at": "2026-08-17T16:13:55.417291+00:00",
+  "finished_at": "2026-08-17T16:14:51.499277+00:00",
+  "duration_seconds": 56.079,
+  "exit_code": 1,
+  "termination_reason": "process_exit",
+  "input_count": 4,
+  "consumed_input_count": 2,
+  "unused_input_count": 2,
+  "ended_before_all_inputs_consumed": true,
+  "input_exhausted": false,
+  "input_consumption_status": "ended_with_unused_inputs",
+  "runtime_token_usage": {
+    "instrumentation": {
+      "openai_sdk_available": true,
+      "patched_interfaces": [
+        "Responses.create",
+        "Completions.create",
+        "AsyncResponses.create",
+        "AsyncCompletions.create"
+      ],
+      "persistence_error": null
+    },
+    "request_count": 2,
+    "successful_request_count": 2,
+    "failed_request_count": 0,
+    "requests_without_usage_count": 0,
+    "total": {
+      "input_tokens": 21561,
+      "cached_input_tokens": 18944,
+      "output_tokens": 448,
+      "reasoning_tokens": 68,
+      "total_tokens": 22009
+    },
+    "calls": [
+      {
+        "request_index": 1,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 15558,
+          "cached_input_tokens": 15104,
+          "output_tokens": 443,
+          "reasoning_tokens": 68,
+          "total_tokens": 16001
+        }
+      },
+      {
+        "request_index": 2,
+        "request_type": "responses",
+        "model": "gpt-5.6-sol",
+        "status": "succeeded",
+        "usage": {
+          "input_tokens": 6003,
+          "cached_input_tokens": 3840,
+          "output_tokens": 5,
+          "reasoning_tokens": 0,
+          "total_tokens": 6008
+        }
+      }
+    ]
+  },
+  "runtime_token_usage_file": "E:\\CNL-P TOSEM Major Revision\\RQ4\\results\\20260817_033842\\20260817_130711\\github_project_navigator\\native_4in5\\release_asset_match\\run_002\\attempts\\attempt_001\\runtime_token_usage.json",
+  "captured_artifacts": [],
+  "execution_contract": {
+    "version": "rq4-python-main-v1",
+    "entrypoint_path": "main.py",
+    "entrypoint_callable": "main",
+    "input_transport": [
+      "builtins.input",
+      "sys.stdin.readline"
+    ],
+    "output_transport": "stdout"
+  },
+  "runtime_exception": {
+    "type": "RuntimeError",
+    "message": "GitHub Issue lookup returned HTTP 504.",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp\\commands.py\", line 1034, in issueanalyzer__command23\n    with urlopen(request, timeout=30) as response:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\urllib\\request.py\", line 216, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\urllib\\request.py\", line 525, in open\n    response = meth(req, response)\n               ^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\urllib\\request.py\", line 634, in http_response\n    response = self.parent.error(\n               ^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\urllib\\request.py\", line 563, in error\n    return self._call_chain(*args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\urllib\\request.py\", line 496, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"D:\\Anaconda3\\envs\\CNLP\\Lib\\urllib\\request.py\", line 643, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 504: Gateway Timeout\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 253, in _main\n    _run_agent(agent_directory)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\testing\\agent_process.py\", line 206, in _run_agent\n    main_function()\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp\\main.py\", line 265, in main\n    return run_projectnavigator(state=state, llm_client=llm_client)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp\\main.py\", line 138, in run_projectnavigator\n    projectnavigator__command11(state, llm_client)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp\\commands.py\", line 557, in projectnavigator__command11\n    run_issueanalyzer(state=state, llm_client=llm_client)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp\\main.py\", line 215, in run_issueanalyzer\n    issueanalyzer__command23(state, llm_client)\n  File \"E:\\CNL-P TOSEM Major Revision\\RQ4\\generated\\20260817_033842\\github_project_navigator\\native_4in5\\agent.cnlp\\commands.py\", line 1037, in issueanalyzer__command23\n    raise RuntimeError(\nRuntimeError: GitHub Issue lookup returned HTTP 504.\n"
+  }
+}

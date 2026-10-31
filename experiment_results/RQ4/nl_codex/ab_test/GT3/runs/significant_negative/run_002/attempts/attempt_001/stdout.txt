@@ -1,0 +1,57 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Negative Test — A/B analysis
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate. The control used the old button; the variant used the new button.
+- **Duration and sample sizes:** 14 days; 10,000 users in control and 10,000 in variant.
+- **Results:** Control conversion was **10.0%** (1,000/10,000), versus **8.0%** (800/10,000) for the variant.
+  - Absolute difference: **−2.0 percentage points**
+  - Relative lift: **−20.0%**
+  - p-value: **7.75 × 10⁻⁷**
+  - 95% CI for the difference: **[−2.79 pp, −1.21 pp]**
+- **Significance:** The result is statistically significant. The confidence interval is entirely below zero, indicating that the variant reduced purchase conversion.
+- **Diagnostics:** The experiment is marked **underpowered**; this is diagnostic context and does not override the statistically significant result. **No sample ratio mismatch** was detected.
+- **Guardrails:** No additional meaningful negative guardrail effects were observed.
+
+## Recommendation: Do not ship
+
+The new checkout button materially decreased the primary metric rather than increasing it. Keep the old button, investigate the cause of the decline, and run a follow-up test with an improved change and adequate power before considering another rollout.

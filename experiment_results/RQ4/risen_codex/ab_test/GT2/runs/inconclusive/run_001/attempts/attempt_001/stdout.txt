@@ -1,0 +1,58 @@
+==================== AGENT OUTPUT ====================
+请一次性提供完整的 A/B 测试信息（测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE、护栏信息）：
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+### A/B 测试分析：Checkout SRM Test
+
+- **假设**：新结账按钮将提升购买转化率。对照组使用旧按钮，实验组使用新按钮。
+- **周期与样本量**：实验持续 **14 天**；对照组 **12,000**，实验组 **8,000**。
+- **转化率**：对照组 **10.0%**，实验组 **10.0%**。
+- **效果**：绝对差异 **0.0 个百分点**，相对提升 **0.0%**。
+- **统计结果**：p-value = **1.0**；95% 置信区间为 **[-0.00849, 0.00849]**（绝对差异）。结果**不具有统计显著性**。
+- **检验状态**：统计功效状态为 **underpowered**。功效状态是诊断信息，不能覆盖或推翻显著性检验结果；本次结果仍应按“不显著”解读。
+- **样本比例**：存在 **sample-ratio mismatch（SRM）**。虽然两组目标流量占比均为 50%，实际样本量并不一致，因此结果需谨慎解读。
+- **护栏指标**：未观察到有意义的负面影响，当前无护栏指标担忧。
+
+### 建议
+
+- **推荐：`undetermined`**
+- **理由**：实验组未显示转化提升，且结果不显著；同时存在 SRM，统计功效为 underpowered，当前不足以支持明确结论。
+- **下一步**：先排查流量分配、实验实施或数据采集导致的 SRM；修正后重新运行或补充实验，并重新评估转化率、显著性、功效及护栏指标。

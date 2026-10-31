@@ -1,0 +1,52 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and any guardrail information. Provide aggregated binary-conversion results only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Flat Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+The experiment ran for **14 days**, with **20,000 users in Control** and **20,000 in Variant**. Purchase conversion was **10.0% in both groups**. The absolute difference was **0.00 percentage points**, and the relative lift was **0.0%**. The two-sided **p-value was 1.00**, with a **95% confidence interval for the absolute difference of -0.588 to +0.588 percentage points**. The result is **not statistically significant**.
+
+The sample size had **adequate power for the specified 1 percentage point minimum detectable effect**. No sample ratio mismatch was detected, so the expected 50/50 allocation appears valid. The supplied guardrail assessment reported **no meaningful negative effects**.
+
+**Recommendation: Stop the test and do not ship the new button based on conversion improvement.** The valid, adequately powered experiment found no evidence that the variant improves purchase conversion, and the confidence interval excludes the specified 1 percentage point effect.
+
+**Next steps:** Retain the control experience, document the result, and investigate a materially different checkout change or hypothesis before running another test.

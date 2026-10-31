@@ -1,0 +1,63 @@
+==================== AGENT OUTPUT ====================
+Provide the complete A/B test information in one message, including test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Positive Test
+
+Hypothesis:
+Changing the checkout button text from "Continue" to "Buy Now" will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+Revenue per user was stable.
+Page load time was stable.
+Customer support contact rate was stable.
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Experiment: Checkout Button Positive Test**
+
+**Hypothesis:** Changing the checkout button text from `"Continue"` to `"Buy Now"` will increase purchase conversion rate. The control used `"Continue"`; the variant used `"Buy Now"`.
+
+**Results:** The test ran for 14 days with 10,000 control users and 10,000 variant users. Purchase conversion was 10.0% for control and 12.0% for the variant.
+
+- Absolute difference: 0.0200, or 2.0 percentage points
+- Relative lift: 0.2000, or 20.0%
+- p-value: `6.188458781738804e-06`
+- 95% confidence interval for the difference: `[0.011331728284555377, 0.0286682717154446]`
+- Statistical significance: `true`
+- Power status: `underpowered`
+- Sample ratio mismatch: `false`
+
+**Guardrails:** Revenue per user, page load time, and customer support contact rate were stable. No meaningful negative effects were observed.
+
+**Recommendation:** Ship the `"Buy Now"` button text. The variant produced a statistically significant positive improvement, with the confidence interval entirely above zero, and no guardrail concerns. The `underpowered` status is diagnostic context and does not override the statistically significant result.
+
+**Next steps:** Roll out the variant and continue monitoring purchase conversion, revenue per user, page load time, and customer support contact rate after launch.

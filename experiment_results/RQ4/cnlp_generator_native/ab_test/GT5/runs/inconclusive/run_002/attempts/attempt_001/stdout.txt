@@ -1,0 +1,72 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please provide aggregated binary-conversion data only, not raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout SRM Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 12000
+Successful conversions: 1200
+
+Variant group:
+Sample size: 8000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout SRM Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Experiment duration:** 14 days  
+**Primary metric:** Purchase conversion rate
+
+**Results**
+- Control: 12,000 users; 1,200 conversions; **10.0% conversion rate**
+- Variant: 8,000 users; 800 conversions; **10.0% conversion rate**
+- Absolute difference: **0.0 percentage points**
+- Relative lift: **0.0%**
+- Two-sided p-value: **1.0**
+- 95% confidence interval: approximately **-0.849 to 0.849 percentage points**
+- Statistical significance: **No**. The p-value is not below 0.05.
+- Power status: **Underpowered** for the supplied 1 percentage-point minimum detectable effect at 80% power. This is diagnostic and does not independently determine the recommendation.
+- Sample ratio mismatch: **Detected**. The observed group sizes do not match the expected 50%/50% allocation, indicating a statistically meaningful mismatch.
+
+**Guardrail Assessment**
+
+No guardrail concern was reported. No meaningful negative effects were observed.
+
+**Recommendation: Undetermined**
+
+The variant had the same observed purchase conversion rate as the control, with no measured lift or statistically significant difference. More importantly, the sample ratio mismatch compromises the validity of the comparison, making the experiment inconclusive. The absence of guardrail degradation does not resolve this allocation issue.
+
+**Next Steps**
+1. Investigate traffic assignment, eligibility, exposure logging, bucketing, and data collection for the source of the sample ratio mismatch.
+2. Resolve the allocation or instrumentation issue and rerun the experiment with the intended traffic split.
+3. Reassess conversion performance after obtaining valid allocation data and sufficient sample size for the 1 percentage-point minimum detectable effect.
+4. Do not ship or reject the new button based on this experiment alone.

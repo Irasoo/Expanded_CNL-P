@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 253, in _main
+    _run_agent(agent_directory)
+  File "E:\CNL-P TOSEM Major Revision\RQ4\testing\agent_process.py", line 206, in _run_agent
+    main_function()
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_5in5\agent.cnlp\main.py", line 13, in main
+    return assistant.run()
+           ^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_5in5\agent.cnlp\agent.py", line 63, in run
+    return self._internal_comms_dispatcher()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_5in5\agent.cnlp\agent.py", line 70, in _internal_comms_dispatcher
+    classified = classify_communication_type(self.llm, selection)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\CNL-P TOSEM Major Revision\RQ4\generated\20260817_033842\internal_comms\codex_5in5\agent.cnlp\communication_api.py", line 37, in classify_communication_type
+    raise RuntimeError("The LLM returned an invalid communication type.")
+RuntimeError: The LLM returned an invalid communication type.

@@ -1,0 +1,88 @@
+==================== AGENT OUTPUT ====================
+This assistant requires a complete GitHub Repository URL or an explicit owner/repository identifier. It can summarize public project information, analyze recent open Issues, and provide Release guidance without downloading files.
+GitHub Repository URL or owner/repository: 
+
+==================== USER INPUT 1/4 ====================
+sharkdp/bat
+================== END USER INPUT 1/4 ==================
+
+==================== AGENT OUTPUT ====================
+Repository confirmed: sharkdp/bat (https://github.com/sharkdp/bat), a non-archived Rust command-line utility described as a cat(1) clone with syntax highlighting and Git integration. The supplied metadata lists the primary language as Rust, topics including CLI, terminal, Git, and syntax highlighting, 60,196 stars, 1,629 forks, 420 open issues, and a last-updated timestamp of 2026-08-17T18:00:21Z. These counts are reported as repository facts and are not used here as quality or risk measures. bat displays one or more files, reads standard input, highlights many programming and markup languages, shows line numbers and non-printable characters, marks Git modifications, supports configurable themes and output styles, and automatically pages interactive output while reverting to plain concatenation behavior for non-interactive output. Typical uses include inspecting source code and configuration files, previewing search results with tools such as fzf or fd, viewing Git output, colorizing man pages and command help, monitoring logs, and replacing cat in interactive shell workflows. Its intended users are command-line users, developers, system administrators, and people who regularly inspect text in terminals. The main execution entry point is the installed bat executable; installation is available through system package managers, Homebrew, MacPorts, Nix, Windows package managers, prebuilt release binaries, crates.io with `cargo install --locked bat`, or a local source tree with `cargo install --path . --locked`. Building from source requires Rust 1.79.0 or newer, and development uses Cargo commands such as `cargo build --bins` and `cargo test`. The README documents a dual-license choice of MIT or Apache License 2.0, while the supplied repository license metadata identifies Apache-2.0. Maintenance status can be stated narrowly: the repository is not archived and has a supplied recent update timestamp; no stronger conclusion is made from that fact alone. Important README limitations include incomplete support for non-UTF-8 encodings, which may require conversion to UTF-8; extra configuration or a compatible pager for some Windows environments; no native support for Cygwin-style absolute paths; possible garbled output for ANSI or other control sequences unless stripping or sanitization is enabled; reduced color fidelity on terminals without truecolor support; a requirement for the Visual C++ Redistributable for Windows binaries; and the fact that source installation does not automatically install man pages or shell-completion files. The README says no recommended snap package is officially supported. No recent open-Issue records were supplied, so a limited Issue-sample analysis cannot identify repeated, confirmed, unresolved concerns. No release or release-asset records were supplied, so the latest official Release and asset-specific compatibility cannot be summarized; compatibility should be checked against the requested target operating system, CPU architecture, and libc choice, with `musl` filenames indicating statically linked binaries according to the README. GitHub-generated source archives should not be treated as installable software by default.
+Analyze recently updated open Issues? (yes/no): 
+
+==================== USER INPUT 2/4 ====================
+yes
+================== END USER INPUT 2/4 ==================
+
+==================== AGENT OUTPUT ====================
+Provide guidance about the latest official Release? (yes/no): 
+
+==================== USER INPUT 3/4 ====================
+yes
+================== END USER INPUT 3/4 ==================
+
+==================== AGENT OUTPUT ====================
+Release request (overview or asset_match;operating_system;architecture;package_preference): 
+
+==================== USER INPUT 4/4 ====================
+asset_match;windows;x64;archive
+================== END USER INPUT 4/4 ==================
+
+==================== AGENT OUTPUT ====================
+
+Final result
+Repository confirmed: sharkdp/bat (https://github.com/sharkdp/bat), a non-archived Rust command-line utility described as a cat(1) clone with syntax highlighting and Git integration. The supplied metadata lists the primary language as Rust, topics including CLI, terminal, Git, and syntax highlighting, 60,196 stars, 1,629 forks, 420 open issues, and a last-updated timestamp of 2026-08-17T18:00:21Z. These counts are reported as repository facts and are not used here as quality or risk measures. bat displays one or more files, reads standard input, highlights many programming and markup languages, shows line numbers and non-printable characters, marks Git modifications, supports configurable themes and output styles, and automatically pages interactive output while reverting to plain concatenation behavior for non-interactive output. Typical uses include inspecting source code and configuration files, previewing search results with tools such as fzf or fd, viewing Git output, colorizing man pages and command help, monitoring logs, and replacing cat in interactive shell workflows. Its intended users are command-line users, developers, system administrators, and people who regularly inspect text in terminals. The main execution entry point is the installed bat executable; installation is available through system package managers, Homebrew, MacPorts, Nix, Windows package managers, prebuilt release binaries, crates.io with `cargo install --locked bat`, or a local source tree with `cargo install --path . --locked`. Building from source requires Rust 1.79.0 or newer, and development uses Cargo commands such as `cargo build --bins` and `cargo test`. The README documents a dual-license choice of MIT or Apache License 2.0, while the supplied repository license metadata identifies Apache-2.0. Maintenance status can be stated narrowly: the repository is not archived and has a supplied recent update timestamp; no stronger conclusion is made from that fact alone. Important README limitations include incomplete support for non-UTF-8 encodings, which may require conversion to UTF-8; extra configuration or a compatible pager for some Windows environments; no native support for Cygwin-style absolute paths; possible garbled output for ANSI or other control sequences unless stripping or sanitization is enabled; reduced color fidelity on terminals without truecolor support; a requirement for the Visual C++ Redistributable for Windows binaries; and the fact that source installation does not automatically install man pages or shell-completion files. The README says no recommended snap package is officially supported. No recent open-Issue records were supplied, so a limited Issue-sample analysis cannot identify repeated, confirmed, unresolved concerns. No release or release-asset records were supplied, so the latest official Release and asset-specific compatibility cannot be summarized; compatibility should be checked against the requested target operating system, CPU architecture, and libc choice, with `musl` filenames indicating statically linked binaries according to the README. GitHub-generated source archives should not be treated as installable software by default.
+{
+  "analyzed_issue_count": 37,
+  "common_problems": [
+    "Pager and terminal-output interactions recur across several reports, including configuration-sensitive paging, missing colors, visible control codes, decoration behavior, wrapping, and less integration (#1618, #3833, #3724, #3710, #3738, #2497). These reports describe related output-path concerns, but not necessarily one shared root cause.",
+    "Documentation accuracy and consistency recur in reports about custom theme formats, Debian command naming, broken translated-README links, and translation drift (#1948, #2455, #3839, #3730).",
+    "Multiple open reports describe crashes or severe resource use from extreme or malformed inputs: recursive custom syntax definitions can cause unbounded memory consumption (#3878), a huge line-range offset can panic during capacity allocation (#3845), and a double-width character at terminal width 1 can trigger a capacity-overflow panic (#3844).",
+    "Syntax support and highlighting limitations recur, including a Swift protocol-highlighting defect and requests for Astro, Djot, JSON5, Device Tree Source, CSV, and zsh-history support (#3826, #2966, #3810, #3797, #3805, #3740, #2666). Most entries in this group are feature requests rather than defects."
+  ],
+  "confirmed_problems": [],
+  "unresolved_problems": [
+    "Potentially severe resource-exhaustion report in #3878: bat 0.26.1 reportedly accepts a self-referential custom syntax cache and then consumes memory without bound during highlighting.",
+    "Reproducible panic reports in #3845 and #3844 describe unchecked or underflowed allocation sizes for an extreme --line-range value and a terminal-width/wide-character combination.",
+    "Large-file pager performance is reported in #3831, where seeking to the end of a roughly 94,000-line file reportedly takes more than 25 seconds.",
+    "Pager and rendered-output defects remain open in #3833, #3724, #3710, #3738, and #2497, covering PowerShell paging colors, displayed ANSI reset text, automatic decorations in pipes, less --quit-if-one-screen behavior, and LESS=-J wrapping.",
+    "Documentation defects remain open in #3839 and #3730, including broken relative links and inconsistent translated README content.",
+    "The Swift syntax state appears not to reset after a protocol method declaration without a body in #3826, causing later method declarations to lose expected highlighting.",
+    "Command and cache behavior reports remain open in #3798 and #1726: bat cache --help reportedly exits with status 1, and cache rebuilding with BAT_CACHE_PATH reportedly fails once the cache directory exists."
+  ],
+  "representative_issues": [
+    "#3878 https://github.com/sharkdp/bat/issues/3878 - Severe OOM report involving a self-referential custom syntax definition; open with one comment.",
+    "#3845 https://github.com/sharkdp/bat/issues/3845 - Capacity-overflow panic from an extremely large offset-from-end line range; open with one comment.",
+    "#3844 https://github.com/sharkdp/bat/issues/3844 - Capacity-overflow panic when a double-width character exceeds a one-column terminal width while a background is painted; open with no comments.",
+    "#3831 https://github.com/sharkdp/bat/issues/3831 - Slow seek-to-end behavior on a large file; open with four comments.",
+    "#3724 https://github.com/sharkdp/bat/issues/3724 - Man-page output reportedly exposes a bold-reset control code across multiple pager configurations; open with 12 comments.",
+    "#3839 https://github.com/sharkdp/bat/issues/3839 - Broken relative links across several translated READMEs; open with no comments.",
+    "#3826 https://github.com/sharkdp/bat/issues/3826 - Swift protocol method declarations lose highlighting after the first method; open with one comment."
+  ],
+  "limitations": [
+    "This analysis is limited to the supplied sample of 37 recently updated open Issues and does not characterize all open Issues, closed Issues, pull requests, discussions, commits, or released behavior.",
+    "All sampled Issues are open, so the concerns listed here are unresolved in Issue-state terms; an open state does not independently prove that each report is reproducible or still affects the latest code.",
+    "The input includes Issue bodies and comment counts but not comment contents. Maintainer confirmation, reproduction, prioritization, proposed fixes, and workarounds therefore cannot be established from this sample.",
+    "Bug labels and reporter-provided root-cause analyses were not treated as maintainer confirmation. No problem in the supplied data can be classified as explicitly maintainer-confirmed.",
+    "Repeated themes group related reports for limited-sample insight only. They do not establish a single shared defect or a project-wide reliability problem.",
+    "Several reports reference bat 0.26.1, while older reports reference earlier versions. The sample does not establish whether every older report remains reproducible on the latest release.",
+    "Feature and syntax requests were kept distinct from defects; their presence does not indicate broken existing behavior."
+  ]
+}
+{
+  "status": "recommended",
+  "version": "v0.26.1",
+  "asset": {
+    "name": "bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+    "download_url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+    "size": 3613318,
+    "digest": "sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b"
+  },
+  "summary": "Recommended asset: bat-v0.26.1-x86_64-pc-windows-msvc.zip (3613318 bytes). The filename explicitly identifies a maintainer-uploaded ZIP archive for 64-bit x86 Windows (x86_64-pc-windows-msvc), matching Windows, x64, and the archive preference. Download URL: https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip.",
+  "acquisition_url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
+  "integrity_guidance": "Verify the downloaded file against the Release digest before use: sha256:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b Follow the project maintainer's verification instructions.",
+  "limitations": [
+    "Compatibility was inferred from the Release asset metadata and filename signals only; verify the project's requirements.",
+    "No file was downloaded, created, installed, extracted, or executed."
+  ]
+}

@@ -1,0 +1,67 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including: the test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, test duration, traffic split, minimum detectable effect (if available), and guardrail information. Please use aggregated binary-conversion data rather than raw CSV, Excel, or event-level records.
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Checkout Small Positive Test**
+
+**Hypothesis:** The new checkout button will increase purchase conversion rate. The experiment ran for **7 days**, with **1,000 users in Control** and **1,000 in Variant**.
+
+**Results**
+- Control conversion rate: **10.0%**
+- Variant conversion rate: **11.0%**
+- Absolute difference: **+1.0 percentage point**
+- Relative lift: **+10.0%**
+- Two-sided p-value: **0.4657**
+- Confidence interval for the absolute difference: **-1.69 to +3.69 percentage points**
+- Statistical significance: **Not significant** at the 0.05 threshold
+- Power status: **Underpowered** for the specified 1 percentage-point minimum detectable effect at 80% power
+- Sample ratio mismatch: **Not detected**
+- Guardrails: **No concern identified**; no meaningful negative effects were reported
+
+**Recommendation: Extend the experiment.**
+
+The observed result is directionally positive, but the high p-value and confidence interval spanning zero mean the data do not provide reliable evidence that the new button improves conversion. The interval remains compatible with both a decline and an improvement. The balanced allocation has no detected sample ratio mismatch, so there is no stated traffic-allocation validity concern, and the reported guardrails do not block continuation. Underpowered status further limits confidence in a non-significant result, but does not itself establish that the variant works.
+
+**Next steps**
+1. Continue the experiment to collect enough observations for the specified minimum detectable effect.
+2. Preserve the intended 50/50 allocation and continue checking for sample ratio mismatch.
+3. Continue monitoring the reported guardrails during the extension.
+4. Recalculate significance, confidence interval, power adequacy, and SRM after collecting more data.
+5. Do not ship based on the current evidence; reconsider shipping only after the extended results provide sufficiently clear evidence and guardrails remain acceptable.

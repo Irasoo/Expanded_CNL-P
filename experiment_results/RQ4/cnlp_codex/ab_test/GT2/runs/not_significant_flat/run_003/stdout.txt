@@ -1,0 +1,64 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message (test name, hypothesis, variant change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional MDE, and guardrail information):
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+## Checkout Flat Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate
+- **Duration:** 14 days
+- **Sample sizes:** Control: 20,000; Variant: 20,000
+- **Conversion rates:** Control: **10.00%**; Variant: **10.00%**
+- **Absolute difference:** **0.00 percentage points**
+- **Relative lift:** **0.00%**
+- **Two-sided p-value:** **1.00**
+- **95% confidence interval (Variant minus Control):** **−0.588 to +0.588 percentage points**
+- **Statistical significance:** Not significant
+- **Power:** Adequate
+- **Sample ratio mismatch:** None
+- **Guardrails:** No concern; no meaningful negative effects were observed.
+
+**Recommendation: stop**
+
+**Reasoning:** The observed conversion rates were identical, and the confidence interval includes zero. Despite adequate power, the result does not support the hypothesis that the new button increases purchase conversion.
+
+**Next steps:** Stop the experiment and do not use this result as evidence of an improvement. If the team wants to continue pursuing conversion gains, revise the change or hypothesis before running a new test.

@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+A/B test analysis: Checkout Small Positive Test
+
+Hypothesis: The new checkout button will increase purchase conversion rate.
+
+Duration: 7 days.
+Sample sizes: Control 1,000; variant 1,000.
+Conversion rates: Control 10.0%; variant 11.0%.
+Absolute difference: +1.0 percentage point.
+Relative lift: +10.0%.
+P-value: 0.4657.
+95% confidence interval for the absolute difference: -1.6867 to +3.6867 percentage points.
+
+The result is not statistically significant. Power status is underpowered; this is diagnostic only and must not override the significance result. There was no sample-ratio mismatch. Guardrails showed no concern, and no meaningful negative effects were observed. No requested metric is unavailable.
+
+Recommendation: extend.
+
+Reasoning: The variant showed a positive observed lift, but the result is not statistically significant and the confidence interval includes both a negative and positive effect. More data is needed before concluding that the new button increases purchase conversion.
+
+Practical next steps: Extend the test and reassess the primary metric, statistical significance, confidence interval, power status, sample-ratio mismatch, and guardrails.

@@ -1,0 +1,76 @@
+==================== AGENT OUTPUT ====================
+Provide the complete aggregated A/B test information in one message: test name, hypothesis, tested change, primary metric, Control sample size and successes, Variant sample size and successes, duration, traffic split, minimum detectable effect if available, and guardrail information.
+> 
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Flat Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 20000
+Successful conversions: 2000
+
+Variant group:
+Sample size: 20000
+Successful conversions: 2000
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+## Checkout Flat Test
+
+- **Hypothesis:** The new checkout button will increase purchase conversion rate.
+- **Change tested:** Control used the old button; Variant used the new button.
+- **Primary metric:** Purchase conversion rate (successful purchases ÷ sample size), where higher is better.
+- **Duration:** 14 days
+- **Allocation:** Control 50%; Variant 50%
+- **Samples and successes:**
+  - Control: 20,000 users, 2,000 successes
+  - Variant: 20,000 users, 2,000 successes
+
+### Results
+
+- **Control conversion rate:** 10.00%
+- **Variant conversion rate:** 10.00%
+- **Absolute difference:** 0.00 percentage points
+- **Relative lift:** 0.00%
+- **Two-sided p-value:** 1.00
+- **95% confidence interval for Variant minus Control:** −0.588 to +0.588 percentage points
+
+The result is **not statistically significant**. The observed conversion rates are identical, and the confidence interval includes zero.
+
+- **Power status:** Adequate
+- **SRM status:** No sample ratio mismatch was indicated.
+- **Guardrails:** No meaningful negative effects were observed; there is no guardrail concern.
+
+### Recommendation
+
+**Stop.** The test provides no evidence that the new checkout button improves purchase conversion rate. Its adequate power supports interpreting this result without allowing an underpowered-test explanation to override the finding.
+
+### Next steps
+
+1. Stop the experiment as recommended.
+2. Record that the new button produced no observed conversion improvement versus the old button.
+3. Do not treat this test as evidence that the new button increases purchase conversion; any further investigation should use a separately designed follow-up test.

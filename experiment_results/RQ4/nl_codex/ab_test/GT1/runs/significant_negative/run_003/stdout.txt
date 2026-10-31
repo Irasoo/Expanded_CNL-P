@@ -1,0 +1,77 @@
+==================== AGENT OUTPUT ====================
+ABTestAnalysisAssistant: 请在一条消息中提供完整的 A/B 测试信息。
+请包含测试名称、假设、变更、主指标、Control/Variant 样本量与成功数、时长、流量分配、可选 MDE 和护栏信息。
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 800
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No additional meaningful negative guardrail effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+
+Test: Checkout Negative Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate versus the old button.
+
+Test setup:
+- Duration: 14 days
+- Control: 10,000 users; 1,000 conversions
+- Variant: 10,000 users; 800 conversions
+- Traffic split: 50% control / 50% variant
+
+Results:
+- Control conversion rate: 10.0%
+- Variant conversion rate: 8.0%
+- Absolute difference: -2.0 percentage points
+- Relative lift: -20.0%
+- p-value: 7.75e-07
+- 95% confidence interval for the difference: -2.79 to -1.21 percentage points
+
+Significance and diagnostics:
+- The result is statistically significant.
+- Power status: underpowered. This is diagnostic and does not override the statistically significant result.
+- Sample-ratio mismatch: none detected.
+- Guardrails: No additional meaningful negative guardrail effects were observed; guardrail concern is false.
+
+Assessment:
+The new button significantly reduced purchase conversion, contrary to the hypothesis. The confidence interval remains entirely negative, supporting a real decline in conversion.
+
+Recommendation:
+dont_ship
+
+Next steps:
+- Do not ship the new button.
+- Investigate the cause of the conversion decline before considering another test or rollout.

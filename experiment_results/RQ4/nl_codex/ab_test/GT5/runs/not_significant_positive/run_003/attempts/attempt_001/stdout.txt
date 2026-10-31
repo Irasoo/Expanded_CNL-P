@@ -1,0 +1,68 @@
+==================== AGENT OUTPUT ====================
+Please provide the complete A/B test information in one message, including the test name, hypothesis, tested change, primary metric, Control and Variant sample sizes and successes, duration, traffic split, optional minimum detectable effect, and guardrail information:
+
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Small Positive Test
+
+Hypothesis:
+The new checkout button will increase purchase conversion rate.
+
+Variant change:
+Control uses the old button.
+Variant uses the new button.
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 1000
+Successful conversions: 100
+
+Variant group:
+Sample size: 1000
+Successful conversions: 110
+
+Test duration:
+7 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+No meaningful negative effects were observed.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+**Hypothesis:** The new checkout button will increase purchase conversion rate.
+
+**Duration:** 7 days.
+
+**Sample sizes:** Control: 1,000 users; variant: 1,000 users.
+
+**Conversion rates:** Control: 100/1,000 = 10.0%; variant: 110/1,000 = 11.0%.
+
+**Absolute difference:** +0.0100, or +1.00 percentage point.
+
+**Relative lift:** +10.0%.
+
+**p-value:** 0.4657.
+
+**95% confidence interval:** -0.01687 to 0.03687, or -1.69 to +3.69 percentage points.
+
+**Statistical significance:** Not statistically significant. The confidence interval includes zero, and the p-value does not support a statistically significant effect.
+
+**Power status:** Underpowered. This is diagnostic information and does not override the statistical-significance result.
+
+**Sample-ratio mismatch:** None detected; traffic shares and observed sample sizes are balanced at 50%/50%.
+
+**Guardrail assessment:** No meaningful negative effects were observed; no guardrail concern was reported.
+
+**Recommendation:** Extend the experiment. The observed result is positive and reaches the stated minimum detectable effect of 1 percentage point, but the evidence is inconclusive because the result is not statistically significant and the test is underpowered. Continue collecting data before making a rollout decision.
+
+**Next steps:** Extend the test, continue monitoring purchase conversion and guardrail metrics, and reassess statistical significance and confidence-interval precision with the additional data.

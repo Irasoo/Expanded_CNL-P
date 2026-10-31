@@ -1,0 +1,59 @@
+==================== AGENT OUTPUT ====================
+请在一条消息中提供完整的 A/B 测试信息：
+
+==================== USER INPUT 1/1 ====================
+Test name:
+Checkout Button Guardrail Test
+
+Hypothesis:
+Changing the checkout button text will increase purchase conversion rate.
+
+Variant change:
+Control uses "Continue".
+Variant uses "Buy Now".
+
+Primary metric:
+Purchase conversion rate
+
+Control group:
+Sample size: 10000
+Successful conversions: 1000
+
+Variant group:
+Sample size: 10000
+Successful conversions: 1200
+
+Test duration:
+14 days
+
+Traffic split:
+Control: 50%
+Variant: 50%
+
+Minimum detectable effect:
+1 percentage point
+
+Guardrail information:
+The customer support contact rate increased from 2% to 5%.
+The product team considers this a meaningful negative effect and a guardrail concern.
+================== END USER INPUT 1/1 ==================
+
+==================== AGENT OUTPUT ====================
+A/B test: Checkout Button Guardrail Test
+
+- Hypothesis: Changing the checkout button text from “Continue” to “Buy Now” will increase purchase conversion rate.
+- Duration: 14 days.
+- Sample sizes: Control 10,000; Variant 10,000.
+- Purchase conversion: Control 10.0%; Variant 12.0%.
+- Absolute difference: +2.0 percentage points.
+- Relative lift: +20.0%.
+- Statistical result: p-value = 0.00000619; 95% confidence interval for the difference = +1.13 to +2.87 percentage points. The result is statistically significant.
+- Power status: Underpowered. This is diagnostic only and must not override the statistically significant result.
+- Sample-ratio mismatch: None detected; traffic shares were 50%/50%.
+- Guardrail: Customer support contact rate increased from 2% to 5%. The product team considers this a meaningful negative effect, so there is a guardrail concern. No additional guardrail metric is provided.
+
+Recommendation: investigate.
+
+The variant materially increased purchase conversion, but the concurrent increase in support contacts is a meaningful negative effect that requires investigation before drawing a rollout conclusion.
+
+Practical next steps: Investigate why support contact rate increased with “Buy Now,” assess whether the button-text change caused the increase, and use the findings to determine whether the conversion gain is acceptable given the guardrail impact.
