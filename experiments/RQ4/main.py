@@ -16,11 +16,11 @@ EXECUTION_MODE = "both"
 REPRESENTATIONS = ["cnlp", "nl", "risen"]
 CASE_NAMES = ["ab_test", "creative_concept_refinement", "github_project_navigator", "internal_comms"]
 
-# Independent generations in this batch. Set NL and RISEN to 5 for five trials per group.
+# Five independent generations per case and method.
 GENERATION_COUNTS = {
     "cnlp": {"native": 5, "langgraph": 5, "codex": 5},
-    "nl": {"codex": 4},
-    "risen": {"codex": 3},
+    "nl": {"codex": 5},
+    "risen": {"codex": 5},
 }
 GENERATION_TIMEOUT_SECONDS = 3600
 COMPILATION_RETRY_POLICY = {"max_attempts": 20, "retry_delay_seconds": 180}

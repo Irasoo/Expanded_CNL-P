@@ -103,11 +103,6 @@ python src/cnlp_compiler/validate_templates.py
 python experiments/RQ4/main.py
 ```
 
-By default, the entry point runs five combinations across four cases: Generator (Native), Generator (LangGraph), and Codex with CNL-P, plus Codex with NL and Codex with RISEN. Each of the three CNL-P combinations performs 5 independent generations; NL performs 4, and RISEN performs 3. Each test scenario is executed 3 times.
-
-
-Generation is serial. The maximum numbers of concurrent executions for CNL-P, NL, and RISEN are 1, 3, and 4, respectively. Execution mode, experiment scope, and repetition counts are configured at the top of [experiments/RQ4/main.py](experiments/RQ4/main.py).
-
 ---
 
 ## 项目结构
@@ -212,9 +207,3 @@ python src/cnlp_compiler/validate_templates.py
 ```powershell
 python experiments/RQ4/main.py
 ```
-
-
-默认执行 CNL-P 的 Generator (Native)、Generator (LangGraph)、Codex，以及 NL 的 Codex 和 RISEN 的 Codex，共五个组合，覆盖四个 Case。CNL-P 的三个组合各生成 5 次，NL 生成 4 次，RISEN 生成 3 次；每个测试场景重复运行 3 次。
-
-
-生成阶段串行执行；运行阶段 CNL-P、NL、RISEN 的最大并行数分别为 1、3、4。执行模式、实验范围与次数在 [experiments/RQ4/main.py](experiments/RQ4/main.py) 顶部设置。
